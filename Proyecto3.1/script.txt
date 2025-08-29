@@ -1,0 +1,156 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema proyecto3
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema proyecto3
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `proyecto3` DEFAULT CHARACTER SET utf8 ;
+USE `proyecto3` ;
+
+-- -----------------------------------------------------
+-- Table `proyecto3`.`Informacion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto3`.`Informacion` (
+  `Nombres` VARCHAR(45) NOT NULL,
+  `Apellidos` VARCHAR(45) NOT NULL,
+  `Direccion` VARCHAR(45) NOT NULL,
+  `Fechadenacimiento` DATE NOT NULL,
+  `Telefono` INT NOT NULL,
+  `Curso` VARCHAR(45) NOT NULL,
+  `CI` INT NOT NULL,
+  `Rude` INT NOT NULL,
+  PRIMARY KEY (`CI`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `proyecto3`.`Cuenta`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto3`.`Cuenta` (
+  `User` INT NOT NULL,
+  `Contrasena` INT NOT NULL,
+  `rol` VARCHAR(45) NOT NULL,
+  `Bloqueado` VARCHAR(45) NULL,
+  PRIMARY KEY (`User`),
+  CONSTRAINT `fk_Cuenta_Informacion`
+    FOREIGN KEY (`User`)
+    REFERENCES `proyecto3`.`Informacion` (`CI`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `proyecto3`.`Clases`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto3`.`Clases` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Codigo` VARCHAR(45) NOT NULL,
+  `Profesor` INT NOT NULL,
+  PRIMARY KEY (`ID`, `Profesor`),
+  INDEX `fk_Clases_Cuenta1_idx` (`Profesor` ASC),
+  CONSTRAINT `fk_Clases_Cuenta1`
+    FOREIGN KEY (`Profesor`)
+    REFERENCES `proyecto3`.`Cuenta` (`User`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `proyecto3`.`Clases_has_Cuenta`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto3`.`Clases_has_Cuenta` (
+  `Clases_ID` INT NOT NULL,
+  `Cuenta_User` INT NOT NULL,
+  PRIMARY KEY (`Clases_ID`, `Cuenta_User`),
+  INDEX `fk_Clases_has_Cuenta_Cuenta1_idx` (`Cuenta_User` ASC),
+  INDEX `fk_Clases_has_Cuenta_Clases1_idx` (`Clases_ID` ASC),
+  CONSTRAINT `fk_Clases_has_Cuenta_Clases1`
+    FOREIGN KEY (`Clases_ID`)
+    REFERENCES `proyecto3`.`Clases` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Clases_has_Cuenta_Cuenta1`
+    FOREIGN KEY (`Cuenta_User`)
+    REFERENCES `proyecto3`.`Cuenta` (`User`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `proyecto3`.`Publicaciones`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto3`.`Publicaciones` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Texto` VARCHAR(300) NULL,
+  `FechaCreacion` DATETIME NULL,
+  `FechadeEdicion` DATETIME NULL,
+  `Informacion_CI` INT NOT NULL,
+  `Clases_ID` INT NOT NULL,
+  `Clases_Profesor` INT NOT NULL,
+  PRIMARY KEY (`id`, `Informacion_CI`, `Clases_ID`, `Clases_Profesor`),
+  INDEX `fk_Publicaciones_Informacion1_idx` (`Informacion_CI` ASC),
+  INDEX `fk_Publicaciones_Clases1_idx` (`Clases_ID` ASC, `Clases_Profesor` ASC),
+  CONSTRAINT `fk_Publicaciones_Informacion1`
+    FOREIGN KEY (`Informacion_CI`)
+    REFERENCES `proyecto3`.`Informacion` (`CI`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Publicaciones_Clases1`
+    FOREIGN KEY (`Clases_ID` , `Clases_Profesor`)
+    REFERENCES `proyecto3`.`Clases` (`ID` , `Profesor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `proyecto3`.`Tarea`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto3`.`Tarea` (
+  `idTarea` INT NOT NULL AUTO_INCREMENT,
+  `Titulo` VARCHAR(45) NULL,
+  `Descripcion` VARCHAR(300) NULL,
+  `Tema` VARCHAR(45) NULL,
+  `Nota` INT NULL,
+  PRIMARY KEY (`idTarea`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `proyecto3`.`Cuenta_has_Tarea`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto3`.`Cuenta_has_Tarea` (
+  `Cuenta_User` INT NOT NULL,
+  `Tarea_idTarea` INT NOT NULL,
+  `Nota` INT NULL,
+  `FechadeEntrega` DATETIME NULL,
+  PRIMARY KEY (`Cuenta_User`, `Tarea_idTarea`),
+  INDEX `fk_Cuenta_has_Tarea_Tarea1_idx` (`Tarea_idTarea` ASC),
+  INDEX `fk_Cuenta_has_Tarea_Cuenta1_idx` (`Cuenta_User` ASC),
+  CONSTRAINT `fk_Cuenta_has_Tarea_Cuenta1`
+    FOREIGN KEY (`Cuenta_User`)
+    REFERENCES `proyecto3`.`Cuenta` (`User`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Cuenta_has_Tarea_Tarea1`
+    FOREIGN KEY (`Tarea_idTarea`)
+    REFERENCES `proyecto3`.`Tarea` (`idTarea`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -23,7 +23,7 @@
       }
       
       #menu.desliza {
-  background-color:#001558;
+  background-color:rgba(49, 114, 175, 0.56);
   color:red;
     
 } 
@@ -31,7 +31,7 @@
       color:black;
       text-decoration: none;
       padding-top: 20px;
-      font-size: 20px;
+      font-size: 25px;
       font-family: "Unna", serif;
 }
 .logo{
@@ -58,6 +58,7 @@
       padding-top: 20px;
       padding-right: 50px;
       padding-left: 550px;
+      
    }
     </style>
     <header id="menu">
@@ -67,12 +68,13 @@
       <input type ="checkbox" name="nu" id="nu">
       <nav class="letra">  
             
-            <a href="#titulo" id="a"> INICIO</a>
-            <a href="#nosotros1" id="a"> SOBRE NOSOTROS</a>
-            <a href="#enlaces" id="a"> NUESTRA HISTORIA</a>
-            <a href="#contacto" id="a"> CONTACTO</a>
-            <a href="iniciarsesion.php" id="a"> INICIAR SESION</a>
+           <strong> <a href="#titulo" id="a"> INICIO</a></strong>
             
+            <strong> <a href="#nosotros1" id="a"> SOBRE NOSOTROS</a></strong>
+             <strong><a href="#enlaces" id="a"> NUESTRA HISTORIA</a></strong>
+
+           <strong>  <a href="#contacto" id="a"> CONTACTO</a></strong>
+            <strong> <a href="iniciarsesion.php" id="a"> INICIAR SESION</a> </strong>
       </nav>
             
     </header>

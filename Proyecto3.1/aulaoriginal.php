@@ -85,21 +85,17 @@
             color: rgb(129, 114, 114);
             background-color: whitesmoke;
             position: relative; 
-            padding-top:20px ;
+            padding-top:5px ;
             padding-left:18px ;
             border-radius:30px;
     }
     #tres{
             padding: 9px;
-            border-top: 2px solid #020202ff;
-            background-color: red;
-            
         }
     #cinco{
-            display: flex;
+            
             flex-direction: row-reverse;
             gap: 15px;
-            background-color: pink;
         }
         #a{
             padding: 15px;
@@ -109,7 +105,13 @@
         .arriba{
             position: relative;
             top: 5px;
-            background-color: blue;
+            padding-bottom:5px;
+        }
+        #abajo{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          border-top: 2px solid #020202ff;
         }
         #im{
             border: none;
@@ -119,6 +121,22 @@
             border: none;
             border-radius: 17px;
         }
+        #Anunciaalgo{
+          width: 100%;
+          min-height: 40px;
+          font-size: 16px;
+          border: none;
+          border-radius: 8px;
+          background-color: #f1f3f4;
+          resize: none;/*  Elimina el tirador de redimensionar */
+          outline: none;/* Quita el borde azul al hacer clic */
+          transition: background-color 0.2s ease;
+  }
+
+  #Anunciaalgo:focus {
+    background-color: #fff; /* Similar al efecto de enfoque de Classroom */
+    box-shadow: 0 0 0 2px #4285f4; /* Borde de enfoque sutil */
+  }
   </style>
    <?php
         $direccion="localhost";
@@ -198,10 +216,8 @@
               ?>
               <h3><?= $nombres?> <?= $apellidos?></h3>
               <form action="Publicaciones.php" method="post">
-              <input type="text" name="Publicaciones" placeholder="Anuncio algo">
+              <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ></textarea>
               <input type="hidden" name="ID" value="<?=$ID?>">
-            </div>
-
             <div id="tres">
                 <div class="arriba">
                     <button id="im" class="boton1">
@@ -219,7 +235,10 @@
                     <button id="im" class="boton1">
                         <img width="15px" height="15px" src="https://cdn-icons-png.flaticon.com/512/7375/7375659.png">
                     </button>
-                </div>
+                </div>  
+            </div>
+            </div>
+            
                 <div id="abajo">
                               <div id="cuatro">
                                   <button id="ima" class="boton1">

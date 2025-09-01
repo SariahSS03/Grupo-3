@@ -125,6 +125,7 @@
      <div id="Nombres"><h2 id="nom">Rude: <?=$Rude?></h2></div>
     </div>
     </div>
+    <button  onclick="window.location.href='registroeditar.php'" id="Boton">Editar tus Datos</button>
       </center>
 
 </body>

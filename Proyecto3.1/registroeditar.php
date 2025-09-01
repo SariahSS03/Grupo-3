@@ -94,24 +94,24 @@ input {
 <body>
     <?php
     $servername="localhost";
-$username="root";
-$password="";
-$dbname="proyecto3";
+    $username="root";
+    $password="";
+    $dbname="proyecto3";
 
- $conexion = new mysqli($servername, $username, $password, $dbname);
-        session_start();
-        $CI=$_SESSION['CI'];
-        $sql=" SELECT * FROM Cuenta WHERE User='$CI' ";
-        $sql2=" SELECT * FROM Informacion WHERE CI='$CI' ";
-        $resultado=mysqli_query($conexion,$sql2);
-        if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
-            $fila= mysqli_fetch_assoc($resultado);
-            $nombres=$fila['Nombres'];
-            $apellidos =$fila['Apellidos'];
-            $telefono=$fila['Telefono'];
-            $curso=$fila['Curso'];
-            $fechadenacimiento =$fila['FechadeNacimiento'];
-            $direccion=$fila['Direccion'];
+    $conexion = new mysqli($servername, $username, $password, $dbname);
+            session_start();
+            $CI=$_SESSION['CI'];
+            $sql=" SELECT * FROM Cuenta WHERE User='$CI' ";
+            $sql2=" SELECT * FROM Informacion WHERE CI='$CI' ";
+            $resultado=mysqli_query($conexion,$sql2);
+            if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
+                $fila= mysqli_fetch_assoc($resultado);
+                $nombres=$fila['Nombres'];
+                $apellidos =$fila['Apellidos'];
+                $telefono=$fila['Telefono'];
+                $curso=$fila['Curso'];
+                $fechadenacimiento =$fila['FechadeNacimiento'];
+                $direccion=$fila['Direccion'];
         }
         ?>
     <form action="editardatos.php" method="post" id="registro">

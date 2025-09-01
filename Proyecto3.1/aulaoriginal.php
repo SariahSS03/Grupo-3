@@ -81,13 +81,13 @@
             border-radius:30px;
         }
     #dos{
-            padding: 20px;
             color: rgb(129, 114, 114);
             background-color: whitesmoke;
             position: relative; 
             padding-top:5px ;
             padding-left:18px ;
             border-radius:30px;
+            margin-bottom:10px;
     }
     #tres{
             padding: 9px;
@@ -136,6 +136,9 @@
   #Anunciaalgo:focus {
     background-color: #fff; /* Similar al efecto de enfoque de Classroom */
     box-shadow: 0 0 0 2px #4285f4; /* Borde de enfoque sutil */
+  }
+  a{
+    color:black;
   }
   </style>
    <?php
@@ -251,7 +254,6 @@
                   </form>
                               </div>
                 </div>
-            </div>
     </div>
   </section>
 
@@ -268,7 +270,8 @@
     ?>
                 <div id="publicacion.1">
                         <h2><?=$Texto?></h2>
-                        <h2><?=$FechaCreacion?></h2>     
+                        <h2><?=$FechaCreacion?></h2>
+                        <a href="editarpublicacion.php">Editar</a>     
                 </div>
     <?php
             }
@@ -276,22 +279,6 @@
      ?>
    </div>
     </section>
-    <script>
-  const contenedor = document.getElementById('areaAnuncios');
-  const textarea = contenedor.querySelector('tres');
 
-  // Mostrar los botones cuando haces clic en el textarea
-  textarea.addEventListener('focus', () => {
-    contenedor.classList.add('activo');
-  });
-
-  // Ocultar los botones si haces clic fuera del contenedor
-  document.addEventListener('click', (e) => {
-    if (!contenedor.contains(e.target)) {
-      contenedor.classList.remove('activo');
-    }
-  });
-
-</script>
 </body>
 </html>

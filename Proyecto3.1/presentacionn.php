@@ -23,26 +23,7 @@ body{
       
 }
       
-.logo{
-      margin-top: 8px;
-      margin-left: 30px;
-      display: block;
-      border-radius: 70%;
-      cursor:pointer;
-      transition: transform 0.3s ease;
 
-      
-}
-.logo:hover{
-      transform: scale(1.2);
-
-}
-.img{
-      border-radius: 50%;
-}
-.img2{
-      opacity: 70%;
-}
 #titulo{
       font-size: 60px ;
       font-family: "Unna", serif;
@@ -311,72 +292,7 @@ p{
    label{display: none;}
    
 
-   @media (max-width: 800px) {
- 
-  #menu, nav {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    height: auto;
-  }
-
- 
-  #nosotros,
-  .div3,
-  #class,
-  .final,
-  #info
-  {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 10px;
-    /*margin-left: 50px;*/
-    width: 500px;
-    height: 900px;
-
-  }
-
-  
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  #imgtexto1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-
-  h1, h2, h3, h4, h5 {
-    font-size: 16px;
-    text-align: center;
-  }
-
-  #titulo {
-    font-size: 100px;
-    
-    text-align: center;
-    margin: 10px 0;
-    bottom:150px;
-  }
-
- 
-  #class a {
-    margin: 0 auto;
-  }
-
-  #texto,
-  #enlaces,
-  #facebook{
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 15px;
-  }
+   
 
 .admi{
       font-size: 50px;
@@ -428,6 +344,85 @@ p{
       background-color: red;
      margin: bottom 500px;
 }
+/* --- MOBILE FIRST: Estilos para móviles --- */
+@media (max-width: 600px) {
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .Admisiones {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .admi, .acerca, .vimi {
+    font-size: 28px;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  #titulo {
+    font-size: 40px;
+    bottom: 0;
+    margin: 20px 10px;
+  }
+
+  #texto {
+    margin: 0 15px;
+    width: auto;
+  }
+
+  #imgtexto1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #c {
+    width: 90%;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  #enlaces {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .div3 {
+    flex-direction: column;
+    margin: 0 10px;
+    gap: 20px;
+  }
+
+  #h {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .logo {
+    margin: 10px auto;
+    display: block;
+  }
+
+  #facebook {
+    width: 90%;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+
 </style>
 </head>
 <body> 
@@ -472,7 +467,7 @@ Trabajamos bajo los principios del Modelo Educativo Sociocomunitario Productivo,
 
 Pese a las dificultades económicas, familiares y sociales que enfrenta gran parte de nuestra población estudiantil, fomentamos una educación basada en los valores de solidaridad, equidad, justicia, reciprocidad y responsabilidad<br>
             <br>
-      Nuestro enfoque integral prepara a los estudiantes para ser personas resilientes y empáticas, capaces de afrontar los desafíos de la vida con confianza y responsabilidad. Trabajamos para que cada alumno desarrolle tanto su intelecto como su bienestar emocional, construyendo una comunidad escolar basada en el respeto mutuo y el crecimiento personal.</p><br>
+     </p><br>
       <div id="imgtexto1">
       
       <img id="c" src="Imagenes/img3.jpg" width="550px" height="auto";>
@@ -489,7 +484,7 @@ Pese a las dificultades económicas, familiares y sociales que enfrenta gran par
       <center>
       <br>
       <button id="facebook" onclick="location.href='https://www.facebook.com/p/Unidad-Educativa-Federico-Aguil%C3%B3-UEFA-100076895951019/?locale=es_LA'">Facebook</button></center>
-      
+      <button id ="facebook"onclick="location.href='https://docs.google.com/document/d/1hO0o1SFWd6eAXbOTIw8nn185-BIszl02/edit'">Mas sobre nostros</button>
       </div>
     </div>
 

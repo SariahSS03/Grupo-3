@@ -49,6 +49,12 @@
 .logo:hover{
       transform: scale(1.2);
 }
+.img{
+      border-radius: 50%;
+}
+.img2{
+      opacity: 70%;
+}
   .letra{
       display: flex;
       flex-direction: row;
@@ -60,6 +66,24 @@
       padding-left: 550px;
       
    }
+   @media (max-width: 768px) {
+  #menu {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .letra {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+}
+
     </style>
     <header id="menu">
       <label class="logo" for="nu">
@@ -73,7 +97,7 @@
             <strong> <a href="#nosotros1" id="a"> SOBRE NOSOTROS</a></strong>
              <strong><a href="#enlaces" id="a"> NUESTRA HISTORIA</a></strong>
 
-           <strong>  <a href="#contacto" id="a"> CONTACTO</a></strong>
+           <strong>  <a href="#contacto" id="a"> COMENTARIOS</a></strong>
             <strong> <a href="iniciarsesion.php" id="a"> INICIAR SESION</a> </strong>
       </nav>
             

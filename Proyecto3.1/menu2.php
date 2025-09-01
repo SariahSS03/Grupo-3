@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         .final{
-      background-color: rgb(18, 18, 66);
+      background-color:  #264c66ff;
       margin-top: 150px;
       gap: 70px;
       display: flex;
@@ -52,7 +52,7 @@
       display: block;
     }
     #iniciosesion{
-      background-color: rgb(18, 18, 66);
+      background-color:  rgba(31, 66, 112, 1);
       border: 1px solid white;
       color: white;
       height: 40px;

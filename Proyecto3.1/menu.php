@@ -38,11 +38,11 @@
       margin-top: 8px;
       margin-left: 30px;
       display: block;
-      border-radius: 70%;
-      cursor:pointer;
+      border-radius: 50%;
+      cursor: pointer;
       transition: transform 0.3s ease;
-      width: 100px;
-      height:100px;
+      width: 50%;
+      height: 50%;
 
       
 }
@@ -56,14 +56,12 @@
       opacity: 70%;
 }
   .letra{
+     background-color: blue;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
       flex-wrap: wrap;
       width: 100%;
-      padding-top: 20px;
-      padding-right: 50px;
-      padding-left: 550px;
+     
       
    }
    @media (max-width: 768px) {
@@ -87,7 +85,7 @@
     </style>
     <header id="menu">
       <label class="logo" for="nu">
-        <img src="Imagenes/logo.png" width="90px"  height="auto";>
+     <img src="Imagenes/logo.png" width="150px"  height="100px";>
       </label> 
       <input type ="checkbox" name="nu" id="nu">
       <nav class="letra">  

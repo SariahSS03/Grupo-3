@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body{
+            margin:none;
+            display: grid;
+            grid-template-rows: 40% 30%;
+            grid-template-columns: 16% 84% ;
+            grid-template-areas: "principal principal"
+                                " opciones Tareas";
+                               
+        }
+    .Tareas{
+            grid-area: Tareas;
+        }
+</style>
 <body>
     <?php
         $direccion="localhost";
@@ -21,10 +35,24 @@
             header('Location: Tareasestudiante.php');
         }
         ?>
-        <a href="creartarea.php" id="a">Crear Tarea</a>
+    <?php
+           include("inicio2.php");  
+    ?>
+    <?php
+        $ID=$_GET['ID'];
+        $sql="SELECT*FROM Clases   WHERE ID='$ID'";
+        $resultado = $conexion->query($sql);
+        if ($resultado->num_rows>0){
+            while($fila=$resultado->fetch_assoc()){
+                $id=$fila['ID'];
+            }
+        }
+            ?>
+<div class="Tareas"> 
+    <a href="creartarea.php?ID=<?=$id?>" id="a">Crear Tarea</a>
         <?php
         $User=$_SESSION['CI'];
-        $ID=$_GET['id'];
+        $ID=$_GET['ID'];
         $sql="SELECT*FROM Tarea   WHERE idTarea='$ID'";
         $resultado = $conexion->query($sql);
         if ($resultado->num_rows>0){
@@ -33,15 +61,20 @@
                 $Descripcion =$fila['Descripcion'];
                 $Tema=$fila['Tema'];
                 $Nota=$fila['Nota'];
+     ?>
+     
+     <div id="Tarea1">
+                        <h2><?=$Titulo?></h2>
+                        <h2><?=$Descripcion?></h2>
+                        <h2><?=$Tema?></h2>
+                        <h2><?=$Nota?></h2>
+                        <a href="editartarea.php">Editar</a>     
+                </div>
+    <?php
             }
         }
      ?>
-     <div>
-            <h1>Titulo: <?= $Titulo ?></h1>
-            <h1>Descripcion :<?= $Descripcion ?></h1>
-            <h1>Tema: <?= $Tema ?></h1>
-            <h1>Nota: <?= $Nota?></h1>
-    </div>
+</div>
     
 </body>
 </html>

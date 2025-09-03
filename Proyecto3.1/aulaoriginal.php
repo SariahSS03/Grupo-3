@@ -175,6 +175,7 @@
                 $User= $fila['Profesor'];
                 $nombre=$fila['Nombre'];
                 $codigo=$fila['Codigo'];
+                $id=$fila['ID'];
                  $sql2=" SELECT * FROM Informacion WHERE CI='$User'";
                  $resultado2 = $conexion->query($sql2);
                 if ($resultado2->num_rows>0){
@@ -190,7 +191,7 @@
 
   <nav class="mn">
     <a href="">ANUNCIOS</a>
-    <a href="creartarea.php?id=<?= $ID ?>">TAREAS</a>
+    <a href="TrabajodeClase.php?ID=<?=$id?>">TAREAS</a>
     <a href="">PENDIENTES</a>
     <a href="personas.php">PERSONAS</a>
   </nav>

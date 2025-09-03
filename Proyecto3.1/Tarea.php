@@ -10,13 +10,20 @@
         $Descripcion =$_POST['Descripcion'];
         $Tema=$_POST['Tema'];
         $Nota=$_POST['Nota'];
-        $ID=$_GET['id'];
-        $sql="INSERT INTO Tarea (Titulo,Descripcion,Tema,Nota)VALUES('$Titulo','$Descripcion','$Tema','$Nota')";
-        if($conexion->query($sql)===TRUE){
-        
-        header('Location:TrabajodeClase.php?id='.$ID."?idtarea=".);
+        $idTarea=$_POST['idTarea'];
+        $ID=$_GET['ID'];
+        $sql="SELECT*FROM Clases WHERE ID='$ID'";
+                $resultado= $conexion->query ($sql);
+                if($resultado ->num_rows >0){
+                while ($fila=$resultado->fetch_assoc()){
+                        $clases_ID=$ID;
+                $sql2="INSERT INTO Tarea (Titulo,Descripcion,Tema,Nota)VALUES('$Titulo','$Descripcion','$Tema','$Nota')";
+        if($conexion->query($sql2)===TRUE){
+                header('Location:TrabajodeClase.php?id='.$clases_ID.'"');
         }else{
-        echo"Error ". $sql . "<br>" . $conexion->connect_error;
+                echo"Error ". $sql . "<br>" . $conexion->connect_error;
         }
+}
+}
         $conexion->close();
 ?>

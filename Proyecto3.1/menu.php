@@ -38,11 +38,11 @@
       margin-top: 8px;
       margin-left: 30px;
       display: block;
-      border-radius: 50%;
-      cursor: pointer;
+      border-radius: 70%;
+      cursor:pointer;
       transition: transform 0.3s ease;
-      width: 50%;
-      height: 50%;
+      width: 100px;
+      height:100px;
 
       
 }
@@ -56,44 +56,65 @@
       opacity: 70%;
 }
   .letra{
-     background-color: blue;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
-     
+      padding-top: 20px;
+      padding-right: 50px;
+      padding-left: 550px;
       
    }
-   @media (max-width: 768px) {
+   @media (max-width: 800px) {
   #menu {
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 0px;
   }
 
   .letra {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
+   display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width:250px;
+      padding:30px;
+      display:none;
+      
+  }
+  .letra a{
+    padding:0px;
   }
 
   .logo {
     margin-bottom: 10px;
+  }
+  input{
+    display: block;
+  }
+  nav{
+    flex-direction:column;
+    background-color:green;
+    display:none;
+  }
+  header input: checked ~nav{
+    display:block;
   }
 }
 
     </style>
     <header id="menu">
       <label class="logo" for="nu">
-     <img src="Imagenes/logo.png" width="150px"  height="100px";>
+        <img src="Imagenes/logo.png" width="90px"  height="auto";>
       </label> 
       <input type ="checkbox" name="nu" id="nu">
       <nav class="letra">  
             
-           <strong> <a href="#titulo" id="a"> INICIO</a></strong>
+            <a href="#titulo" id="a"> INICIO</a>
             
-            <strong> <a href="#nosotros1" id="a"> SOBRE NOSOTROS</a></strong>
-             <strong><a href="#enlaces" id="a"> NUESTRA HISTORIA</a></strong>
+             <a href="#nosotros1" id="a"> SOBRE NOSOTROS</a>
+            <a href="#enlaces" id="a"> NUESTRA HISTORIA</a>
 
            <strong>  <a href="#contacto" id="a"> COMENTARIOS</a></strong>
             <strong> <a href="iniciarsesion.php" id="a"> INICIAR SESION</a> </strong>

@@ -21,7 +21,11 @@
         #clase2{
             background-color: red;
             border-radius:25px;
-            border: 5px solid black;
+            border: 1px solid black;
+            width: 22%;
+            height: 300%;
+            
+
         }
 
     </style>

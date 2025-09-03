@@ -124,6 +124,12 @@
             padding: 10px;
             
         }
+        #clase4{
+            background-color:red;
+            
+            border-radius:30px;
+            position:relativo;
+           
     </style>
 </head>
 <body>
@@ -176,7 +182,7 @@
                         $Clase=$resultado2->fetch_Assoc();
                         
             ?>
-                        <div id="clase2">
+                        <div id="clase4">
                             <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
                                 <h2><?=$Clase['Nombre']?></h2>
                             </a>    

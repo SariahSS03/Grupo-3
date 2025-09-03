@@ -23,9 +23,8 @@
         ?>
         <a href="creartarea.php" id="a">Crear Tarea</a>
         <?php
-        session_start();
         $User=$_SESSION['CI'];
-        $ID=$_GET['ID'];
+        $ID=$_GET['id'];
         $sql="SELECT*FROM Tarea   WHERE idTarea='$ID'";
         $resultado = $conexion->query($sql);
         if ($resultado->num_rows>0){
@@ -38,7 +37,10 @@
         }
      ?>
      <div>
-        
+            <h1>Titulo: <?= $Titulo ?></h1>
+            <h1>Descripcion :<?= $Descripcion ?></h1>
+            <h1>Tema: <?= $Tema ?></h1>
+            <h1>Nota: <?= $Nota?></h1>
     </div>
     
 </body>

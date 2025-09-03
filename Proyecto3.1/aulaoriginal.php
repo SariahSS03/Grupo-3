@@ -190,7 +190,7 @@
 
   <nav class="mn">
     <a href="">ANUNCIOS</a>
-    <a href="">TAREAS</a>
+    <a href="creartarea.php?id=<?= $ID ?>">TAREAS</a>
     <a href="">PENDIENTES</a>
     <a href="personas.php">PERSONAS</a>
   </nav>

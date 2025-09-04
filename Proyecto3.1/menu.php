@@ -13,13 +13,13 @@
             height: 100px;
             background-color:#D6ECFA;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             color: white;
             font-family: "Unna", serif;
             transition: padding 0.3s ease, background-color 0.3s ease;
             z-index: 1000;    
             opacity: 0.8;
-            padding: 0px 30px;
+            padding: 0px;
       }
       
       #menu.desliza {
@@ -66,6 +66,9 @@
       padding-left: 550px;
       
    }
+   #menu input{
+    display: none;
+  }
    @media (max-width: 800px) {
   #menu {
     flex-direction: column;
@@ -80,7 +83,8 @@
       flex-wrap: wrap;
       width:250px;
       padding:30px;
-      display:none;
+  display:none;
+     background:red;
       
   }
   .letra a{
@@ -90,16 +94,18 @@
   .logo {
     margin-bottom: 10px;
   }
-  input{
-    display: block;
+   
+  #menu input{
+    display: none;
+  }
+ 
+  #menu input:checked ~.letra{
+    display:flex;
   }
   nav{
     flex-direction:column;
     background-color:green;
-    display:none;
-  }
-  header input: checked ~nav{
-    display:block;
+   
   }
 }
 
@@ -107,17 +113,17 @@
     <header id="menu">
       <label class="logo" for="nu">
         <img src="Imagenes/logo.png" width="90px"  height="auto";>
+         <input type ="checkbox" name="nu" id="nu">
       </label> 
-      <input type ="checkbox" name="nu" id="nu">
+     
       <nav class="letra">  
             
             <a href="#titulo" id="a"> INICIO</a>
             
              <a href="#nosotros1" id="a"> SOBRE NOSOTROS</a>
             <a href="#enlaces" id="a"> NUESTRA HISTORIA</a>
-
-           <strong>  <a href="#contacto" id="a"> COMENTARIOS</a></strong>
-            <strong> <a href="iniciarsesion.php" id="a"> INICIAR SESION</a> </strong>
+  <a href="#contacto" id="a"> COMENTARIOS</a>
+             <a href="iniciarsesion.php" id="a"> INICIAR SESION</a> 
       </nav>
             
     </header>

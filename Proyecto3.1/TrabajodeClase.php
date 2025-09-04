@@ -12,6 +12,7 @@
             grid-template-rows: 40% 30%;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
+                              " opciones mn"
                                 " opciones Tareas";
                                
         }
@@ -38,7 +39,12 @@
     <?php
            include("inicio2.php");  
     ?>
-    <?php
+    <div class="n">
+      <?php
+           include("submenudeaula.php"); 
+        ?> 
+</div>
+<?php
         $ID=$_GET['id'];
         $sql1="SELECT*FROM Clases   WHERE ID='$ID'";
         $resultado1 = $conexion->query($sql1);
@@ -48,6 +54,7 @@
             }
         }
             ?>
+
 <div class="Tareas"> 
     <a href="creartarea.php?ID=<?=$id?>" id="a">Crear Tarea</a>
 </div>

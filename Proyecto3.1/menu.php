@@ -23,7 +23,7 @@
       }
       
       #menu.desliza {
-  background-color:rgba(49, 114, 175, 0.56);
+  background-color:rgba(175, 49, 49, 0.56);
   color:red;
     
 } 

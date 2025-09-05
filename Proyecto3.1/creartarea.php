@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #ad{
+            
+            padding:4%;
+            border: 2px solid black;
+
+        }
+        .par{
+            border:3px solid black;
+            
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -26,19 +38,43 @@
             }
         }
             ?>
+    
     <form action="Tarea.php?ID=<?= $id ?>" method="post">
-        <div id="tres"><h1 id="dos">Crear Trea<h1></div>
+     <div class="par" >
         <label for="">Nombre de la Tarea</label><br>
         <input type="text" name="Titulo" placeholder="Ingresa el nombre de la tarea"><br>
         <label for="">Descripcion</label><br>
         <input type="text" name="Descripcion" placeholder="Descripcion"><br>
+    </div>
+    <div>
         <label for="">Tema</label><br>
         <input type="text" name="Tema" placeholder="Tema de la tarea"><br>
         <label for="">Nota</label><br>
         <input type="text" name="Nota" placeholder="Sobre cuanto estara evaluada la tarea"><br>
         <input type="hidden" name="idTarea" value="<?=$ID?>">
         <input type="submit" id="Boton" value="Crear tarea" >
+    </div>
     </form>
         <button  onclick="window.location.href='TrabajodeClase.php?ID=<?= $id ?>'" id="Boton">Volver a las tareas</button>
+    
+   <div id="ad">
+    <p>Adjuntar</p>
+      <button>
+        <img>
+      </button>
+      <button>
+        <img>
+      </button>
+      <button>
+        <img>
+      </button>
+      <button>
+        <img>
+      </button>
+      <button>
+        <img>
+      </button>
+   </div>
+    
 </body>
 </html>

@@ -26,7 +26,7 @@
     <a href="aulaoriginal.php?ID=<?=$id?>">ANUNCIOS</a>
     <a href="TrabajodeClase.php?ID=<?=$id?>">TAREAS</a>
     <a href="">PENDIENTES</a>
-    <a href="personas.php">PERSONAS</a>
+    <a href="personas.php?ID=<?=$id?>">PERSONAS</a>
   </nav> 
 </body>
 </html>

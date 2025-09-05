@@ -11,10 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     
     <style>
-        body{
-            background-color: #c9c9c9;
-            font-family: "Open Sans", sans-serif;
-            color:white;
+         body{
+            margin:none;
+            display: grid;
+            grid-template-rows:10%;
+            grid-template-columns: 16% 84% ;
+            grid-template-areas: "principal principal"
+                                 "opciones dos"
+                                  "opciones dos";
+         margin:0px;  
+        font-family: "Open Sans", sans-serif;
+        color:white;                    
         }
         form{
             background-color:#F5D547;
@@ -26,8 +33,9 @@
             margin-top: 60px; 
             width: 500px;
             height: 700px;
+            grid-area:dos;
         }
-        img{
+        #img2{
             width: 200px;
             height:110px;
             transition: transform 0.3s;
@@ -110,16 +118,26 @@ input {
                 $apellidos =$fila['Apellidos'];
                 $telefono=$fila['Telefono'];
                 $curso=$fila['Curso'];
-                $fechadenacimiento =$fila['FechadeNacimiento'];
+                $fechadenacimiento =$fila['Fechadenacimiento'];
                 $direccion=$fila['Direccion'];
         }
         ?>
+    <?php
+     if($_SESSION['rol']==2 ){
+           include("inicio2.php");  
+        }else{
+            if($_SESSION['rol']==1 ){
+            include("inicio1.php");
+        }
+        }
+   
+    ?>   
     <form action="editardatos.php" method="post" id="registro">
 
         
         <center>
             <div class="trate">
-            <img src="logo.png">
+            <img src="Imagenes/logo.png" id="img2">
         <h1>REGISTRATE</h1>
         
         <label for="" >Nombres</label><br>

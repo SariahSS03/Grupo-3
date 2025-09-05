@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -18,22 +18,6 @@
       background-color: #f8f8f8;
       margin:0px;
     }
-
-    .mn {
-      background-color: #010636;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 12px;
-      grid-area: mn;
-    }
-
-    .mn a {
-      text-decoration: none;
-      color: white;
-      font-size: 15px;
-    }
-
     .quimica {
       background-color: #c6c6c6;
       text-align: center;
@@ -163,8 +147,7 @@
             include("inicio1.php");
         }
         }
-   
-    ?>
+  ?>
    <?php
         $User=$_SESSION['CI'];
         $ID=$_GET['ID'];
@@ -186,22 +169,19 @@
                 }
             }
         }
-      
      ?>
 
-  <nav class="mn">
-    <a href="">ANUNCIOS</a>
-    <a href="TrabajodeClase.php?ID=<?=$id?>">TAREAS</a>
-    <a href="">PENDIENTES</a>
-    <a href="personas.php">PERSONAS</a>
-  </nav>
+  <div class="n">
+      <?php
+           include("submenudeaula.php"); 
+           ?> 
+  </div>
 
   <section class="quimica">
     <h1>Materia: <?= $nombre ?></h1>
     <h1>Codigo :<?= $codigo ?></h1>
     <h1>Profesor: <?= $User ?></h1>
     <h1>Profesor: <?= $Nombreprofesor ?> <?= $Apellidoprofesor ?></h1>
-    
   </section>
 
   <section class="areaAnuncios">

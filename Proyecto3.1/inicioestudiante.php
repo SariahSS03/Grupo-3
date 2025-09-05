@@ -12,7 +12,7 @@
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
                                  "opciones clases";
-                               
+        margin:0px;                       
         }
         .clases{
             background-color: rgb(240, 243, 242);

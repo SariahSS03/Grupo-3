@@ -9,14 +9,14 @@
    body{
             margin:none;
             display: grid;
-            grid-template-rows: 40% 30%;
+            grid-template-rows: 10%;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
                                  "opciones dos";
-                               
+         margin:0px;                      
         }
 
-    .dos{
+.dos{
         grid-area:dos;
     }
  #infobasica{
@@ -101,32 +101,35 @@
     <center>
 
     <div class="dos">
-    <div class="ola2">
-    <h1>Te damos la bienvenida <?=$Nombres?> <?=$Apellidos?></h1>
-    <h3>Gestion tu Informacion,la privacidad y la seguridad para mejorar tu expericiencia</h3>
-    </div>
-     <div id="infobasica">
-     <h1>Informacion basica</h1>
-     <div id="Nombres"><h2 id="nom">Nombres: <?=$Nombres?></h2></div>
-     <div id="Nombres"><h2 id="nom">Apellidos: <?=$Apellidos?></h2></div>
-     <div id="Nombres"><h2 id="nom">Carnet de Identidad: <?=$CI?></h2></div>
-     <div id="Nombres"><h2 id="nom">Fecha de nacimiento: <?=$Fecha?></h2></div>
-     </div>
+         <div class="ola2">
+         <h1>Te damos la bienvenida <?=$Nombres?> <?=$Apellidos?></h1>
+         <h3>Gestion tu Informacion,la privacidad y la seguridad para mejorar tu expericiencia</h3>
+         </div>
 
-     <div id="infocontacto">
-     <h1>Informacion de contacto</h1>
-     <div id="Nombres"><h2  id="nom">Direccion: <?=$Direccion?></h2></div>
-     <div id="Nombres"><h2 id="nom">Telefono: <?=$Celular?></h2></div>
+         <div id="infobasica">
+         <h1>Informacion basica</h1>
+         <div id="Nombres"><h2 id="nom">Nombres: <?=$Nombres?></h2></div>
+         <div id="Nombres"><h2 id="nom">Apellidos: <?=$Apellidos?></h2></div>
+         <div id="Nombres"><h2 id="nom">Carnet de Identidad: <?=$CI?></h2></div>
+         <div id="Nombres"><h2 id="nom">Fecha de nacimiento: <?=$Fecha?></h2></div>
+         </div>
+
+         <div id="infocontacto">
+         <h1>Informacion de contacto</h1>
+         <div id="Nombres"><h2  id="nom">Direccion: <?=$Direccion?></h2></div>
+         <div id="Nombres"><h2 id="nom">Telefono: <?=$Celular?></h2></div>
+         </div>
+
+         <div id="infoestudiante">
+         <h1>Informacion de estudiante</h1>
+         <div id="Nombres"><h2 id="nom">Curso: <?=$Curso?></h2></div>
+         <div id="Nombres"><h2 id="nom">Rude: <?=$Rude?></h2></div>
+         </div>
     </div>
 
-     <div id="infoestudiante">
-     <h1>Informacion de estudiante</h1>
-     <div id="Nombres"><h2 id="nom">Curso: <?=$Curso?></h2></div>
-     <div id="Nombres"><h2 id="nom">Rude: <?=$Rude?></h2></div>
-    </div>
-    </div>
     <button  onclick="window.location.href='registroeditar.php'" id="Boton">Editar tus Datos</button>
-      </center>
+   
+   </center>
 
 </body>
 </html>

@@ -12,6 +12,7 @@
             grid-template-rows: 40% 30%;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
+                              " opciones mn"
                                 " opciones Tareas";
                                
         }
@@ -38,38 +39,45 @@
     <?php
            include("inicio2.php");  
     ?>
-    <?php
-        $ID=$_GET['ID'];
-        $sql="SELECT*FROM Clases   WHERE ID='$ID'";
-        $resultado = $conexion->query($sql);
-        if ($resultado->num_rows>0){
-            while($fila=$resultado->fetch_assoc()){
-                $id=$fila['ID'];
+    <div class="n">
+      <?php
+           include("submenudeaula.php"); 
+        ?> 
+</div>
+<?php
+        $ID=$_GET['id'];
+        $sql1="SELECT*FROM Clases   WHERE ID='$ID'";
+        $resultado1 = $conexion->query($sql1);
+        if ($resultado1->num_rows>0){
+            while($fila1=$resultado1->fetch_assoc()){
+                $id=$fila1['ID'];
             }
         }
             ?>
+
 <div class="Tareas"> 
     <a href="creartarea.php?ID=<?=$id?>" id="a">Crear Tarea</a>
+</div>
+<div>
         <?php
-        $User=$_SESSION['CI'];
-        $ID=$_GET['ID'];
-        $sql="SELECT*FROM Tarea   WHERE idTarea='$ID'";
-        $resultado = $conexion->query($sql);
-        if ($resultado->num_rows>0){
-            while($fila=$resultado->fetch_assoc()){
-                $Titulo = $fila['Titulo'];
-                $Descripcion =$fila['Descripcion'];
-                $Tema=$fila['Tema'];
-                $Nota=$fila['Nota'];
+        $ID=$_GET['idTarea'];
+        $sql2="SELECT*FROM Tarea   WHERE idTarea='$ID' ORDER BY FechaCreacion DESC";
+        $resultado2 = $conexion->query($sql2);
+        if ($resultado2->num_rows>0){
+            while($fila2=$resultado2->fetch_assoc()){
+                $Titulo = $fila2['Titulo'];
+                $Descripcion =$fila2['Descripcion'];
+                $Tema=$fila2['Tema'];
+                $Nota=$fila2['Nota'];
      ?>
      
-     <div id="Tarea1">
-                        <h2><?=$Titulo?></h2>
-                        <h2><?=$Descripcion?></h2>
-                        <h2><?=$Tema?></h2>
-                        <h2><?=$Nota?></h2>
-                        <a href="editartarea.php">Editar</a>     
-                </div>
+            <div id="Tarea1">
+                <h2><?=$Titulo?></h2>
+                <h2><?=$Descripcion?></h2>
+                <h2><?=$Tema?></h2>
+                <h2><?=$Nota?></h2>
+                <a href="editartarea.php">Editar</a>     
+            </div>
     <?php
             }
         }

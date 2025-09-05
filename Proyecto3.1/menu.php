@@ -112,7 +112,7 @@
     </style>
     <header id="menu">
       <label class="logo" for="nu">
-        <img src="Imagenes/logo.png" ;>
+        <img src="Imagenes/logo.png" width="90px"  height="auto";>
          <input type ="checkbox" name="nu" id="nu">
       </label> 
      

@@ -128,13 +128,13 @@
 
         <div id="segundo1">  
             <button class="boton"> 
-            <img onclick="window.location.href='cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="Imagenes/cinco.png">
+                <img onclick="window.location.href='cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="Imagenes/cinco.png">
             </button>
             <button class="boton">
-             <img  width="44px" height="35px" src="Imagenes/cuatro.png">
+                <img  width="44px" height="35px" src="Imagenes/cuatro.png">
             </button>
             <button onclick="window.location.href='creaciondeclase.php'" class="boton">
-          <img  width="33px" height="35px" src="Imagenes/tres.png">
+                <img  width="33px" height="35px" src="Imagenes/tres.png">
             </button>
         </div>
 

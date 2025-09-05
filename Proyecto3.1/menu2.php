@@ -18,13 +18,7 @@
       font-family:"Funnel Sans", sans-serif;
       line-height: 2;
     }
-    .opcional{
-      background-color: #004464ff;
-      color: #ffffffff;
-      font-family:"Funnel Sans", sans-serif;
-      display: flex;
-      justify-content: space-between;
-    }
+    
     #espacios{
       font-size: 18px;
       width: 700px;
@@ -64,6 +58,40 @@
       background-color: rgb(46, 46, 100);
       border: 1px solid transparent;
    }
+   @media  (max-width: 768px) {
+      footer.final {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .final #espacios,
+      footer.final  {
+        max-width: 100%;
+        padding: 0 10px;
+
+      }
+
+      .opcional {
+        flex-direction: column;
+        padding: 20px 10px;
+      }
+
+      #op1, #op2 {
+        padding-top: 10px;
+        font-size: 14px;
+      }
+
+      #iniciosesion {
+        width: 80%;
+        max-width: 200px;
+        margin-left:150px;
+      }
+
+      textarea {
+        max-width: 90%;
+      }
+    }
 
         </style>
 </head>
@@ -74,7 +102,7 @@
             <img src="Imagenes/logo.png" width="230px"  height="auto";>
             </div>
             <div>
-            <strong> Federico Aguilo</strong><br>
+            <strong> FEDERICO AGUILÓ</strong><br>
             
             </div>
       </div>
@@ -117,13 +145,6 @@
       </div>
 
     </footer>
-      <div class="opcional">
-            <div id="op1">
-            Unidad Educativa Federico Aguilo     
-            </div>
-            <div id="op2">
-            © 2025 Todos los derechos reservados.      
-            </div>
-      </div>
+      
 </body>
 </html>

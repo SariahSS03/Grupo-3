@@ -219,8 +219,9 @@
                   }
               ?>
               <h3><?= $nombres?> <?= $apellidos?></h3>
-              <form action="Publicaciones.php" method="post">
+              <form action="Publicaciones.php" method="post" >
               <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ></textarea>
+
               <input type="hidden" name="ID" value="<?=$ID?>">
             <div id="tres">
                 <div class="arriba">

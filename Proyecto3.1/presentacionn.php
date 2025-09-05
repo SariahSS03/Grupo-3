@@ -41,7 +41,7 @@ body{
       font-family:"Unna", serif;
       font-size: 60px;
       margin-left: 50px;
-      color: #004aad;
+      color: #000000ff;
       margin-top: -400px;
 }
 
@@ -255,7 +255,7 @@ p{
       width: 100%;
       height: 100%;
       opacity:25%;
-      background-color: #237c7cff;
+      background-color: #206ea1ff;
       transition: transform 0.9s ease;
       transform: translateX(0);
       z-index: 0;
@@ -312,7 +312,7 @@ p{
     text-align: center;
     padding: 20px;
   }
-}
+
 .contenedor{
       position: relative;
       display: inline-block;
@@ -326,7 +326,7 @@ p{
 
 }
 .mision-vision{
-     
+     margin-left:180px;
       margin-top:-1px;
       border-radius:10px;
       
@@ -344,7 +344,11 @@ p{
       background-color: red;
      margin: bottom 500px;
 }
-/* --- MOBILE FIRST: Estilos para móviles --- */
+
+#i2{
+  width: 250px;
+  height: 176px;
+}
 @media (max-width: 600px) {
 
   nav {
@@ -440,21 +444,21 @@ p{
       
     </div>
     <div id="">
-<h3 class="admi">INFORMACION</h3>
+<h3 class="admi">INFORMACIÓN</h3>
     <div class="div3">
       
       <div class="Admisiones">
       <a href="planteldocente.php" id="uno">
-            <center><img id="i" src="Imagenes/doc3.png" width="150px"  height="150px";><br>
+            <center><img id="i2" src="Imagenes/plantel2.png" width="150px"  height="150px";><br>
             <strong>PLANTEL DOCENTE</strong></center>
       </a>
       <a href="horarios.php" id="dos">
             <center><img id="i" src="Imagenes/hor.png" width="150px"  height="150px";><br>
-            <strong>Horarios</strong></center>
+            <strong>HORARIOS</strong></center>
       </a>
       <a href="reglamentoescolar.php" id="tres">
             <center><img id="i" src="Imagenes/regla.png" width="150px"  height="150px";><br>
-            <strong>Reglamento escolar</strong></center>
+            <strong>REGLAMENTO ESCOLAR</strong></center>
       </a>
       </div>
     </div>
@@ -481,10 +485,10 @@ Pese a las dificultades económicas, familiares y sociales que enfrenta gran par
             <br>
             Mantente conectado y conoce más sobre la vida en el Colegio Federico Aguilo<br>
             <br>
-      <center>
+    
       <br>
       <button id="facebook" onclick="location.href='https://www.facebook.com/p/Unidad-Educativa-Federico-Aguil%C3%B3-UEFA-100076895951019/?locale=es_LA'">Facebook</button></center>
-      <button id ="facebook"onclick="location.href='https://docs.google.com/document/d/1hO0o1SFWd6eAXbOTIw8nn185-BIszl02/edit'">Mas sobre nostros</button>
+     
       </div>
     </div>
 

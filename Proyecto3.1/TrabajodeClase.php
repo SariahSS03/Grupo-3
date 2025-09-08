@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<style>
+    <style>
     body{
             margin:none;
             display: grid;
@@ -20,8 +19,8 @@
             grid-area: Tareas;
         }
 </style>
-<body>
-    <?php
+</head>
+<?php
         $direccion="localhost";
         $usuario="root";
         $contrasena="";
@@ -32,20 +31,22 @@
             echo"Hubo un error al conectar a la base de datos";
         }
         session_start();
+        $ID=$_GET['ID'];
         if($_SESSION['rol']==1 ){
-            header('Location: Tareasestudiante.php');
+            header('Location: Tareasestudiante.php?ID='.$ID);
         }
         ?>
-    <?php
-           include("inicio2.php");  
-    ?>
-    <div class="n">
-      <?php
-           include("submenudeaula.php"); 
-        ?> 
+<body>
+<?php
+   include("inicio2.php");  
+?>
+<div class="n">
+<?php
+    include("submenudeaula.php"); 
+?> 
 </div>
 <?php
-        $ID=$_GET['id'];
+        $ID=$_GET['ID'];
         $sql1="SELECT*FROM Clases   WHERE ID='$ID'";
         $resultado1 = $conexion->query($sql1);
         if ($resultado1->num_rows>0){
@@ -60,7 +61,6 @@
 </div>
 <div>
         <?php
-        $ID=$_GET['idTarea'];
         $sql2="SELECT*FROM Tarea   WHERE idTarea='$ID' ORDER BY FechaCreacion DESC";
         $resultado2 = $conexion->query($sql2);
         if ($resultado2->num_rows>0){

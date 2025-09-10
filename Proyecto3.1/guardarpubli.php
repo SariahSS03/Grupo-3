@@ -1,5 +1,13 @@
 <?php
+$servername="localhost";
+$username="root";
+$password="";
+$dbname="proyecto3";
 
+$conexion = new mysqli($servername, $username, $password, $dbname);
+if($conexion->connect_error){
+    echo"hubo un error";
+}
 $CI= $_SESSION['CI'];
 date_default_timezone_set('America/La_Paz');
 $fechaC =date("Y-m-d H:i:s");

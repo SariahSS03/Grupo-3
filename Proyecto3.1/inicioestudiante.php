@@ -16,16 +16,23 @@
         }
         .clases{
             background-color: rgb(240, 243, 242);
-            grid-area: clases;            
+            grid-area: clases;  
+            gap:10px;          
         }
         #clase2{
-            background-color: red;
+            background-color: white;
             border-radius:25px;
             border: 1px solid black;
             width: 22%;
             height: 300%;
             
+            
 
+        }
+        #n{
+            font-size:25px;
+            color:;
+            align-items:center;
         }
 
     </style>
@@ -64,7 +71,7 @@
     ?>
                 <div id="clase2">
                     <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
-                        <h2><?=$Clase['Nombre']?></h2>
+                        <h2 id="n"><?=$Clase['Nombre']?></h2>
                     </a>    
                 </div>
     <?php

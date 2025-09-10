@@ -126,7 +126,6 @@
         }
         #clase4{
             background-color:red;
-            
             border-radius:30px;
             position:relativo;
         }

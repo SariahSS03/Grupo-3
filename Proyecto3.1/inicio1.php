@@ -125,9 +125,17 @@
             
         }
         #clase4{
-            background-color:red;
+            background-color: #f1f3f4;;
             border-radius:30px;
             position:relativo;
+            height:45px;
+             justify-content: space-between; 
+             align-items:center;
+        }
+        #z{
+              
+
+             
         }
     </style>
 </head>
@@ -183,7 +191,7 @@
             ?>
                         <div id="clase4">
                             <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
-                                <h2><?=$Clase['Nombre']?></h2>
+                                <h2 id="z"><?=$Clase['Nombre']?></h2>
                             </a>    
                         </div>
             <?php

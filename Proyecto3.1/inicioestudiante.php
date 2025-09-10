@@ -20,11 +20,14 @@
             gap:10px;          
         }
         #clase2{
-            background-color: white;
+            background-color: green;
             border-radius:25px;
             border: 1px solid black;
             width: 22%;
             height: 300%;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
             
             
 
@@ -33,6 +36,21 @@
             font-size:25px;
             color:;
             align-items:center;
+        }
+        #u{
+         background:red;
+        }
+        #uu{
+          background:blue;
+          position:relative;
+          left:200px;
+          bottom:100px;
+          width: 100px;
+          height:100px;
+          border-radius:100%;
+        }
+        #uuu{
+background:yellow;
         }
 
     </style>
@@ -70,9 +88,19 @@
                 
     ?>
                 <div id="clase2">
+                    <div id="u">
                     <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
+                        
                         <h2 id="n"><?=$Clase['Nombre']?></h2>
-                    </a>    
+                    
+                    </a>  
+            </div>
+                    <div id="uu">
+          l
+                    </div> 
+                    <div id="uuu">
+                        <a href="">1</a><a href="">2</a><a href="">3</a>
+                    </div> 
                 </div>
     <?php
             }

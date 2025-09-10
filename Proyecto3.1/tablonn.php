@@ -77,20 +77,64 @@
         }
         ?>
         </i>
-        
-        
         <br>
         <?php
-        echo "<p>".$row['contenido']."</p>;
-         $nombreArchivo ="p-".$val."-".$row['id'];
+        echo "<p>".$row['contenido']."</p>";
+         $nombreArchivo ="P-".$val."-".$row['id'];
          $directorio = "../media/";
          $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
          $archivoEncontrado = null;
 
-         foreach ($extensiones as  $text){
-         $ruta = $directorio. $nombreArchivo. "." . $text;
+         foreach ($extensiones as  $ext){
+         $ruta = $directorio. $nombreArchivo. "." . $ext;
+          if (file_exists($ruta)){
+          $archivoEncontrado = $ruta;
+          break;
+           }
           }
-         
-    
+        
+          if ($archivoEncontrado){
+          $extension = strtolower (pathinfo($archivoEncontrado, PATHINFO_ESTENSION));
+          if (in_array($extension, ["jpg", "jpeg", "png","gif","webp"])){
+        echo "<img src='$archivoEncontado' alt ='Archivo' width='250'>";
+    }elseif ($extension === "pdf"){
+        echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
+    }else{
+        echo "<a href='$archivoEncontrado' download> Descargar archivo </a>";
+    }
+}
+?>
+
+</td>
+<?php
+$CI=$_SESSION['CI'];
+$sql2 = "SELECT * FROM informacion WHERE CI='$CI' LIMIT1";
+$res2 = mysqli_query($conn, $sql2);
+if ($res2 && mysqli_num_rows($res2) == 1){
+    $row2 = mysqli_fetch_assoc($res2);
+    $nombre=$row2['apellidos']."".$row2['nombres'];
+}
+if($nombre==$row['nombre'] ||  $_SESSION['CI']==$idprofesor){
+?>
+<td>
+    <a href="../publicaciones/formEditarPublicacion.php?id=<?php echo $row ['id'];?>">Editar</a>
+    <a href="delete.php?id=<?php echo $row['id']; ?>"onclick="return confirm('¿eliminar?');">Eliminar</a>
+</td>
+    <?php
+    }
+   ?>
+</tr>
+<?php
+  }
+  ?>
+  
+
+  <?php
+  if($_SESSION['rol']!="Estudiante"){ ?>
+  <p><a href="edit.php?id=<?php echo $row['id'];?>">Editar</a>
+  <?php
+  }
+  ?>
+  <a href="index.php">Volver</a></p>
 </body>
 </html>

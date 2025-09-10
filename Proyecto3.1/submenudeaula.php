@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<style>
+    <style>
     .mn {
       background-color: #010636;
       display: flex;
@@ -21,12 +20,35 @@
       font-size: 15px;
     }
 </style>
+</head>
+<?php
+        $direccion="localhost";
+        $usuario="root";
+        $contrasena="";
+        $dbname="proyecto3"; 
+        
+        
+        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+        if($conexion->error){
+            echo"Hubo un error al conectar a la base de datos";
+        }
+        ?>
 <body>
+  <?php
+        $User=$_SESSION['CI'];
+        $ID=$_GET['ID'];
+        $sql="SELECT*FROM Clases   WHERE ID='$ID'";
+        $resultado = $conexion->query($sql);
+        if ($resultado->num_rows>0){
+            while($fila=$resultado->fetch_assoc()){
+                $id_CLASE=$fila['ID'];
+            }
+        }
+     ?>
    <nav class="mn">
-    <a href="aulaoriginal.php?ID=<?=$id?>">ANUNCIOS</a>
-    <a href="TrabajodeClase.php?ID=<?=$id?>">TAREAS</a>
-    <a href="">PENDIENTES</a>
-    <a href="personas.php?ID=<?=$id?>">PERSONAS</a>
+    <a href="aulaoriginal.php?ID=<?=$id_CLASE?>">ANUNCIOS</a>
+    <a href="TrabajodeClase.php?ID=<?=$id_CLASE?>">TAREAS</a>
+    <a href="personas.php?ID_=<?=$id_CLASE?>">PERSONAS</a>
   </nav> 
 </body>
 </html>

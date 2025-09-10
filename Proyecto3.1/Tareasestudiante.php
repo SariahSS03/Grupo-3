@@ -53,7 +53,7 @@
                 $id=$fila1['ID'];
             }
         }
-            ?>
+?>
 <div>
         <?php
         $ID=$_GET['idTarea'];

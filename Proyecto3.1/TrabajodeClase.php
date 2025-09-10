@@ -25,7 +25,6 @@
         $usuario="root";
         $contrasena="";
         $dbname="proyecto3"; 
-        
         $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
@@ -54,7 +53,7 @@
                 $id=$fila1['ID'];
             }
         }
-            ?>
+?>
 
 <div class="Tareas"> 
     <a href="creartarea.php?ID=<?=$id?>" id="a">Crear Tarea</a>

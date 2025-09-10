@@ -81,10 +81,10 @@
                 $Nombres=$fila['Nombres'];
                 $Apellidos=$fila['Apellidos'];
                 $Direccion=$fila['Direccion'];
-                $Fecha=$fila['Fechadenacimiento'];
+                $Fecha=$fila['FechadeNacimiento'];
                 $Celular=$fila['Telefono'];
                 $Curso=$fila['Curso'];
-                $Rude=$fila['Rude'];
+                $Rude=$fila['RUDE'];
             }
         }
      ?>

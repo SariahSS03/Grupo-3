@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS `proyecto3`.`Informacion` (
   `Nombres` VARCHAR(45) NOT NULL,
   `Apellidos` VARCHAR(45) NOT NULL,
   `Direccion` VARCHAR(45) NOT NULL,
-  `Fechadenacimiento` DATE NOT NULL,
+  `FechadeNacimiento` DATE NOT NULL,
   `Telefono` INT NOT NULL,
   `Curso` VARCHAR(45) NOT NULL,
   `CI` INT NOT NULL,
-  `Rude` INT NOT NULL,
+  `RUDE` INT NOT NULL,
   PRIMARY KEY (`CI`))
 ENGINE = InnoDB;
 
@@ -123,7 +123,15 @@ CREATE TABLE IF NOT EXISTS `proyecto3`.`Tarea` (
   `Descripcion` VARCHAR(300) NULL,
   `Tema` VARCHAR(45) NULL,
   `Nota` INT NULL,
-  PRIMARY KEY (`idTarea`))
+  `Clases_ID` INT NOT NULL,
+  `Clases_Profesor` INT NOT NULL,
+  PRIMARY KEY (`idTarea`, `Clases_ID`, `Clases_Profesor`),
+  INDEX `fk_Tarea_Clases1_idx` (`Clases_ID` ASC, `Clases_Profesor` ASC),
+  CONSTRAINT `fk_Tarea_Clases1`
+    FOREIGN KEY (`Clases_ID` , `Clases_Profesor`)
+    REFERENCES `proyecto3`.`Clases` (`ID` , `Profesor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

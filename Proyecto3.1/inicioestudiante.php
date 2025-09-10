@@ -8,7 +8,7 @@
         body{
             margin:none;
             display: grid;
-            grid-template-rows: 40% 30%;
+            grid-template-rows: auto auto auto auto auto;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
                                  "opciones clases";

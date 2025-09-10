@@ -8,15 +8,19 @@
     body{
             margin:none;
             display: grid;
-            grid-template-rows: 40% 30%;
+            grid-template-rows:auto auto auto auto auto;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
                               " opciones mn"
-                                " opciones Tareas";
-                               
+                                " opciones Tareas"
+                                " opciones tareascreadas";
+            margin: 0px;
         }
     .Tareas{
             grid-area: Tareas;
+        }
+        .tareascreadas{
+            grid-area: tareascreadas;
         }
 </style>
 </head>
@@ -58,17 +62,19 @@
 <div class="Tareas"> 
     <a href="creartarea.php?ID=<?=$id?>" id="a">Crear Tarea</a>
 </div>
-<div>
+<div class="tareascreadas">
         <?php
-        $sql2="SELECT*FROM Tarea   WHERE idTarea='$ID' ORDER BY FechaCreacion DESC";
-        $resultado2 = $conexion->query($sql2);
-        if ($resultado2->num_rows>0){
-            while($fila2=$resultado2->fetch_assoc()){
-                $Titulo = $fila2['Titulo'];
-                $Descripcion =$fila2['Descripcion'];
-                $Tema=$fila2['Tema'];
-                $Nota=$fila2['Nota'];
-     ?>
+            $ID=$_GET['ID'];
+            $sql2="SELECT*FROM Tarea   WHERE Clases_ID='$ID'";
+            $resultado2 = $conexion->query($sql2);
+            if ($resultado2->num_rows>0){
+                while($fila2=$resultado2->fetch_assoc()){
+                    $idTarea=$fila2['idTarea'];
+                    $Titulo=$fila2['Titulo'];
+                    $Descripcion=$fila2['Descripcion'];
+                    $Tema=$fila2['Tema'];
+                    $Nota=$fila2['Nota'];
+        ?>
      
             <div id="Tarea1">
                 <h2><?=$Titulo?></h2>

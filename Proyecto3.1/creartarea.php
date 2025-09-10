@@ -9,7 +9,7 @@
     body{
             margin:none;
             display: grid;
-            grid-template-rows: 40% 30%;
+            grid-template-rows: auto auto auto auto auto;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
                               " opciones mn"
@@ -126,7 +126,8 @@
   </header>
 
   <form id="formTarea" action="Tarea.php?ID=<?= $id_tareaclase ?>" method="post" enctype="multipart/form-data">
-    <div class="container">
+  <input type="hidden" name="ID_Tarea" value="<?= $id_tareaclase ?>">
+  <div class="container">
 
       <div class="left">
         <input type="text" id="titulo" name="Titulo" placeholder="Título *" required>
@@ -155,13 +156,13 @@
         </select>
 
         <label for="puntos">Puntos</label>
-        <input type="number" id="puntos" name="puntos" value="100">
+        <input type="number" id="puntos" name="Nota" value="100">
 
         <label for="fecha">Fecha de entrega</label>
-        <input type="date" id="fecha" name="fecha">
+        <input type="date" id="fecha" name="FechadeEntrega">
 
         <label for="tema">Tema</label>
-        <select id="tema" name="tema">
+        <select id="tema" name="Tema">
           <option value="ninguno">Tema 1</option>
           <option value="matematicas">Tema 2</option>
           <option value="lengua">Tema 3</option>

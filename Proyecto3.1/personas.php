@@ -7,8 +7,8 @@
    <style>
     body {
       display: grid;
-      grid-template-columns: 16% 84% ;
-      grid-template-rows: auto auto;
+      grid-template-columns: auto auto auto auto auto;
+      grid-template-rows: auto auto ;
       grid-template-areas:"principal principal"
                           "opciones mn"
                           "opciones mn";

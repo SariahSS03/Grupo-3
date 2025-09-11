@@ -17,6 +17,7 @@
       color: white;
       font-family:"Funnel Sans", sans-serif;
       line-height: 2;
+      grid-area:final;
     }
     
     #espacios{
@@ -129,19 +130,6 @@
             <button id="iniciosesion" onclick="location.href='iniciarsesion.php'">
                   <strong>Iniciar Sesion</strong>
             </button>
-      </div>
-
-      <div>
-        <form method="post" action="archivo2.php">
-        <div><p>COMENTARIO</p></div>
-        <div>
-        <textarea name="comentario" id="" cols="40" rows="2" placeholder="Anuncia algo a tu clase"></textarea>
-        <button type="submit" value="" class="bet">
-            <img  height="20px" width="10px" src="https://e7.pngegg.com/pngimages/841/271/png-clipart-computer-icons-send-miscellaneous-angle-thumbnail.png">
-        </button>
-        </div>
-        </form>
-        
       </div>
 
     </footer>

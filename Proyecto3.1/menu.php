@@ -1,131 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       #menu{
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background-color:#D6ECFA;
-            display: flex;
-            justify-content: center;
-            color: white;
-            font-family: "Unna", serif;
-            transition: padding 0.3s ease, background-color 0.3s ease;
-            z-index: 1000;    
-            opacity: 0.8;
-            padding: 0px;
-      }
-      
-      #menu.desliza {
-  background-color:rgba(110, 161, 255, 0.56);
-  color:red;
-    
-} 
-#a{
-      color:black;
-      text-decoration: none;
-      padding-top: 20px;
-      font-size: 25px;
-      font-family: "Unna", serif;
-}
-.logo{
-      margin-top: 8px;
-      margin-left: 30px;
-      display: block;
-      border-radius: 70%;
-      cursor:pointer;
-      transition: transform 0.3s ease;
-      width: 40px;
-      height:100px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Responsive</title>
+  <style>
+    body {
+      grid-area:menu;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-      
-}
-.logo:hover{
-      transform: scale(1.2);
-}
-.img{
-      border-radius: 50%;
-}
-.img2{
-      opacity: 70%;
-}
-  .letra{
+    /* --- NAV PRINCIPAL --- */
+    nav {
+      background:#D6ECFA;;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .menu {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
-      flex-wrap: wrap;
-      width: 100%;
-      padding-top: 20px;
-      padding-right: 50px;
-      padding-left: 550px;
+      align-items: center;
+      font-size: 20px;
       
+    }
+
+    .menu ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu ul li {
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .menu ul li a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      transition: all 0.4s ease;
+     transform: translateY(20px);
+     animation: fadeInUp 1s ease forwards;
+     display: block;
+
+    }   
+    .menu ul li a:hover{
+  transform: scale(1.1) translateY(-5px);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgb(3, 20, 68);
    }
-   #menu input{
-    display: none;
+    @keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-   @media (max-width: 800px) {
-  #menu {
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-  }
-
-  .letra {
-   display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      width:250px;
-      padding:30px;
-  display:none;
-     background:red;
-      
-  }
-  .letra a{
-    padding:0px;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
-   
-  #menu input{
-    display: none;
-  }
- 
-  #menu input:checked ~.letra{
-    display:flex;
-  }
-  nav{
-    flex-direction:column;
-    background-color:green;
-   
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-    </style>
-    <header id="menu">
-      <label class="logo" for="nu">
-        <img src="Imagenes/logo.png" width="90px"  height="auto";>
-         <input type ="checkbox" name="nu" id="nu">
-      </label> 
+
+   /*submenu*/
+   .menu ul li ul{
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #69696941;
+      min-width: 150px;
+      z-index: 1000;
+      border-radius: 5px;
+    }
+
+.menu ul li ul li a {
+     padding: 10px 15px;
+    font-size: 18px;
+    color: rgb(24, 23, 23);
+    }
+
+    nav ul li ul li a:hover {
+      background-color: rgba(53, 51, 51, 0.178);
+      color: #580000;
+    }
+   /* Mostrar submenú al pasar el cursor */
+    nav ul li:hover > ul {
+      display: block;
+      
      
-      <nav class="letra">  
-            
-            <a href="#titulo" id="a"> INICIO</a>
-            
-             <a href="#nosotros1" id="a"> SOBRE NOSOTROS</a>
-            <a href="#enlaces" id="a"> NUESTRA HISTORIA</a>
-  <a href="#contacto" id="a"> COMENTARIOS</a>
-             <a href="iniciarsesion.php" id="a"> INICIAR SESION</a> 
-      </nav>
-            
-    </header>
+    }
+
+    /* --- BOTÓN  --- */
+    .menu label {
+      display: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    #check {
+      display: none;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .menu ul {
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        background: #444;
+        flex-direction: column;
+        text-align: center;
+        transition: left 0.3s ease;
+      }
+
+      .menu ul li {
+        margin: 15px 0;
+      }
+
+      .menu label {
+        display: block;
+      }
+
+      /* Cuando el checkbox está activo, mostramos el menú */
+      #check:checked ~ul {
+        left: 0;
+      }
+    /* Submenú en mobile */
+      .menu ul li ul {
+        position: static;
+        display: none;
+      }
+
+      .menu ul li:hover > ul {
+        display: none; /* para evitar hover en móvil */
+      }
+    }
+    /*logo*/
+img{
+    transition: all 0.5s ease;
+    animation: fadeIn 1s ease forwards;
+    
+}
+img:hover{
+    transform: scale(1.1) rotate(5deg);
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+    main {
+      padding-top: 80px;
+    }
+
+    section, h1 {
+      padding: 50px 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <img src="Imagenes/logo.png" width="150px"  height="auto";>
+
+      <!-- Botón  -->
+      <input type="checkbox" id="check">
+      <label for="check">&#9776;</label>
+
+      <!-- Enlaces -->
+      <ul>
+        <li><a href="#titulo">INICIO</a></li>
+
+        <li>
+            <a href="establecimiento.html">SOBRE NOSOTROS ▾</a>
+            <ul>
+            <li><a href="establecimiento.html">Establecimiento</a></li>
+            <li><a href="presentacionn.php#mision-vision">Vision y Mision</a></li>
+            </ul>
+        </li>
+
+       <li>
+        <a href="historia.html">NUESTRA HISTORIA ▾</a>
+        <ul>
+            <li><a href="historia.html">Historia</a></li>
+        </ul>
+       </li>
+        <li><a href="comenestilo.php">COMENTARIOS</a></li>
+         <li><a href="iniciarsesion.php">INICIO DE SESION</a></li>
+      </ul>
+    </div>
+  </nav>
+ 
 </body>
 </html>

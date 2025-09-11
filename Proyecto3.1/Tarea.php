@@ -21,7 +21,7 @@
                         $clases_profesor=$fila['Profesor'];
                         $sql2="INSERT INTO tarea (Titulo,Descripcion,Tema,Nota,Clases_ID,Clases_Profesor)VALUES('$Titulo','$Descripcion','$Tema','$Nota','$clases_ID','$clases_profesor')";
                         if($conexion->query($sql2)){
-                               header('Location:Vertarea.php?IDtarea=' . $ID . '&IDclase=' . $clases_ID);
+                               header('Location:Vertarea.php?IDtarea=' . $conexion->insert_id. '&IDclase=' . $clases_ID);
                         }else{
                                 echo"Error ". $sql . "<br>" . $conexion->connect_error;
                         }

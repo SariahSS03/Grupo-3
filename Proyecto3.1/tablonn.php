@@ -50,7 +50,7 @@
     </table>
     
     
-    <form method="post" action="../publicaciones/guaradarpubli.php" enctype="multipart/form-data">
+    <form method="post" action="../publicaciones/guaradarpubli.php" >
     <div class="form-group">
         <label>NEUVA PUBLICACION</label>
         <textarea name="contenido"></textarea>

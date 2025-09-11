@@ -20,11 +20,11 @@
             gap:10px;          
         }
         #clase2{
-            background-color: green;
+            background-color: white;
             border-radius:25px;
             border: 1px solid black;
-            width: 22%;
-            height: 300%;
+            width: 21%;
+            height: 120%;
             display:flex;
             flex-direction:column;
             justify-content:space-between;
@@ -34,23 +34,44 @@
         }
         #n{
             font-size:25px;
-            color:;
-            align-items:center;
+            color:white;
+            position: relative;
+            left:5%;
         }
         #u{
-         background:red;
+         background: rgba(61, 66, 65, 1);
+          border-top-left-radius:25px;
+          border-top-right-radius:25px;
+          height:33%;
+          
         }
         #uu{
-          background:blue;
+          background:rgba(82, 133, 123, 1);
           position:relative;
-          left:200px;
+          left:215px;
           bottom:100px;
-          width: 100px;
-          height:100px;
+          width: 80px;
+          height:83px;
           border-radius:100%;
         }
         #uuu{
-background:yellow;
+background:white;
+height:19%;
+
+position: relative;
+bottom:1%;
+border-bottom-left-radius:25px;
+border-bottom-right-radius:25px;
+border-top:1px solid black;
+display:flex;
+ flex-direction: row-reverse;
+
+
+        }
+        #t{
+          position: relative;
+          left:40%;
+          color:white;
         }
 
     </style>
@@ -96,12 +117,21 @@ background:yellow;
                     </a>  
             </div>
                     <div id="uu">
-          l
+                      <H1 id="t">c</H1>
                     </div> 
                     <div id="uuu">
-                        <a href="">1</a><a href="">2</a><a href="">3</a>
+                        <buttom>
+                            <img width="30px" height="25px" src="https://w7.pngwing.com/pngs/393/995/png-transparent-aspria-fitness-computer-icons-user-my-account-icon-miscellaneous-monochrome-black-thumbnail.png" >
+                        </butom>
+                        <buttom>
+                            <img width="35px" height="25px" src="https://cdn-icons-png.flaticon.com/512/2739/2739782.png">
+                        </butom>
+                        <buttom>
+                            <img width="35px" height="25px" src="https://w7.pngwing.com/pngs/183/20/png-transparent-three-dots-zondicons-icon-thumbnail.png">
+                        </butom>
                     </div> 
-                </div>
+            </div>
+            </div>
     <?php
             }
         }

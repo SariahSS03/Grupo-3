@@ -133,9 +133,11 @@
              align-items:center;
         }
         #z{
-              
-
-             
+            color:black;
+            font-size:18px;
+            position: relative;
+            left:7%;
+            top:18%;
         }
     </style>
 </head>

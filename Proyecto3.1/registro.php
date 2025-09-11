@@ -99,7 +99,7 @@ input {
 </head>
 <body>
     
-    <form action="basededatos.php" method="post" id="registro">
+    <form action="basededatos.php" method="post" id="registro"> // Direccionara a la carpeta "base de datos", la cual recuperar los datos del formulario
      <center> 
      <div class="regi">   
         <img src="Imagenes/logo.png">

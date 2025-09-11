@@ -22,6 +22,9 @@ $dbname="proyecto3";
  $sql="INSERT INTO Informacion  (Nombres,Apellidos,Telefono,Curso,Fechadenacimiento,Direccion,Rude,CI) VALUES('$nombres','$apellidos','$telefono','$curso','$fechadenacimiento','$direccion','$RUDE','$CI')";
  $sql2="INSERT INTO Cuenta (User,Contrasena,rol)VALUES('$CI','$RUDE','1')";
  if($conexion->query($sql)){
+
+
+    
     if($conexion->query($sql2)){
       header('Location:mostrardatos.php');
     }

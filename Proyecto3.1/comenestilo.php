@@ -10,15 +10,14 @@
 <style>
     body {
         display: grid;
-        grid-template-columns: auto  auto auto;
-        grid-template-rows: auto auto auto auto auto;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
         grid-template-areas:"menu"
                             "comentarios"
                             "final";
 
         font-family: 'Roboto', sans-serif;
         background: #e0f2ff; 
-        display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;

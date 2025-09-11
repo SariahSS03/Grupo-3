@@ -32,12 +32,14 @@
     }
 /*anuncio*/
     .areaAnuncios {
-      background-color: #646571;
+      background-color: #000d9bff;
       padding: 40px 1px;
       display: flex;
       flex-direction: column;
       align-items: center;
       grid-area: areaAnuncios;
+      
+      
     }
     .boton1 {
       margin-top: 10px;
@@ -124,6 +126,18 @@
   a{
     color:black;
   }
+
+  #materia{
+    font-size:50px;
+    color:black;
+    
+  }
+
+  #codigo{
+    background-color:red;
+    margin-bottom:500px;
+    margin-right:1300px;
+  }
   </style>
    <?php
         $direccion="localhost";
@@ -184,14 +198,20 @@
   </div>
 
   <section class="quimica">
-    <h1>Materia: <?= $nombre ?></h1>
-    <h1>Codigo :<?= $codigo ?></h1>
+    <h1 id="materia">MATERIA: <?= $nombre ?></h1>
+    
     <h1>Profesor: <?= $User ?></h1>
     <h1>Profesor: <?= $Nombreprofesor ?> <?= $Apellidoprofesor ?></h1>
   </section>
 
   <section class="areaAnuncios">
-    <div class="uno">
+
+
+
+  <div id="codigo"><h1>Codigo :<?= $codigo ?></h1></div>
+
+   
+  <div class="uno">
             <div id="dos">
               <?php
                   $User=$_SESSION['CI'];
@@ -209,7 +229,7 @@
                 <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ></textarea>
                 <input type="hidden" name="ID" value="<?=$ID?>">
                 <div id="tres">
-                  <div class="arriba">
+                  <div class="arriba" id="barraFormato" style="display: none;">
                     <button id="im" class="boton1">
                         <img  width="15px" height="15px"  src="https://w7.pngwing.com/pngs/738/167/png-transparent-bold-text-solid-icon.png">
                     </button>
@@ -284,8 +304,25 @@
         }
       }
      ?>
+     
    </div>
     </section>
+<script>
+  const textarea = document.getElementById('Anunciaalgo');
+  const barraFormato = document.getElementById('barraFormato');
 
+  textarea.addEventListener('focus', () => {
+    barraFormato.style.display = 'block';
+  });
+
+  
+  textarea.addEventListener('blur', () => {
+    setTimeout(() => {
+      if (!document.activeElement.closest('#barraFormato')) {
+        barraFormato.style.display = 'none';
+      }
+    }, 100); 
+  });
+</script>
 </body>
 </html>

@@ -16,6 +16,7 @@
       background:#D6ECFA;;
       padding: 10px 20px;
       position: relative;
+      z-index:2000;
     }
 
     .menu {

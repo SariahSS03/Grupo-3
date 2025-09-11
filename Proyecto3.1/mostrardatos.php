@@ -29,6 +29,9 @@ session_start();
       if($_SESSION['rol']==2 ){
          header('Location: inicioprofesor.php');
       }
+      if($_SESSION['rol']==3 ){
+         header('Location: Administrador.php');
+      }
    }else{
       header('Location: iniciarsesion.php');
    }

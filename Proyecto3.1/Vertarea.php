@@ -6,6 +6,7 @@
     <title>Document</title>
     <style>
     body {
+    margin: 0px;
     display: grid;
       grid-template-columns: 16% 84% ;
       grid-template-rows: auto auto auto auto auto;
@@ -13,8 +14,6 @@
                           "opciones tarea";
       font-family: 'Roboto', sans-serif;
       background: #f1f3f4;
-      margin: 0px;
-      padding: 20px;
     }
 
     .main-container {

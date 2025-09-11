@@ -1,18 +1,23 @@
-<!DOCTYPE html> 
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personas - Aula Virtual</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
     body {
+      display: grid;
+      grid-template-columns: 16% 84%;
+      grid-template-rows: auto auto ;
+      grid-template-areas:"principal principal"
+                          "opciones mostrar";
       font-family: 'Roboto', sans-serif;
       margin: 0;
       background: #f9f9f9;
       color: #333;
+    }
+    .personas{
+      grid-area:mostrar;
     }
 
     header {
@@ -117,7 +122,22 @@
     }
   </style>
 </head>
+<?php
+        $direccion="localhost";
+        $usuario="root";
+        $contrasena="";
+        $dbname="proyecto3"; 
+        
+        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+        if($conexion->error){
+            echo"Hubo un error al conectar a la base de datos";
+        }
+        ?>
 <body>
+    <?php
+    include("Administrador.php");
+    ?>
+    <section class="personas">
   <header>
     <h2>Personas</h2>
   </header>
@@ -196,5 +216,6 @@
       </div>
     </div>
   </div>
+</section>
 </body>
 </html>

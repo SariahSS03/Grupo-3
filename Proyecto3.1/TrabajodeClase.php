@@ -17,10 +17,10 @@
         }
     .Tareas{
             grid-area: Tareas;
-        }
-        .tareascreadas{
+    }
+    .tareascreadas{
             grid-area: tareascreadas;
-        }
+    }
         #Tarea1{
             background-color: #f0f0f0;
             border-bottom:solid black 5px;
@@ -46,7 +46,7 @@
 <?php
    include("inicio2.php");  
 ?>
-<div class="n">
+<div class="mn">
 <?php
     include("subprofesor.php"); 
 ?> 

@@ -256,7 +256,7 @@
                         <h2><?=$Texto?></h2>
                         <h2><?=$FechaCreacion?></h2>
                         <a href="editarpublicacion.php">Editar</a>     
-                </div>
+            </div>    
     <?php
             $nombreArchivo ="P-".$ID."-".$fila3['id'];
           $directorio = "media/";

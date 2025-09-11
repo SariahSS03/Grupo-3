@@ -55,18 +55,19 @@
           border-radius:100%;
         }
         #uuu{
-background:white;
-height:19%;
+        background:white;
+        height:19%;
 
-position: relative;
-bottom:1%;
-border-bottom-left-radius:25px;
-border-bottom-right-radius:25px;
-border-top:1px solid black;
-display:flex;
- flex-direction: row-reverse;
-
-
+        position: relative;
+        bottom:1%;
+        border-bottom-left-radius:25px;
+        border-bottom-right-radius:25px;
+        border-top:1px solid black;
+        display:flex;
+        flex-direction: row-reverse;
+        }
+        #uuu buttom{
+            margin-left:20px;
         }
         #t{
           position: relative;

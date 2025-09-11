@@ -1,27 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="es">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personas - Aula Virtual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
     body {
       display: grid;
-      grid-template-columns: auto auto ;
-      grid-template-rows: auto auto auto;
+      grid-template-columns: 16% 84%;
+      grid-template-rows: auto auto ;
       grid-template-areas:"principal principal"
                           "opciones mn"
                           "opciones tabla";
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background-color: #f8f8f8;
-      margin:0px;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
     }
-    .tablapersonas{
-      margin-top: 20px ;
+    .personas{
       grid-area:tabla;
     }
-    </style>
-    
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      position: sticky;
+      top: 0;
+    }
+
+    header h2 {
+      margin: 0;
+      font-weight: 500;
+      color: #202124;
+    }
+
+    .contenedor {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h3 {
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .tarjeta {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .caja-superior {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .lista {
+      border-top: 1px solid #eee;
+    }
+
+    .elemento {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .elemento:last-child {
+      border-bottom: none;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .informacion {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .acciones {
+      font-size: 14px;
+      color: #1a73e8;
+      cursor: pointer;
+    }
+
+    .boton-icono {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #1a73e8;
+      color: #1a73e8;
+      cursor: pointer;
+      background: #fff;
+      transition: background 0.2s;
+    }
+    .boton-icono:hover {
+      background: #f1f3f4;
+    }
+  </style>
 </head>
 <?php
         $direccion="localhost";
@@ -40,75 +143,94 @@
             header('Location: Tareasestudiante.php?ID='.$ID);
         }
         ?>
-<body>
-   <?php
-     if($_SESSION['rol']==2 ){
-           include("inicio2.php");  
-        }else{
-            if($_SESSION['rol']==1 ){
-            include("inicio1.php");
-        }
-        }
+<body>`
+  <?php
+    include("inicio2.php");  
   ?>
-  <div class="n">
+  <div class="mn">
       <?php
          include("subprofesor.php"); 
       ?>
    </div>
-      <div class="tablapersonas">
-      <center>
-         <table border="1">
-            <tr>
-               <th>Nombre</th>
-               <th>Apellidos</th>
-               <th>Direccion</th>
-               <th>Fecha de Nacimiento</th>
-               <th>Celular</th>
-               <th>Curso</th>
-               <th>RUDE</th>
-               <th>CI</th>
-               </tr>
-               <?php
-               $ID=$_GET['ID'];   
-               $sql=" SELECT * FROM clases_has_cuenta WHERE Clases_ID='$ID' ";
-               $resultado=$conexion->query($sql);
-               if($resultado -> num_rows >0){
-                  While($fila=$resultado ->fetch_assoc()){
-                     $Cuenta_User=$fila['Cuenta_User'];
-                     $sql2="SELECT*FROM Informacion WHERE CI='$Cuenta_User'";
-                     $resultado2=$conexion->query ($sql2);
-                     if ($resultado2->num_rows>0){
-                           While($fila2=$resultado2->fetch_assoc()){
-                              $Nombres=$fila2['Nombres'];
-                              $Apellidos=$fila2['Apellidos'];
-                              $Direccion=$fila2['Direccion'];
-                              $Fecha=$fila2['FechadeNacimiento'];
-                              $Celular=$fila2['Telefono'];
-                              $Curso=$fila2['Curso'];
-                              $Rude=$fila2['RUDE'];
-                              $CI=$fila2['CI'];
-                              ?>
-                                 <tr>
-                                    <td><?=$Nombres?></td><button>eliminar</button>
-                                    <td><?=$Apellidos?></td>
-                                    <td><?=$Direccion?></td>
-                                    <td><?=$Fecha?></td>
-                                    <td><?=$Celular?></td>
-                                    <td><?=$Curso?></td>
-                                    <td><?=$Rude?></td>
-                                    <td><?=$CI?></td>
-                                 </tr>
-                              
-                              </div> 
-                        <?php
-                        }
-                     }
-                  }
-               }
-               ?>
-               </table>
-               </center>
+  <section class="personas">
+  <header>
+    <h2>Personas</h2>
+  </header>
+
+  <div class="contenedor">
+    
+  
+    <div class="tarjeta">
+      <div class="caja-superior">
+        <h3>Profesores</h3> 
+        <button class="boton-icono" title="Invitar personas">
+          <span class="material-icons">person_add</span>
+        </button>
+      </div>
+
+      <div class="lista">
+        <div class="elemento">
+          <div class="informacion">
+            <div class="avatar" style="background:#34a853;">N</div>
+            <span>Nombre 1</span>
+          </div>
+          <div class="acciones">•••</div>
+        </div>
+        <div class="elemento">
+          <div class="informacion">
+            <div class="avatar" style="background:#fbbc05;">N</div>
+            <span>Nombre 2</span>
+          </div>
+          <div class="acciones">•••</div>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="tarjeta">
+      <div class="caja-superior">
+        <h3>Alumnos</h3>
+        <button class="boton-icono" title="Invitar alumnos">
+          <span class="material-icons">person_add</span>
+        </button>
+      </div>
+      
+      <div class="lista">
+        <div class="elemento">
+          <div class="informacion">
+            <input type="checkbox">
+            <div class="avatar" style="background:#4285f4;">N</div>
+            <span>Nombre 3</span>
+          </div>
+          <div class="acciones">•••</div>
+        </div>
+        <div class="elemento">
+          <div class="informacion">
+            <input type="checkbox">
+            <div class="avatar" style="background:#ea4335;">N</div>
+            <span>Nombre 4</span>
+          </div>
+          <div class="acciones">•••</div>
+        </div>
+        <div class="elemento">
+          <div class="informacion">
+            <input type="checkbox">
+            <div class="avatar" style="background:#34a853;">N</div>
+            <span>Nombre 5</span>
+          </div>
+          <div class="acciones">•••</div>
+        </div>
+        <div class="elemento">
+          <div class="informacion">
+            <input type="checkbox">
+            <div class="avatar" style="background:#fbbc05;">N</div>
+            <span>Nombre 6</span>
+          </div>
+          <div class="acciones">•••</div>
+        </div>
+      </div>
+    </div>
   </div>
-     
+</section>
 </body>
 </html>

@@ -6,7 +6,6 @@
     <title>Document</title>
     <style>
     body{
-            margin:none;
             display: grid;
             grid-template-rows:auto auto auto auto auto;
             grid-template-columns: 16% 84% ;
@@ -21,6 +20,10 @@
         }
         .tareascreadas{
             grid-area: tareascreadas;
+        }
+        #Tarea1{
+            background-color: #f0f0f0;
+            border-bottom:solid black 5px;
         }
 </style>
 </head>
@@ -45,7 +48,7 @@
 ?>
 <div class="n">
 <?php
-    include("submenudeaula.php"); 
+    include("subprofesor.php"); 
 ?> 
 </div>
 <?php
@@ -65,7 +68,7 @@
 <div class="tareascreadas">
         <?php
             $ID=$_GET['ID'];
-            $sql2="SELECT*FROM Tarea   WHERE Clases_ID='$ID'";
+            $sql2="SELECT*FROM tarea   WHERE Clases_ID='$ID'";
             $resultado2 = $conexion->query($sql2);
             if ($resultado2->num_rows>0){
                 while($fila2=$resultado2->fetch_assoc()){
@@ -77,11 +80,8 @@
         ?>
      
             <div id="Tarea1">
-                <h2><?=$Titulo?></h2>
-                <h2><?=$Descripcion?></h2>
-                <h2><?=$Tema?></h2>
-                <h2><?=$Nota?></h2>
-                <a href="editartarea.php">Editar</a>     
+                <a href="Vertarea.php?IDtarea=<?= $idTarea ?> & IDclase=<?=$ID?>"><h2><?=$Titulo?></h2></a>
+                <a href="editartarea.php?IDtarea=<?= $idTarea?>">Editar</a>     
             </div>
     <?php
             }

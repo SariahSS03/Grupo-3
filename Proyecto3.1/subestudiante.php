@@ -32,6 +32,10 @@
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
+        session_start();
+        if($_SESSION['rol']==2 ){
+            header('Location: subprofesor.php');
+        }
         ?>
 <body>
   <?php
@@ -47,8 +51,8 @@
      ?>
    <nav class="mn">
     <a href="aulaoriginal.php?ID=<?=$id_CLASE?>">ANUNCIOS</a>
-    <a href="TrabajodeClase.php?ID=<?=$id_CLASE?>">TAREAS</a>
-    <a href="personas.php?ID_=<?=$id_CLASE?>">PERSONAS</a>
+    <a href="Tareasestudiante.php?ID=<?=$id_CLASE?>">TAREAS</a>
+    <a href="Personasestudiante.php?ID=<?=$id_CLASE?>">PERSONAS</a>
   </nav> 
 </body>
 </html>

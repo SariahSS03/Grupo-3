@@ -171,10 +171,16 @@
         }
      ?>
 
-  <div class="n">
+  <div class="mn">
       <?php
-           include("submenudeaula.php"); 
-           ?> 
+      if($_SESSION['rol']==2 ){
+            include("subprofesor.php");  
+          }else{
+              if($_SESSION['rol']==1 ){
+              include("subestudiante.php");
+          }
+          }
+      ?>
   </div>
 
   <section class="quimica">

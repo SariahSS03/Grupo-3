@@ -12,7 +12,6 @@
             grid-template-rows: auto auto auto auto auto;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
-                              " opciones mn"
                                 " opciones Tareas";
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -104,10 +103,6 @@
   <?php
    include("inicio2.php");  
 ?>
-<div class="n">
-<?php
-    include("submenudeaula.php"); 
-?> 
 </div>
   <?php
         $ID=$_GET['ID'];
@@ -125,8 +120,7 @@
     <button class="submit" type="submit" form="formTarea">Crear tarea</button>
   </header>
 
-  <form id="formTarea" action="Tarea.php?ID=<?= $id_tareaclase ?>" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="ID_Tarea" value="<?= $id_tareaclase ?>">
+  <form id="formTarea" action="Tarea.php?IDclase=<?= $id_tareaclase ?>" method="post" enctype="multipart/form-data">
   <div class="container">
 
       <div class="left">

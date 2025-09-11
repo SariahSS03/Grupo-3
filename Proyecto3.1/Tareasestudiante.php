@@ -9,7 +9,7 @@
             margin:none;
             display: grid;
             grid-template-rows: auto auto auto auto auto;
-            grid-template-columns: 16% 84% ;
+            grid-template-columns: auto auto ;
             grid-template-areas: "principal principal"
                               " opciones mn"
                                 " opciones Tareas";
@@ -31,48 +31,34 @@
             echo"Hubo un error al conectar a la base de datos";
         }
         session_start();
+        $ID=$_GET['ID'];
         if($_SESSION['rol']==2 ){
-            header('Location: TrabajodeClase.php');
+            header('Location: TrabajodeClase.php?ID='.$ID);
         }
-        ?>
+?>
+
 <body>
 <?php
    include("inicio1.php");  
 ?>
-<div class="n">
+<div class="mn">
 <?php
-    include("submenudeaula.php"); 
+    include("subestudiante.php"); 
 ?> 
 </div>
 <?php
-        $ID=$_GET['id'];
-        $sql1="SELECT*FROM Clases   WHERE ID='$ID'";
+        $ID=$_GET['ID'];
+        $sql1="SELECT*FROM tarea   WHERE Clases_ID='$ID'";
         $resultado1 = $conexion->query($sql1);
         if ($resultado1->num_rows>0){
             while($fila1=$resultado1->fetch_assoc()){
-                $id=$fila1['ID'];
-            }
-        }
+                $Titulo = $fila1['Titulo'];
+                $idTarea=$fila1['idTarea'];
 ?>
-<div>
-        <?php
-        $ID=$_GET['idTarea'];
-        $sql2="SELECT*FROM Tarea   WHERE idTarea='$ID' ORDER BY FechaCreacion DESC";
-        $resultado2 = $conexion->query($sql2);
-        if ($resultado2->num_rows>0){
-            while($fila2=$resultado2->fetch_assoc()){
-                $Titulo = $fila2['Titulo'];
-                $Descripcion =$fila2['Descripcion'];
-                $Tema=$fila2['Tema'];
-                $Nota=$fila2['Nota'];
-     ?>
-     
             <div id="Tarea1">
+                <a href="VerTarea.php?IDtarea=<?=$idTarea?> & IDclase=<?=$ID?>">
                 <h2><?=$Titulo?></h2>
-                <h2><?=$Descripcion?></h2>
-                <h2><?=$Tema?></h2>
-                <h2><?=$Nota?></h2>
-                <a href="editartarea.php">Editar</a>     
+                </a>     
             </div>
     <?php
             }

@@ -205,12 +205,11 @@
                   }
               ?>
               <h3><?= $nombres?> <?= $apellidos?></h3>
-              <form action="Publicaciones.php" method="post" >
-              <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ></textarea>
-
-              <input type="hidden" name="ID" value="<?=$ID?>">
-            <div id="tres">
-                <div class="arriba">
+              <form action="Publicaciones.php" method="post" enctype="multipart/form-data">
+                <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ></textarea>
+                <input type="hidden" name="ID" value="<?=$ID?>">
+                <div id="tres">
+                  <div class="arriba">
                     <button id="im" class="boton1">
                         <img  width="15px" height="15px"  src="https://w7.pngwing.com/pngs/738/167/png-transparent-bold-text-solid-icon.png">
                     </button>
@@ -226,21 +225,18 @@
                     <button id="im" class="boton1">
                         <img width="15px" height="15px" src="https://cdn-icons-png.flaticon.com/512/7375/7375659.png">
                     </button>
-                </div>  
+                  </div>  
+                </div>
             </div>
-            </div>
-            
-                <div id="abajo">
-                              <div id="cuatro">
-                                  <button id="ima" class="boton1">
-                                      <img width="17px" height="17px" src="https://w7.pngwing.com/pngs/435/537/png-transparent-computer-icons-hyperlink-direct-link-others-miscellaneous-text-logo-thumbnail.png">
-                                  </button>
-                              </div>
-                              <div id="cinco">
-                                  <button id="a" class="boton1" >cancelar</button>
-                                  <button type="submit"  id="a" class="boton1">Publicar</button>
+                  <div id="abajo">
+                    <div id="cuatro">
+                      <input type="file" name="fileToUpload" id="fileToUpload">
+                    </div>
+                    <div id="cinco">
+                      <button id="a" class="boton1" >cancelar</button>
+                      <button type="submit"  id="a" class="boton1">Publicar</button>
                   </form>
-                              </div>
+            </div>
                 </div>
     </div>
   </section>
@@ -262,8 +258,31 @@
                         <a href="editarpublicacion.php">Editar</a>     
                 </div>
     <?php
+            $nombreArchivo ="P-".$ID."-".$fila3['id'];
+          $directorio = "media/";
+          $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
+          $archivoEncontrado = NULL;
+
+          foreach ($extensiones as  $ext){
+          $ruta = $directorio. $nombreArchivo. "." . $ext;
+            if (file_exists($ruta)){
+            $archivoEncontrado = $ruta;
+            break;
+            }
+            }
+          
+            if ($archivoEncontrado){
+            $extension = strtolower (pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
+            if (in_array($extension, ["jpg", "jpeg", "png","gif","webp"])){
+          echo "<img src='$archivoEncontrado' alt ='Archivo' width='250'>";
+      }elseif ($extension === "pdf"){
+          echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
+      }else{
+          echo "<a href='$archivoEncontrado' download> Descargar archivo </a>";
+      }
             }
         }
+      }
      ?>
    </div>
     </section>

@@ -103,23 +103,6 @@
       color: #1a73e8;
       cursor: pointer;
     }
-
-    .boton-icono {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 2px solid #1a73e8;
-      color: #1a73e8;
-      cursor: pointer;
-      background: #fff;
-      transition: background 0.2s;
-    }
-    .boton-icono:hover {
-      background: #f1f3f4;
-    }
   </style>
 </head>
 <?php
@@ -132,90 +115,108 @@
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
+        if($_SESSION['rol']==2 ){
+            header('Location: aulaoriginal.php');
+        }if($_SESSION['rol']==1 ){
+            header('Location: aulaoriginal.php');
+        }
         ?>
 <body>
     <?php
     include("Administrador.php");
     ?>
-    <section class="personas">
+    
+<section class="personas">
+   
   <header>
     <h2>Personas</h2>
   </header>
-
-  <div class="contenedor">
+    <?php
+        session_start();
+        $User=$_SESSION['CI'];
+        $sql="SELECT*FROM   Informacion   WHERE CI='$User'";
+        $resultado = $conexion->query($sql);
+        if ($resultado->num_rows>0){
+            while($fila=$resultado->fetch_assoc()){
+                $CI= $fila['CI'];
+                $Nombres=$fila['Nombres'];
+                $Apellidos=$fila['Apellidos'];
+            }
+        }
+     ?>
+     <h1>Te damos la bienvenida <?=$Nombres?> <?=$Apellidos?></h1>
     
-  
+  <div class="contenedor">
+
     <div class="tarjeta">
       <div class="caja-superior">
-        <h3>Profesores</h3> 
-        <button class="boton-icono" title="Invitar personas">
-          <span class="material-icons">person_add</span>
-        </button>
+        <h3>Usuarios</h3> 
       </div>
-
-      <div class="lista">
-        <div class="elemento">
-          <div class="informacion">
-            <div class="avatar" style="background:#34a853;">N</div>
-            <span>Nombre 1</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <div class="avatar" style="background:#fbbc05;">N</div>
-            <span>Nombre 2</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-      </div>
-    </div>
-
-   
-    <div class="tarjeta">
-      <div class="caja-superior">
-        <h3>Alumnos</h3>
-        <button class="boton-icono" title="Invitar alumnos">
-          <span class="material-icons">person_add</span>
-        </button>
-      </div>
-      
-      <div class="lista">
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#4285f4;">N</div>
-            <span>Nombre 3</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#ea4335;">N</div>
-            <span>Nombre 4</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#34a853;">N</div>
-            <span>Nombre 5</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#fbbc05;">N</div>
-            <span>Nombre 6</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <?php   
+               $sql=" SELECT * FROM Cuentas";
+               $resultado=$conexion->query($sql);
+               if($resultado -> num_rows >0){
+                  While($fila=$resultado ->fetch_assoc()){
+                     $User=$fila['User'];
+                     $Contrasena=$fila['contrasena'];
+                     $rol=$fila['rol'];
+                     $Bloqueado=$fila['Bloqueado'];
+                     $sql2="SELECT*FROM Informacion WHERE CI='$User'";
+                     $resultado2=$conexion->query ($sql2);
+                     if ($resultado2->num_rows>0){
+                           While($fila2=$resultado2->fetch_assoc()){
+                              $Nombres=$fila2['Nombres'];
+                              $Apellidos=$fila2['Apellidos'];
+                              ?>
+                               <div class="lista">
+                                  <div class="elemento">
+                                    <div class="informacion">
+                                      <div class="avatar" style="background:#34a853;">N</div>
+                                      <h3><?=$Nombres?> <?=$Apellidos?></h3>
+                                    </div>
+                                    <div class="acciones">
+                                    <?php
+                                      if($rol['rol']==2 ){
+                                    ?>
+                                      <a href="HacerEstudiante.php?CI=<?=$User?>">
+                                          Hacer Estudiante
+                                      </a>
+                                    <?php
+                                      }if($rol['rol']==1 ){
+                                    ?>
+                                      <a href="HacerProfesor.php?CI=<?=$User?>">
+                                          Hacer Profesor
+                                      </a>
+                                    <?php
+                                      }
+                                    ?>
+                                    <?php
+                                      if($Bloqueado['Bloqueado']=="Bloqueado" ){
+                                    ?>
+                                      <a href="Desbloquear.php?CI=<?=$User?>">
+                                          Desbloquear
+                                      </a>
+                                    <?php
+                                      }
+                                    ?>
+                                    <?php
+                                      if($Bloqueado['Bloqueado']!="Bloqueado" ){
+                                    ?>
+                                      <a href="Bloquear.php?CI=<?=$User?>">
+                                          Bloquear
+                                      </a>
+                                    <?php
+                                      }
+                                    ?>
+                                    </div>
+                                  </div>
+                              </div>   
+                        <?php
+                        }
+                     }
+                  }
+               }
+               ?>
 </section>
 </body>
 </html>

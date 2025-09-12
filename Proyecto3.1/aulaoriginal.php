@@ -156,6 +156,54 @@ session_start();
 #publicacion1{
   color:white;
 }
+
+@media screen and (max-width: 768px) {
+  .body {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "principal"
+      "mn"
+      "quimica"
+      "areaAnuncios"
+      "areaPublicaciones";
+  }
+
+ 
+ 
+
+  #materia {
+    font-size: 24px;
+    text-align: center;
+  }
+
+
+  .uno {
+    width: 95%;
+    padding: 15px;
+  }
+
+  #Anunciaalgo {
+    font-size: 14px;
+    min-height: 60px;
+  }
+
+
+
+  #codigo {
+    width: 90%;
+    margin: 15px auto;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+ .areaAnuncios, .areaPublicaciones {
+    padding: 10px;
+  }
+}
+
+
  
   </style>
    <?php

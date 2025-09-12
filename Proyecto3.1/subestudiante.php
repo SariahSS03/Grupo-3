@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +29,10 @@
         $usuario="root";
         $contrasena="";
         $dbname="proyecto3"; 
-        
-        
         $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
-        session_start();
         if($_SESSION['rol']==2 ){
             header('Location: subprofesor.php');
         }

@@ -1,9 +1,15 @@
- <!DOCTYPE html>
+<?php 
+session_start();
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <style>
     .body {
       display: grid;
@@ -15,14 +21,14 @@
                           "opciones areaAnuncios"
                           "opciones areaPublicaciones";
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background-color: #f8f8f8;
+      background-color: #94a5bdff;
       margin:0px;
     }
     .quimica {
-      background-color: #c6c6c6;
+      background-color: #a09e9eff;
       text-align: center;
       padding: 30px 10px;
-      color: #585c695e;
+      color: #ffeefc5e;
       grid-area: quimica;
     }
 
@@ -32,13 +38,12 @@
     }
 /*anuncio*/
     .areaAnuncios {
-      background-color: #000d9bff;
-      padding: 40px 1px;
+      background-color: #0c394eff;
+      padding: 10px 1px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      grid-area: areaAnuncios;
-      
+      grid-area: areaAnuncios;    
       
     }
     .boton1 {
@@ -58,7 +63,7 @@
     }
     .areaPublicaciones{
       grid-area: areaPublicaciones;
-      background-color: blue;
+      background-color: rgba(18, 33, 71, 1) ;
     }
     .uno{
             padding: 30px;
@@ -134,18 +139,30 @@
   }
 
   #codigo{
-    background-color:red;
-    margin-bottom:500px;
-    margin-right:1300px;
+
+    width:200px;
+    font-family:"Tinos", serif;
+    font-size:15px;
+   margin-right:1300px;
+    grid-area:codigo;
+    height:170px;
+    position: absolute; 
+  bottom:800px;
+  top:520px;
+  border-radius: 10px;
+  background-color: #8fa3c2ff;
   }
+  
+#publicacion1{
+  color:white;
+}
+ 
   </style>
    <?php
         $direccion="localhost";
         $usuario="root";
         $contrasena="";
         $dbname="proyecto3"; 
-        session_start();
-        
         $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
@@ -200,7 +217,7 @@
   <section class="quimica">
     <h1 id="materia">MATERIA: <?= $nombre ?></h1>
     
-    <h1>Profesor: <?= $User ?></h1>
+    <h1>Usuario: <?= $User ?></h1>
     <h1>Profesor: <?= $Nombreprofesor ?> <?= $Apellidoprofesor ?></h1>
   </section>
 
@@ -208,7 +225,7 @@
 
 
 
-  <div id="codigo"><h1>Codigo :<?= $codigo ?></h1></div>
+  <div id="codigo"><h1>Código de la clase:<?= $codigo ?></h1></div>
 
    
   <div class="uno">
@@ -253,7 +270,7 @@
                       <input type="file" name="fileToUpload" id="fileToUpload">
                     </div>
                     <div id="cinco">
-                      <button id="a" class="boton1" >cancelar</button>
+                      <button id="a" class="boton1" >Cancelar</button>
                       <button type="submit"  id="a" class="boton1">Publicar</button>
                   </form>
             </div>
@@ -272,7 +289,7 @@
                        $Texto= $fila3['Texto'];
                        $FechaCreacion= $fila3['FechaCreacion'];
     ?>
-                <div id="publicacion.1">
+                <div id="publicacion1">
                         <h2><?=$Texto?></h2>
                         <h2><?=$FechaCreacion?></h2>
                         <a href="editarpublicacion.php">Editar</a>     

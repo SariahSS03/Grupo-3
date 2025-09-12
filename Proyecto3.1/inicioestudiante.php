@@ -11,13 +11,18 @@
             grid-template-rows: auto auto auto auto auto;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
+                                 "opciones clases"
                                  "opciones clases";
         margin:0px;                       
         }
         .clases{
             background-color: rgb(240, 243, 242);
             grid-area: clases;  
-            gap:10px;          
+            gap:10px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+
         }
         #clase2{
             background-color: white;
@@ -67,6 +72,7 @@
         flex-direction: row-reverse;
         }
         #uuu buttom{
+            margin-top:20px;
             margin-left:20px;
         }
         #t{
@@ -74,7 +80,9 @@
           left:40%;
           color:white;
         }
-
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>

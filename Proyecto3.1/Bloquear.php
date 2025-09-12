@@ -8,9 +8,9 @@
             echo"Hubo un error al conectar a la base de datos";
         }
         $CI = $_GET['CI'];
-        $sql="UPDATE Cuenta SET Bloquear='Bloqueado' WHERE User='$CI'";
+        $sql="UPDATE Cuenta SET Bloqueado='Bloqueado' WHERE User='$CI'";
         if(mysqli_query($conexion,$sql)) {
-            header("Location: Usuarios.php")
+            header("Location: Usuarios.php");
         }
 
 ?>

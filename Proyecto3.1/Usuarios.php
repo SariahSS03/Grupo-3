@@ -1,3 +1,8 @@
+<?php        session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,7 +137,6 @@
     <h2>Personas</h2>
   </header>
     <?php
-        session_start();
         $User=$_SESSION['CI'];
         $sql="SELECT*FROM   Informacion   WHERE CI='$User'";
         $resultado = $conexion->query($sql);
@@ -153,12 +157,12 @@
         <h3>Usuarios</h3> 
       </div>
         <?php   
-               $sql=" SELECT * FROM Cuentas";
+               $sql=" SELECT * FROM cuenta";
                $resultado=$conexion->query($sql);
                if($resultado -> num_rows >0){
                   While($fila=$resultado ->fetch_assoc()){
                      $User=$fila['User'];
-                     $Contrasena=$fila['contrasena'];
+                     $Contrasena=$fila['Contrasena'];
                      $rol=$fila['rol'];
                      $Bloqueado=$fila['Bloqueado'];
                      $sql2="SELECT*FROM Informacion WHERE CI='$User'";
@@ -175,14 +179,15 @@
                                       <h3><?=$Nombres?> <?=$Apellidos?></h3>
                                     </div>
                                     <div class="acciones">
+
                                     <?php
-                                      if($rol['rol']==2 ){
-                                    ?>
+                                      if($fila['rol']==2 ){
+                                    ?> 
                                       <a href="HacerEstudiante.php?CI=<?=$User?>">
                                           Hacer Estudiante
                                       </a>
                                     <?php
-                                      }if($rol['rol']==1 ){
+                                      }if($fila['rol']==1 ){
                                     ?>
                                       <a href="HacerProfesor.php?CI=<?=$User?>">
                                           Hacer Profesor
@@ -191,7 +196,7 @@
                                       }
                                     ?>
                                     <?php
-                                      if($Bloqueado['Bloqueado']=="Bloqueado" ){
+                                      if($Bloqueado=="Bloqueado" ){
                                     ?>
                                       <a href="Desbloquear.php?CI=<?=$User?>">
                                           Desbloquear
@@ -200,7 +205,7 @@
                                       }
                                     ?>
                                     <?php
-                                      if($Bloqueado['Bloqueado']!="Bloqueado" ){
+                                      if($Bloqueado!="Bloqueado" ){
                                     ?>
                                       <a href="Bloquear.php?CI=<?=$User?>">
                                           Bloquear

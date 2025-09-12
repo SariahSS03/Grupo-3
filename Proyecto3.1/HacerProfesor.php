@@ -10,7 +10,7 @@
         $CI = $_GET['CI'];
         $sql="UPDATE Cuenta SET rol=2 WHERE User='$CI'";
         if(mysqli_query($conexion,$sql)) {
-            header("Location: Usuarios.php")
+            header("Location: Usuarios.php");
         }
 
 ?>

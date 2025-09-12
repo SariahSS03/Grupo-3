@@ -157,7 +157,6 @@
         $usuario="root";
         $contrasena="";
         $dbname="proyecto3"; 
-        session_start();
         $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";

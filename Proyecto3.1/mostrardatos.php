@@ -23,7 +23,11 @@ session_start();
       $_SESSION['CI']=$fila['User'];
       $_SESSION['Rude']=$fila['contrasena'];
       $_SESSION['rol']=$fila['rol'];
-      if($_SESSION['rol']==1 ){
+      $_SESSION['Bloqueado']=$fila['Bloqueado'];
+      if($_SESSION['Bloqueado']=='Bloqueado' ){
+         header('Location: iniciarsesion.php');
+      }else{
+        if($_SESSION['rol']==1 ){
          header('Location: inicioestudiante.php');
       }
       if($_SESSION['rol']==2 ){
@@ -34,7 +38,9 @@ session_start();
       }
    }else{
       header('Location: iniciarsesion.php');
-   }
+   } 
+      }
+      
    ?>
 </body>
 </html>

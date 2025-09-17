@@ -115,9 +115,9 @@
             </div>
             <div>
             <strong>Sobre Nosotros</strong><br>
-            <a href="presentacion.php#Acerca de Nosotros"> Nuestra Historia</a><br>
-            <a href="presentacion.php#misions">Nuestra Misión</a><br>
-            <a href ="presentacion.php#misions">Nuestra Visión</a> 
+            <a href="historia.php"> Nuestra Historia</a><br>
+            <a href="Presentacion.php#misions">Nuestra Misión Y Vision</a><br>
+         
             </div>
       </div>
 

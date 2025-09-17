@@ -323,10 +323,6 @@ p{
      margin: bottom 500px;
 }
 
-#i2{
-  width: 250px;
-  height: 176px;
-}
 .img2{
   opacity: 50%;
 }
@@ -430,7 +426,7 @@ p{
       
       <div class="Admisiones">
       <a href="planteldocente.php" id="uno">
-            <center><img id="i2" src="Imagenes/doc3.png" width="150px"  height="150px";><br>
+            <center><img id="i" src="Imagenes/plantel11.png" width="190px"  height="150px";><br>
             <strong>PLANTEL DOCENTE</strong></center>
       </a>
       <a href="horarios.php" id="dos">
@@ -445,7 +441,7 @@ p{
     </div>
       </div>
     <div id="nosotros">
-      <div id="texto"><h2 class="acerca">Acerca de Nosotros</h2>
+      <div id="texto"><h2 class="acerca">ACERCA DE NOSOTROS</h2>
       <p >La Unidad Educativa “Federico Aguiló” es una institución educativa ubicada en el centro de la ciudad, que brinda formación integral a estudiantes de origen diverso, en su mayoría hijos de comerciantes,migrantes de distintas regiones del país. Nuestra comunidad educativa se caracteriza por su riqueza cultural y su compromiso con la superación personal y colectiva.
 
 Trabajamos bajo los principios del Modelo Educativo Sociocomunitario Productivo, promovido por la Ley Avelino Siñani y Elizardo Pérez, enfocándonos en una educación inclusiva, intercultural y descolonizadora que valora los saberes ancestrales, el pensamiento crítico y el desarrollo integral de nuestros estudiantes.

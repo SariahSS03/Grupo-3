@@ -48,7 +48,7 @@
         transform: scale(1.1);
 
     }
-    /* Animaciones */
+   
     .desde-izquierda {
       animation: entrarIzquierda 1s ease forwards;
       
@@ -72,48 +72,58 @@
     
     @media (max-width: 768px) {
   .galeria {
-    grid-template-columns: 1fr; /* 1 columna en tablets y móviles */
+    grid-template-columns: 1fr;
     margin-top: 50px;
     gap: 10px;
   }
 
   .galeria img {
-    width: 90%; /* imágenes más pequeñas en móviles */
+    width: 90%; 
   }
 
   h1 {
-    font-size: 1.5rem; /* título más pequeño en móviles */
+    font-size: 1.5rem; 
   }
 }
 
   </style>
 </head>
 <body>
+   <header>
+      <?php
+      include('menu.php');
+      ?>
+    </header>
   <img src="home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
 
   <div class="galeria">
     <!-- Alternamos izquierda y derecha -->
     <img src="Imagenes/ima1.jpeg" class="desde-izquierda" alt="img1">
-    <img src="ima2.jpeg" class="desde-derecha" alt="img2">
-    <img src="ima3.jpeg" class="desde-izquierda" alt="img3">
-    <img src="ima4.jpeg" class="desde-derecha" alt="img4">
-    <img src="ima5.jpeg" class="desde-izquierda" alt="img5">
-    <img src="ima6.jpeg" class="desde-derecha" alt="img6">
-    <img src="ima7.jpeg" class="desde-izquierda" alt="img7">
-    <img src="ima8.jpeg" class="desde-derecha" alt="img8">
-    <img src="ima9.jpeg" class="desde-izquierda" alt="img9">
-    <img src="ima10.jpeg" class="desde-derecha" alt="img10">
-    <img src="ima11.jpeg" class="desde-izquierda" alt="img11">
-    <img src="ima12.jpeg" class="desde-derecha" alt="img12">
-    <img src="ima13.jpeg" class="desde-izquierda" alt="img13">
-    <img src="ima14.jpeg" class="desde-derecha" alt="img14">
-    <img src="ima15.jpeg" class="desde-izquierda" alt="img15">
-    <img src="ima16.jpeg" class="desde-derecha" alt="img16">
-    <img src="ima17.jpeg" class="desde-izquierda" alt="img17">
-    <img src="ima18.jpeg" class="desde-derecha" alt="img18">
-    <img src="ima19.jpeg" class="desde-izquierda" alt="img19">
-    <img src="ima20.jpeg" class="desde-derecha" alt="img20">
+    <img src="Imagenes/ima2.jpeg" class="desde-derecha" alt="img2">
+    <img src="Imagenes/ima3.jpeg" class="desde-izquierda" alt="img3">
+    <img src="Imagenes/ima4.jpeg" class="desde-derecha" alt="img4">
+    <img src="Imagenes/ima5.jpeg" class="desde-izquierda" alt="img5">
+    <img src="Imagenes/ima6.jpeg" class="desde-derecha" alt="img6">
+    <img src="Imagenes/ima7.jpeg" class="desde-izquierda" alt="img7">
+    <img src="Imagenes/ima8.jpeg" class="desde-derecha" alt="img8">
+    <img src="Imagenes/ima9.jpeg" class="desde-izquierda" alt="img9">
+    <img src="Imagenes/ima10.jpeg" class="desde-derecha" alt="img10">
+    <img src="Imagenes/ima11.jpeg" class="desde-izquierda" alt="img11">
+    <img src="Imagenes/ima12.jpeg" class="desde-derecha" alt="img12">
+    <img src="Imagenes/ima13.jpeg" class="desde-izquierda" alt="img13">
+    <img src="Imagenes/ima14.jpeg" class="desde-derecha" alt="img14">
+    <img src="Imagenes/ima15.jpeg" class="desde-izquierda" alt="img15">
+    <img src="Imagenes/ima16.jpeg" class="desde-derecha" alt="img16">
+    <img src="Imagenes/ima17.jpeg" class="desde-izquierda" alt="img17">
+    <img src="Imagenes/ima18.jpeg" class="desde-derecha" alt="img18">
+    <img src="Imagenes/ima19.jpeg" class="desde-izquierda" alt="img19">
+    <img src="Imagenes/ima20.jpeg" class="desde-derecha" alt="img20">
   </div>
+  <header>
+      <?php
+      include("menu2.php");
+      ?>
+    </header>
 </body>
 </html>
 

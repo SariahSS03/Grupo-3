@@ -178,10 +178,10 @@
         <li><a href="#titulo">INICIO</a></li>
 
         <li>
-            <a href="establecimiento.html">SOBRE NOSOTROS ▾</a>
+            <a href="establecimiento.php">SOBRE NOSOTROS ▾</a>
             <ul>
-            <li><a href="establecimiento.html">Establecimiento</a></li>
-            <li><a href="presentacionn.php#mision-vision">Vision y Mision</a></li>
+            <li><a href="establecimiento.php">Establecimiento</a></li>
+            <li><a href="Presentacionn.php#mision-vision">Vision y Mision</a></li>
             </ul>
         </li>
 

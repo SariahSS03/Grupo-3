@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,9 +139,6 @@ session_start();
             left:7%;
             top:18%;
         }
-
-
-        
     </style>
 </head>
 <body>
@@ -169,7 +163,7 @@ session_start();
              <img  width="44px" height="35px" src="Imagenes/cuatro.png">
             </button>
             <button onclick="window.location.href='unirseaclase.php'" class="boton">
-          <img  width="33px" height="35px" src="Imagenes/tres.png">
+            <img  width="33px" height="35px" src="Imagenes/tres.png">
             </button>
         </div>
 
@@ -194,17 +188,20 @@ session_start();
                         $Clases_ID= $fila['Clases_ID'];
                         $sql2= "SELECT*FROM  Clases WHERE ID='$Clases_ID'";
                         $resultado2= $conexion->query($sql2);
-                        $Clase=$resultado2->fetch_Assoc();
-                        
+                        if ($resultado2->num_rows>0){
+                            while($fila2=$resultado2->fetch_assoc()){
+                                $nombre= $fila2['Nombre'];
             ?>
                         <div id="clase4">
                             <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
-                                <h2 id="z"><?=$Clase['Nombre']?></h2>
+                                <h2 id="z"><?=$nombre?></h2>
                             </a>    
                         </div>
             <?php
                     }
                 }
+            }
+        }
             ?>
         </div>
         <button id="imagen3" onclick="window.location.href='informacion.php'">

@@ -1,3 +1,18 @@
+<?php
+  session_start();
+  $direccion="localhost";
+    $usuario="root";
+    $contrasena="";
+    $dbname="proyecto3"; 
+    
+    $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+    if($conexion->error){
+        echo"Hubo un error al conectar a la base de datos";
+    }
+    if($_SESSION['rol']==1 ){
+        header('Location: inicioestudiante.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,6 +136,15 @@
 
 </style>
 <body>
+    <?php
+      if($_SESSION['rol']==2 ){
+            include("inicio2.php");  
+          }else{
+              if($_SESSION['rol']==1 ){
+              include("inicio1.php");
+          }
+          }
+    ?>
     <center>
     <form action="ingresoaula.php" method="post" id="form">
         <div id="Cero">
@@ -149,7 +173,7 @@
         </div>
     </form>
     </div>
-</center>
+    </center>
 
 <script>
     $("#form").validate({

@@ -8,10 +8,10 @@
         session_start();
         $nombre = $_POST['Nombre'];
         $codigo =$_POST['Codigo'];
+        $color=$_POST['color'];
         $profesor=$_SESSION['CI'];
-        $sql="INSERT INTO Clases (Nombre,Codigo,Profesor)VALUES('$nombre','$codigo','$profesor')";
+        $sql="INSERT INTO Clases (Nombre,Codigo,Profesor,Color)VALUES('$nombre','$codigo','$profesor','$color')";
         if($conexion->query($sql)===TRUE){
-        
                 header('Location:aulaoriginal.php?ID='.$conexion->insert_id);
         }else{
         echo"Error ". $sql . "<br>" . $conexion->connect_error;

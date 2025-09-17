@@ -1,3 +1,18 @@
+<?php
+  session_start();
+  $direccion="localhost";
+    $usuario="root";
+    $contrasena="";
+    $dbname="proyecto3"; 
+    
+    $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+    if($conexion->error){
+        echo"Hubo un error al conectar a la base de datos";
+    }
+    if($_SESSION['rol']==1 ){
+        header('Location: inicioestudiante.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +27,9 @@
 
 </head>
 <style>
-
+body{
+    margin:0px;
+}
 #uno{
     width: 600px;
     height:400px;
@@ -65,6 +82,9 @@
 
 </style>
 <body>
+    <?php
+    include("inicio2.php");
+    ?>
     <center>
     <div id="uno">
     <form action="clases.php" method="post" id="crear">
@@ -73,6 +93,8 @@
         <input type="text" name="Nombre" placeholder="Ingresa el nombre del aula"><br>
         <label for="">Codigo</label><br>
         <input type="password" name="Codigo" placeholder="Crea el codigo"><br>
+        <label for="">Elige un color:</label><br>
+        <input type="color" name="color">
         <input type="submit" id="Boton" value="Crear clase" >
         <button  onclick="window.location.href='unirseaclase.php'" id="Boton">Unirse a Clase</button>
     </form>

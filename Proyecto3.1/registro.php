@@ -99,7 +99,7 @@ input {
 </head>
 <body>
     
-    <form action="basededatos.php" method="post" id="registro"> // Direccionara a la carpeta "base de datos", la cual recuperar los datos del formulario
+    <form action="basededatos.php" method="post" id="registro"> <!--Direccionara a la carpeta "base de datos", la cual recuperar los datos del formulario-->
      <center> 
      <div class="regi">   
         <img src="Imagenes/logo.png">
@@ -129,8 +129,9 @@ input {
        <label for="" >C.I</label><br>
        <input type="text" name="CI" id="" placeholder="Ingresa tu celula de identidad"><br>
      
-       <input type="submit" id="Boton" value="Iniciar Sesion" ></center> 
+       <input type="submit" id="Boton" value="Iniciar Sesion" >
    </div>
+    </center> 
  </form>
 
 

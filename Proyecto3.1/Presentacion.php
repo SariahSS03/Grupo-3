@@ -19,7 +19,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <style>
 body{
-      margin: 0%;
+      margin: 0px;
       
 }
       
@@ -52,13 +52,9 @@ body{
       font-family:"Unna", serif;
       height: 250px;
       width: 100%;
-      
-      
-      
 }
 #i{
       margin-top:10px;
-     
 }
 #uno{
       background-color:#C8D9E6;
@@ -107,8 +103,6 @@ body{
       display: flex;
       margin-top: 150px;
       opacity: 100%;
-      
-      
 }
 
 .acerca{
@@ -119,8 +113,7 @@ body{
 p{
       font-family:"Funnel Sans", sans-serif;
       font-size: 18px;
-      color: white
-       ;
+      color: white;
 }
 #texto{
       margin-left:180px;
@@ -135,7 +128,7 @@ p{
       margin-bottom: 50px;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 #imgtexto1:hover{
       transform: scale(2.3s);
@@ -163,22 +156,14 @@ p{
      cursor: pointer;
     transition: transform 0.2s ease;
 }
-
-
 #facebook:hover {
       background-color:rgba(33, 148, 255, 0.56);
       transform: scale(1.1);
     }
-
-    
-    
     #class{
       display: flex;
       gap: 20px;
       justify-content: space-between;
-      margin-right:px;
-     
-      
     }
     #texto2{
       font-family:"Funnel Sans", sans-serif ;
@@ -192,11 +177,7 @@ p{
       box-shadow:10px 10px 20px rgba(0, 0, 0, 0.3); 
       transition: transform 0.5s ease;
       width: 500px;
-      height: 350px;
-      margin-left:50px;
-     
-   
-      
+      height: auto;
     }
     #c:hover{
       transform: scale (1.1);
@@ -298,9 +279,6 @@ p{
       font-size: 50px;
       margin-right: 500px;
 }
-/*#c{
-      width: 100%;
-}*/
 .misions{
       width: 100%;
       margin-right: 50ox;
@@ -348,6 +326,9 @@ p{
 #i2{
   width: 250px;
   height: 176px;
+}
+.img2{
+  opacity: 50%;
 }
 @media (max-width: 600px) {
 
@@ -449,7 +430,7 @@ p{
       
       <div class="Admisiones">
       <a href="planteldocente.php" id="uno">
-            <center><img id="i2" src="Imagenes/plantel2.png" width="150px"  height="150px";><br>
+            <center><img id="i2" src="Imagenes/doc3.png" width="150px"  height="150px";><br>
             <strong>PLANTEL DOCENTE</strong></center>
       </a>
       <a href="horarios.php" id="dos">

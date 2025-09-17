@@ -125,6 +125,8 @@ CREATE TABLE IF NOT EXISTS `proyecto3`.`Tarea` (
   `Nota` INT NULL,
   `Clases_ID` INT NOT NULL,
   `Clases_Profesor` INT NOT NULL,
+  `Fechadeentrega` DATETIME NULL,
+  `Rubrica` VARCHAR(45) NULL,
   PRIMARY KEY (`idTarea`, `Clases_ID`, `Clases_Profesor`),
   INDEX `fk_Tarea_Clases1_idx` (`Clases_ID` ASC, `Clases_Profesor` ASC),
   CONSTRAINT `fk_Tarea_Clases1`

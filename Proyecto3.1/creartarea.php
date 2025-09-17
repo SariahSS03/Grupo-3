@@ -140,28 +140,12 @@
 
     
       <div class="right">
-        <label for="para">Para</label>
-        <input type="text" id="para" name="para" placeholder="Curso o grupo">
-
-        <label for="asignar">Asignar a</label>
-        <select id="asignar" name="asignar">
-          <option value="todos">OPCION 1</option>
-          <option value="individual">OPCION 2</option>
-        </select>
 
         <label for="puntos">Puntos</label>
         <input type="number" id="puntos" name="Nota" value="100">
 
         <label for="fecha">Fecha de entrega</label>
         <input type="date" id="fecha" name="FechadeEntrega">
-
-        <label for="tema">Tema</label>
-        <select id="tema" name="Tema">
-          <option value="ninguno">Tema 1</option>
-          <option value="matematicas">Tema 2</option>
-          <option value="lengua">Tema 3</option>
-          <option value="ciencias">Tema 3</option>
-        </select>
 
         <label for="rubrica">Rúbrica</label>
         <input type="text" id="rubrica" name="rubrica" placeholder="Enlace o descripción">

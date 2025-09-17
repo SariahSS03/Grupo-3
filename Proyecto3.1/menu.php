@@ -7,7 +7,7 @@
   <style>
     body {
       grid-area:menu;
-      margin: 0;
+      margin: 0px;
       font-family: Arial, sans-serif;
     }
 
@@ -142,12 +142,12 @@
       }
     }
     /*logo*/
-img{
+.img{
     transition: all 0.5s ease;
     animation: fadeIn 1s ease forwards;
     
 }
-img:hover{
+.img:hover{
     transform: scale(1.1) rotate(5deg);
 }
 @keyframes fadeIn {
@@ -167,7 +167,7 @@ img:hover{
 <body>
   <nav>
     <div class="menu">
-      <img src="Imagenes/logo.png" width="150px"  height="auto";>
+      <img class="img" src="Imagenes/logo.png" width="150px"  height="auto";>
 
       <!-- Botón  -->
       <input type="checkbox" id="check">

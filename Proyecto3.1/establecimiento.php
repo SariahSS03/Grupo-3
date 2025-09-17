@@ -48,11 +48,7 @@
         transform: scale(1.1);
 
     }
-<<<<<<< Updated upstream
    
-=======
- 
->>>>>>> Stashed changes
     .desde-izquierda {
       animation: entrarIzquierda 1s ease forwards;
       

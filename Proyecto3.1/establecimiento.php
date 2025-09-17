@@ -48,7 +48,11 @@
         transform: scale(1.1);
 
     }
+<<<<<<< Updated upstream
    
+=======
+ 
+>>>>>>> Stashed changes
     .desde-izquierda {
       animation: entrarIzquierda 1s ease forwards;
       
@@ -89,12 +93,20 @@
   </style>
 </head>
 <body>
+<<<<<<< Updated upstream
    <header>
+=======
+    <header>
+>>>>>>> Stashed changes
       <?php
       include('menu.php');
       ?>
     </header>
+<<<<<<< Updated upstream
   <img src="home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
+=======
+  <img src="Imagenes/home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
+>>>>>>> Stashed changes
 
   <div class="galeria">
     <!-- Alternamos izquierda y derecha -->
@@ -119,11 +131,19 @@
     <img src="Imagenes/ima19.jpeg" class="desde-izquierda" alt="img19">
     <img src="Imagenes/ima20.jpeg" class="desde-derecha" alt="img20">
   </div>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   <header>
       <?php
       include("menu2.php");
       ?>
     </header>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 </body>
 </html>
 

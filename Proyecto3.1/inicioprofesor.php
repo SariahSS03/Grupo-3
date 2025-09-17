@@ -1,3 +1,18 @@
+<?php
+  session_start();
+  $direccion="localhost";
+    $usuario="root";
+    $contrasena="";
+    $dbname="proyecto3"; 
+    
+    $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+    if($conexion->error){
+        echo"Hubo un error al conectar a la base de datos";
+    }
+    if($_SESSION['rol']==1 ){
+        header('Location: inicioestudiante.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,16 +67,16 @@
           border-radius:100%;
         }
         #ooo{
-background:white;
-height:19%;
+      background:white;
+      height:19%;
 
-position: relative;
-bottom:1%;
-border-bottom-left-radius:25px;
-border-bottom-right-radius:25px;
-border-top:1px solid black;
-display:flex;
- flex-direction: row-reverse;
+      position: relative;
+      bottom:1%;
+      border-bottom-left-radius:25px;
+      border-bottom-right-radius:25px;
+      border-top:1px solid black;
+      display:flex;
+      flex-direction: row-reverse;
 
 
         }
@@ -75,19 +90,7 @@ display:flex;
 </head>
 <body>
       <?php
-        $direccion="localhost";
-        $usuario="root";
-        $contrasena="";
-        $dbname="proyecto3"; 
         
-        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
-        if($conexion->error){
-            echo"Hubo un error al conectar a la base de datos";
-        }
-        session_start();
-        if($_SESSION['rol']==1 ){
-            header('Location: inicioestudiante.php');
-        }
         ?>
     <?php
     include("inicio2.php");
@@ -111,9 +114,9 @@ display:flex;
                     </a> 
             </div>     
                     <div id="o">
-                    <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
+                    <a href="aulaoriginal.php?ID=<?=$id?>">
                         
-                        <h2 id="b"><?=$Clase['Nombre']?></h2>
+                        <h2 id="b"><?=$fila['Nombre']?></h2>
                     
                     </a>  
             </div>

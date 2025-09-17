@@ -7,7 +7,7 @@
 </head>
 <body>
    <?php 
-session_start();
+   session_start();
    $CI=$_POST['CI'];
    $Rude=$_POST['Rude'];
 
@@ -26,20 +26,21 @@ session_start();
       $_SESSION['Bloqueado']=$fila['Bloqueado'];
       if($_SESSION['Bloqueado']=='Bloqueado' ){
          header('Location: iniciarsesion.php');
-      }else{
+        }else{
         if($_SESSION['rol']==1 ){
          header('Location: inicioestudiante.php');
+         }
+         if($_SESSION['rol']==2 ){
+            header('Location: inicioprofesor.php');
+         }
+         if($_SESSION['rol']==3 ){
+            header('Location: Administrador.php');
+         }
       }
-      if($_SESSION['rol']==2 ){
-         header('Location: inicioprofesor.php');
-      }
-      if($_SESSION['rol']==3 ){
-         header('Location: Administrador.php');
-      }
-   }else{
-      header('Location: iniciarsesion.php');
-   } 
-      }
+      }   else{
+            header('Location: iniciarsesion.php');
+         } 
+      
       
    ?>
 </body>

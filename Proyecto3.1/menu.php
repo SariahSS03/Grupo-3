@@ -178,10 +178,20 @@
         <li><a href="#titulo">INICIO</a></li>
 
         <li>
-            <a href="establecimiento.html">SOBRE NOSOTROS ▾</a>
+            <a href="establecimiento.php">SOBRE NOSOTROS ▾</a>
             <ul>
-            <li><a href="establecimiento.html">Establecimiento</a></li>
+            <li><a href="establecimiento.php">Establecimiento</a></li>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+            <li><a href="Presentacionn.php#mision-vision">Vision y Mision</a></li>
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             <li><a href="presentacionn.php#mision-vision">Vision y Mision</a></li>
+>>>>>>> Stashed changes
             </ul>
         </li>
 

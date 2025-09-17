@@ -181,7 +181,11 @@
             <a href="establecimiento.php">SOBRE NOSOTROS ▾</a>
             <ul>
             <li><a href="establecimiento.php">Establecimiento</a></li>
+<<<<<<< Updated upstream
             <li><a href="Presentacionn.php#mision-vision">Vision y Mision</a></li>
+=======
+            <li><a href="presentacionn.php#mision-vision">Vision y Mision</a></li>
+>>>>>>> Stashed changes
             </ul>
         </li>
 

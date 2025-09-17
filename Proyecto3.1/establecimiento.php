@@ -49,7 +49,11 @@
 
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
    
+=======
+ 
+>>>>>>> Stashed changes
 =======
  
 >>>>>>> Stashed changes
@@ -94,7 +98,11 @@
 </head>
 <body>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
    <header>
+=======
+    <header>
+>>>>>>> Stashed changes
 =======
     <header>
 >>>>>>> Stashed changes
@@ -103,7 +111,11 @@
       ?>
     </header>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <img src="home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
+=======
+  <img src="Imagenes/home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
+>>>>>>> Stashed changes
 =======
   <img src="Imagenes/home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
 >>>>>>> Stashed changes
@@ -132,6 +144,10 @@
     <img src="Imagenes/ima20.jpeg" class="desde-derecha" alt="img20">
   </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -141,6 +157,10 @@
       ?>
     </header>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes

@@ -180,29 +180,20 @@
         <li>
             <a href="establecimiento.php">SOBRE NOSOTROS ▾</a>
             <ul>
-            <li><a href="establecimiento.php">Establecimiento</a></li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            <li><a href="Presentacionn.php#mision-vision">Vision y Mision</a></li>
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-            <li><a href="presentacionn.php#mision-vision">Vision y Mision</a></li>
->>>>>>> Stashed changes
+            <li><a href="Presentacion/establecimiento.php">Establecimiento</a></li>
+            <li><a href="Presentacion/Presentacion.php#mision-vision">Vision y Mision</a></li>
+            <li><a href="Presentacion/Presentacion.php#mision-vision">Vision y Mision</a></li>
             </ul>
         </li>
 
        <li>
-        <a href="historia.html">NUESTRA HISTORIA ▾</a>
+        <a href="Presentacion/historia.html">NUESTRA HISTORIA ▾</a>
         <ul>
-            <li><a href="historia.html">Historia</a></li>
+            <li><a href="Presentacion/historia.html">Historia</a></li>
         </ul>
        </li>
-        <li><a href="comenestilo.php">COMENTARIOS</a></li>
-         <li><a href="iniciarsesion.php">INICIO DE SESION</a></li>
+        <li><a href="Presentacion/comenestilo.php">COMENTARIOS</a></li>
+         <li><a href="Estudiante/iniciarsesion.php">INICIO DE SESION</a></li>
       </ul>
     </div>
   </nav>

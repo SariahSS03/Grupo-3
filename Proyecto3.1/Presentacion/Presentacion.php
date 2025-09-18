@@ -19,11 +19,8 @@
       <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <style>
 body{
-      margin: 0px;
-      
+      margin: 0px;     
 }
-      
-
 #titulo{
       font-size: 60px ;
       font-family: "Unna", serif;
@@ -413,7 +410,7 @@ p{
       ?>
     </header>
     <div class ="div2">
-      <img class="img2" src="Imagenes/fondo.jpeg" width="100%" height="auto">
+      <img class="img2" src="../Imagenes/fondo.jpeg" width="100%" height="auto">
     </div>
 
     <div id="titulo">

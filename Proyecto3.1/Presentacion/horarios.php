@@ -18,7 +18,7 @@
       <?php
       include("menu.php");
       ?>
-    <center><img src="Imagenes/horario.jpg" class="imagen"></center>
+    <center><img src="../Imagenes/horario.jpg" class="imagen"></center>
   <header>
       <?php
       include("menu2.php");

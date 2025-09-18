@@ -167,7 +167,7 @@
 <body>
   <nav>
     <div class="menu">
-      <img class="img" src="Imagenes/logo.png" width="150px"  height="auto";>
+      <img class="img" src="../Imagenes/logo.png" width="150px"  height="auto";>
 
       <!-- Botón  -->
       <input type="checkbox" id="check">

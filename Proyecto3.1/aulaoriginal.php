@@ -156,7 +156,6 @@ session_start();
 #publicacion1{
   color:white;
 }
-
 @media screen and (max-width: 768px) {
   .body {
     grid-template-columns: 1fr;
@@ -167,28 +166,18 @@ session_start();
       "areaAnuncios"
       "areaPublicaciones";
   }
-
- 
- 
-
   #materia {
     font-size: 24px;
     text-align: center;
   }
-
-
   .uno {
     width: 95%;
     padding: 15px;
   }
-
   #Anunciaalgo {
     font-size: 14px;
     min-height: 60px;
   }
-
-
-
   #codigo {
     width: 90%;
     margin: 15px auto;
@@ -197,14 +186,10 @@ session_start();
     bottom: auto;
     left: auto;
   }
-
  .areaAnuncios, .areaPublicaciones {
     padding: 10px;
   }
 }
-
-
- 
   </style>
    <?php
         $direccion="localhost";
@@ -264,18 +249,15 @@ session_start();
 
   <section class="quimica">
     <h1 id="materia">MATERIA: <?= $nombre ?></h1>
-    
     <h1>Usuario: <?= $User ?></h1>
     <h1>Profesor: <?= $Nombreprofesor ?> <?= $Apellidoprofesor ?></h1>
   </section>
 
   <section class="areaAnuncios">
+  <div id="codigo">
+    <h1>Código de la clase:<?= $codigo ?></h1>
+  </div>
 
-
-
-  <div id="codigo"><h1>Código de la clase:<?= $codigo ?></h1></div>
-
-   
   <div class="uno">
             <div id="dos">
               <?php
@@ -344,9 +326,9 @@ session_start();
             </div>    
     <?php
             $nombreArchivo ="P-".$ID."-".$fila3['id'];
-          $directorio = "media/";
-          $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
-          $archivoEncontrado = NULL;
+            $directorio = "media/";
+            $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
+            $archivoEncontrado = NULL;
 
           foreach ($extensiones as  $ext){
           $ruta = $directorio. $nombreArchivo. "." . $ext;
@@ -360,18 +342,19 @@ session_start();
             $extension = strtolower (pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
             if (in_array($extension, ["jpg", "jpeg", "png","gif","webp"])){
           echo "<img src='$archivoEncontrado' alt ='Archivo' width='250'>";
-      }elseif ($extension === "pdf"){
-          echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
-      }else{
-          echo "<a href='$archivoEncontrado' download> Descargar archivo </a>";
-      }
+            }elseif ($extension === "pdf"){
+                echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
+            }else{
+                echo "<a href='$archivoEncontrado' download> Descargar archivo </a>";
             }
-        }
-      }
-     ?>
+                  }
+              }
+            }
+      ?>
      
    </div>
-    </section>
+</section>
+
 <script>
   const textarea = document.getElementById('Anunciaalgo');
   const barraFormato = document.getElementById('barraFormato');

@@ -9,8 +9,10 @@
         $nombre = $_POST['Nombre'];
         $codigo =$_POST['Codigo'];
         $color=$_POST['color'];
+        $inicial=$_POST['Inicial'];
+        $curso=$_POST['Curso'];
         $profesor=$_SESSION['CI'];
-        $sql="INSERT INTO Clases (Nombre,Codigo,Profesor,Color)VALUES('$nombre','$codigo','$profesor','$color')";
+        $sql="INSERT INTO Clases (Nombre,Codigo,Profesor,Color,Inicial,Curso)VALUES('$nombre','$codigo','$profesor','$color','$inicial','$curso')";
         if($conexion->query($sql)===TRUE){
                 header('Location:aulaoriginal.php?ID='.$conexion->insert_id);
         }else{

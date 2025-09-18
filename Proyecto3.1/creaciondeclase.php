@@ -89,12 +89,16 @@ body{
     <div id="uno">
     <form action="clases.php" method="post" id="crear">
         <div id="tres"><h1 id="dos">Crear clase<h1></div>
-        <label for="">Nombre de la clase </label><br>
+        <label for="">Nombre de la clase: </label><br>
         <input type="text" name="Nombre" placeholder="Ingresa el nombre del aula"><br>
-        <label for="">Codigo</label><br>
+        <label for="">Codigo:</label><br>
         <input type="password" name="Codigo" placeholder="Crea el codigo"><br>
+        <label for="">Curso:</label><br>
+        <input type="text" name="Curso" placeholder="Curso EJ: 6to de secundaria"><br>
         <label for="">Elige un color:</label><br>
-        <input type="color" name="color">
+        <input type="color" name="color"><br>
+        <label for="">Inicial:</label><br>
+        <input type="text" name="Inicial" placeholder="Pon la inicial de la clase"><br>
         <input type="submit" id="Boton" value="Crear clase" >
         <button  onclick="window.location.href='unirseaclase.php'" id="Boton">Unirse a Clase</button>
     </form>
@@ -111,6 +115,16 @@ body{
              Codigo:{
                 required:true,
                 number:true
+            },
+            Curso:{
+                required:true,
+                minlenght:5,
+                maxlenght:45
+            }
+            Inicial:{
+                required:true,
+                minlenght:1,
+                maxlenght:1
             }
         },
         messages:{
@@ -122,8 +136,18 @@ body{
               Codigo:{
                 required:"este campo tiene que ser llenado solo  con numeros ",
                 number:"el campo solo tiene que llenado con numeros",
+            },
+            Curso:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 45 letras"
+            },
+            Inicial:{
+                required:"este campo tiene que ser llenado solo con una letra",
+                minlenght:"El minimo es de 1 letras",
+                maxlenght:"El maximo es el 1letras"
+            },
             }
-             }
 });
     </script>
 </body>

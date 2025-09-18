@@ -55,6 +55,9 @@ CREATE TABLE IF NOT EXISTS `proyecto3`.`Clases` (
   `Nombre` VARCHAR(45) NOT NULL,
   `Codigo` VARCHAR(45) NOT NULL,
   `Profesor` INT NOT NULL,
+  `Color` VARCHAR(45) NOT NULL,
+  `Inicial` VARCHAR(1) NOT NULL,
+  `Curso` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ID`, `Profesor`),
   INDEX `fk_Clases_Cuenta1_idx` (`Profesor` ASC),
   CONSTRAINT `fk_Clases_Cuenta1`
@@ -92,9 +95,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto3`.`Publicaciones` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Texto` VARCHAR(300) NULL,
-  `FechaCreacion` DATETIME NULL,
-  `FechadeEdicion` DATETIME NULL,
+  `Texto` VARCHAR(300) NOT NULL,
+  `FechaCreacion` DATETIME NOT NULL,
+  `FechadeEdicion` DATETIME NOT NULL,
   `Informacion_CI` INT NOT NULL,
   `Clases_ID` INT NOT NULL,
   `Clases_Profesor` INT NOT NULL,
@@ -119,14 +122,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto3`.`Tarea` (
   `idTarea` INT NOT NULL AUTO_INCREMENT,
-  `Titulo` VARCHAR(45) NULL,
-  `Descripcion` VARCHAR(300) NULL,
-  `Tema` VARCHAR(45) NULL,
-  `Nota` INT NULL,
+  `Titulo` VARCHAR(45) NOT NULL,
+  `Descripcion` VARCHAR(100) NOT NULL,
+  `Tema` VARCHAR(45) NOT NULL,
+  `Nota` INT NOT NULL,
   `Clases_ID` INT NOT NULL,
   `Clases_Profesor` INT NOT NULL,
-  `Fechadeentrega` DATETIME NULL,
-  `Rubrica` VARCHAR(45) NULL,
+  `Instrucciones` VARCHAR(300) NOT NULL,
+  `FechadeEntrega` DATETIME NOT NULL,
   PRIMARY KEY (`idTarea`, `Clases_ID`, `Clases_Profesor`),
   INDEX `fk_Tarea_Clases1_idx` (`Clases_ID` ASC, `Clases_Profesor` ASC),
   CONSTRAINT `fk_Tarea_Clases1`
@@ -143,8 +146,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `proyecto3`.`Cuenta_has_Tarea` (
   `Cuenta_User` INT NOT NULL,
   `Tarea_idTarea` INT NOT NULL,
-  `Nota` INT NULL,
-  `FechadeEntrega` DATETIME NULL,
+  `Nota` INT NOT NULL,
+  `FechadeEntrega` DATETIME NOT NULL,
   PRIMARY KEY (`Cuenta_User`, `Tarea_idTarea`),
   INDEX `fk_Cuenta_has_Tarea_Tarea1_idx` (`Tarea_idTarea` ASC),
   INDEX `fk_Cuenta_has_Tarea_Cuenta1_idx` (`Cuenta_User` ASC),

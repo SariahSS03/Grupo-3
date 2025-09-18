@@ -59,7 +59,7 @@
 >>>>>>> Stashed changes
     .desde-izquierda {
       animation: entrarIzquierda 1s ease forwards;
-      
+       
     }
    
     .desde-derecha {

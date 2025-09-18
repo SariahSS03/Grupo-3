@@ -100,45 +100,33 @@
     <footer class="final" id="contacto">
       <div id="espacios">
             <div >
-            <img src="Imagenes/logo.png" width="230px"  height="auto";>
+            <img src="../Imagenes/logo.png" width="230px"  height="auto";>
             </div>
             <div>
             <strong> FEDERICO AGUILÓ</strong><br>
-            
             </div>
       </div>
 
       <div id="espacios">
             <div>
-            <img class="img3" src="https://media.istockphoto.com/id/860866074/es/vector/vector-de-la-imagen-de-tel%C3%A9fono-retro-icono-de-vector-blanco-sobre-fondo-azul-oscuro.jpg?s=612x612&w=0&k=20&c=qDERvjfnPoyh-nyRhNr8DFS2PuiBoW4gdpE2JY_9BiU=" width="40px"  height="auto";>
-                 
+            <img class="img3" src="../Imagenes/casita.jpg" width="40px"  height="auto";> 
             </div>
             <div>
             <strong>Sobre Nosotros</strong><br>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             <a href="historia.php"> Nuestra Historia</a><br>
             <a href="Presentacion.php#misions">Nuestra Misión Y Vision</a><br>
-=======
-            <a href="historia.html"> Nuestra Historia</a><br>
-            <a href="presentacionn.php#misions">Nuestra Misión y Vision</a><br>
->>>>>>> Stashed changes
-=======
-            <a href="historia.html"> Nuestra Historia</a><br>
-            <a href="presentacionn.php#misions">Nuestra Misión y Vision</a><br>
->>>>>>> Stashed changes
-=======
-            <a href="historia.html"> Nuestra Historia</a><br>
-            <a href="presentacionn.php#misions">Nuestra Misión y Vision</a><br>
->>>>>>> Stashed changes
-         
+            <a href="historia.php"> Nuestra Historia</a><br>
+            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
+            <a href="historia.php"> Nuestra Historia</a><br>
+            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
+            <a href="historia.php"> Nuestra Historia</a><br>
+            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
             </div>
       </div>
 
       <div id="espacios">
             <div>
-            <img class="img3" src="https://previews.123rf.com/images/ahasoft2000/ahasoft20001610/ahasoft2000161009111/64731975-icono-de-ubicaci%C3%B3n-de-la-casa-el-estilo-del-glifo-es-el-s%C3%ADmbolo-ic%C3%B3nico-plano-color-blanco-fondo-azu.jpg" width="40px"  height="auto";>
+            <img class="img3" src="../Imagenes/telefono.jpg" width="40px"  height="auto";>
             <strong>Location</strong><br>
             Av.  Ayacucho N° 0129 entre las calles Punata y Agustín López, frente a la terminal de buses.
             </div>

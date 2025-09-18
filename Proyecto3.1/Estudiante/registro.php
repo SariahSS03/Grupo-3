@@ -102,7 +102,7 @@ input {
     <form action="basededatos.php" method="post" id="registro"> <!--Direccionara a la carpeta "base de datos", la cual recuperar los datos del formulario-->
      <center> 
      <div class="regi">   
-        <img src="Imagenes/logo.png">
+        <img src="../Imagenes/logo.png">
         <h2>REGISTRATE</h2>
         
         <label for="" >Nombres</label><br>

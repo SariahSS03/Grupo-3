@@ -423,15 +423,15 @@ p{
       
       <div class="Admisiones">
       <a href="planteldocente.php" id="uno">
-            <center><img id="i" src="Imagenes/plantel11.png" width="190px"  height="150px";><br>
+            <center><img id="i" src="../Imagenes/plantel11.png" width="190px"  height="150px";><br>
             <strong>PLANTEL DOCENTE</strong></center>
       </a>
       <a href="horarios.php" id="dos">
-            <center><img id="i" src="Imagenes/hor.png" width="150px"  height="150px";><br>
+            <center><img id="i" src="../Imagenes/hor.png" width="150px"  height="150px";><br>
             <strong>HORARIOS</strong></center>
       </a>
       <a href="reglamentoescolar.php" id="tres">
-            <center><img id="i" src="Imagenes/regla.png" width="150px"  height="150px";><br>
+            <center><img id="i" src="../Imagenes/regla.png" width="150px"  height="150px";><br>
             <strong>REGLAMENTO ESCOLAR</strong></center>
       </a>
       </div>
@@ -448,8 +448,8 @@ Pese a las dificultades económicas, familiares y sociales que enfrenta gran par
      </p><br>
       <div id="imgtexto1">
       
-      <img id="c" src="Imagenes/img3.jpg" width="550px" height="auto";>
-      <img id="c" src="Imagenes/img4.jpg" width="550px" height="auto";>
+      <img id="c" src="../Imagenes/img3.jpg" width="550px" height="auto";>
+      <img id="c" src="../Imagenes/img4.jpg" width="550px" height="auto";>
       </div>
     </div>
       <div id="enlaces" >

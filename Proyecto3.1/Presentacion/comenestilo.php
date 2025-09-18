@@ -79,6 +79,15 @@
         transform: scale(1.05);
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
+    .mostrar{
+
+        background: #739fbdff;
+        width: 500px;
+        height:auto;
+        border-radius:20px;
+        margin-left:1100px;
+        margin-bottom:1000px;
+    }
 
     @keyframes fadeIn {
         0% { opacity: 0; transform: translateY(20px); }
@@ -106,6 +115,21 @@
           <img  height="20px" width="10px" src="https://e7.pngegg.com/pngimages/841/271/png-clipart-computer-icons-send-miscellaneous-angle-thumbnail.png">
         </button>
     </form>
+</div>
+<div class="mostrar">
+    <?php
+    $a=fopen("comentarios.txt" ,"r");
+    while (!feof($a)){
+        $leer=fgets($a);
+        $ver=nl2br($leer);
+        ?>
+    <h2>
+    <?=$ver?>
+    </h2>
+<?php
+    }
+    ?>
+
 </div>
 <header>
       <?php

@@ -167,7 +167,7 @@
 <body>
   <nav>
     <div class="menu">
-      <img class="img" src="Imagenes/logo.png" width="150px"  height="auto";>
+      <img class="img" src="../Imagenes/logo.png" width="150px"  height="auto";>
 
       <!-- Botón  -->
       <input type="checkbox" id="check">
@@ -181,15 +181,14 @@
             <a href="establecimiento.php">SOBRE NOSOTROS ▾</a>
             <ul>
             <li><a href="establecimiento.php">Establecimiento</a></li>
-            <li><a href="Presentacion.php#mision-vision">Vision y Mision</a></li>
-            <li><a href="Presentacion.php#mision-vision">Vision y Mision</a></li>
+            <li><a href="Presentacion.php#misions">Vision y Mision</a></li>
             </ul>
         </li>
 
        <li>
         <a href="historia.html">NUESTRA HISTORIA ▾</a>
         <ul>
-            <li><a href="historia.html">Historia</a></li>
+            <li><a href="historia.php">Historia</a></li>
         </ul>
        </li>
         <li><a href="comenestilo.php">COMENTARIOS</a></li>

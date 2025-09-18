@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Libertinus+Keyboard&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Story+Script&display=swap" rel="stylesheet">
 </head>
     <style>
-        body {
+        .body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -94,8 +94,12 @@
      
     </style>
 
-<body>
-
+<body class="body">
+ <header>
+      <?php
+      include('menu.php');
+      ?>
+    </header>
     <h1>HISTORIA DEL COLEGIO</h1>
 
     <div class="grid-container">
@@ -103,14 +107,19 @@
     Fue fundado el 5 de marzo de 1979 en Cala Cala, con la dirección del Prof. Juan Camacho Rosas. En sus primeros años funcionó en diferentes infraestructuras hasta consolidarse como colegio mixto. En 1982 se trasladó al Instituto Superior de Comercio Nº 2 y finalmente, en 1987, ocupó su sede definitiva en la ex Aduana, donde comenzó a crecer académica y estructuralmente. Desde entonces, el colegio ha formado generaciones de estudiantes con una sólida base educativa y valores de compromiso social.
         </div>
             <div class="dos">
-            <img src="Imagenes/colegio.png" width="500px" height="350px">
+            <img src="../Imagenes/colegio.png" width="500px" height="350px">
         </div>
         <div class="dos">
-            <img src="Imagenes/ima2.jpeg" width="500px">
+            <img src="../Imagenes/ima2.jpeg" width="500px">
         </div>
         <div class="uno">
             El P. Federico Aguiló Bonnin nació en Palma de Mallorca (España) en 1931 e ingresó a la Compañía de Jesús en 1952. Estudió Filosofía, Teología y Sociología, llegando a ser profesor en la UMSA y UMSS. Fue un destacado defensor de los derechos humanos, colaborador en organizaciones sociales y comunicador en Radio María. Durante la dictadura de Hugo Banzer sufrió persecución y exilio, pero continuó su labor educativa y pastoral en Bolivia, Argentina y Ecuador. Su vida estuvo dedicada a la enseñanza, la fe y la defensa de la dignidad humana, dejando un legado de compromiso social y espiritual.
         </div>
     </div>
+    <header>
+      <?php
+      include("menu2.php");
+      ?>
+    </header>
 </body>
 </html>

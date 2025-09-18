@@ -115,12 +115,7 @@
             <strong>Sobre Nosotros</strong><br>
             <a href="historia.php"> Nuestra Historia</a><br>
             <a href="Presentacion.php#misions">Nuestra Misión Y Vision</a><br>
-            <a href="historia.php"> Nuestra Historia</a><br>
-            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
-            <a href="historia.php"> Nuestra Historia</a><br>
-            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
-            <a href="historia.php"> Nuestra Historia</a><br>
-            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
+            
             </div>
       </div>
 

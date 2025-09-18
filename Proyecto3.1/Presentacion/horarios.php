@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         .imagen{
-            width: 500px;
+            width: 1000px;
         height: auto;
         border: 2px solid gold;
         margin-top: 150px;

@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Libertinus+Keyboard&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Story+Script&display=swap" rel="stylesheet">
 </head>
     <style>
-        body {
+        .body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -94,8 +94,12 @@
      
     </style>
 
-<body>
-
+<body class="body">
+ <header>
+      <?php
+      include('menu.php');
+      ?>
+    </header>
     <h1>HISTORIA DEL COLEGIO</h1>
 
     <div class="grid-container">
@@ -112,5 +116,10 @@
             El P. Federico Aguiló Bonnin nació en Palma de Mallorca (España) en 1931 e ingresó a la Compañía de Jesús en 1952. Estudió Filosofía, Teología y Sociología, llegando a ser profesor en la UMSA y UMSS. Fue un destacado defensor de los derechos humanos, colaborador en organizaciones sociales y comunicador en Radio María. Durante la dictadura de Hugo Banzer sufrió persecución y exilio, pero continuó su labor educativa y pastoral en Bolivia, Argentina y Ecuador. Su vida estuvo dedicada a la enseñanza, la fe y la defensa de la dignidad humana, dejando un legado de compromiso social y espiritual.
         </div>
     </div>
+    <header>
+      <?php
+      include("menu2.php");
+      ?>
+    </header>
 </body>
 </html>

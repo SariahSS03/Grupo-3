@@ -113,29 +113,9 @@
             </div>
             <div>
             <strong>Sobre Nosotros</strong><br>
-<<<<<<< Updated upstream
             <a href="historia.php"> Nuestra Historia</a><br>
             <a href="Presentacion.php#misions">Nuestra Misión Y Vision</a><br>
-            <a href="historia.php"> Nuestra Historia</a><br>
-            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
-            <a href="historia.php"> Nuestra Historia</a><br>
-            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
-            <a href="historia.php"> Nuestra Historia</a><br>
-            <a href="Presentacion.php#misions">Nuestra Misión y Vision</a><br>
-=======
-
-            <a href="historia.php"> Nuestra Historia</a><br>
-            <a href="Presentacion.php#misions">Nuestra Misión Y Vision</a><br>
-            <a href="historia.html"> Nuestra Historia</a><br>
-            <a href="presentacionn.php#misions">Nuestra Misión y Vision</a><br>
-
-            <a href="historia.html"> Nuestra Historia</a><br>
-            <a href="presentacionn.php#misions">Nuestra Misión y Vision</a><br>
-
-            <a href="historia.html"> Nuestra Historia</a><br>
-            <a href="presentacionn.php#misions">Nuestra Misión y Vision</a><br>
-
->>>>>>> Stashed changes
+            
             </div>
       </div>
 

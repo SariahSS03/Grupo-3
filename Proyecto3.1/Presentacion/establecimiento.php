@@ -48,15 +48,6 @@
         transform: scale(1.1);
 
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-   
-=======
- 
->>>>>>> Stashed changes
-=======
- 
->>>>>>> Stashed changes
     .desde-izquierda {
       animation: entrarIzquierda 1s ease forwards;
        
@@ -97,73 +88,42 @@
   </style>
 </head>
 <body>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-   <header>
-=======
+
     <header>
->>>>>>> Stashed changes
-=======
-    <header>
->>>>>>> Stashed changes
+
       <?php
       include('menu.php');
       ?>
     </header>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  <img src="home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
-=======
-  <img src="Imagenes/home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
->>>>>>> Stashed changes
-=======
-  <img src="Imagenes/home.png" class="home"><h1 class="titulo">Conoce Nuestro Colegio</h1>
->>>>>>> Stashed changes
-
+  <h1 class="titulo">Conoce Nuestro Colegio</h1>
   <div class="galeria">
-    <!-- Alternamos izquierda y derecha -->
-    <img src="Imagenes/ima1.jpeg" class="desde-izquierda" alt="img1">
-    <img src="Imagenes/ima2.jpeg" class="desde-derecha" alt="img2">
-    <img src="Imagenes/ima3.jpeg" class="desde-izquierda" alt="img3">
-    <img src="Imagenes/ima4.jpeg" class="desde-derecha" alt="img4">
-    <img src="Imagenes/ima5.jpeg" class="desde-izquierda" alt="img5">
-    <img src="Imagenes/ima6.jpeg" class="desde-derecha" alt="img6">
-    <img src="Imagenes/ima7.jpeg" class="desde-izquierda" alt="img7">
-    <img src="Imagenes/ima8.jpeg" class="desde-derecha" alt="img8">
-    <img src="Imagenes/ima9.jpeg" class="desde-izquierda" alt="img9">
-    <img src="Imagenes/ima10.jpeg" class="desde-derecha" alt="img10">
-    <img src="Imagenes/ima11.jpeg" class="desde-izquierda" alt="img11">
-    <img src="Imagenes/ima12.jpeg" class="desde-derecha" alt="img12">
-    <img src="Imagenes/ima13.jpeg" class="desde-izquierda" alt="img13">
-    <img src="Imagenes/ima14.jpeg" class="desde-derecha" alt="img14">
-    <img src="Imagenes/ima15.jpeg" class="desde-izquierda" alt="img15">
-    <img src="Imagenes/ima16.jpeg" class="desde-derecha" alt="img16">
-    <img src="Imagenes/ima17.jpeg" class="desde-izquierda" alt="img17">
-    <img src="Imagenes/ima18.jpeg" class="desde-derecha" alt="img18">
-    <img src="Imagenes/ima19.jpeg" class="desde-izquierda" alt="img19">
-    <img src="Imagenes/ima20.jpeg" class="desde-derecha" alt="img20">
+    <img src="../Imagenes/ima1.jpeg" class="desde-izquierda" alt="img1">
+    <img src="../Imagenes/ima2.jpeg" class="desde-derecha" alt="img2">
+    <img src="../Imagenes/ima3.jpeg" class="desde-izquierda" alt="img3">
+    <img src="../Imagenes/ima4.jpeg" class="desde-derecha" alt="img4">
+    <img src="../Imagenes/ima5.jpeg" class="desde-izquierda" alt="img5">
+    <img src="../Imagenes/ima6.jpeg" class="desde-derecha" alt="img6">
+    <img src="../Imagenes/ima7.jpeg" class="desde-izquierda" alt="img7">
+    <img src="../Imagenes/ima8.jpeg" class="desde-derecha" alt="img8">
+    <img src="../Imagenes/ima9.jpeg" class="desde-izquierda" alt="img9">
+    <img src="../Imagenes/ima10.jpeg" class="desde-derecha" alt="img10">
+    <img src="../Imagenes/ima11.jpeg" class="desde-izquierda" alt="img11">
+    <img src="../Imagenes/ima12.jpeg" class="desde-derecha" alt="img12">
+    <img src="../Imagenes/ima13.jpeg" class="desde-izquierda" alt="img13">
+    <img src="../Imagenes/ima14.jpeg" class="desde-derecha" alt="img14">
+    <img src="../Imagenes/ima15.jpeg" class="desde-izquierda" alt="img15">
+    <img src="../Imagenes/ima16.jpeg" class="desde-derecha" alt="img16">
+    <img src="../Imagenes/ima17.jpeg" class="desde-izquierda" alt="img17">
+    <img src="../Imagenes/ima18.jpeg" class="desde-derecha" alt="img18">
+    <img src="../Imagenes/ima19.jpeg" class="desde-izquierda" alt="img19">
+    <img src="../Imagenes/ima20.jpeg" class="desde-derecha" alt="img20">
   </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
   <header>
       <?php
       include("menu2.php");
       ?>
     </header>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
 </body>
 </html>
 

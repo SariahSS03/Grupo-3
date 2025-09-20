@@ -59,7 +59,6 @@
         #uuu{
         background:white;
         height:19%;
-
         position: relative;
         bottom:1%;
         border-bottom-left-radius:25px;
@@ -68,9 +67,30 @@
         display:flex;
         flex-direction: row-reverse;
         }
-        #uuu buttom{
+        #uuu a{
             margin-top:20px;
             margin-left:20px;
+            cursor: pointer;
+        }
+
+        #menuOpciones {
+        display: none;
+        position: absolute;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+        }
+
+        .opcion {
+        padding: 5px 10px;
+        cursor: pointer;
+        color: #333;
+        }
+
+        .opcion:hover {
+        background-color: #f0f0f0;
         }
         #t{
           position: relative;
@@ -131,22 +151,39 @@
                         <a>
                             <img width="35px" height="25px" src="https://cdn-icons-png.flaticon.com/512/2739/2739782.png">
                         </a>
-                        <a>
+                        <a id="btnOpciones">
                             <img width="35px" height="25px" src="https://w7.pngwing.com/pngs/183/20/png-transparent-three-dots-zondicons-icon-thumbnail.png">
                         </a>
                     </div>
+                    <!-- Menú de opciones oculto -->
+                    <div id="menuOpciones">
+                        <a class="opcion"  href="aulaoriginal.php?ID=<?=$Clases_ID?>">Cancelar Registro</a>
+                    </div>
                 </div>
     <?php
+                }
             }
         }
     }
-}
-     ?>
+    ?>
    </div>
     <script>
     function redirigir() {
       window.location.href = "aulaoriginal.php?ID=<?=$Clases_ID?>";
     }
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Alternar visibilidad del menú
+      $("#btnOpciones").click(function(e) {
+        e.stopPropagation(); // Evita que se cierre al hacer clic en el botón
+        $("#menuOpciones").toggle();
+      });
+      // Ocultar el menú si haces clic fuera
+      $(document).click(function() {
+        $("#menuOpciones").hide();
+      });
+    });
   </script>
     
 </body>

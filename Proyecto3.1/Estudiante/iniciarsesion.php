@@ -96,29 +96,27 @@ input {
 </div></form>
 
 <script>
-  
     $("#form").validate({
         rules:{
             Rude:{
                 required:true,
                 minlenght:15,
-                maxlenght:45,
+                maxlenght:45
             },
             CI:{
                 required:true,
-                number:true,
+                number:true
             }
         },
         messages:{
             Rude:{
                 required:"este campo tiene que ser llenado",
                 minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras",
-
-            },
+                maxlenght:"El maximo es el 45 letras"
+            }
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             }
         }
     })

@@ -197,18 +197,18 @@ input {
             },
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Rude:{
                 required:"este campo tiene que ser llenado",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Fechadenacimiento:{
                 required:"este campo tiene que ser llenado solo numeros "
             },
             Telefono:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             }
         }
     });

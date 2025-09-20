@@ -27,19 +27,19 @@
       if($_SESSION['Bloqueado']=='Bloqueado' ){
          header('Location: iniciarsesion.php');
         }else{
-        if($_SESSION['rol']==1 ){
-         header('Location: inicioestudiante.php');
+         if($_SESSION['rol']==1 ){
+            header('Location: inicioestudiante.php');
+            }
+            if($_SESSION['rol']==2 ){
+               header('Location: inicioprofesor.php');
+            }
+            if($_SESSION['rol']==3 ){
+               header('Location: Administrador.php');
+            }
          }
-         if($_SESSION['rol']==2 ){
-            header('Location: inicioprofesor.php');
-         }
-         if($_SESSION['rol']==3 ){
-            header('Location: Administrador.php');
-         }
-      }
-      }   else{
+      }else{
             header('Location: iniciarsesion.php');
-         } 
+      } 
       
       
    ?>

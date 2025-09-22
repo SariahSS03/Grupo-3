@@ -10,7 +10,7 @@
         echo"Hubo un error al conectar a la base de datos";
     }
     if($_SESSION['rol']==1 ){
-        header('Location: inicioestudiante.php');
+        header('Location: ../Estudiante/inicioestudiante.php');
     }
 ?>
 <!DOCTYPE html>

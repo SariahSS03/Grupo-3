@@ -31,10 +31,10 @@
             header('Location: inicioestudiante.php');
             }
             if($_SESSION['rol']==2 ){
-               header('Location: inicioprofesor.php');
+               header('Location: ../Profesor/inicioprofesor.php');
             }
             if($_SESSION['rol']==3 ){
-               header('Location: Administrador.php');
+               header('Location: ../Administrador/Administrador.php');
             }
          }
       }else{

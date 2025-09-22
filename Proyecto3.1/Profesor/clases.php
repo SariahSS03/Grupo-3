@@ -14,7 +14,7 @@
         $profesor=$_SESSION['CI'];
         $sql="INSERT INTO Clases (Nombre,Codigo,Profesor,Color,Inicial,Curso)VALUES('$nombre','$codigo','$profesor','$color','$inicial','$curso')";
         if($conexion->query($sql)===TRUE){
-                header('Location:aulaoriginal.php?ID='.$conexion->insert_id);
+                header('Location:../aulaoriginal.php?ID='.$conexion->insert_id);
         }else{
         echo"Error ". $sql . "<br>" . $conexion->connect_error;
         }

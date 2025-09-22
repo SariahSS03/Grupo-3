@@ -118,17 +118,17 @@
 
         <div id="primero1">
         <button class="boton">
-            <img  width="30px" height="30px" src="Imagenes/uno.png">
+            <img  width="30px" height="30px" src="../Imagenes/uno.png">
         </button>
         <button onclick="window.location.href='inicioprofesor.php'" class="boton" >
-            <img style="position: relative; bottom:3px;" width="85px" height="50px" src=" Imagenes/dos.png">
+            <img style="position: relative; bottom:3px;" width="85px" height="50px" src="../Imagenes/dos.png">
             <p id="col">FEDERICO AGUILO</p>
         </button>
         </div>
 
         <div id="segundo1">  
             <button class="boton"> 
-                <img onclick="window.location.href='cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="Imagenes/cinco.png">
+                <img onclick="window.location.href='../cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="../Imagenes/cinco.png">
             </button>
             <button class="boton">
                 <img  width="44px" height="35px" src="../Imagenes/cuatro.png">

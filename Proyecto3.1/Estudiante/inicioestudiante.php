@@ -115,7 +115,7 @@
         }
         session_start();
         if($_SESSION['rol']==2 ){
-            header('Location: inicioprofesor.php');
+            header('Location: ../Profesor/inicioprofesor.php');
         }
         ?>
     <?php

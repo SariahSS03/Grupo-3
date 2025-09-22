@@ -21,6 +21,8 @@
       max-width: 1200px;
       margin: auto;
       grid-area:tarea;
+      justify-content:center; 
+       align-items:center;
     }
 
     .left-section {

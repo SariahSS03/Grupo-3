@@ -193,7 +193,7 @@
                     </div>
 
                     <div class="menuOpciones">
-                        <a class="opcion" href="salirdeclase.php?ID=<?= $Clases_ID ?>">Cancelar Registro</a>
+                        <a class="opcion" href="salirdeclase.php?ID_Clase=<?= $Clases_ID ?>">Cancelar Registro</a>
                     </div>
                 </div>
     <?php

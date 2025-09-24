@@ -15,91 +15,127 @@
                                  "opciones clases";
         margin:0px;                       
         }
-        .clases{
+        .clases {
             border-top: 5px solid black;
-            grid-area: clases;  
-            gap:10px;
-            display:flex;
-            flex-direction:column;
-            justify-content:space-between;
+            grid-area: clases;
+            gap: 10px;
+            display: flex;
+            flex-wrap: wrap; /* 🧠 para que bajen automáticamente */
+            justify-content: flex-start;
+            padding: 20px;
+        }
 
-        }
-        #clase2{
+        /* Tarjeta individual */
+        .clase {
             background-color: white;
-            border-radius:25px;
-            border: 1px solid black;
-            width: 21%;
-            height: 120%;
-            display:flex;
-            flex-direction:column;
-            justify-content:space-between;
-        }
-        #n{
-            font-size:25px;
-            color:white;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+            width: 250px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             position: relative;
-            left:5%;
+            overflow: hidden;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif;
+            margin: 10px; /* 🧠 separa tarjetas */
         }
-        #u{
-         background: rgba(61, 66, 65, 1);
-          border-top-left-radius:25px;
-          border-top-right-radius:25px;
-          height:33%;
-          
+
+        /* Cabecera */
+        .cabecera {
+            background-image: url('https://i.imgur.com/kzjzKQZ.png');
+            background-size: cover;
+            background-position: center;
+            padding: 15px;
+            height: 110px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            color: white;
+            position: relative;
         }
-        #uu{
-          background:rgba(82, 133, 123, 1);
-          position:relative;
-          left:215px;
-          bottom:100px;
-          width: 80px;
-          height:83px;
-          border-radius:100%;
+
+        .nombre {
+            font-size: 20px;
+            margin: 0;
+            font-weight: bold;
+            color: white;
         }
-        #uuu{
-        background:white;
-        height:19%;
-        position: relative;
-        bottom:1%;
-        border-bottom-left-radius:25px;
-        border-bottom-right-radius:25px;
-        border-top:1px solid black;
-        display:flex;
-        flex-direction: row-reverse;
+
+        .grado {
+            font-size: 14px;
+            color: #d0e3f1;
+            text-decoration: underline;
+            margin: 5px 0 0;
         }
-        #uuu a{
-            margin-top:20px;
-            margin-left:20px;
+
+        /* Circulo (letra inicial) */
+        .avatar {
+            position: absolute;
+            top: 70px;
+            right: 10px;
+            background: #8e44ad;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-size: 22px;
+        }
+
+        .inicial {
+            margin: 0;
+        }
+
+        /* Iconos inferiores */
+        .acciones {
+            height: 50px;
+            border-top: 1px solid #ccc;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 10px;
+            gap: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .acciones a {
             cursor: pointer;
         }
 
-        #menuOpciones {
-        display: none;
-        position: absolute;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        padding: 10px;
-        box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+        /* Menú Opciones */
+        .menuOpciones {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            right: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+            z-index: 10;
+            border-radius: 5px;
         }
 
         .opcion {
-        padding: 5px 10px;
-        cursor: pointer;
-        color: #333;
+            padding: 5px 10px;
+            cursor: pointer;
+            color: #333;
+            display: block;
         }
 
         .opcion:hover {
-        background-color: #f0f0f0;
+            background-color: #f0f0f0;
         }
-        #t{
-          position: relative;
-          left:40%;
-          color:white;
-        }
-        a{
+
+        a {
             text-decoration: none;
         }
+
     </style>
 </head>
 <body>
@@ -134,30 +170,30 @@
                         if ($resultado2->num_rows>0){
                             while($fila2=$resultado2->fetch_assoc()){
                                 $nombre= $fila2['Nombre'];
+                                $inicial= $fila2['Inicial'];
+                                $color= $fila2['Color'];
+                                $curso= $fila2['Curso'];
         ?>
-                <div id="clase2">
-                    <div id="u">
-                        <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
-                        <h2 id="n"><?=$nombre?></h2>
-                        </a>  
+                <div class="clase">
+                    <div class="cabecera">
+                        <a href="aulaoriginal.php?ID=<?= $Clases_ID ?>">
+                            <h2 class="nombre"><?= $nombre ?></h2>
+                        </a>
+                        <p class="grado"><?= $curso ?></p>
                     </div>
-                    <div id="uu">
-                      <H1 id="t">c</H1>
-                    </div> 
-                    <div id="uuu">
-                        <a>
-                            <img width="30px" height="25px" src="https://w7.pngwing.com/pngs/393/995/png-transparent-aspria-fitness-computer-icons-user-my-account-icon-miscellaneous-monochrome-black-thumbnail.png" >
-                        </a>
-                        <a>
-                            <img width="35px" height="25px" src="https://cdn-icons-png.flaticon.com/512/2739/2739782.png">
-                        </a>
-                        <a id="btnOpciones">
-                            <img width="35px" height="25px" src="https://w7.pngwing.com/pngs/183/20/png-transparent-three-dots-zondicons-icon-thumbnail.png">
-                        </a>
+
+                    <div class="avatar">
+                        <h1 class="inicial"><?= $inicial ?></h1>
                     </div>
-                    <!-- Menú de opciones oculto -->
-                    <div id="menuOpciones">
-                        <a class="opcion"  href="aulaoriginal.php?ID=<?=$Clases_ID?>">Cancelar Registro</a>
+
+                    <div class="acciones">
+                        <a><img width="30px" height="25px" src="../Imagenes/perfilclase.png"></a>
+                        <a><img width="35px" height="25px" src="../Imagenes/archivoclase.png"></a>
+                        <a class="btnOpciones"><img width="35px" height="25px" src="../Imagenes/puntitosclase.png"></a>
+                    </div>
+
+                    <div class="menuOpciones">
+                        <a class="opcion" href="salirdeclase.php?ID=<?= $Clases_ID ?>">Cancelar Registro</a>
                     </div>
                 </div>
     <?php
@@ -173,18 +209,20 @@
     }
   </script>
   <script>
-    $(document).ready(function() {
-      // Alternar visibilidad del menú
-      $("#btnOpciones").click(function(e) {
-        e.stopPropagation(); // Evita que se cierre al hacer clic en el botón
-        $("#menuOpciones").toggle();
-      });
-      // Ocultar el menú si haces clic fuera
-      $(document).click(function() {
-        $("#menuOpciones").hide();
-      });
+    const btnOpciones = document.getElementById("btnOpciones");
+    const menu = document.getElementById("menuOpciones");
+
+    btnOpciones.addEventListener("click", (e) => {
+        e.stopPropagation(); // evita cerrar el menú de inmediato
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
-  </script>
+
+    document.addEventListener("click", (e) => {
+        if (!btnOpciones.contains(e.target) && !menu.contains(e.target)) {
+            menu.style.display = "none";
+        }
+    });
+</script>
     
 </body>
 </html>

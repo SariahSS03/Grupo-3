@@ -14,15 +14,12 @@
             margin-bottom: 10px;
         }
         #primero1{
-          
             width: 50%;
             padding-bottom: 10px;
             padding-top: 12px;
             padding-left: 12px;
             display: flex;
             gap: 5px;
-            
-
         }
         #col{
             position: relative;
@@ -124,58 +121,73 @@
             padding: 10px;
             
         }
-        #clase4{
-            background-color: #f1f3f4;;
-            border-radius:30px;
-            position:relativo;
-            height:45px;
-            justify-content: space-between; 
-            align-items:center;
+        .clase4 {
+            background-color: #f1f3f4;
+            border-radius: 30px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            gap: 10px;
+            width: fit-content;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
         }
-        #z{
-            color:black;
-            font-size:18px;
-            position: relative;
-            left:7%;
-            top:18%;
+
+        .icono {
+            background-color: #dfe3e8;
+            color: #3c4043;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .titulo {
+            margin: 0;
+            font-size: 16px;
+            color: #202124;
+        }
+
+        .subtitulo {
+            margin: 0;
+            font-size: 14px;
+            color: #5f6368;
         }
     </style>
 </head>
 <body>
     
     <div class="principal">
-
         <div id="primero1">
-        <button class="boton">
-            <img  width="30px" height="30px" src="../Imagenes/uno.png">
-        </button>
         <button onclick="window.location.href='inicioestudiante.php'" class="boton" >
             <img style="position: relative; bottom:3px;" width="85px" height="50px" src="../Imagenes/dos.png">
             <p id="col">FEDERICO AGUILO</p>
         </button>
         </div>
-
         <div id="segundo1">  
-            <button class="boton"> 
+            <button class="boton" title="Cerrar sesion"> 
             <img onclick="window.location.href='../cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="../Imagenes/cinco.png">
             </button>
-            <button class="boton">
-             <img  width="44px" height="35px" src="../Imagenes/cuatro.png">
-            </button>
-            <button onclick="window.location.href='unirseaclase.php'" class="boton">
+            <button onclick="window.location.href='unirseaclase.php'" class="boton" title="Unirse a una clase">
             <img  width="33px" height="35px" src="../Imagenes/tres.png">
             </button>
         </div>
-
     </div>
     <div  class="opciones">
         <button id="imagen" onclick="window.location.href='inicioestudiante.php'">
              <img id="in" width="27px" height="27px" src="../Imagenes/casa.png"> 
              <p id="do">inicio</p>
-        </button>
-        <button onclick="window.location.href='calendario.php'" id="imagen2">
-             <img id="ca" width="40px" height="40px" src="../Imagenes/cal.png">
-            <p id="tr">calendario</p>
         </button>
         <div id="cla">
             <center>Clases</center>
@@ -191,11 +203,20 @@
                         if ($resultado2->num_rows>0){
                             while($fila2=$resultado2->fetch_assoc()){
                                 $nombre= $fila2['Nombre'];
+                                $inicial= $fila2['Inicial'];
+                                $color= $fila2['Color'];
+                                $curso= $fila2['Curso'];
             ?>
-                        <div id="clase4">
-                            <a href="aulaoriginal.php?ID=<?=$Clases_ID?>">
-                                <h2 id="z"><?=$nombre?></h2>
-                            </a>    
+                        <div class="clase4">
+                            <div class="icono">
+                                <span style="color: <?php echo $color; ?>"><?= $inicial ?></span>
+                            </div>
+                            <div class="contenido">
+                                <a href="aulaoriginal.php?ID=<?= $Clases_ID ?>">
+                                    <h2 class="titulo"><?= $nombre ?></h2>
+                                </a>
+                                <p class="subtitulo"><?= $curso?></p>
+                            </div>
                         </div>
             <?php
                     }
@@ -206,7 +227,7 @@
         </div>
         <button id="imagen3" onclick="window.location.href='informacion.php'">
             <img id="aj" width="28px"  height="27px"  src="../Imagenes/ajustes.png">
-           <p id="cu">ajustes</p>
+           <p id="cu">Informacion</p>
         </button> 
     </div>
    

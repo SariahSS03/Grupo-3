@@ -21,6 +21,7 @@ form {
     display: flex;
     flex-direction: column;
     color: #2C3E50;
+    margin-top:10%;
 }
 
 /* Contenedor de todos los campos */
@@ -113,11 +114,15 @@ img:hover {
     left: 30px;
     text-align: center;
     grid-area:z;
+    margin-top:20%;
+    display:flex;
+    flex-row: row;
 }
 
 #x {
     position: relative;
     top: 10%;
+
 }
 
 #y {
@@ -136,7 +141,7 @@ img:hover {
 
 
 </style>
-<body>
+<body class="body">
     <form action="basededatos.php" method="post" id="registro">
   <center>
     <div class="regi">

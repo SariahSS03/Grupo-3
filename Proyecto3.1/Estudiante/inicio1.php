@@ -179,8 +179,8 @@
             <button class="boton" title="Cerrar sesion"> 
             <img onclick="window.location.href='../cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="../Imagenes/cinco.png">
             </button>
-            <button onclick="window.location.href='unirseaclase.php'" class="boton" title="Unirse a una clase">
-            <img  width="33px" height="35px" src="../Imagenes/tres.png">
+            <button class="boton" title="Unirse a una clase">
+            <img onclick="window.location.href='unirseaclase.php'" width="33px" height="35px" src="../Imagenes/tres.png">
             </button>
         </div>
     </div>

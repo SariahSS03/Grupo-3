@@ -109,7 +109,7 @@
     ?>
                 <div id="clase3">
                     <div>
-                    <a href="aulaoriginal.php?ID=<?=$id?>">
+                    <a href="../aulaoriginal.php?ID=<?=$id?>">
                         <h2><?=$nombre?></h2>
                     </a> 
             </div>     

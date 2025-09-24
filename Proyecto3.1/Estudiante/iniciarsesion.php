@@ -11,12 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
          body{
-            background-color:#c9c9c9;
+            background-color: #bfc3c3;
             font-family: "Open Sans", sans-serif;
             color:white;
         }
         form{
-            background-color:#F5D547;
+            background-color: white;
             padding: 20px;
             border-radius:50px 50px 50px 50px;
             margin-right:50px;

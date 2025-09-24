@@ -18,8 +18,6 @@
             padding-bottom: 10px;
             padding-top: 12px;
             padding-left: 12px;
-            display: flex;
-            gap: 5px;
         }
         #col{
             position: relative;

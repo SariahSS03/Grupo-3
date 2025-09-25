@@ -20,7 +20,7 @@
             grid-area: clases;
             gap: 10px;
             display: flex;
-            flex-wrap: wrap; /* 🧠 para que bajen automáticamente */
+            flex-wrap: wrap; /*para que bajen automáticamente */
             justify-content: flex-start;
             padding: 20px;
         }
@@ -39,16 +39,16 @@
             overflow: hidden;
             box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
             font-family: Arial, sans-serif;
-            margin: 10px; /* 🧠 separa tarjetas */
+            margin: 10px; /*separa tarjetas */
         }
 
         /* Cabecera */
         .cabecera {
-            background-image: url('https://i.imgur.com/kzjzKQZ.png');
             background-size: cover;
             background-position: center;
             padding: 15px;
-            height: 110px;
+            padding-top: 20px;
+            height: 70px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
             color: white;
@@ -74,11 +74,11 @@
             position: absolute;
             top: 70px;
             right: 10px;
-            background: #8e44ad;
-            color: white;
+            background-color: white;
             width: 50px;
             height: 50px;
             border-radius: 50%;
+            padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -151,7 +151,7 @@
         }
         session_start();
         if($_SESSION['rol']==2 ){
-            header('Location: ../Profesor/inicioprofesor.php');
+            header('Location:/grupo-3/Proyecto3.1/Profesor/inicioprofesor.php');
         }
         ?>
     <?php
@@ -175,7 +175,7 @@
                                 $curso= $fila2['Curso'];
         ?>
                 <div class="clase">
-                    <div class="cabecera">
+                    <div class="cabecera" style="background-color: <?php echo $color; ?>">
                         <a href="../aulaoriginal.php?ID=<?= $Clases_ID ?>">
                             <h2 class="nombre"><?= $nombre ?></h2>
                         </a>
@@ -183,16 +183,22 @@
                     </div>
 
                     <div class="avatar">
-                        <h1 class="inicial"><?= $inicial ?></h1>
+                        <h1 class="inicial" style="color: <?php echo $color; ?>"><?= $inicial ?></h1>
                     </div>
 
                     <div class="acciones">
-                        <a href="Personasestudiantes.php?ID=<?= $Clases_ID ?>"><img width="30px" height="25px" src="../Imagenes/perfilclase.png"></a>
-                        <a href="Tareasestudiante.php?ID=<?= $Clases_ID ?>"><img width="35px" height="25px" src="../Imagenes/archivoclase.png"></a>
-                        <a class="btnOpciones"><img width="35px" height="25px" src="../Imagenes/puntitosclase.png"></a>
+                        <a href="Personasestudiantes.php?ID=<?= $Clases_ID ?>">
+                            <img width="30px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/perfilclase.png">
+                        </a>
+                        <a href="Tareasestudiante.php?ID=<?= $Clases_ID ?>">
+                            <img width="35px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/archivoclase.png">
+                        </a>
+                        <a class="btnOpciones" id="btnOpciones">
+                            <img width="35px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/puntitosclase.png">
+                        </a>
                     </div>
 
-                    <div class="menuOpciones">
+                    <div class="menuOpciones" id="menuOpciones">
                         <a class="opcion" href="salirdeclase.php?ID_Clase=<?= $Clases_ID ?>">Cancelar Registro</a>
                     </div>
                 </div>

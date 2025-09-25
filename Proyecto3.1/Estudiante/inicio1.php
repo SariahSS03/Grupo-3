@@ -55,65 +55,52 @@
             padding-right: 23px;
             padding-left: 12px;
             border-right: 5px solid rgb(234, 234, 244);
+            height: 100vh;           /* Ocupa todo el alto de la ventana */
+            box-sizing: border-box;  /* Para que padding no aumente el tamaño */
+            overflow-y: auto;        /* Scroll vertical si contenido es mayor */
         }
-        #imagen{
-           border-radius: 25px;
-           border: none;
-           background-color: rgb(229, 229, 238);
-           height: 50px;
-        }
-         #do{
-            position: relative;
-            right: 37px;
-            bottom: 27px;
-
-        }
-        #in{
-            position: relative;
-            right: 80px;
-            top: 10px;
-
-        }
-        #imagen2{
+        #imagen {
+            display: flex;              /* Poner imagen y texto en fila */
+            align-items: center;        /* Centrar verticalmente */
+            gap: 8px;                   /* Espacio entre imagen y texto */
             border-radius: 25px;
-           border: none;
+            border: none;
             background-color: rgb(229, 229, 238);
-           height: 50px;
-         
+            height: 50px;
+            padding: 0 15px;            /* Espacio interno a los lados */
+            cursor: pointer;
         }
-        #tr{
-            position: relative;
-            right: 24px;
-            bottom: 40px;
 
+        #in {
+            display: block;             /* Evita espacio extra debajo de la imagen */
         }
-        #ca{
-            position: relative;
-            right: 80px;
-            top: 7px;
-            background-size: cover;
-            background-color: transparent;
 
+        #do {
+            margin: 0;                  /* Quita el margen por defecto del <p> */
+            font-family: Arial, sans-serif; /* Opcional, para buena legibilidad */
+            font-size: 16px;            /* Tamaño de texto ajustable */
         }
-        
-        #imagen3{
-           border-radius: 25px;
-           border: none;
+
+        #imagen3 {
+            display: flex;              /* Hace que los hijos (img y p) estén en fila */
+            align-items: center;        /* Centra verticalmente */
+            gap: 8px;                   /* Espacio entre imagen y texto */
+            border-radius: 25px;
+            border: none;
             background-color: rgb(229, 229, 238);
-           height: 50px;
+            height: 50px;
+            padding: 0 15px;            /* Espacio interno a los lados */
+            cursor: pointer;            /* Manito al pasar */
         }
-        #cu{
-            position: relative;
-           
-            right: 32px;
-            bottom: 28px;
 
+        #aj {
+            display: block;             /* Para evitar espacios extra */
         }
-        #aj{
-            position: relative;
-            right: 80px;
-            top: 11px;
 
+        #cu {
+            margin: 0;                  /* Elimina margen por defecto del <p> */
+            font-family: Arial, sans-serif; /* Opcional: para que el texto se vea bien */
+            font-size: 16px;            /* Ajusta tamaño a gusto */
         }
         #cla{
             padding: 10px;
@@ -122,14 +109,16 @@
         .clase4 {
             background-color: #f1f3f4;
             border-radius: 30px;
-            height: 60px;
+            height: auto;
             display: flex;
             align-items: center;
             padding: 10px 15px;
             gap: 10px;
-            width: fit-content;
+            width: 200px;
             font-family: Arial, sans-serif;
             text-decoration: none;
+            box-sizing: border-box;  /* Para que padding no aumente el tamaño */
+            overflow-y: auto;        /* Scroll vertical si contenido es mayor */
         }
 
         .icono {
@@ -168,27 +157,27 @@
     
     <div class="principal">
         <div id="primero1">
-        <button onclick="window.location.href='inicioestudiante.php'" class="boton" >
-            <img style="position: relative; bottom:3px;" width="85px" height="50px" src="../Imagenes/dos.png">
+        <button onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php'" class="boton" >
+            <img style="position: relative; bottom:3px;" width="85px" height="50px" src="/grupo-3/Proyecto3.1/Imagenes/dos.png">
             <p id="col">FEDERICO AGUILO</p>
         </button>
         </div>
         <div id="segundo1">  
             <button class="boton" title="Cerrar sesion"> 
-            <img onclick="window.location.href='../cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="../Imagenes/cinco.png">
+            <img onclick="window.location.href='/grupo-3/Proyecto3.1/cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="/grupo-3/Proyecto3.1/Imagenes/cinco.png">
             </button>
             <button class="boton" title="Unirse a una clase">
-            <img onclick="window.location.href='unirseaclase.php'" width="33px" height="35px" src="../Imagenes/tres.png">
+            <img onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/unirseaclase.php'" width="33px" height="35px" src="/grupo-3/Proyecto3.1/Imagenes/tres.png">
             </button>
         </div>
     </div>
     <div  class="opciones">
-        <button id="imagen" onclick="window.location.href='inicioestudiante.php'">
-             <img id="in" width="27px" height="27px" src="../Imagenes/casa.png"> 
-             <p id="do">inicio</p>
+        <button id="imagen" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php'">
+             <img id="in" width="27px" height="27px" src="/grupo-3/Proyecto3.1/Imagenes/casa.png"> 
+             <p id="do">Inicio</p>
         </button>
         <div id="cla">
-            <center>Clases</center>
+            <center><h2>Clases</h2></center>
             <?php
                 $User=$_SESSION['CI'];
                 $sql="SELECT*FROM clases_has_cuenta  WHERE Cuenta_User='$User'";
@@ -210,7 +199,7 @@
                                 <span style="color: <?php echo $color; ?>"><?= $inicial ?></span>
                             </div>
                             <div class="contenido">
-                                <a href="aulaoriginal.php?ID=<?= $Clases_ID ?>">
+                                <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?= $Clases_ID ?>">
                                     <h2 class="titulo"><?= $nombre ?></h2>
                                 </a>
                                 <p class="subtitulo"><?= $curso?></p>
@@ -223,8 +212,8 @@
         }
             ?>
         </div>
-        <button id="imagen3" onclick="window.location.href='informacion.php'">
-            <img id="aj" width="28px"  height="27px"  src="../Imagenes/ajustes.png">
+        <button id="imagen3" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/informacion.php'">
+            <img id="aj" width="28px"  height="27px"  src="/grupo-3/Proyecto3.1/Imagenes/ajustes.png">
            <p id="cu">Informacion</p>
         </button> 
     </div>

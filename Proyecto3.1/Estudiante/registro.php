@@ -124,7 +124,7 @@ img:hover {
 /* Estilos individuales, sin usar position si no es necesario */
 
 #x {
-    width: 100px; /* Ajusta según el tamaño deseado */
+    width: 200px; /* Ajusta según el tamaño deseado */
     height: auto;
 }
 

@@ -176,7 +176,7 @@
         ?>
                 <div class="clase">
                     <div class="cabecera">
-                        <a href="aulaoriginal.php?ID=<?= $Clases_ID ?>">
+                        <a href="../aulaoriginal.php?ID=<?= $Clases_ID ?>">
                             <h2 class="nombre"><?= $nombre ?></h2>
                         </a>
                         <p class="grado"><?= $curso ?></p>

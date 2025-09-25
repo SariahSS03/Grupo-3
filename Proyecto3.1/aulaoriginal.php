@@ -242,6 +242,7 @@ session_start();
 </head>
 <body class="body">
   <?php
+  
      if($_SESSION['rol']==2 ){
            include("Profesor/inicio2.php");  
         }else{
@@ -311,7 +312,9 @@ session_start();
               ?>
               <h3><?= $nombres?> <?= $apellidos?></h3>
               <form action="Publicaciones.php" method="post" enctype="multipart/form-data">
-                <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ></textarea>
+                <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" >
+                  
+                </textarea>
                 <input type="hidden" name="ID" value="<?=$ID?>">
             </div>
                   <div id="abajo">

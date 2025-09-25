@@ -94,10 +94,10 @@
     <h1>Inicio de Sesión</h1>
 
     <label for="ci">CI:</label>
-    <input type="text" id="ci" name="CI" placeholder="Cédula de identidad" required>
+    <input type="text" id="ci" name="CI" placeholder="Cédula de identidad">
 
     <label for="rude">Contraseña:</label>
-    <input type="password" id="rude" name="Rude" placeholder="RUDE" required>
+    <input type="password" id="rude" name="Rude" placeholder="RUDE">
 
     <div class="botones">
       <input type="submit" value="Iniciar sesión">
@@ -105,7 +105,7 @@
     </div>
   </form>
 <script>
-    $("#form").validate({
+    $("form").validate({
         rules:{
             Rude:{
                 required:true,

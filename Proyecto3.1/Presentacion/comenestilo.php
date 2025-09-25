@@ -81,12 +81,12 @@
     }
     .mostrar{
 
-        background: #739fbdff;
+        background: #071c2bff;
         width: 500px;
         height:auto;
         border-radius:20px;
         margin-left:1100px;
-        margin-bottom:1000px;
+        margin-bottom:10px;
     }
 
     @keyframes fadeIn {

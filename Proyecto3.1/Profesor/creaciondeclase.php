@@ -120,7 +120,7 @@ body{
                 required:true,
                 minlenght:5,
                 maxlenght:45
-            }
+            },
             Inicial:{
                 required:true,
                 minlenght:1,
@@ -135,7 +135,7 @@ body{
             },
               Codigo:{
                 required:"este campo tiene que ser llenado solo  con numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Curso:{
                 required:"este campo tiene que ser llenado",
@@ -146,8 +146,8 @@ body{
                 required:"este campo tiene que ser llenado solo con una letra",
                 minlenght:"El minimo es de 1 letras",
                 maxlenght:"El maximo es el 1letras"
-            },
             }
+        }
 });
     </script>
 </body>

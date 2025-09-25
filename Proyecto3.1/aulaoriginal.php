@@ -80,37 +80,10 @@ session_start();
             border-radius:30px;
             margin-bottom:10px;
     }
-    #tres{
-            padding: 9px;
-        }
     #cinco{
             
             flex-direction: row-reverse;
             gap: 15px;
-        }
-        #a{
-            padding: 15px;
-            border-radius: 105px;
-            border: none;
-        }
-        .arriba{
-            position: relative;
-            top: 5px;
-            padding-bottom:5px;
-        }
-        #abajo{
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          border-top: 2px solid #020202ff;
-        }
-        #im{
-            border: none;
-        }
-        #ima{
-            padding: 9px;
-            border: none;
-            border-radius: 17px;
         }
         #Anunciaalgo{
           width: 100%;
@@ -127,9 +100,6 @@ session_start();
   #Anunciaalgo:focus {
     background-color: #fff; /* Similar al efecto de enfoque de Classroom */
     box-shadow: 0 0 0 2px #4285f4; /* Borde de enfoque sutil */
-  }
-  a{
-    color:black;
   }
 
   #materia{
@@ -152,9 +122,77 @@ session_start();
   border-radius: 10px;
   background-color: #8fa3c2ff;
   }
-  
-#publicacion1{
-  color:white;
+/* Contenedor general */
+.areaPublicaciones {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.Publicaciones {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Tarjeta de publicación */
+#publicacion1 {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Cabecera de usuario */
+#publicacion1 h2:first-of-type {
+  font-size: 16px;
+  margin: 0 0 4px 0;
+  font-weight: 500;
+}
+
+/* Fecha */
+#publicacion1 h2:nth-of-type(2) {
+  font-size: 12px;
+  margin: 0;
+  color: #757575;
+  font-weight: normal;
+}
+
+/* Enlace editar */
+#publicacion1 a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+/* Archivo adjunto */
+#publicacion1 img,
+#publicacion1 embed {
+  display: block;
+  margin-top: 15px;
+  border-radius: 6px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#publicacion1 a[download] {
+  display: inline-block;
+  margin-top: 15px;
+  background: #f1f3f4;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+#publicacion1 a[download]:hover {
+  background-color: #e0e0e0;
 }
 @media screen and (max-width: 768px) {
   .body {
@@ -275,36 +313,16 @@ session_start();
               <form action="Publicaciones.php" method="post" enctype="multipart/form-data">
                 <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ></textarea>
                 <input type="hidden" name="ID" value="<?=$ID?>">
-                <div id="tres">
-                  <div class="arriba" id="barraFormato" style="display: none;">
-                    <button id="im" class="boton1">
-                        <img  width="15px" height="15px"  src="https://w7.pngwing.com/pngs/738/167/png-transparent-bold-text-solid-icon.png">
-                    </button>
-                    <button id="im" class="boton1">
-                        <img width="15px" height="15px" src="https://images.icon-icons.com/3863/PNG/512/text_italic_icon_241239.png">
-                    </button>
-                    <button id="im" class="boton1">
-                        <img  width="15px" height="15px" src=" https://cdn-icons-png.flaticon.com/512/60/60725.png">
-                    </button>
-                    <button id="im" class="boton1">
-                        <img width="15px" height="15px" src="https://w7.pngwing.com/pngs/48/869/png-transparent-list-bullet-list-icon-html-thumbnail.png">
-                    </button>
-                    <button id="im" class="boton1">
-                        <img width="15px" height="15px" src="https://cdn-icons-png.flaticon.com/512/7375/7375659.png">
-                    </button>
-                  </div>  
-                </div>
             </div>
                   <div id="abajo">
                     <div id="cuatro">
                       <input type="file" name="fileToUpload" id="fileToUpload">
                     </div>
                     <div id="cinco">
-                      <button id="a" class="boton1" >Cancelar</button>
                       <button type="submit"  id="a" class="boton1">Publicar</button>
                   </form>
-            </div>
-                </div>
+                    </div>
+                  </div>
     </div>
   </section>
 
@@ -318,11 +336,12 @@ session_start();
             while($fila3=$resultado3->fetch_assoc()){
                        $Texto= $fila3['Texto'];
                        $FechaCreacion= $fila3['FechaCreacion'];
+                       $ID_publicacion= $fila3['id'];
     ?>
                 <div id="publicacion1">
                         <h2><?=$Texto?></h2>
                         <h2><?=$FechaCreacion?></h2>
-                        <a href="editarpublicacion.php">Editar</a>     
+                        <a href="Personasestudiantes.php?ID_publicacion=<?= $ID_publicacion?>">Editar</a>     
             </div>    
     <?php
             $nombreArchivo ="P-".$ID."-".$fila3['id'];

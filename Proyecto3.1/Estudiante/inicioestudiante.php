@@ -187,8 +187,8 @@
                     </div>
 
                     <div class="acciones">
-                        <a><img width="30px" height="25px" src="../Imagenes/perfilclase.png"></a>
-                        <a><img width="35px" height="25px" src="../Imagenes/archivoclase.png"></a>
+                        <a href="Personasestudiantes.php?ID=<?= $Clases_ID ?>"><img width="30px" height="25px" src="../Imagenes/perfilclase.png"></a>
+                        <a href="Tareasestudiante.php?ID=<?= $Clases_ID ?>"><img width="35px" height="25px" src="../Imagenes/archivoclase.png"></a>
                         <a class="btnOpciones"><img width="35px" height="25px" src="../Imagenes/puntitosclase.png"></a>
                     </div>
 

@@ -113,30 +113,29 @@ img:hover {
     top: 30px;
     left: 30px;
     text-align: center;
+    margin-top: 20%;
     grid-area:z;
-    margin-top:20%;
-    display:flex;
-    flex-row: row;
+    display: flex;
+    flex-direction: column; /* Esto apila los elementos verticalmente */
+    align-items: center;     /* Centra horizontalmente dentro del flex */
+    gap: 10px;               /* Espacio entre elementos (opcional) */
 }
 
-#x {
-    position: relative;
-    top: 10%;
+/* Estilos individuales, sin usar position si no es necesario */
 
+#x {
+    width: 100px; /* Ajusta según el tamaño deseado */
+    height: auto;
 }
 
 #y {
-    position: relative;
-    left: 21%;
-    bottom: 97px;
     color: #00439b;
+    margin: 0;
 }
 
 #k {
-    position: relative;
-    bottom: 117px;
-    left: 15%;
     color: #2C3E50;
+    margin: 0;
 }
 
 

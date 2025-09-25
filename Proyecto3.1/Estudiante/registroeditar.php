@@ -130,7 +130,6 @@ input {
             include("inicio1.php");
         }
         }
-   
     ?>   
     <form action="editardatos.php" method="post" id="registro">
 

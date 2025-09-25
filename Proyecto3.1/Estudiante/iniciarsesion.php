@@ -10,91 +10,100 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
-         body{
-            background-color: #bfc3c3;
-            font-family: "Open Sans", sans-serif;
-            color:white;
+        body {
+        background-color: #c9c9c9;
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         }
-        form{
-            background-color: white;
-            padding: 20px;
-            border-radius:50px 50px 50px 50px;
-            margin-right:50px;
-            margin-bottom:50px;
-            margin-left:50px;
-            margin-top: 100px;
-            width:300px ;
-            height:100 px;
-            box-shadow: #003375;
+
+        form {
+        background-color: #F5D547;
+        border-radius: 40px;
+        padding: 40px 30px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-        input{
-            width:200px;
-            height:30px;
-            border-radius: 10px;
-            padding: 5px;
-            font-size: 16px;
-        }
-        label{
-            color: #3872bd;
-            font-size: 25px;
-        }
-    #titu{
+
+        h1 {
+        text-align: center;
         color: #003375;
-    }
-        #Boton {
-    
-    background-color:#024fb4; 
-    color: white;
-    width:200px;
-    height:35px;
-    padding: 5px ;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px; 
-    display: flex;
-   justify-content: center;
-   gap: 25px;
-   margin-top: 20px;
-   flex-direction: column;
-   transition: background-color 0.3s;
-    }
+        margin-bottom: 30px;
+        }
 
-    #Boton:hover {
-      background-color:#3872bd;
-    }
+        label {
+        display: block;
+        margin-bottom: 8px;
+        color: #3872bd;
+        font-size: 18px;
+        }
 
+        input[type="text"],
+        input[type="password"] {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        box-sizing: border-box;
+        }
 
-@media (max-width: 800px) {
-  #Boton {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 25px;
-    flex-direction: row;
-  }
+        .botones {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+        }
 
-}
+        .botones input,
+        .botones button {
+        background-color: #024fb4;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        }
 
-input {
-        width:100%;
-    }
+        .botones input:hover,
+        .botones button:hover {
+        background-color: #3872bd;
+        }
 
+        @media (max-width: 500px) {
+        form {
+            padding: 25px 20px;
+        }
 
+        .botones {
+            flex-direction: column;
+        }
+        }
     </style>
 </head>
 <body>
-<center> <div class="inicio">
-<form action="mostrardatos.php" method="post" id="form">
-    <h1 id="titu">Inicio de Sesion</h1>
-<label>CI:</label>
-<input type="text" name="CI" id="" placeholder="Cedula de identidad" ><br><br>
-<label>Contraseña:</label>
-<input type="password" name="Rude" id="" placeholder="RUDE"><br><br>
+  <form action="mostrardatos.php" method="post">
+    <h1>Inicio de Sesión</h1>
 
-<input type="submit" value="Inicio de sesion" id="Boton">
-<button  onclick="window.location.href='registro.php'" id="Boton">Crear Cuenta</button></center>
-</div></form>
+    <label for="ci">CI:</label>
+    <input type="text" id="ci" name="CI" placeholder="Cédula de identidad" required>
 
+    <label for="rude">Contraseña:</label>
+    <input type="password" id="rude" name="Rude" placeholder="RUDE" required>
+
+    <div class="botones">
+      <input type="submit" value="Iniciar sesión">
+      <button type="button" onclick="window.location.href='registro.php'">Crear cuenta</button>
+    </div>
+  </form>
 <script>
     $("#form").validate({
         rules:{
@@ -113,7 +122,7 @@ input {
                 required:"este campo tiene que ser llenado",
                 minlenght:"El minimo es de 5 letras",
                 maxlenght:"El maximo es el 45 letras"
-            }
+            },
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",
                 number:"el campo solo tiene que llenado con numeros"

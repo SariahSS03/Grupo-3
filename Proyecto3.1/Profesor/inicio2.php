@@ -131,10 +131,10 @@
                 <img onclick="window.location.href='../cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="../Imagenes/cinco.png">
             </button>
             <button class="boton">
-                <img  width="44px" height="35px" src="../Imagenes/cuatro.png">
+                <img  width="44px" height="35px" src="/grupo-3/Proyecto3.1/Imagenes/cuatro.png">
             </button>
             <button onclick="window.location.href='creaciondeclase.php'" class="boton">
-                <img  width="33px" height="35px" src="../Imagenes/tres.png">
+                <img  width="33px" height="35px" src="/grupo-3/Proyecto3.1/Imagenes/tres.png">
             </button>
         </div>
 

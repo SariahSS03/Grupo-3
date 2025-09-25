@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        #body-inicio-profesor{
             margin:none;
             display: grid;
             grid-template-rows: auto auto auto auto auto;
@@ -88,7 +88,7 @@
 
     </style>
 </head>
-<body>
+<body id="body-inicio-profesor">
     <?php
     include("inicio2.php");
     ?>

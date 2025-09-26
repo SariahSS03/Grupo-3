@@ -24,12 +24,12 @@ session_start();
          $Cuenta_User=$_SESSION['CI'];
          $sql2="INSERT INTO Clases_has_Cuenta (Clases_ID, Cuenta_User) VALUES ('$clase_ID', '$Cuenta_User' )";
          if ($conexion->query ($sql2)===TRUE){
-             header("Location: ../aulaoriginal.php?ID=$clase_ID");
+             header("Location:/grupo-3/Proyecto3.1/aulaoriginal.php?ID=$clase_ID");
          }
       }
       
       }else{
-      header('Location: unirseaclase.php');
+      header('Location:/grupo-3/Proyecto3.1/Estudiante/unirseaclase.php');
       }
 ?>
 </body>

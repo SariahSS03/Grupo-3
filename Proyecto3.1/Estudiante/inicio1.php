@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .body-inicio1{
+            margin: 0px;
+        }
         .principal{
             background: rgb(1, 1, 49);
             display: flex;
@@ -26,8 +29,7 @@
             color: white; 
         }
         
-        #segundo1{
-           
+        #segundo1{ 
             width: 50%;
             padding-bottom: 10px;
             padding-top: 12px;
@@ -36,9 +38,6 @@
             display: flex;
             gap: 20px;
             flex-direction:row-reverse;
-            
-            
-         
         }
         .boton{
             border: none;
@@ -106,6 +105,24 @@
             padding: 10px;
             
         }
+        .encabezado-clases {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* separación entre imagen y texto */
+            padding: 10px 0;
+        }
+
+        .icono-clase {
+            width: 27px;
+            height: 27px;
+        }
+
+        .titulo-clases {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0;
+        }
+
         .clase4 {
             background-color: #f1f3f4;
             border-radius: 30px;
@@ -123,7 +140,6 @@
 
         .icono {
             background-color: #dfe3e8;
-            color: #3c4043;
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -132,6 +148,7 @@
             justify-content: center;
             font-weight: bold;
             font-size: 18px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);/* Sombra agregada */
         }
 
         .contenido {
@@ -153,7 +170,7 @@
         }
     </style>
 </head>
-<body>
+<body class="body-inicio1">
     
     <div class="principal">
         <div id="primero1">
@@ -177,7 +194,10 @@
              <p id="do">Inicio</p>
         </button>
         <div id="cla">
-            <center><h2>Clases</h2></center>
+            <div class="encabezado-clases">
+                <img class="icono-clase" src="/grupo-3/Proyecto3.1/Imagenes/clase.png">
+                <h2 class="titulo-clases">Clases</h2>
+            </div>
             <?php
                 $User=$_SESSION['CI'];
                 $sql="SELECT*FROM clases_has_cuenta  WHERE Cuenta_User='$User'";

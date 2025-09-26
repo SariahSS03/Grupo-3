@@ -9,7 +9,7 @@
     <?php
     session_start();
     session_destroy();
-    header('Location:Estudiante/iniciarsesion.php');
+    header('Location:/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php');
     ?>
 </body>
 </html>

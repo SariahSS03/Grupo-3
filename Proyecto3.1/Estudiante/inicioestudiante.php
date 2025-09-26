@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            margin:none;
+        .body-inicio-estudiante{
             display: grid;
             grid-template-rows: auto auto auto auto auto;
             grid-template-columns: 16% 84% ;
@@ -23,6 +22,8 @@
             flex-wrap: wrap; /*para que bajen automáticamente */
             justify-content: flex-start;
             padding: 20px;
+            width: 100%;
+            height: 100%;
         }
 
         /* Tarjeta individual */
@@ -135,10 +136,71 @@
         a {
             text-decoration: none;
         }
+        * {
+            box-sizing: border-box; /*Esto evitara que los padding o el borde se desborder y se muevan */
+        }
+        @media (max-width: 768px) {
+            .body-inicio-estudiante {
+                display: block;
+                padding: 10px;
+            }
 
+            .clases {
+                padding: 10px;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .clase {
+                width: 90%; /* O puedes usar 100% si quieres que ocupen todo */
+                height: auto;
+                margin: 10px auto;
+            }
+
+            .cabecera {
+                padding: 10px;
+                height: auto;
+            }
+
+            .nombre {
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .grado {
+                font-size: 13px;
+                text-align: center;
+            }
+
+            .avatar {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                padding: 5px;
+            }
+
+            .acciones {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .acciones img {
+                width: 30px;
+                height: 25px;
+            }
+
+            .menuOpciones {
+                right: 5px;
+                bottom: 60px;
+            }
+        }
     </style>
 </head>
-<body>
+<body class="body-inicio-estudiante">
       <?php
         $direccion="localhost";
         $usuario="root";
@@ -155,7 +217,7 @@
         }
         ?>
     <?php
-    include("inicio1.php");
+    include("/grupo-3/Proyecto3.1/Estudiante/inicio1.php");
     ?>
     <div class="clases">
     <?php
@@ -176,7 +238,7 @@
         ?>
                 <div class="clase">
                     <div class="cabecera" style="background-color: <?php echo $color; ?>">
-                        <a href="../aulaoriginal.php?ID=<?= $Clases_ID ?>">
+                        <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?= $Clases_ID ?>">
                             <h2 class="nombre"><?= $nombre ?></h2>
                         </a>
                         <p class="grado"><?= $curso ?></p>
@@ -187,10 +249,10 @@
                     </div>
 
                     <div class="acciones">
-                        <a href="Personasestudiantes.php?ID=<?= $Clases_ID ?>">
+                        <a href="/grupo-3/Proyecto3.1/Estudiante/Personasestudiante.php?ID=<?= $Clases_ID ?>">
                             <img width="30px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/perfilclase.png">
                         </a>
-                        <a href="Tareasestudiante.php?ID=<?= $Clases_ID ?>">
+                        <a href="/grupo-3/Proyecto3.1/Tareasestudiante.php?ID=<?= $Clases_ID ?>">
                             <img width="35px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/archivoclase.png">
                         </a>
                         <a class="btnOpciones" id="btnOpciones">
@@ -199,7 +261,7 @@
                     </div>
 
                     <div class="menuOpciones" id="menuOpciones">
-                        <a class="opcion" href="salirdeclase.php?ID_Clase=<?= $Clases_ID ?>">Cancelar Registro</a>
+                        <a class="opcion" href="/grupo-3/Proyecto3.1/Estudiante/salirdeclase.php?ID_Clase=<?= $Clases_ID ?>">Cancelar Registro</a>
                     </div>
                 </div>
     <?php
@@ -211,7 +273,7 @@
    </div>
     <script>
     function redirigir() {
-      window.location.href = "aulaoriginal.php?ID=<?=$Clases_ID?>";
+      window.location.href = "/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$Clases_ID?>";
     }
   </script>
   <script>

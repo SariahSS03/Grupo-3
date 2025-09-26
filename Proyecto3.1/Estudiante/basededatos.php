@@ -18,10 +18,10 @@ $dbname="proyecto3";
  $sql2="INSERT INTO Cuenta (User,Contrasena,rol)VALUES('$CI','$RUDE','1')";
  if($conexion->query($sql)){
     if($conexion->query($sql2)){
-      header('Location:mostrardatos.php');
+      header('Location:/grupo-3/Proyecto3.1/Estudiante/mostrardatos.php');
     }
  }else{
-   header('Location:registro.php');
+   header('Location:/grupo-3/Proyecto3.1/Estudiante/registro.php');
  }
  $conexion->close();
 

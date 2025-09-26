@@ -25,20 +25,20 @@
       $_SESSION['rol']=$fila['rol'];
       $_SESSION['Bloqueado']=$fila['Bloqueado'];
       if($_SESSION['Bloqueado']=='Bloqueado' ){
-         header('Location: iniciarsesion.php');
+         header('Location:/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php');
         }else{
          if($_SESSION['rol']==1 ){
-            header('Location: inicioestudiante.php');
+            header('Location:/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php');
             }
             if($_SESSION['rol']==2 ){
-               header('Location: ../Profesor/inicioprofesor.php');
+               header('Location: /grupo-3/Proyecto3.1/Profesor/inicioprofesor.php');
             }
             if($_SESSION['rol']==3 ){
-               header('Location: ../Administrador/Administrador.php');
+               header('Location:/grupo-3/Proyecto3.1/Administrador/Administrador.php');
             }
          }
       }else{
-            header('Location: iniciarsesion.php');
+            header('Location:/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php');
       } 
       
       

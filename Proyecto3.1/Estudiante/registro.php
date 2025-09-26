@@ -6,10 +6,11 @@
     <title>Document</title>
 </head>
 <style>
-    .body {
+    .body-rgistro {
     background-color: #bfc3c3;
     font-family: "Open Sans", sans-serif;
     color: white;
+    margin: 0px;
 }
 
 form {
@@ -67,11 +68,13 @@ label {
 #Boton {
     background-color: #00439b;
     color: white;
+    text-align: center;
 }
 
 #boton {
     background-color: #059a4b;
     color: white;
+    text-align: center;
 }
 
 /* Hover para botón principal */
@@ -140,7 +143,7 @@ img:hover {
 
 
 </style>
-<body class="body">
+<body class="body-registro">
     <form action="basededatos.php" method="post" id="registro">
   <center>
     <div class="regi">
@@ -189,13 +192,13 @@ img:hover {
       </div>
 
       <!-- Botones -->
-      <input onclick="window.location.href='iniciarsesion.php'" id="Boton" value="Iniciar Sesión">
+      <input onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php'" id="Boton" value="Iniciar Sesión">
       <input type="submit" id="boton" value="Crear cuenta">
     </div>
   </center>
 </form>
 <div id="z">
-    <img src="../Imagenes/logo.png" id="x">
+    <img src="/grupo-3/Proyecto3.1/Imagenes/logo.png" id="x">
 
     <h2 id="y">FEDERICO AGUILO</h2>
 
@@ -263,18 +266,18 @@ img:hover {
             },
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Rude:{
                 required:"este campo tiene que ser llenado",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Fechadenacimiento:{
                 required:"este campo tiene que ser llenado solo numeros "
             },
             Telefono:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             }
         }
     });

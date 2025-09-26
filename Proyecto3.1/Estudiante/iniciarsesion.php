@@ -10,11 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
-        body {
-        background-color: #c9c9c9;
+        .body-iniciar-sesion {
+        background-color: #bfc3c3;
+        color: white;
         font-family: "Open Sans", sans-serif;
-        margin: 0;
-        padding: 0;
+        margin: 0px;
+        padding: 0px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -22,7 +23,8 @@
         }
 
         form {
-        background-color: #F5D547;
+        background-color: white;
+        color: #2C3E50;
         border-radius: 40px;
         padding: 40px 30px;
         width: 100%;
@@ -32,14 +34,12 @@
 
         h1 {
         text-align: center;
-        color: #003375;
         margin-bottom: 30px;
         }
 
         label {
         display: block;
         margin-bottom: 8px;
-        color: #3872bd;
         font-size: 18px;
         }
 
@@ -89,7 +89,7 @@
         }
     </style>
 </head>
-<body>
+<body class="body-iniciar-sesion">
   <form action="mostrardatos.php" method="post">
     <h1>Inicio de Sesión</h1>
 
@@ -101,7 +101,7 @@
 
     <div class="botones">
       <input type="submit" value="Iniciar sesión">
-      <button type="button" onclick="window.location.href='registro.php'">Crear cuenta</button>
+      <button type="button" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/registro.php'">Crear cuenta</button>
     </div>
   </form>
 <script>

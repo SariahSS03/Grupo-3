@@ -20,122 +20,171 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 </head>
 <style>
-    body{
-        margin:0px;
+    .body-unirse-clase {
+        background-color: #f0f2f5;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
     }
-    #Cero{
-        background-color: rgb(3, 3, 117);
-        width: 800px;
-        height: 400px;
-        margin-top: 100px;
-       
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        padding: 50px 20px;
     }
-    #Uno{
-        background-color: rgb(0, 0, 75);
-        width: 799px;
-        border:1px solid black;
+
+    .join-form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .form-title {
+        margin-top: 0;
+        font-size: 24px;
+        color: #202124;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 20px;
+    }
+
+    .session-info {
+        align-items: center;
+        background-color: #f1f3f4;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .user-name {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+        color: #202124;
+    }
+
+    .label-code {
+        font-size: 14px;
+        color: #202124;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    #Codigo {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    #Codigo:focus {
+        outline: none;
+        border-color: #4285f4;
+        box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+    }
+
+    .instructions {
+        font-size: 14px;
+        color: #5f6368;
+        margin-bottom: 20px;
+    }
+
+    .instructions ul {
+        margin: 5px 0 0 20px;
+        padding: 0;
+    }
+
+    .instructions li {
+        margin-bottom: 5px;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .cancel-button {
+        background: none;
+        border: none;
+        color: #1a73e8;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .submit-button {
+        background-color: #1a73e8;
         color: white;
-        
-        
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
     }
-    #unouno{
-    margin-right: 500px;
+
+    .submit-button:hover {
+        background-color: #155ab6;
     }
-    #Dos{
-        border: 1px rgb(246, 246, 252);
-        border-radius: 5px;
+    @media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .join-form {
+        padding: 20px;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .form-title {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .session-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .user-name {
         font-size: 15px;
     }
-    #Dos:hover{
-        background-color: rgba(0, 123, 255, 0.5);
-       
-}
-#Dosdos{
-    color: white;
-    margin-left: 5px;
-}
-#Tres{
-     border: 1px blue;
-     font-size: 15px;
-     margin-left: 5px;
-     border: 2px  solid #333 ;
 
-}
-  #Tres:hover{
-  border-color: #aaa;
-
-}
-#Cuatro{
-      background-color: rgb(0, 0, 75);
-      width: 799px;
-      border:1px solid black;
-      height: 50px;
-}
-#boton1{
-    background-color: rgb(9, 83, 194);
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size:15px;
-    color:white;
-    margin-left: 600px;
-    margin-top:20px;
-}
-#boton1:hover{
-    background-color: rgb(11, 60, 221);
-    color: black;
-    transform: scale(1.1);
-
-}
-#boton2{
-    background-color: rgb(9, 83, 194);
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 15px;
-    color:white;
-}
-#boton2:hover{
-    background-color:rgb(11, 60, 221); 
-    color: black;
-    transform: scale(1.1);
-
-
-}
-#ola{
-    color: white;
-}
-#ola1{
-    color: white;
-    font-weight: bold;
-}
-@media (max-width: 600px) {
-      #Cero {
-        width: 90%;
-        padding: 15px;
-      }
-
-      #boton1, #boton2 {
-        width: 100%;
-        margin: 10px 0;
-      }
-
-      #Tres {
-        width: 100%;
-      }
-
-      h3, li {
-        font-size: 16px;
-        text-align: left;
-      }
-
-      #unouno {
-        text-align: left;
-        margin-right: 0;
-      }
+    #Codigo {
+        font-size: 15px;
+        padding: 8px;
     }
- 
 
+    .instructions {
+        font-size: 13px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .cancel-button,
+    .submit-button {
+        width: 100%;
+        font-size: 15px;
+    }
+}
 </style>
-<body>
+<body class="body-unirse-clase">
     <?php
       if($_SESSION['rol']==2 ){
             include("inicio2.php");  
@@ -145,50 +194,63 @@
           }
           }
     ?>
-    <center>
-    <form action="ingresoaula.php" method="post" id="form">
-        <div id="Cero">
-        <div id="Uno">
-        <h3 id="unouno">Unirse a Clase</h3>    
+    <div class="form-container">
+    <?php
+        $User = $_SESSION['CI'];
+        $sql2 = "SELECT * FROM Informacion WHERE CI='$User'";
+        $resultado2 = $conexion->query($sql2);
+        if ($resultado2->num_rows > 0) {
+            while ($fila2 = $resultado2->fetch_assoc()) {
+                $nombre = $fila2['Nombres'];
+                $apellido = $fila2['Apellidos'];
+            }
+        }
+    ?>
+
+    <form action="ingresoaula.php" method="post" class="join-form">
+        <h2 class="form-title">Unirse a clase</h2>
+
+        <div class="session-info">
+            <div class="user-info">
+                <p class="user-name"><?= $nombre . " " . $apellido ?></p>
+            </div>
         </div>
-        <fieldset>
-            <legend>
-                <h3 id="Dosdos">Has iniciado sesion como</h3>
-                <button id="Dos">Cambiar Cuenta</button>
-            </legend>
-        </fieldset>
-        <fieldset>
-            <legend>
-                <h3 id="Dosdos">Codigo de Clase</h3>
-                <input type="text" placeholder="Codigo de clase" id="Tres" name="Codigo">
-            </legend>
-        </fieldset>
-        <ul id="ola1">Para Iniciar Sesion Con Un Codigo En Una Clase</ul>
-        <li id="ola">Usa una cuenta autorizada</li>
-        <li id="ola">Utiliza un codigo de clase con 5-8 letras o numeros sin espacios ni simbolos</li>
-        <div id="Cuatro">
-            <button id="boton1">Cancelar</button>
-            <input type="submit" value="Unirme" id="boton2">
-            
+
+        <div class="class-code-section">
+            <label for="Codigo" class="label-code">Código de clase</label>
+            <input type="text" id="Codigo" name="Codigo" placeholder="Código de clase">
+        </div>
+
+        <div class="instructions">
+            <p>Para iniciar sesión con un código de clase</p>
+            <ul>
+                <li>Usa una cuenta autorizada</li>
+                <li>Utiliza un código de clase con 5-8 letras o números sin espacios ni símbolos</li>
+            </ul>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="cancel-button" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php'">Cancelar</button>
+            <input type="submit" class="submit-button" value="Unirme">
         </div>
     </form>
-    </div>
-    </center>
+</div>
+
 
 <script>
-    $("#form").validate({
+    $(".join-form").validate({
         rules:{
-            Nombre:{
+            Codigo:{
                 required:true,
                 minlenght:5,
-                maxlenght:7
+                maxlenght:8
             }
         },
         messages:{
             Nombre:{
             required:"Este campo requiere ser llenado",
             minlenght:"El  minimo de letras es de 5 digitos",
-            maxlenght:"El maximo de letras es 7 digitos"
+            maxlenght:"El maximo de letras es 8 digitos"
         }
         }
     })

@@ -24,18 +24,46 @@ session_start();
       background-color: #94a5bdff;
       margin:0px;
     }
-    .quimica {
-      background-color: #a09e9eff;
-      text-align: center;
-      padding: 30px 10px;
-      color: #ffeefc5e;
-      grid-area: quimica;
+    .clase-header {
+      width: 100%;
+      max-width: 1000px;
+      margin: 30px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    .quimica h1 {
-      font-size: 35px;
-      font-family: 'Trebuchet MS', sans-serif;
+    .header-banner {
+      position: relative;
+      background-size: cover;
+      background-position: right;
+      height: 150px;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
     }
+
+    .header-text h1 {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+      margin: 0;
+    }
+
+    .sub-info {
+      background-color: white;
+      padding: 15px 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .sub-info p {
+      margin: 5px 0;
+    }
+
 /*anuncio*/
     .areaAnuncios {
       background-color: #0c394eff;
@@ -242,14 +270,13 @@ session_start();
 </head>
 <body class="body">
   <?php
-  
      if($_SESSION['rol']==2 ){
-           include("Profesor/inicio2.php");  
+           include("/grupo-3/Proyecto3.1/Profesor/inicio2.php");  
         }else{
             if($_SESSION['rol']==1 ){
-            include("Estudiante/inicio1.php");
+            include("/grupo-3/Proyecto3.1/Estudiante/inicio1.php");
         }
-        }
+      }
   ?>
    <?php
         $User=$_SESSION['CI'];
@@ -277,20 +304,27 @@ session_start();
   <div class="mn">
       <?php
       if($_SESSION['rol']==2 ){
-            include("Profesor/subprofesor.php");  
+            include("/grupo-3/Proyecto3.1/Profesor/subprofesor.php");  
           }else{
               if($_SESSION['rol']==1 ){
-              include("Estudiante/subestudiante.php");
+              include("/grupo-3/Proyecto3.1/Estudiante/subestudiante.php");
           }
           }
       ?>
   </div>
 
-  <section class="quimica">
-    <h1 id="materia">MATERIA: <?= $nombre ?></h1>
-    <h1>Usuario: <?= $User ?></h1>
-    <h1>Profesor: <?= $Nombreprofesor ?> <?= $Apellidoprofesor ?></h1>
+  <section class="clase-header">
+    <div class="header-banner">
+      <div class="header-text">
+        <h1 class="titulo-clase"><?= $nombre ?></h1>
+      </div>
+    </div>
+
+    <div class="sub-info">
+      <p><strong>Profesor:</strong> <?= $Nombreprofesor ?> <?= $Apellidoprofesor ?></p>
+    </div>
   </section>
+
 
   <section class="areaAnuncios">
   <div id="codigo">

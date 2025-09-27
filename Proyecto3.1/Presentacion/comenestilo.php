@@ -11,9 +11,10 @@
     body {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas:"menu"
                             "comentarios"
+                            "mostrar"
                             "final";
 
         font-family: 'Roboto', sans-serif;
@@ -26,10 +27,12 @@
 
     .form {
         background: #ffffff;
-        padding: 40px 30px;
+        margin-top:50px;
+        margin-left:250px;
+        padding: 40px;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        width: 400px;
+        width: 800px;
         text-align: center;
         animation: fadeIn 1s ease forwards;
         grid-area:comentarios;
@@ -79,16 +82,6 @@
         transform: scale(1.05);
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
-    .mostrar{
-
-        background: #071c2bff;
-        width: 500px;
-        height:auto;
-        border-radius:20px;
-        margin-left:1100px;
-        margin-bottom:10px;
-    }
-
     @keyframes fadeIn {
         0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(0); }
@@ -99,6 +92,72 @@
             padding: 30px 20px;
         }
     }
+    .mostrar {
+        background: #071c2b;
+        width: 850px;
+        margin-top:50px;
+        padding: 20px;
+        border-radius: 20px;
+        margin-left: 250px;
+        margin-bottom: 20px;
+        color: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1s ease forwards;
+        grid-area:mostrar;
+    }
+
+    .titulo-comentarios {
+        font-size: 16px;
+        color: #00b7ff;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .lista-comentarios {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-height: 400px;
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    .comentario {
+        background-color: #0e2b42;
+        border-left: 4px solid #0096FF;
+        padding: 12px 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 150, 255, 0.1);
+        animation: fadeIn 0.8s ease;
+        word-wrap: break-word;
+    }
+
+    .comentario p {
+        margin: 0;
+        color: #e0e0e0;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Scroll bonito para comentarios */
+    .lista-comentarios::-webkit-scrollbar {
+        width: 6px;
+    }
+    .lista-comentarios::-webkit-scrollbar-thumb {
+        background-color: #0096FF;
+        border-radius: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .mostrar {
+            width: 90%;
+            margin: 20px auto;
+        }
+    }
+
 </style>
 </head>
 <body>
@@ -117,24 +176,27 @@
     </form>
 </div>
 <div class="mostrar">
+    <h2 class="titulo-comentarios">Comentarios recientes</h2>
+    <div class="lista-comentarios">
     <?php
     $a=fopen("comentarios.txt" ,"r");
     while (!feof($a)){
         $leer=fgets($a);
         $ver=nl2br($leer);
         ?>
-    <h2>
-    <?=$ver?>
-    </h2>
+    <div class="comentario">
+        <p><?= $ver ?></p>
+    </div>
 <?php
     }
     ?>
 
 </div>
+</div>
 <header>
       <?php
-      include("menu2.php");
+      include('menu2.php');
       ?>
-    </header>
+</header>
 </body>
 </html>

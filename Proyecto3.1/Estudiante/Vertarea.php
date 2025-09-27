@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    body {
+    .body-ver-tarea {
     margin: 0px;
     display: grid;
       grid-template-columns: 16% 84% ;
@@ -125,23 +128,16 @@
         $usuario="root";
         $contrasena="";
         $dbname="proyecto3"; 
-        session_start();
         
         $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
 ?>
-<body>
+<body class="body-ver-tarea">
     <?php
-     if($_SESSION['rol']==2 ){
-           include("inicio2.php");  
-        }else{
-            if($_SESSION['rol']==1 ){
-            include("inicio1.php");
-        }
-        }
-  ?>
+      include("../Estudiante/inicio1.php");  
+    ?>
     <div class="main-container">
         <?php
         $ID=$_GET['IDtarea'];
@@ -153,9 +149,11 @@
                 $Descripcion =$fila1['Descripcion'];
                 $Nota =$fila1['Nota'];
                 $Tema=$fila1['Tema'];
+                $FechadeEntrega=$fila1['FechadeEntrega'];
+                $Instrucciones =$fila1['Instrucciones'];
             }
         }
-    ?>
+        ?>
 
             <!-- Left Section -->
             <div class="left-section">
@@ -168,46 +166,17 @@
             </div>
 
             <div class="instructions">
-                <strong><?=$Descripcion?></strong>
+                <strong><?=$Instrucciones?></strong>
             </div>
 
-            <div class="comments">
-                <strong>Comentarios de la clase</strong><br>
-                <a href="#">Añadir un comentario de clase</a>
-            </div>
             </div>
 
             <!-- Right Section -->
             <div class="right-section">
             <div class="box your-work">
                 <div class="status">Sin entregar</div>
-                <button class="add-create">+ Añadir o crear</button>
-                <button>Marcar como completado</button>
-            </div>
-        <?php
-        $ID=$_GET['IDclase'];
-        $sql="SELECT*FROM Clases   WHERE ID='$ID'";
-        $resultado = $conexion->query($sql);
-        if ($resultado->num_rows>0){
-            while($fila=$resultado->fetch_assoc()){
-                $User= $fila['Profesor'];
-                $nombre=$fila['Nombre'];
-                $codigo=$fila['Codigo'];
-                $id=$ID;
-                $sql2=" SELECT * FROM Informacion WHERE CI='$User'";
-                 $resultado2 = $conexion->query($sql2);
-                  if ($resultado2->num_rows>0){
-                    while($fila2=$resultado2->fetch_assoc()){
-                  $Nombreprofesor= $fila2['Nombres'];
-                  $Apellidoprofesor= $fila2['Apellidos'];
-                    }
-                  }
-            }
-        }
-     ?>
-            <div class="box private-comments">
-                <strong>Comentarios privados</strong><br>
-                <a href="#">Añadir comentario a <?=$Nombreprofesor?> <?=$Apellidoprofesor?></a>
+                <button onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/formentregar.php'" class="add-create">+ Añadir o crear</button>
+                <a>Marcar como completado</a>
             </div>
             </div>
     </div>

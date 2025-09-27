@@ -51,10 +51,11 @@
             width: 250px;
             grid-area: opciones;
             gap: 5px;
+            padding-top:12px;
             padding-right: 23px;
             padding-left: 12px;
             border-right: 5px solid rgb(234, 234, 244);
-            height: 100vh;           /* Ocupa todo el alto de la ventana */
+            height: 100%;           /* Ocupa todo el alto de la ventana */
             box-sizing: border-box;  /* Para que padding no aumente el tamaño */
             overflow-y: auto;        /* Scroll vertical si contenido es mayor */
         }
@@ -111,12 +112,6 @@
             gap: 10px; /* separación entre imagen y texto */
             padding: 10px 0;
         }
-
-        .icono-clase {
-            width: 27px;
-            height: 27px;
-        }
-
         .titulo-clases {
             font-size: 22px;
             font-weight: bold;
@@ -195,7 +190,7 @@
         </button>
         <div id="cla">
             <div class="encabezado-clases">
-                <img class="icono-clase" src="/grupo-3/Proyecto3.1/Imagenes/clase.png">
+                <img class="icono-clase" width="57px" height="57px" src="/grupo-3/Proyecto3.1/Imagenes/clase.png">
                 <h2 class="titulo-clases">Clases</h2>
             </div>
             <?php

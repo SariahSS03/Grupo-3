@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,6 @@
         margin:0px;                       
         }
         .clases {
-            border-top: 5px solid black;
             grid-area: clases;
             gap: 10px;
             display: flex;
@@ -200,8 +202,7 @@
         }
     </style>
 </head>
-<body class="body-inicio-estudiante">
-      <?php
+    <?php
         $direccion="localhost";
         $usuario="root";
         $contrasena="";
@@ -211,13 +212,13 @@
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
-        session_start();
         if($_SESSION['rol']==2 ){
             header('Location:/grupo-3/Proyecto3.1/Profesor/inicioprofesor.php');
         }
-        ?>
+    ?>
+<body class="body-inicio-estudiante">
     <?php
-    include("/grupo-3/Proyecto3.1/Estudiante/inicio1.php");
+    include('../Estudiante/inicio1.php');
     ?>
     <div class="clases">
     <?php

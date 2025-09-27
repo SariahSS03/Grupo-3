@@ -29,7 +29,6 @@ body{
       bottom: 800px;
       transition: transform 0.5s;
       margin-top: 300px;
-
 }
 #titulo:hover{
       transform: scale(1.1);
@@ -39,7 +38,7 @@ body{
       font-size: 60px;
       margin-left: 50px;
       color: #000000ff;
-      margin-top: -400px;
+      margin-top:-550px;
 }
 
 .Admisiones{
@@ -81,20 +80,6 @@ body{
      background-color:#F5EFEB;
 
 }
-#tres{
-      background-color:#C8D9E6;
-      font-size: 30px;
-      width: 100%;
-      cursor: pointer; 
-      transition: background-color 0.3s; 
-      color: black;
-      text-decoration: none;
-      margin-bottom: 25px;
-}
-#tres:hover{
-      background-color:#84A5B8 ;
-
-}
 #nosotros{
       background-color: #355b72ff;
       display: flex;
@@ -120,15 +105,19 @@ p{
 }
 #imgtexto1{
       display: flex;
-      gap: 25px;
+      margin-left:25px;
+      margin-right:65px;
+      gap:25px;
       position: relative;
       margin-bottom: 50px;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+      overflow: hidden; /* evita que se salga */
+      border-radius: 10px;
 }
 #imgtexto1:hover{
-      transform: scale(2.3s);
+      transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(255, 255, 255, 0.6);
 
 }
@@ -268,14 +257,6 @@ p{
       display: none;
    }
    label{display: none;}
-   
-
-   
-
-.admi{
-      font-size: 50px;
-      margin-right: 500px;
-}
 .misions{
       width: 100%;
       margin-right: 50ox;
@@ -410,28 +391,25 @@ p{
       ?>
     </header>
     <div class ="div2">
-      <img class="img2" src="../Imagenes/fondo.jpeg" width="100%" height="auto">
+      <img class="img2" src="/grupo-3/Proyecto3.1/Imagenes/fondo.jpeg" width="100%" height="auto">
     </div>
-
     <div id="titulo">
       <center><h1>FEDERICO AGUILÓ</h1></center>
-      
     </div>
-    <div id="">
-<h3 class="admi">INFORMACIÓN</h3>
+      <h3 class="admi">INFORMACIÓN</h3>
     <div class="div3">
       
       <div class="Admisiones">
       <a href="planteldocente.php" id="uno">
-            <center><img id="i" src="../Imagenes/plantel11.png" width="190px"  height="150px";><br>
+            <center><img id="i" src="/grupo-3/Proyecto3.1/Imagenes/plantel11.png" width="190px"  height="150px";><br>
             <strong>PLANTEL DOCENTE</strong></center>
       </a>
       <a href="horarios.php" id="dos">
-            <center><img id="i" src="../Imagenes/hor.png" width="150px"  height="150px";><br>
+            <center><img id="i" src="/grupo-3/Proyecto3.1/Imagenes/hor.png" width="150px"  height="150px";><br>
             <strong>HORARIOS</strong></center>
       </a>
-      <a href="reglamentoescolar.php" id="tres">
-            <center><img id="i" src="../Imagenes/regla.png" width="150px"  height="150px";><br>
+      <a href="reglamentoescolar.php" id="uno">
+            <center><img id="i" src="/grupo-3/Proyecto3.1/Imagenes/regla.png" width="150px"  height="150px";><br>
             <strong>REGLAMENTO ESCOLAR</strong></center>
       </a>
       </div>
@@ -440,16 +418,13 @@ p{
     <div id="nosotros">
       <div id="texto"><h2 class="acerca">ACERCA DE NOSOTROS</h2>
       <p >La Unidad Educativa “Federico Aguiló” es una institución educativa ubicada en el centro de la ciudad, que brinda formación integral a estudiantes de origen diverso, en su mayoría hijos de comerciantes,migrantes de distintas regiones del país. Nuestra comunidad educativa se caracteriza por su riqueza cultural y su compromiso con la superación personal y colectiva.
-
-Trabajamos bajo los principios del Modelo Educativo Sociocomunitario Productivo, promovido por la Ley Avelino Siñani y Elizardo Pérez, enfocándonos en una educación inclusiva, intercultural y descolonizadora que valora los saberes ancestrales, el pensamiento crítico y el desarrollo integral de nuestros estudiantes.
-
-Pese a las dificultades económicas, familiares y sociales que enfrenta gran parte de nuestra población estudiantil, fomentamos una educación basada en los valores de solidaridad, equidad, justicia, reciprocidad y responsabilidad<br>
-            <br>
+      Trabajamos bajo los principios del Modelo Educativo Sociocomunitario Productivo, promovido por la Ley Avelino Siñani y Elizardo Pérez, enfocándonos en una educación inclusiva, intercultural y descolonizadora que valora los saberes ancestrales, el pensamiento crítico y el desarrollo integral de nuestros estudiantes.
+      Pese a las dificultades económicas, familiares y sociales que enfrenta gran parte de nuestra población estudiantil, fomentamos una educación basada en los valores de solidaridad, equidad, justicia, reciprocidad y responsabilidad<br>
+      <br>
      </p><br>
       <div id="imgtexto1">
-      
-      <img id="c" src="../Imagenes/img3.jpg" width="550px" height="auto";>
-      <img id="c" src="../Imagenes/img4.jpg" width="550px" height="auto";>
+      <img id="c" src="/grupo-3/Proyecto3.1/Imagenes/img3.jpg" width="550px" height="auto";>
+      <img id="c" src="/grupo-3/Proyecto3.1/Imagenes/img4.jpg" width="550px" height="auto";>
       </div>
     </div>
       <div id="enlaces" >

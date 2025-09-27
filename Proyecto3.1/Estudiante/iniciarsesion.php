@@ -43,12 +43,10 @@
         font-size: 18px;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        input {
         width: 100%;
         padding: 10px 12px;
         margin-bottom: 20px;
-        border: none;
         border-radius: 10px;
         font-size: 16px;
         box-sizing: border-box;

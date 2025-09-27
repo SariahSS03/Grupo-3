@@ -16,6 +16,6 @@ if($conexion->connect_error){
  $direccion=$_POST['Direccion'];
 $sql="UPDATE Informacion SET Nombres='$nombres',Apellidos='$apellidos',Curso='$curso',FechadeNacimiento='$fechadenacimiento',Direccion='$direccion'";
 if($conexion->query($sql)){
-      header('Location:informacion.php');
+      header('Location:/grupo-3/Proyecto3.1/Estudiante/informacion.php');
     }
  ?>

@@ -21,6 +21,11 @@
 </head>
 <style>
     .body-unirse-clase {
+        display: grid;
+            grid-template-rows: auto auto auto auto auto;
+            grid-template-columns: 16% 84% ;
+            grid-template-areas: "principal principal"
+                                 "opciones formulario";
         background-color: #f0f2f5;
         font-family: 'Arial', sans-serif;
         margin: 0;
@@ -31,6 +36,7 @@
         display: flex;
         justify-content: center;
         padding: 50px 20px;
+        grid-area:formulario;
     }
 
     .join-form {
@@ -187,10 +193,10 @@
 <body class="body-unirse-clase">
     <?php
       if($_SESSION['rol']==2 ){
-            include("inicio2.php");  
+            include('../Profesor/inicio2.php');  
           }else{
               if($_SESSION['rol']==1 ){
-              include("inicio1.php");
+              include('../Estudiante/inicio1.php');
           }
           }
     ?>

@@ -11,95 +11,108 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     
     <style>
-         body{
+         .body-registro-editar{
             margin:none;
             display: grid;
             grid-template-rows:10%;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
-                                 "opciones dos"
-                                  "opciones dos";
-         margin:0px;  
+                                 "opciones dos";
+        margin:0px;  
         font-family: "Open Sans", sans-serif;
-        color:white;                    
+        color:white;                   
         }
-        form{
-            background-color:#F5D547;
+        #registro {
+            background-color: #bfc3c3;
             padding: 20px;
-            border-radius:50px 50px 50px 50px;
-            margin-right:350px;
-            margin-bottom:50px;
-            margin-left:500px;
-            margin-top: 60px; 
+            border-radius: 50px;
             width: 500px;
-            height: 700px;
-            grid-area:dos;
+            height: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-        #img2{
-            width: 200px;
-            height:110px;
-            transition: transform 0.3s;
+        form {
+            background-color: #bfc3c3;
+            padding: 20px;
+            border-radius: 50px;
+            margin: 40px 80px 50px 80px;
+            width: 500px;
+            height: auto;
+            grid-area: dos;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
 
+        .trate {
+            padding: 20px;
+            border-radius: 20px;
+            color: #502c2c;
+            width: 100%;
+            box-sizing: border-box;
         }
-        img:hover{
-            transition: scale(1.2);
-            cursor: pointer;
+
+        .titulo-formulario {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        input{
-            width:400px;
-            height:30px;
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            height: 35px;
             border-radius: 10px;
-            padding: 5px;
+            padding: 5px 10px;
             font-size: 16px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-top: 5px;
         }
-        label{
-            font-size:20px;
-        }
-        #Boton {
-      background-color: #467ec7; 
-      color: white;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 10px; 
-      cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 20px;
-      padding:2px;
-    }
 
-    #Boton:hover {
-      background-color:rgba(3, 57, 128, 0.88);
-    }
-    @media  (max-width: 700px) {
-  #registro {
-    width: 90%;        
-    max-width: 410px;  
-    margin: 20px auto; 
-    padding: 10px;
-  }
-}
-.regi{
-      width: 10%;        
-    max-width: 300px;  
-    margin: 20px auto; 
-    padding: 10px;
-   
-}
-input {
-        width: 100%;
-    }
-    .trate{
-        padding: 20px;
-    border-radius: 20px;
-    color: #502c2c;
-    width: 450px;
-    height: 745px;
-    margin-bottom: 900px;
-}
+        #Boton {
+            background-color: #467ec7;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+        }
+
+        #Boton:hover {
+            background-color: rgba(3, 57, 128, 0.88);
+            transform: scale(1.02);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 700px) {
+            #registro {
+                width: 90%;
+                max-width: 410px;
+                margin: 20px auto;
+                padding: 10px;
+            }
+
+            .trate {
+                width: 100%;
+                padding: 10px;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
-<body>
+<body class="body-registro-editar">
     <?php
     $servername="localhost";
     $username="root";
@@ -121,46 +134,42 @@ input {
                 $fechadenacimiento =$fila['Fechadenacimiento'];
                 $direccion=$fila['Direccion'];
         }
-        ?>
+    ?>
     <?php
      if($_SESSION['rol']==2 ){
-           include("inicio2.php");  
+           include('../Profesor/inicio2.php');  
         }else{
             if($_SESSION['rol']==1 ){
-            include("inicio1.php");
+            include('../Estudiante/inicio1.php');
         }
         }
     ?>   
     <form action="editardatos.php" method="post" id="registro">
+    <div class="trate">
+        <h1 class="titulo-formulario">TUS DATOS</h1>
 
-        
-        <center>
-            <div class="trate">
-            <img src="Imagenes/logo.png" id="img2">
-        <h1>REGISTRATE</h1>
-        
-        <label for="" >Nombres</label><br>
-        <input type="text" name="Nombres" placeholder="Ingresa tus nombres" value='<?= $nombres ?>' ><br> 
-         
-        <label for="" >Apellidos</label><br>
-        <input type="text" name="Apellidos" id="" placeholder="Ingresa tus apellidos" value='<?= $apellidos ?>'><br>   
-           
-        <label for="" >Telefono</label><br>
-        <input type="text" name="Telefono" id="" placeholder="Ingresa tu telefono " value='<?= $telefono ?>'><br>    
-        
-        <label for="" >Curso</label><br>
-       <input type="text" name="Curso" id="" placeholder="curso 'pararelo mayuscula'" value='<?= $curso ?>'><br>
-       
-       <label for="" >Fecha de nacimiento</label><br>
-       <input type="date" name="FechadeNacimiento" id="" value='<?= $fechadenacimiento ?>'><br>
-      
-       <label for="">Dirección</label><br>
-       <input type="text" name="Direccion" id="" placeholder="Ingresa tu domicilio" value='<?= $direccion ?>'><br>
+        <label for="nombres">Nombres</label><br>
+        <input type="text" name="Nombres" id="nombres" placeholder="Ingresa tus nombres" value='<?= $nombres ?>'><br><br>
 
-    <input type="submit" id="Boton" value="Guardar" ><br>
-    </center> 
+        <label for="apellidos">Apellidos</label><br>
+        <input type="text" name="Apellidos" id="apellidos" placeholder="Ingresa tus apellidos" value='<?= $apellidos ?>'><br><br>
+
+        <label for="telefono">Teléfono</label><br>
+        <input type="text" name="Telefono" id="telefono" placeholder="Ingresa tu teléfono" value='<?= $telefono ?>'><br><br>
+
+        <label for="curso">Curso</label><br>
+        <input type="text" name="Curso" id="curso" placeholder="Ej: 3BGU 'A'" value='<?= $curso ?>'><br><br>
+
+        <label for="fechanac">Fecha de nacimiento</label><br>
+        <input type="date" name="FechadeNacimiento" id="fechanac" value='<?= $fechadenacimiento ?>'><br><br>
+
+        <label for="direccion">Dirección</label><br>
+        <input type="text" name="Direccion" id="direccion" placeholder="Ingresa tu domicilio" value='<?= $direccion ?>'><br><br>
+
+        <input type="submit" id="Boton" value="Guardar">
     </div>
-</form>
+    </form>
+
 <script>
     $("#registro").validate({
         rules:{
@@ -197,7 +206,7 @@ input {
                 number:true
             },
             Fechadenacimiento:{
-                required:true,
+                required:true
             }
         },
         messages:{
@@ -223,18 +232,18 @@ input {
             },
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Rude:{
                 required:"este campo tiene que ser llenado",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Telefono:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros",
+                number:"el campo solo tiene que llenado con numeros"
             },
             Fechadenacimiento:{
-                required:"este campo tiene que ser llenado",
+                required:"este campo tiene que ser llenado"
             }
         }
     });

@@ -58,6 +58,28 @@
     font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif ;
     font-size: 20px;
  }
+#Boton {
+    background-color: #00439b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin-top:30px;
+    margin-bottom:30px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    text-align: center;
+}
+
+#Boton:hover {
+    background-color: #2C3E50;
+    transform: scale(1.05);
+}
+
 
 </style>
 <body>
@@ -90,10 +112,10 @@
      ?>
      <?php
      if($_SESSION['rol']==2 ){
-           include("inicio2.php");  
+           include("../Profesor/inicio2.php");  
         }else{
             if($_SESSION['rol']==1 ){
-            include("inicio1.php");
+            include("../Estudiante/inicio1.php");
         }
         }
    
@@ -127,7 +149,7 @@
          </div>
     </div>
 
-    <button  onclick="window.location.href='registroeditar.php'" id="Boton">Editar tus Datos</button>
+    <button  onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/registroeditar.php'" id="Boton">Editar tus Datos</button>
    
    </center>
 

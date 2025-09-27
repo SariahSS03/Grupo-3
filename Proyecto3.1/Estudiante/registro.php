@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <style>
-    .body-rgistro {
+    .body-registro {
     background-color: #bfc3c3;
     font-family: "Open Sans", sans-serif;
     color: white;

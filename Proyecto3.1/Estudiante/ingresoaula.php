@@ -27,7 +27,6 @@ session_start();
              header("Location:/grupo-3/Proyecto3.1/aulaoriginal.php?ID=$clase_ID");
          }
       }
-      
       }else{
       header('Location:/grupo-3/Proyecto3.1/Estudiante/unirseaclase.php');
       }

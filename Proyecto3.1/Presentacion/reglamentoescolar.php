@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            background-color: grey;
-        }
         .titulo {
             text-align: center;
             margin-top: 50px;
@@ -107,7 +104,7 @@
 <body>
     <header>
       <?php
-      include("menu.php");
+      include('menu.php');
       ?>
     </header>
     <center><h2 class="titulo">UNIFORME DE U.E.F.A<br></h2></center>
@@ -115,7 +112,7 @@
     <div class="principal">
     
         <div class="caja">
-            <img src="Imagenes/unimujer.jpg" class="uniforme"> 
+            <img src="/grupo-3/Proyecto3.1/Imagenes/unimujer.jpg" class="uniforme"> 
             <h2>SEGUN REGLAMENTO MUJERES</h2>
         
     <h4 >
@@ -139,7 +136,7 @@
 
          
             <div class="caja">
-                <img src="Imagenes/univaron.jpg" class="uniforme">
+                <img src="/grupo-3/Proyecto3.1/Imagenes/univaron.jpg" class="uniforme">
             <h2>SEGUN REGLAMENTO VARONES</h2>
     <h4 >
    PANTALÓN PLOMO MARENGO<br>
@@ -159,7 +156,7 @@
     </div>
     <header>
       <?php
-      include("menu2.php");
+      include('menu2.php');
       ?>
     </header>
 </body>

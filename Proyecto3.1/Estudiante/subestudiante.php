@@ -31,7 +31,7 @@
             echo"Hubo un error al conectar a la base de datos";
         }
         if($_SESSION['rol']==2 ){
-            header('Location: subprofesor.php');
+            header('Location: ../Profesor/subprofesor.php');
         }
         ?>
 <body>
@@ -47,7 +47,7 @@
         }
      ?>
    <nav class="mn">
-    <a href="aulaoriginal.php?ID=<?=$id_CLASE?>">ANUNCIOS</a>
+    <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$id_CLASE?>">ANUNCIOS</a>
     <a href="Tareasestudiante.php?ID=<?=$id_CLASE?>">TAREAS</a>
     <a href="Personasestudiante.php?ID=<?=$id_CLASE?>">PERSONAS</a>
   </nav> 

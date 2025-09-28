@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #body-inicio-profesor{
+        .body-inicio-profesor{
             margin:none;
             display: grid;
             grid-template-rows: auto auto auto auto auto;
@@ -26,6 +26,7 @@
             padding: 20px;
             width: 100%;
             height: 100%;
+            margin-left:20px;
         }
 
         /* Tarjeta individual */
@@ -212,11 +213,8 @@
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
-        if($_SESSION['rol']==2 ){
-            header('Location:/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php');
-        }
 ?>
-<body id="body-inicio-profesor">
+<body class="body-inicio-profesor">
     <?php
     include("../Profesor/inicio2.php");
     ?>
@@ -258,7 +256,7 @@
                     </div>
 
                     <div class="menuOpciones" id="menuOpciones">
-                        <a class="opcion" href="/grupo-3/Proyecto3.1/Estudiante/salirdeclase.php?ID_Clase=<?= $Clases_ID ?>">Cancelar Registro</a>
+                        <a class="opcion" href="/grupo-3/Proyecto3.1/Profesor/eliminarclase.php?ID_Clase=<?= $Clases_ID ?>">Eliminar clase</a>
                     </div>
                 </div>
     <?php

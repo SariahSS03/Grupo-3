@@ -130,10 +130,12 @@ session_start();
 ?> 
 </div>
 
-
 <div class="Tareas">
+<?php
+$ID=$_GET['ID'];
+?>
     <img id="in" src="/grupo-3/Proyecto3.1/Imagenes/pencil.png" alt="Crear" width="27" height="27">
-    <a href="creartarea.php?ID=<?= $id ?>" class="crear-tarea-link">Crear Tarea</a>
+    <a href="../Profesor/creartarea.php?ID=<?= $ID ?>" class="crear-tarea-link">Crear Tarea</a>
 </div>
 
 <div class="tareascreadas">

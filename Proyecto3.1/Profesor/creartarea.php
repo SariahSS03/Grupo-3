@@ -150,7 +150,7 @@ session_start();
   </form>
   </section>
   <script>
-    $("#formtarea").validate({
+    $("#formTarea").validate({
         rules:{
             Titulo:{
                 required:true,

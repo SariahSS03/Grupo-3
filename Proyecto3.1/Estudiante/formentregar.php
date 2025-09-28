@@ -91,15 +91,42 @@
         <label for="titulo">Título de la entrega</label>
         <input type="text" id="titulo" name="titulo" placeholder="Ej. Mi informe final" required>
 
-        <label for="comentario">Comentario (opcional)</label>
+        <label for="comentario">Comentario </label>
         <textarea id="comentario" name="comentario" placeholder="Agrega algún comentario..."></textarea>
 
         <label for="archivo">Archivo a subir</label>
-        <input type="file" id="archivo" name="archivo" required>
+        <input type="file" name="fileToUpload" id="fileToUpload">
 
         <input type="submit" value="Enviar tarea" class="btn-enviar">
     </form>
 </div>
-
+<script>
+    $("form").validate({
+        rules:{
+            titulo:{
+                required:true,
+                minlenght:15,
+                maxlenght:45
+            },
+            comentario:{
+                required:true,
+                minlenght:5,
+                maxlenght:300
+            }
+        },
+        messages:{
+            titulo:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 15 letras",
+                maxlenght:"El maximo es el 45 letras"
+            },
+            comentario:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 300 letras"
+            }
+        }
+    })
+</script>
 </body>
 </html>

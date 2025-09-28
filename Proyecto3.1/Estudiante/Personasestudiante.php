@@ -23,6 +23,7 @@ session_start();
       margin-top: 20px;
       padding: 0 20px;
       max-width: 600px;
+      grid-area:tabla;
    }
 
    .titulo-seccion {
@@ -59,13 +60,7 @@ session_start();
 ?>
 <body class="body-personas-estudiante">
    <?php
-     if($_SESSION['rol']==2 ){
-           include("../Profesor/inicio2.php");  
-        }else{
-            if($_SESSION['rol']==1 ){
-            include("inicio1.php");
-        }
-        }
+        include("inicio1.php");
   ?>
   <div class="n">
       <?php

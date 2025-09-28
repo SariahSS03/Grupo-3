@@ -18,6 +18,9 @@ session_start();
                                 "opciones Tareas";
                                
         }
+    .tareasestudiantes{
+        grid-area:Tareas;
+    }
     .tarea-card {
         background-color: #fff;
         border-radius: 12px;

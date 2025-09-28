@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +9,7 @@
   <title>Crear tarea</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    body{
+    .body-crear-tarea{
             margin:none;
             display: grid;
             grid-template-rows: auto auto auto auto auto;
@@ -92,79 +95,110 @@
         $usuario="root";
         $contrasena="";
         $dbname="proyecto3"; 
+        
         $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
-        session_start();
-        $idTarea=$_GET['IDtarea'];
-        $sql=" SELECT * FROM tarea WHERE idTarea='$idTarea' ";
-        $resultado=mysqli_query($conexion,$sql);
+        
+        $id_tarea=$_GET['IDtarea'];
+        $sql2=" SELECT * FROM Tarea WHERE idTarea='$id_tarea' ";
+            $resultado=mysqli_query($conexion,$sql2);
             if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
-                $fila2= mysqli_fetch_assoc($resultado);
-                $Titulo=$fila2['Titulo'];
-                $Descripcion=$fila2['Descripcion'];
-                $Tema=$fila2['Tema'];
-                $Nota=$fila2['Nota'];
-                $Clases_ID=$fila2['Clases_ID'];
+                $fila= mysqli_fetch_assoc($resultado);
+                $titulo=$fila['Titulo'];
+                $descripcion=$fila['Descripcion'];
+                $nota=$fila['Nota'];
+                $FehcadeEntrega=$fila['FechadeEntrega'];
+                $instrucciones =$fila['Instrucciones'];
             }
         ?>
-<body>
+<body class="body-crear-tarea">
   <?php
    include("inicio2.php");  
 ?>
+</div>
   <section class="areacreartarea">
   <header>
     <h2>Tarea</h2>
-    <button class="submit" type="submit" form="formTarea">Guardar Cambios</button>
+    <button class="submit" type="submit" form="formTarea">Crear tarea</button>
   </header>
 
-  <form id="formTarea" action="GuardarcambiosTarea.php?IDtarea=<?= $id_tareaclase ?>" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="ID_Tarea" value="<?= $Clases_ID?>">
+  <form id="formTarea" action="editar_datos_tarea" method="post" enctype="multipart/form-data">
   <div class="container">
 
       <div class="left">
-        <input type="text" id="titulo" name="Titulo" placeholder="Título *" required value='<?= $Titulo?>'>
-        <textarea id="instrucciones" name="Descripcion" placeholder="Instrucciones (opcional)" value='<?= $Descripcion?>'></textarea>
+        <input type="text" name="Titulo" placeholder="Título" value='<?= $titulo?>'>
+        <textarea name="Descripcion" placeholder="Descripcion" value='<?= $descripcion?>'></textarea>
 
         <h3>Adjuntar</h3>
         <div class="attachments">
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968517.png"><span>Drive</span></button>
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"><span>YouTube</span></button>
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/992/992651.png"><span>Crear</span></button>
-          <button type="file" onclick="document.getElementById('archivo').click()"><img src="https://cdn-icons-png.flaticon.com/512/724/724933.png"><span>Subir</span></button>
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"><span>Enlace</span></button>
-        </div>
-        <input type="file" id="archivo" name="archivo" style="display:none;">
+          <input type="file" name="fileToUpload" id="fileToUpload">
       </div>
 
     
       <div class="right">
-        <label for="para">Para</label>
-        <input type="text" id="para" name="para" placeholder="Curso o grupo">
-
-        <label for="asignar">Asignar a</label>
-        <select id="asignar" name="asignar">
-          <option value="todos">OPCION 1</option>
-          <option value="individual">OPCION 2</option>
-        </select>
 
         <label for="puntos">Puntos</label>
-        <input type="number" id="puntos" name="Nota" value='<?= $Nota?>'>
+        <input type="number" name="Nota" value='<?= $nota?>'>
 
         <label for="fecha">Fecha de entrega</label>
-        <input type="date" id="fecha" name="FechadeEntrega">
-
-        <label for="tema">Tema</label>
-        <select id="tema" name="Tema" value='<?= $Tema?>'>
-          <option value="ninguno">Tema 1</option>
-          <option value="matematicas">Tema 2</option>
-          <option value="lengua">Tema 3</option>
-          <option value="ciencias">Tema 3</option>
-        </select>
+        <input type="date" name="FechadeEntrega" value='<?= $FehcadeEntrega?>'>
 
         <label for="rubrica">Rúbrica</label>
-        <input type="text" id="rubrica" name="rubrica" placeholder="Enlace o descripción">
+        <input type="text"  name="Instrucciones" placeholder="Enlaces-Instrucciones" value='<?= $instrucciones?>'>
       </div>
     </div>
   </form>
   </section>
+  <script>
+    $("#formtarea").validate({
+        rules:{
+            Titulo:{
+                required:true,
+                minlenght:5,
+                maxlenght:45
+            },
+            Descricion:{
+                required:true,
+                minlenght:5,
+                maxlenght:300
+            },
+            Nota:{
+                required:true,
+                number:true
+            },
+            FechadeEntrega:{ 
+                required:true
+            },
+            Instrucciones:{
+                required:true,
+                minlenght:5,
+                maxlenght:300
+            }
+        },
+        messages:{
+            Titulo:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 45 letras"
+            },
+            Descricion:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 300 letras"
+            },
+            Nota:{
+                required:"este campo tiene que ser llenado solo numeros ",
+                number:"el campo solo tiene que llenado con numeros"
+            },
+            FechadeEntrega:{
+                required:"este campo tiene que ser llenado solo numeros "
+            },
+            Instrucciones:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 300 letras"
+            }
+        }
+    });
+</script>
 </body>
 </html>

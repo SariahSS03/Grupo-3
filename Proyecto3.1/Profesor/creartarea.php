@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +9,7 @@
   <title>Crear tarea</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    body{
+    .body-crear-tarea{
             margin:none;
             display: grid;
             grid-template-rows: auto auto auto auto auto;
@@ -92,14 +95,13 @@
         $usuario="root";
         $contrasena="";
         $dbname="proyecto3"; 
-        session_start();
         
         $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
         ?>
-<body>
+<body class="body-crear-tarea">
   <?php
    include("inicio2.php");  
 ?>
@@ -124,34 +126,80 @@
   <div class="container">
 
       <div class="left">
-        <input type="text" id="titulo" name="Titulo" placeholder="Título *" required>
-        <textarea id="instrucciones" name="Descripcion" placeholder="Instrucciones (opcional)"></textarea>
+        <input type="text" name="Titulo" placeholder="Título">
+        <textarea name="Descripcion" placeholder="Descripcion"></textarea>
 
         <h3>Adjuntar</h3>
         <div class="attachments">
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968517.png"><span>Drive</span></button>
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"><span>YouTube</span></button>
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/992/992651.png"><span>Crear</span></button>
-          <button type="file" onclick="document.getElementById('archivo').click()"><img src="https://cdn-icons-png.flaticon.com/512/724/724933.png"><span>Subir</span></button>
-          <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"><span>Enlace</span></button>
-        </div>
-        <input type="file" id="archivo" name="archivo" style="display:none;">
+          <input type="file" name="fileToUpload" id="fileToUpload">
       </div>
 
     
       <div class="right">
 
         <label for="puntos">Puntos</label>
-        <input type="number" id="puntos" name="Nota" value="100">
+        <input type="number" name="Nota" value="100">
 
         <label for="fecha">Fecha de entrega</label>
-        <input type="date" id="fecha" name="FechadeEntrega">
+        <input type="date" name="FechadeEntrega">
 
         <label for="rubrica">Rúbrica</label>
-        <input type="text" id="rubrica" name="rubrica" placeholder="Enlace o descripción">
+        <input type="text"  name="Instrucciones" placeholder="Enlaces-Instrucciones">
       </div>
     </div>
   </form>
   </section>
+  <script>
+    $("#formtarea").validate({
+        rules:{
+            Titulo:{
+                required:true,
+                minlenght:5,
+                maxlenght:45
+            },
+            Descricion:{
+                required:true,
+                minlenght:5,
+                maxlenght:300
+            },
+            Nota:{
+                required:true,
+                number:true
+            },
+            FechadeEntrega:{ 
+                required:true
+            },
+            Instrucciones:{
+                required:true,
+                minlenght:5,
+                maxlenght:300
+            }
+        },
+        messages:{
+            Titulo:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 45 letras"
+            },
+            Descricion:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 300 letras"
+            },
+            Nota:{
+                required:"este campo tiene que ser llenado solo numeros ",
+                number:"el campo solo tiene que llenado con numeros"
+            },
+            FechadeEntrega:{
+                required:"este campo tiene que ser llenado solo numeros "
+            },
+            Instrucciones:{
+                required:"este campo tiene que ser llenado",
+                minlenght:"El minimo es de 5 letras",
+                maxlenght:"El maximo es el 300 letras"
+            }
+        }
+    });
+</script>
 </body>
 </html>

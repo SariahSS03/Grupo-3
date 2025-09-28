@@ -253,7 +253,7 @@ session_start();
                         <a href="/grupo-3/Proyecto3.1/Estudiante/Personasestudiante.php?ID=<?= $Clases_ID ?>">
                             <img width="30px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/perfilclase.png">
                         </a>
-                        <a href="/grupo-3/Proyecto3.1/Tareasestudiante.php?ID=<?= $Clases_ID ?>">
+                        <a href="/grupo-3/Proyecto3.1/Estudiante/Tareasestudiante.php?ID=<?= $Clases_ID ?>">
                             <img width="35px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/archivoclase.png">
                         </a>
                         <a class="btnOpciones" id="btnOpciones">

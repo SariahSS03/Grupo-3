@@ -1,3 +1,6 @@
+<?php
+session-start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,7 +123,7 @@
     $dbname="proyecto3";
 
     $conexion = new mysqli($servername, $username, $password, $dbname);
-            session_start();
+
             $CI=$_SESSION['CI'];
             $sql=" SELECT * FROM Cuenta WHERE User='$CI' ";
             $sql2=" SELECT * FROM Informacion WHERE CI='$CI' ";

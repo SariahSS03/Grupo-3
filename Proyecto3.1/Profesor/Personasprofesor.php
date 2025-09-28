@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html> 
 <html lang="es">
 <head>
@@ -20,110 +23,48 @@
       background: #f9f9f9;
       color: #333;
     }
-    .personas{
+    .tablapersonas {
+      margin-top: 20px;
+      padding: 0 20px;
+      max-width: 600px;
       grid-area:tabla;
-    }
+   }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 25px;
+   .titulo-seccion {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 20px;
       border-bottom: 1px solid #ddd;
-      background: #fff;
-      position: sticky;
-      top: 0;
+      padding-bottom: 10px;
+      color: #2c2c2c;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+
+   .compañero-item {
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+   .eliminar-link {
+        color: #e74c3c;
+        text-decoration: none;
+        font-size: 14px;
+        border: 1px solid #e74c3c;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
     }
 
-    header h2 {
-      margin: 0;
-      font-weight: 500;
-      color: #202124;
+    .eliminar-link:hover {
+        background-color: #e74c3c;
+        color: white;
     }
 
-    .contenedor {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    h3 {
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-
-    .tarjeta {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 25px;
-    }
-
-    .caja-superior {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .lista {
-      border-top: 1px solid #eee;
-    }
-
-    .elemento {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .elemento:last-child {
-      border-bottom: none;
-    }
-
-    .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #fff;
-    }
-
-    .informacion {
-      flex: 1;
-      display: flex;
-      align-items: center;
-    }
-
-    .acciones {
-      font-size: 14px;
-      color: #1a73e8;
-      cursor: pointer;
-    }
-
-    .boton-icono {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 2px solid #1a73e8;
-      color: #1a73e8;
-      cursor: pointer;
-      background: #fff;
-      transition: background 0.2s;
-    }
-    .boton-icono:hover {
-      background: #f1f3f4;
-    }
   </style>
 </head>
 <?php
@@ -137,12 +78,7 @@
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
-        session_start();
-        $ID=$_GET['ID'];
-        if($_SESSION['rol']==1 ){
-            header('Location: Tareasestudiante.php?ID='.$ID);
-        }
-        ?>
+?>
 <body>`
   <?php
     include("inicio2.php");  
@@ -152,85 +88,38 @@
          include("subprofesor.php"); 
       ?>
    </div>
-  <section class="personas">
-  <header>
-    <h2>Personas</h2>
-  </header>
-
-  <div class="contenedor">
-    
-  
-    <div class="tarjeta">
-      <div class="caja-superior">
-        <h3>Profesores</h3> 
-        <button class="boton-icono" title="Invitar personas">
-          <span class="material-icons">person_add</span>
-        </button>
-      </div>
-
-      <div class="lista">
-        <div class="elemento">
-          <div class="informacion">
-            <div class="avatar" style="background:#34a853;">N</div>
-            <span>Nombre 1</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <div class="avatar" style="background:#fbbc05;">N</div>
-            <span>Nombre 2</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-      </div>
-    </div>
-
-   
-    <div class="tarjeta">
-      <div class="caja-superior">
-        <h3>Alumnos</h3>
-        <button class="boton-icono" title="Invitar alumnos">
-          <span class="material-icons">person_add</span>
-        </button>
-      </div>
-      
-      <div class="lista">
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#4285f4;">N</div>
-            <span>Nombre 3</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#ea4335;">N</div>
-            <span>Nombre 4</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#34a853;">N</div>
-            <span>Nombre 5</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-        <div class="elemento">
-          <div class="informacion">
-            <input type="checkbox">
-            <div class="avatar" style="background:#fbbc05;">N</div>
-            <span>Nombre 6</span>
-          </div>
-          <div class="acciones">•••</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <div class="tablapersonas">
+    <h2 class="titulo-seccion">Alumnos de tu clase</h2>
+    <?php
+               $ID=$_GET['ID'];   
+               $sql=" SELECT * FROM clases_has_cuenta WHERE Clases_ID='$ID' ";
+               $resultado=$conexion->query($sql);
+               if($resultado -> num_rows >0){
+                  While($fila=$resultado ->fetch_assoc()){
+                     $Cuenta_User=$fila['Cuenta_User'];
+                     $sql2="SELECT*FROM Informacion WHERE CI='$Cuenta_User'";
+                     $resultado2=$conexion->query ($sql2);
+                     if ($resultado2->num_rows>0){
+                           While($fila2=$resultado2->fetch_assoc()){
+                              $Nombres=$fila2['Nombres'];
+                              $Apellidos=$fila2['Apellidos'];
+                              $Direccion=$fila2['Direccion'];
+                              $Fecha=$fila2['FechadeNacimiento'];
+                              $Celular=$fila2['Telefono'];
+                              $Curso=$fila2['Curso'];
+                              $Rude=$fila2['RUDE'];
+                              $CI=$fila2['CI'];
+                              ?>
+                    <div class="compañero-item">
+                        <span><?= $NombreCompleto ?></span>
+                        <a href="eliminar_estudiante.php?CI_estudiante=<?=$CI?>&ID_clase=<?=$ID?>" class="eliminar-link">Eliminar estudiante</a>
+                    </div>
+                <?php
+                }
+            }
+        }
+    }
+    ?>
+   </div>
 </body>
 </html>

@@ -27,61 +27,103 @@
 
 </head>
 <style>
-body{
-    margin:0px;
+.body-crear-clase {
+  margin: 0px;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-columns: 16% 84%;
+  grid-template-areas:
+    "principal principal"
+    "opciones Tareas";
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-#uno{
-    width: 600px;
-    height:400px;
-   background-color: rgb(0, 0, 255);
-    border: 1px solid black;
-}
-#dos{
-    color:white;
-}
-#tres{
-    background-color: rgb(0, 32, 80);
-    border:1px solid black;
 
+#uno {
+  width: 500px;
+  background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 30px 40px;
+  box-sizing: border-box;
+  grid-area:Tareas;
 }
-    label{
-    font-size:20px;
-    color:white;
-    margin-top:10px;
-    display: inline-block;
-        }
-        
- #Boton {
-    background-color:rgb(26, 93, 180); 
-    color: white;
-    padding: 12px 24px;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px; 
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 20px;
-    padding:2px; 
-    
-    
-    }
 
- #Boton:hover {
-    background-color:rgba(106, 156, 223, 0.88);
-    }
- label:hover{
-    transform:scale(1.2);
-    }
- input{
-    width:400px;
-    height:30px;
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 16px;
-        }
+#tres {
+  background-color: rgba(0, 32, 80, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#dos {
+  color: white;
+  font-size: 26px;
+  margin: 0;
+  font-weight: 600;
+}
+
+form label {
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 15px;
+  display: block;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+form label:hover {
+  transform: scale(1.05);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="color"] {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border: none;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="color"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #80bdff;
+}
+
+#Boton {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#Boton:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
 
 </style>
-<body>
+<bodyclass="body-crear-clase">
     <?php
     include("inicio2.php");
     ?>
@@ -100,7 +142,7 @@ body{
         <label for="">Inicial:</label><br>
         <input type="text" name="Inicial" placeholder="Pon la inicial de la clase"><br>
         <input type="submit" id="Boton" value="Crear clase" >
-        <button  onclick="window.location.href='unirseaclase.php'" id="Boton">Unirse a Clase</button>
+        <button  onclick="window.location.href='../Estudiante/unirseaclase.php'" id="Boton">Unirse a Clase</button>
     </form>
     </div>
     <center>

@@ -236,6 +236,17 @@
         </div>
 
         <div class="form-actions">
+             <?php
+                if($_SESSION['rol']==2 ){?>
+                         <button type="button" class="cancel-button" onclick="window.location.href='/grupo-3/Proyecto3.1/Profesor/inicioprofesor.php'">Cancelar</button>
+                    <?php }else{
+                        if($_SESSION['rol']==1 ){?>
+                        <button type="button" class="cancel-button" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php'">Cancelar</button>
+                    <?php
+                    }
+                    }
+                    ?>
+                
             <button type="button" class="cancel-button" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php'">Cancelar</button>
             <input type="submit" class="submit-button" value="Unirme">
         </div>

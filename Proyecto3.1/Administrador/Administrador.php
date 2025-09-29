@@ -161,41 +161,36 @@
         if($conexion->error){
             echo"Hubo un error al conectar a la base de datos";
         }
-        if($_SESSION['rol']==2 ){
-            header('Location: aulaoriginal.php');
-        }if($_SESSION['rol']==1 ){
-            header('Location: aulaoriginal.php');
-        }
-        ?>
+?>
 <body>
     
     <div class="principal">
 
         <div id="primero1">
         <button onclick="window.location.href='Administrador.php'" class="boton" >
-            <img style="position: relative; bottom:3px;" width="85px" height="50px" src=" Imagenes/dos.png">
+            <img style="position: relative; bottom:3px;" width="85px" height="50px" src="/grupo-3/Proyecto3.1/Imagenes/dos.png">
             <p id="col">FEDERICO AGUILO</p>
         </button>
         </div>
 
         <div id="segundo1">  
-            <button class="boton"> 
-            <img onclick="window.location.href='cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="Imagenes/cinco.png">
+            <button class="boton" title="Cerrar sesion"> 
+            <img onclick="window.location.href='/grupo-3/Proyecto3.1/cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="/grupo-3/Proyecto3.1/Imagenes/cinco.png">
             </button>
         </div>
 
     </div>
     <div  class="opciones">
         <button id="imagen" onclick="window.location.href='Usuarios.php'">
-             <img id="in" width="27px" height="27px" src="Imagenes/casa.png"> 
+             <img id="in" width="27px" height="27px" src="/grupo-3/Proyecto3.1/Imagenes/casa.png"> 
              <p id="do">Usuarios</p>
         </button>
-        <button onclick="window.location.href='Clases.php'" id="imagen2">
-             <img id="ca" width="40px" height="40px" src="Imagenes/cal.png">
+        <button onclick="window.location.href='ClasesAdmin.php'" id="imagen2">
+             <img id="ca" width="40px" height="40px" src="/grupo-3/Proyecto3.1/Imagenes/cal.png">
             <p id="tr">Clases</p>
         </button>
-        <button id="imagen3" onclick="window.location.href='informacion.php'">
-            <img id="aj" width="28px"  height="27px"  src="Imagenes/ajustes.png">
+        <button id="imagen3" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/informacion.php'">
+            <img id="aj" width="28px"  height="27px"  src="/grupo-3/Proyecto3.1/Imagenes/ajustes.png">
            <p id="cu">     Informacion</p>
         </button> 
     </div>

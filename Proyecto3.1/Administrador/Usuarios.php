@@ -1,5 +1,5 @@
-<?php        session_start();
-
+<?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,19 +82,6 @@
       border-bottom: none;
     }
 
-    .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #fff;
-    }
-
     .informacion {
       flex: 1;
       display: flex;
@@ -106,6 +93,27 @@
       color: #1a73e8;
       cursor: pointer;
     }
+    .acciones a {
+        display: inline-block;
+        margin: 5px 10px;
+        padding: 8px 16px;
+        background-color: #007BFF; /* Azul moderno */
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .acciones a:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .acciones a:active {
+        transform: scale(0.98);
+    }
+
   </style>
 </head>
 <?php
@@ -147,7 +155,7 @@
 
     <div class="tarjeta">
       <div class="caja-superior">
-        <h3>Usuarios</h3> 
+        <h3><strong>Usuarios</strong></h3> 
       </div>
         <?php   
                $sql=" SELECT * FROM cuenta";
@@ -168,7 +176,6 @@
                                <div class="lista">
                                   <div class="elemento">
                                     <div class="informacion">
-                                      <div class="avatar" style="background:#34a853;">N</div>
                                       <h3><?=$Nombres?> <?=$Apellidos?></h3>
                                     </div>
                                     <div class="acciones">
@@ -206,6 +213,7 @@
                                     <?php
                                       }
                                     ?>
+                                    <a  href="ClasesAdmin.php?CI=<?=$User?>">Ver Usuario</a>
                                     </div>
                                   </div>
                               </div>   

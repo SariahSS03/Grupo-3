@@ -89,7 +89,7 @@
     <form action="procesar_entrega.php" method="post" enctype="multipart/form-data">
         
         <label for="titulo">Título de la entrega</label>
-        <input type="text" id="titulo" name="titulo" placeholder="Ej. Mi informe final" required>
+        <input type="text" id="titulo" name="titulo" placeholder="Ej. Mi informe final">
 
         <label for="comentario">Comentario </label>
         <textarea id="comentario" name="comentario" placeholder="Agrega algún comentario..."></textarea>

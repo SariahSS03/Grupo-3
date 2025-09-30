@@ -116,6 +116,10 @@
         }else{
             if($_SESSION['rol']==1 ){
             include("../Estudiante/inicio1.php");
+        }else{
+            if($_SESSION['rol']==3 ){
+            include("../Administrador/Administrador.php");
+        }
         }
         }
    

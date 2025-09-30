@@ -11,4 +11,5 @@ date_default_timezone_set('America/La_Paz');
 $today = date("Y-m-d H:i:s");
 $comentario=$_POST['comentario'];
 
+
 ?>

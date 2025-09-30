@@ -5,16 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-        display: grid;
-        grid-template-columns: 16% 84% ;
-        grid-template-rows: auto auto auto auto auto;
-        grid-template-areas:"principal principal"
-                            "opciones mostrar";
+        .body-administrador {
         margin:0px;
-        }
-        .mostrar{
-            grid-area:mostrar;
         }
         .principal{
             background: rgb(1, 1, 49);
@@ -162,7 +154,7 @@
             echo"Hubo un error al conectar a la base de datos";
         }
 ?>
-<body>
+<body class="body-administrador">
     
     <div class="principal">
 
@@ -174,28 +166,21 @@
         </div>
 
         <div id="segundo1">  
-            <button class="boton" title="Cerrar sesion"> 
+            <button class="boton" title="Cerrar sesion"  > 
             <img onclick="window.location.href='/grupo-3/Proyecto3.1/cerrarsesion.php'" style="position: relative; bottom: 6px;" width="55px" height="55px" src="/grupo-3/Proyecto3.1/Imagenes/cinco.png">
             </button>
         </div>
 
     </div>
     <div  class="opciones">
-        <button id="imagen" onclick="window.location.href='Usuarios.php'">
+        <button id="imagen" onclick="window.location.href='/grupo-3/Proyecto3.1/Administrador/Usuarios.php'">
              <img id="in" width="27px" height="27px" src="/grupo-3/Proyecto3.1/Imagenes/casa.png"> 
              <p id="do">Usuarios</p>
-        </button>
-        <button onclick="window.location.href='ClasesAdmin.php'" id="imagen2">
-             <img id="ca" width="40px" height="40px" src="/grupo-3/Proyecto3.1/Imagenes/cal.png">
-            <p id="tr">Clases</p>
         </button>
         <button id="imagen3" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/informacion.php'">
             <img id="aj" width="28px"  height="27px"  src="/grupo-3/Proyecto3.1/Imagenes/ajustes.png">
            <p id="cu">     Informacion</p>
         </button> 
-    </div>
-    <div class="mostrar">
-        
     </div>
    
     

@@ -211,23 +211,23 @@ img:hover {
         rules:{
             Nombres:{
                 required:true,
-                minlenght:5,
-                maxlenght:45
+                minlength:5,
+                maxlength:45
             },
             Apellidos:{
                 required:true,
-                minlenght:5,
-                maxlenght:45
+                minlength:5,
+                maxlength:45
             },
             Curso:{
                 required:true,
-                minlenght:5,
-                maxlenght:10
+                minlength:5,
+                maxlength:10
             },
             Direccion:{
                 required:true,
-                minlenght:15,
-                maxlenght:45
+                minlength:5,
+                maxlength:45
             },
             CI:{
                 required:true,
@@ -248,23 +248,23 @@ img:hover {
         messages:{
             Nombres:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
             Apellidos:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
             Curso:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
             Direccion:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",

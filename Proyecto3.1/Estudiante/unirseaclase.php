@@ -246,9 +246,7 @@
                     }
                     }
                     ?>
-                
-            <button type="button" class="cancel-button" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php'">Cancelar</button>
-            <input type="submit" class="submit-button" value="Unirme">
+        <input type="submit" class="submit-button" value="Unirme">
         </div>
     </form>
 </div>

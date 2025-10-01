@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $direccion="localhost";
+    $direccion="localhost";
     $usuario="root";
     $contrasena="";
     $dbname="proyecto3"; 
@@ -8,9 +8,6 @@
     $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
     if($conexion->error){
         echo"Hubo un error al conectar a la base de datos";
-    }
-    if($_SESSION['rol']==1 ){
-        header('Location: inicioestudiante.php');
     }
 ?>
 <!DOCTYPE html>
@@ -30,15 +27,13 @@
 .body-crear-clase {
   margin: 0px;
   display: grid;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-columns: 16% 84%;
   grid-template-areas:
     "principal principal"
     "opciones Tareas";
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f7fa;
-  display: flex;
-  justify-content: center;
   align-items: center;
   height: 100%;
 }
@@ -123,7 +118,7 @@ input[type="color"]:focus {
 }
 
 </style>
-<bodyclass="body-crear-clase">
+<body class="body-crear-clase">
     <?php
     include("inicio2.php");
     ?>
@@ -134,7 +129,7 @@ input[type="color"]:focus {
         <label for="">Nombre de la clase: </label><br>
         <input type="text" name="Nombre" placeholder="Ingresa el nombre del aula"><br>
         <label for="">Codigo:</label><br>
-        <input type="password" name="Codigo" placeholder="Crea el codigo"><br>
+        <input type="text" name="Codigo" placeholder="Crea el codigo"><br>
         <label for="">Curso:</label><br>
         <input type="text" name="Curso" placeholder="Curso EJ: 6to de secundaria"><br>
         <label for="">Elige un color:</label><br>
@@ -151,43 +146,45 @@ input[type="color"]:focus {
             rules:{
               Nombre:{
                 required:true,
-                minlenght:5,
-                maxlenght:45
+                minlength:5,
+                maxlength:45
             },
              Codigo:{
                 required:true,
-                number:true
+                minlength:5,
+                maxlength:8
             },
             Curso:{
                 required:true,
-                minlenght:5,
-                maxlenght:45
+                minlength:5,
+                maxlength:45
             },
             Inicial:{
                 required:true,
-                minlenght:1,
-                maxlenght:1
+                minlength:1,
+                maxlength:1
             }
         },
         messages:{
             Nombre:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
               Codigo:{
-                required:"este campo tiene que ser llenado solo  con numeros ",
-                number:"el campo solo tiene que llenado con numeros"
+                required:"este campo tiene que ser llenado ",
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 8 letras"
             },
             Curso:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
             Inicial:{
                 required:"este campo tiene que ser llenado solo con una letra",
-                minlenght:"El minimo es de 1 letras",
-                maxlenght:"El maximo es el 1letras"
+                minlength:"El minimo es de 1 letras",
+                maxlength:"El maximo es el 1letras"
             }
         }
 });

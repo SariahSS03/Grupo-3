@@ -402,7 +402,7 @@ session_start();
                 <div id="publicacion1">
                         <h2><?=$Texto?></h2>
                         <h2><?=$FechaCreacion?></h2>
-                        <a href="Personasestudiantes.php?ID_publicacion=<?= $ID_publicacion?>">Editar</a>     
+                        <a href="editarpublicacion.php?ID_clase=<?= $ID_publicacion?>">Editar</a>     
             </div>    
     <?php
             $nombreArchivo ="P-".$ID."-".$fila3['id'];

@@ -83,10 +83,23 @@
 }
     </style>
 </head>
+<?php
+        $direccion="localhost";
+        $usuario="root";
+        $contrasena="";
+        $dbname="proyecto3"; 
+        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+        if($conexion->error){
+            echo"Hubo un error al conectar a la base de datos";
+        }
+        ?>
 <body>
+    <?php
+    $ID_tarea=['ID_tarea']
+    ?>
     <div class="formulario-entrega">
     <h2>Entregar tarea</h2>
-    <form action="procesar_entrega.php" method="post" enctype="multipart/form-data">
+    <form action="procesar_entrega.php?ID_tarea=<?= $ID_tarea?>" method="post" enctype="multipart/form-data">
         
         <label for="titulo">Título de la entrega</label>
         <input type="text" id="titulo" name="titulo" placeholder="Ej. Mi informe final">

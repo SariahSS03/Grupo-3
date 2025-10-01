@@ -174,9 +174,28 @@ session_start();
             <!-- Right Section -->
             <div class="right-section">
             <div class="box your-work">
+              <?php
+              $ID=$_GET['IDtarea'];
+              $sql2="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID'";
+              $resultado2 = $conexion->query($sql2);
+              if ($resultado1->num_rows>0){
+                  while($fila2=$resultado1->fetch_assoc()){
+                      $Entregado =$fila2['Enttregado'];
+                  }
+              }
+              ?>
+              <?php 
+              if($Entreagdo=="Entregado"){
+              ?>
                 <div class="status">Sin entregar</div>
-                <button onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/formentregar.php'" class="add-create">+ Añadir o crear</button>
-                <a>Marcar como completado</a>
+                <a href="/grupo-3/Proyecto3.1/Estudiante/formentregar.php?ID_tarea=<?= $ID?>" class="add-create">+ Añadir o crear</a>
+              <?php
+              }else{
+              ?>
+              <div class="status">Tarea Entregada</div>
+              <?php
+              }
+              ?>
             </div>
             </div>
     </div>

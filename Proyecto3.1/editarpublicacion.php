@@ -54,15 +54,6 @@ session_start();
     $dbname="proyecto3";
 
     $conexion = new mysqli($servername, $username, $password, $dbname);
-            $ID_publicacion=$_POST['ID_publicacion']
-            $sql=" SELECT * FROM Publicaciones WHERE id='$ID_publicacion' ";
-            $resultado=mysqli_query($conexion,$sql1);
-            if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
-                $fila= mysqli_fetch_assoc($resultado);
-                $texto=$fila['Texto'];
-                $fechadecreacion =$fila['FechaCreacion'];
-                $fechadeedicion=$fila['FechadeEdicion'];
-        }
         ?>
     <?php
      if($_SESSION['rol']==2 ){
@@ -98,8 +89,17 @@ session_start();
                   }
               ?>
               <h3><?= $nombres?> <?= $apellidos?></h3>
-              <form action="datospublicaciones.php" method="post" enctype="multipart/form-data">
-                <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" value='<?= $nombres ?>' ></textarea>
+              <?php
+                $ID_publicacion=$_POST['ID_publicacion']
+                $sql1=" SELECT * FROM Publicaciones WHERE id='$ID_publicacion' ";
+                $resultado1=mysqli_query($conexion,$sql1);
+                if(!empty($resultado)&& mysqli_num_rows($resultado1)>0){
+                    $fila1= mysqli_fetch_assoc($resultado1);
+                    $texto=$fila1['Texto'];
+            }
+              ?>
+              <form action="datospublicaciones.php?ID_publicacion=<?=$ID_publicacion?>" method="post" enctype="multipart/form-data">
+                <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" value='<?= $texto ?>' ></textarea>
                 <input type="hidden" name="ID" value="<?=$ID_publicacion?>">
             </div>
                   <div id="abajo">

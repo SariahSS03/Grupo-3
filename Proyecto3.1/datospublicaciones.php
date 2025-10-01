@@ -12,7 +12,8 @@ date_default_timezone_set('America/La_Paz');
 $today = date("Y-m-d H:i:s"); 
 
  $texto = $_POST['Publicaciones'];
-$sql="UPDATE Publicaciones SET Texto='$texto'";
+ $ID_publicaciones=$_POST['ID_publicacion']
+$sql="UPDATE Publicaciones WHERE id=$ID_publicaciones SET Texto='$texto'";
 $sql2="INSERT INTO Publicaciones (FechadeEdicion) VALUES ('$today')";
 if($conexion->query($sql)){
       if ($conexion->query ($sql2)===TRUE){

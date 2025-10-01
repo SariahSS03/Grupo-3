@@ -108,6 +108,7 @@ session_start();
                 $nota=$fila['Nota'];
                 $FehcadeEntrega=$fila['FechadeEntrega'];
                 $instrucciones =$fila['Instrucciones'];
+                $id_clase =$fila['Clases_ID'];
             }
         ?>
 <body class="body-crear-tarea">
@@ -121,7 +122,7 @@ session_start();
     <button class="submit" type="submit" form="formTarea">Crear tarea</button>
   </header>
 
-  <form id="formTarea" action="editar_datos_tarea" method="post" enctype="multipart/form-data">
+  <form id="formTarea" action="editar_datos_tarea?ID_tarea=<?=$id_tarea?>$?ID_clase=<?=$id_clase?>" method="post" enctype="multipart/form-data">
   <div class="container">
 
       <div class="left">

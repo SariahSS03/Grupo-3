@@ -38,8 +38,6 @@ session_start();
       font-weight: 500;
     }
     .container {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
       gap: 20px;
       padding: 20px;
     }
@@ -66,17 +64,7 @@ session_start();
       display: flex;
       justify-content: space-around;
       margin-top: 20px;
-    }
-    .attachments button {
-      border: none;
-      background: none;
-      cursor: pointer;
-      text-align: center;
-    }
-    .attachments img {
-      width: 30px;
-      display: block;
-      margin: auto;
+      margin-bottom: 20px;
     }
     button.submit {
       background: #1a73e8;
@@ -156,13 +144,13 @@ session_start();
         rules:{
             Titulo:{
                 required:true,
-                minlenght:5,
-                maxlenght:45
+                minlength:5,
+                maxlength:45
             },
             Descricion:{
                 required:true,
-                minlenght:5,
-                maxlenght:300
+                minlength:5,
+                maxlength:300
             },
             Nota:{
                 required:true,
@@ -173,20 +161,20 @@ session_start();
             },
             Instrucciones:{
                 required:true,
-                minlenght:5,
-                maxlenght:300
+                minlength:5,
+                maxlength:300
             }
         },
         messages:{
             Titulo:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
             Descricion:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 300 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 300 letras"
             },
             Nota:{
                 required:"este campo tiene que ser llenado solo numeros ",
@@ -197,8 +185,8 @@ session_start();
             },
             Instrucciones:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 300 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 300 letras"
             }
         }
     });

@@ -295,10 +295,10 @@ session_start();
 <body class="body">
   <?php
      if($_SESSION['rol']==2 ){
-           include("/grupo-3/Proyecto3.1/Profesor/inicio2.php");  
+           include("Profesor/inicio2.php");  
         }else{
             if($_SESSION['rol']==1 ){
-            include("/grupo-3/Proyecto3.1/Estudiante/inicio1.php");
+            include("Estudiante/inicio1.php");
         }
       }
   ?>
@@ -328,10 +328,10 @@ session_start();
   <div class="mn">
       <?php
       if($_SESSION['rol']==2 ){
-            include("/grupo-3/Proyecto3.1/Profesor/subprofesor.php");  
+            include("Profesor/subprofesor.php");  
           }else{
               if($_SESSION['rol']==1 ){
-              include("/grupo-3/Proyecto3.1/Estudiante/subestudiante.php");
+              include("Estudiante/subestudiante.php");
           }
           }
       ?>

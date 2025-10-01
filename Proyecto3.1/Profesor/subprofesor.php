@@ -48,7 +48,7 @@
      ?>
    <nav class="mn">
     <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$id_CLASE?>">ANUNCIOS</a>
-    <a href="TrabajodeClase.php?ID=<?=$id_CLASE?>">TAREAS</a>
+    <a href="/grupo-3/Proyecto3.1/Profesor/TrabajodeClase.php?ID=<?=$id_CLASE?>">TAREAS</a>
     <a href="/grupo-3/Proyecto3.1/Profesor/Personasprofesor.php?ID=<?=$id_CLASE?>">PERSONAS</a>
   </nav> 
 </body>

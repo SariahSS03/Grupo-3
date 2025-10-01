@@ -1,5 +1,16 @@
 <?php
 session_start();
+    $direccion="localhost";
+    $usuario="root";
+    $contrasena="";
+    $dbname="proyecto3"; 
+    
+    $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+    if($conexion->error){
+        echo"Hubo un error al conectar a la base de datos";
+    }if($_SESSION['rol']==2 ){
+        header('Location:/grupo-3/Proyecto3.1/Profesor/Vertareaprofesor.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,17 +134,6 @@ session_start();
     }
   </style>
 </head>
-<?php
-        $direccion="localhost";
-        $usuario="root";
-        $contrasena="";
-        $dbname="proyecto3"; 
-        
-        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
-        if($conexion->error){
-            echo"Hubo un error al conectar a la base de datos";
-        }
-?>
 <body class="body-ver-tarea">
     <?php
       include("../Estudiante/inicio1.php");  

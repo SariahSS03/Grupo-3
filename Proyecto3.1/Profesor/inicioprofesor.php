@@ -1,5 +1,16 @@
 <?php
   session_start();
+    $direccion="localhost";
+    $usuario="root";
+    $contrasena="";
+    $dbname="proyecto3"; 
+    $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+    if($conexion->error){
+        echo"Hubo un error al conectar a la base de datos";
+    }
+    if($_SESSION['rol']==1 ){
+        header('Location:/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -204,18 +215,7 @@
     </style>
 </head>
 <?php
-        $direccion="localhost";
-        $usuario="root";
-        $contrasena="";
-        $dbname="proyecto3"; 
-        
-        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
-        if($conexion->error){
-            echo"Hubo un error al conectar a la base de datos";
-        }
-        if($_SESSION['rol']==1 ){
-            header('Location:/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php');
-        }
+
 ?>
 <body class="body-inicio-profesor">
     <?php

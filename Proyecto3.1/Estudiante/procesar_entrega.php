@@ -6,23 +6,19 @@ $dbname="proyecto3";
 
  $conexion = new mysqli($servername, $username, $password, $dbname);
 
-$titulo = $_POST['titulo'];
 date_default_timezone_set('America/La_Paz');
 $today = date("Y-m-d H:i:s");
-$comentario=$_POST['comentario'];
-$Nota=['0'];
-$Entregado=['Entregado'];
 session_start();
 $User=$_SESSION['CI']
 $ID_tarea=$_POST['ID_tarea']:
-$sql1="INSERT INTO Cuenta_has_Tarea (Cuenta_User, Tarea_idTarea, Nota, FechadeEntrega, Comentario,Entregado) VALUES ('$User', '$ID_tarea', '$Nota',  '$today',  '$comentario','$Entregado')";
+$sql1="INSERT INTO Cuenta_has_Tarea (Cuenta_User, Tarea_idTarea, FechadeEntrega,Entregado) VALUES ('$User', '$ID_tarea', '$today','Entregado')";
 if ($conexion->query ($sql2)===TRUE){
     //define aque carpeta ira el archivo
          $target_dir="media/";
          //recupera el tipo de archivo
          $imageFileType= strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
          //define el nombre del archivo P-[id de l clase]-[id de la publicacion]
-         $newFileName= "P-".$clases_ID."-".$conexion->insert_id.".".$imageFileType;
+         $newFileName= "ST-".$User"-".$ID_tarea.".".$imageFileType;
          //ruta completa de carpeta+nombre donde se guardara el archivo
          $target_file= $target_dir. $newFileName;  
          //variable que funcionara como bandera si el valor es 1 se puede subir, si es 0 algo paso

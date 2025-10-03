@@ -37,7 +37,7 @@
 }
 
 /* Etiquetas */
-.formulario-entrega label {
+label {
     display: block;
     margin-bottom: 6px;
     font-weight: 500;
@@ -45,21 +45,13 @@
 }
 
 /* Campos de texto y archivo */
-.formulario-entrega input[type="text"],
-.formulario-entrega textarea,
-.formulario-entrega input[type="file"] {
+input {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 15px;
-}
-
-/* Textarea específico */
-.formulario-entrega textarea {
-    resize: vertical;
-    min-height: 100px;
 }
 
 /* Botón */
@@ -102,12 +94,6 @@
     <div class="formulario-entrega">
     <h2>Entregar tarea</h2>
     <form action="procesar_entrega.php?ID_tarea=<?= $ID_tarea?>" method="post" enctype="multipart/form-data">
-        
-        <label for="titulo">Título de la entrega</label>
-        <input type="text" id="titulo" name="titulo" placeholder="Ej. Mi informe final">
-
-        <label for="comentario">Comentario </label>
-        <textarea id="comentario" name="comentario" placeholder="Agrega algún comentario..."></textarea>
 
         <label for="archivo">Archivo a subir</label>
         <input type="file" name="fileToUpload" id="fileToUpload">
@@ -118,27 +104,13 @@
 <script>
     $("form").validate({
         rules:{
-            titulo:{
-                required:true,
-                minlenght:15,
-                maxlenght:45
-            },
-            comentario:{
-                required:true,
-                minlenght:5,
-                maxlenght:300
+            fileToUpload:{
+                required:true
             }
         },
         messages:{
-            titulo:{
-                required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 15 letras",
-                maxlenght:"El maximo es el 45 letras"
-            },
-            comentario:{
-                required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 300 letras"
+            fileToUpload:{
+                required:"este campo tiene que ser llenado"
             }
         }
     })

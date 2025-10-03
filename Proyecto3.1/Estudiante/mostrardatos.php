@@ -17,7 +17,10 @@
       die();   
    }
    $sql=" SELECT * FROM Cuenta WHERE User='$CI' AND Contrasena='$Rude'";
-   $resultado=mysqli_query($conexion,$sql);
+   $stmt=$conexion->prepare($sql);
+   $stmt->bind_param("ii",$CI,$Rude);
+   $stmt->executive();
+   $resultado=$stmt->get_result();
    if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
       $fila= mysqli_fetch_assoc($resultado);
       $_SESSION['CI']=$fila['User'];

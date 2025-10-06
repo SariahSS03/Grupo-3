@@ -1,3 +1,18 @@
+<?php
+  session_start();
+    $direccion="localhost";
+    $usuario="root";
+    $contrasena="";
+    $dbname="proyecto3"; 
+    
+    $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+    if($conexion->error){
+        echo"Hubo un error al conectar a la base de datos";
+    }
+     if($_SESSION['rol']==1 ){
+        header('Location:/grupo-3/Proyecto3.1/Estudiante/Vertarea.php');
+    }
+?>
 <!DOCTYPE html> 
 <html lang="es">
 <head>
@@ -6,11 +21,20 @@
   <title>Trabajo de los alumnos</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
+    .body-ver-tarea-profesor {
+      display: grid;
+      grid-template-rows: auto auto auto auto auto;
+      grid-template-columns: 16% 84% ;
+      grid-template-areas: "principal principal"
+                          " opciones header"
+                          " opciones formulario";
       font-family: 'Roboto', sans-serif;
+      margin: 0;
       background: #f9f9f9;
       color: #202124;
+    }
+    #formAlumnos{
+      grid-area:formulario;
     }
     header {
       background: white;
@@ -22,10 +46,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-    }
-    .pestañas {
-      display: flex;
-      gap: 20px;
+      grid-area:header;
     }
     .pestañas button {
       background: none;
@@ -65,7 +86,7 @@
       border-radius: 8px;
       overflow-y: auto;
     }
-    .titulo {
+    .titulo1 {
       font-size: 14px;
       margin: 0;
       padding: 12px 16px;
@@ -88,18 +109,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-    .imagen {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #4285f4;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 500;
     }
     .nota {
       color: #188038;
@@ -161,53 +170,53 @@
     }
   </style>
 </head>
-<body>
-
+<body class="body-ver-tarea-profesor">
+  <?php
+   include("inicio2.php");  
+?>
   <header>
     <div class="pestañas">
-      <button>Instrucciones</button>
       <button class="activo">Trabajo de los alumnos</button>
     </div>
     <div class="acciones">
       <button type="submit" form="formAlumnos">Enviar</button>
-      <select name="puntos">
-        <option value="100">100 puntos</option>
-        <option value="50">50 puntos</option>
-        <option value="10">10 puntos</option>
-      </select>
     </div>
   </header>
 
   <form id="formAlumnos" action="procesar_entregas.php" method="POST">
     <div class="cajaexterna">
-  
       <div class="cajainterna">
-        <h3 class="titulo">Entregado</h3>
-        <div class="alumno">
-          <div class="info">
-            <input type="checkbox">
-            <div class="imagen">A</div>
-            <span>Nombre1</span>
-          </div>
-          <span class="nota">100/100</span>
-        </div>
-        <div class="alumno">
-          <div class="info">
-            <input type="checkbox">
-            <div class="imagen" style="background:#a142f4;">P</div>
-            <span>Nombre2</span>
-          </div>
-          <span class="nota">100/100</span>
-        </div>
-        <div class="alumno">
-          <div class="info">
-            <input type="checkbox">
-            <div class="imagen" style="background:#fbbc05;">U</div>
-            <span>Nombre3</span>
-          </div>
-          <span class="nota">100/100</span>
-        </div>
-      </div>
+        <h3 class="titulo1">Entregado</h3>
+          <?php
+          $ID_tarea=$_GET['IDtarea'];
+          $ID_clase=$_GET['IDclase'];   
+               $sql=" SELECT * FROM Cuenta_has_Tarea WHERE Tarea_idTarea='$ID_tarea' ";
+               $resultado=$conexion->query($sql);
+               if($resultado -> num_rows >0){
+                  While($fila=$resultado ->fetch_assoc()){
+                     $Cuenta_User=$fila['Cuenta_User'];
+                     $fechadeEntrega=$fila['FechadeEntrega'];
+                     $sql2="SELECT*FROM Informacion WHERE CI='$Cuenta_User'";
+                     $resultado2=$conexion->query ($sql2);
+                     if ($resultado2->num_rows>0){
+                           While($fila2=$resultado2->fetch_assoc()){
+                              $Nombres=$fila2['Nombres'];
+                              $Apellidos=$fila2['Apellidos'];
+          ?>
+            <div class="alumno">
+            <div class="info">
+              <span><?= $Nombres ?> <?= $Apellidos?></span>
+            </div>
+            <span class="nota">100/100</span>
+            </div>
+          <?php
+            }
+          }
+        }
+      }
+      ?>
+    </div>
+
       <div class="cajainterna contenido">
         <h2>Examen Sesiones</h2>
         <div class="estadisticas">

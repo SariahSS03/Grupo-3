@@ -107,8 +107,8 @@
         rules:{
             Rude:{
                 required:true,
-                minlenght:15,
-                maxlenght:45
+                minlength:5,
+                maxlength:45
             },
             CI:{
                 required:true,
@@ -118,15 +118,15 @@
         messages:{
             Rude:{
                 required:"este campo tiene que ser llenado",
-                minlenght:"El minimo es de 5 letras",
-                maxlenght:"El maximo es el 45 letras"
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 45 letras"
             },
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",
                 number:"el campo solo tiene que llenado con numeros"
             }
         }
-    })
+    });
 </script>
 </body>
 </html>

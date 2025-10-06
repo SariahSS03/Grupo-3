@@ -77,6 +77,7 @@ label {
     background-color: #059a4b;
     color: white;
     text-align: center;
+    width:50%;
 }
 
 /* Hover para botón principal */
@@ -189,13 +190,14 @@ img:hover {
 
         <div class="campo">
           <label for="">C.I</label>
-          <input type="text" name="CI" placeholder="Ingresa tu cédula de identidad">
+          <input type="number" name="CI" placeholder="Ingresa tu cédula de identidad">
         </div>
       </div>
 
       <!-- Botones -->
-      <input onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php'" id="Boton" value="Iniciar Sesión">
       <input type="submit" id="boton" value="Crear cuenta">
+      <input onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php'" id="Boton" value="Iniciar Sesión">
+      
     </div>
   </center>
 </form>
@@ -237,7 +239,7 @@ img:hover {
                 required:true,
                 number:true
             },
-             Rude:{ 
+            Rude:{ 
                 required:true,
                 number:true
             },

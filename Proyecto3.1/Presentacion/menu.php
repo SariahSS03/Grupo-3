@@ -16,6 +16,7 @@
       background:#D6ECFA;;
       padding: 10px 20px;
       position: relative;
+      position: fixed; /*--- Para mantenerlo fijo ---*/
       z-index:2000;
     }
 

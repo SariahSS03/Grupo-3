@@ -20,17 +20,20 @@ session_start();
     <title>Document</title>
     <style>
     .body-tareas-estudiante{
-            margin:none;
-            display: grid;
-            grid-template-rows: auto auto auto auto auto;
-            grid-template-columns: auto auto ;
-            grid-template-areas: "principal principal"
-                                "opciones mn"
-                                "opciones Tareas";
-                               
-        }
+    margin:0px;
+    display: grid;
+    grid-template-columns: 13% 88%;
+    grid-template-rows: auto 18% auto auto auto;
+    grid-template-areas: "principal principal"
+                        "opciones mn"
+                        "opciones Tareas";
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f8f8f8;                         
+    }
+        
     .tareasestudiantes{
         grid-area:Tareas;
+        margin-top:20px;
     }
     .tarea-card {
         background-color: #fff;
@@ -79,11 +82,11 @@ session_start();
 <?php
    include("inicio1.php");  
 ?>
-<div class="mn">
+<nav class="mn">
 <?php
     include("subestudiante.php"); 
 ?> 
-</div>
+</nav>
 <div class="tareasestudiante">
 <?php
         $ID=$_GET['ID'];

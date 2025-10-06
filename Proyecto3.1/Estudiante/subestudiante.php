@@ -38,18 +38,11 @@
   <?php
         $User=$_SESSION['CI'];
         $ID=$_GET['ID'];
-        $sql="SELECT*FROM Clases   WHERE ID='$ID'";
-        $resultado = $conexion->query($sql);
-        if ($resultado->num_rows>0){
-            while($fila=$resultado->fetch_assoc()){
-                $id_CLASE=$fila['ID'];
-            }
-        }
      ?>
    <nav class="mn">
-    <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$id_CLASE?>">ANUNCIOS</a>
-    <a href="Tareasestudiante.php?ID=<?=$id_CLASE?>">TAREAS</a>
-    <a href="Personasestudiante.php?ID=<?=$id_CLASE?>">PERSONAS</a>
+    <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$ID?>">ANUNCIOS</a>
+    <a href="/grupo-3/Proyecto3.1/Estudiante/Tareasestudiante.php?ID=<?=$ID?>">TAREAS</a>
+    <a href="/grupo-3/Proyecto3.1/Estudiante/Personasestudiante.php?ID=<?=$ID?>">PERSONAS</a>
   </nav> 
 </body>
 </html>

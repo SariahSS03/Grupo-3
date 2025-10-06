@@ -32,11 +32,11 @@ session_start();
 
     .main-container {
       display: flex;
-      max-width: 1200px;
+      width: 100%;
       margin: auto;
       grid-area:tarea;
       justify-content:center; 
-       align-items:center;
+      align-items:center;
     }
 
     .left-section {
@@ -49,7 +49,7 @@ session_start();
     }
 
     .right-section {
-      flex: 1;
+      flex: 1;  
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -76,7 +76,7 @@ session_start();
     .points-date {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: 20px;    
       border-bottom: 1px solid #ddd;
       padding-bottom: 10px;
       font-weight: bold;
@@ -110,7 +110,6 @@ session_start();
       margin-bottom: 10px;
     }
 
-    .your-work button,
     .your-work .add-create {
       background-color: #1a73e8;
       color: white;
@@ -148,9 +147,9 @@ session_start();
                 $Titulo =$fila1['Titulo'];
                 $Descripcion =$fila1['Descripcion'];
                 $Nota =$fila1['Nota'];
-                $Tema=$fila1['Tema'];
                 $FechadeEntrega=$fila1['FechadeEntrega'];
                 $Instrucciones =$fila1['Instrucciones'];
+                $ID_clase =$fila1['Clases_ID'];
             }
         }
         ?>
@@ -161,41 +160,16 @@ session_start();
             <div class="meta"><?=$Descripcion?></div>
 
             <div class="points-date">
-                <div><?=$Nota?> / <?=$Nota?></div>
+                <div>0 / <?=$Nota?></div>
                 <!--<div><?=$FechadeEntrega?></div>-->
             </div>
 
             <div class="instructions">
                 <strong><?=$Instrucciones?></strong>
             </div>
-
-            </div>
-
-            <!-- Right Section -->
-            <div class="right-section">
-            <div class="box your-work">
-              <?php
-              $ID=$_GET['IDtarea'];
-              $sql2="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID'";
-              $resultado2 = $conexion->query($sql2);
-              if ($resultado1->num_rows>0){
-                  while($fila2=$resultado1->fetch_assoc()){
-                      $Entregado =$fila2['Enttregado'];
-                  }
-              }
-              ?>
-              <?php 
-              if($Entreagdo=="Entregado"){
-              ?>
-                <div class="status">Sin entregar</div>
-                <a href="/grupo-3/Proyecto3.1/Estudiante/formentregar.php?ID_tarea=<?= $ID?>" class="add-create">+ Añadir o crear</a>
-              <?php
-              }else{
-              ?>
-              <div class="status">Tarea Entregada</div>
-              <div>
+            <div>
                 <?php
-                      $nombreArchivo ="ST-".$_SESSION['CI']."-".$ID;
+                      $nombreArchivo ="T-".$ID."-".$ID_clase;
                       $directorio = "../media/";
                       $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
                       $archivoEncontrado = NULL;
@@ -220,10 +194,34 @@ session_start();
                       }
                 ?>
               </div>
-              <?php
-              }
-              ?>
             </div>
+
+            <!-- Right Section -->
+            <div class="right-section">
+                <div class="box your-work">
+                  <?php
+                  $ID=$_GET['IDtarea'];
+                  $sql2="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID'";
+                  $resultado2 = $conexion->query($sql2);
+                  if ($resultado2->num_rows>0){
+                      while($fila2=$resultado2->fetch_assoc()){
+                          $Entregado=$fila2['Entregado'];
+                  ?>
+                  <?php 
+                  if($Entregado=="Entregado"){
+                  ?>
+                    <div class="status">Tarea Entregada</div>
+                  <?php
+                  }if ($Entregado!="Entregado"){
+                  ?>
+                  <div class="status">Sin entregar</div>
+                  <a href="/grupo-3/Proyecto3.1/Estudiante/formentregar.php?ID_tarea=<?= $ID?>" class="add-create">+ Añadir o crear</a>
+                  <?php
+                  }
+                  }
+                  }
+                  ?>
+                </div>
             </div>
     </div>
 </body>

@@ -7,7 +7,7 @@ $dbname="proyecto3";
  $conexion = new mysqli($servername, $username, $password, $dbname);
 $Texto = $_POST['Publicaciones'];
 date_default_timezone_set('America/La_Paz');
-$today = date("Y-m-d H:i:s"); 
+$today=date("Y-m-d H:i:s"); 
 session_start();   
 $ID=$_POST['ID'];
 $sql="SELECT*FROM Clases WHERE ID='$ID'";

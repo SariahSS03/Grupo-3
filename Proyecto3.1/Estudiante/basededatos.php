@@ -6,6 +6,7 @@ $dbname="proyecto3";
 
  $conexion = new mysqli($servername, $username, $password, $dbname);
  $nombres = $_POST['Nombres'];
+ $nombres = $_GET['Nombres'];
  $apellidos =$_POST['Apellidos'];
  $telefono=$_POST['Telefono'];
  $curso=$_POST['Curso'];
@@ -24,5 +25,6 @@ $dbname="proyecto3";
    header('Location:/grupo-3/Proyecto3.1/Estudiante/registro.php');
  }
  $conexion->close();
+
 
 ?>

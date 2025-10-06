@@ -20,16 +20,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    body{
-            display: grid;
-            grid-template-rows:auto auto auto auto auto;
-            grid-template-columns: 16% 84% ;
-            grid-template-areas: "principal principal"
-                              " opciones mn"
-                                " opciones Tareas"
-                                " opciones tareascreadas";
-            margin: 0px;
-        }
+    .body-trabajo-clase{
+        display: grid;
+        grid-template-rows:auto 18% auto auto auto;
+        grid-template-columns: 13% 88% ;
+        grid-template-areas: "principal principal"
+                            " opciones mn"
+                            " opciones Tareas"
+                            " opciones tareascreadas";
+        margin: 0px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
     .tareascreadas{
         grid-area:tareascreadas;
     }
@@ -82,7 +83,10 @@
         background-color: #f9f9f9;
         border-radius: 8px;
         border: 1px solid #ddd;
-        width: fit-content; /* Se ajusta al contenido */
+        width: 150px; /* Se ajusta al contenido */
+        height: 30px;
+        margin-top:20px;
+        margin-left:20px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
@@ -90,7 +94,6 @@
     .crear-tarea-link {
         text-decoration: none;
         color: #2c3e50;
-        font-weight: 500;
         font-size: 16px;
         transition: color 0.2s ease;
     }
@@ -118,8 +121,20 @@
         text-decoration: none;
         color: white;
     }
+    .mn {
+      background-color: #010636;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px;
+      grid-area: mn;
+    }
 
-
+    .mn a {
+      text-decoration: none;
+      color: white;
+      font-size: 15px;
+    }
 </style>
 </head>
 <?php
@@ -132,20 +147,20 @@
             echo"Hubo un error al conectar a la base de datos";
         }
 ?>
-<body>
+<body class="body-trabajo-clase">
 <?php
    include("inicio2.php");  
 ?>
-<div class="mn">
+<nav class="mn">
 <?php
     include("subprofesor.php"); 
 ?> 
-</div>
+</nav>
 
 <div class="Tareas">
-<?php
-$ID=$_GET['ID'];
-?>
+    <?php
+    $ID=$_GET['ID'];
+    ?>
     <img id="in" src="/grupo-3/Proyecto3.1/Imagenes/pencil.png" alt="Crear" width="27" height="27">
     <a href="../Profesor/creartarea.php?ID=<?= $ID ?>" class="crear-tarea-link">Crear Tarea</a>
 </div>

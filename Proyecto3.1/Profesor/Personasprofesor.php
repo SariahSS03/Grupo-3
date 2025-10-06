@@ -111,7 +111,7 @@
                               $CI=$fila2['CI'];
                               ?>
                     <div class="compañero-item">
-                        <span><?= $NombreCompleto ?></span>
+                        <span><?= $Nombres ?> <?= $Apellidos ?></span>
                         <a href="eliminar_estudiante.php?CI_estudiante=<?=$CI?>&ID_clase=<?=$ID?>" class="eliminar-link">Eliminar estudiante</a>
                     </div>
                 <?php

@@ -91,6 +91,7 @@
             height: 50px;
             padding: 0 15px;            /* Espacio interno a los lados */
             cursor: pointer;            /* Manito al pasar */
+            margin-bottom:20px;
         }
 
         #aj {

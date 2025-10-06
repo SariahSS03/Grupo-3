@@ -21,8 +21,8 @@ session_start();
    <style>
     .body-personas-estudiante {
       display: grid;
-      grid-template-columns: auto auto ;
-      grid-template-rows: auto auto auto;
+      grid-template-columns: 13% 88%;
+    grid-template-rows: auto 18% auto auto auto;
       grid-template-areas:"principal principal"
                           "opciones mn"
                           "opciones tabla";
@@ -62,11 +62,12 @@ session_start();
    <?php
         include("inicio1.php");
   ?>
-  <div class="n">
+  <div class="mn">
       <?php
          include("subestudiante.php"); 
       ?>
    </div>
+   <center>
    <div class="tablapersonas">
     <h2 class="titulo-seccion">Compañeros de clase</h2>
 
@@ -99,7 +100,7 @@ session_start();
     }
     ?>
    </div>
-
+</center>
      
 </body>
 </html>

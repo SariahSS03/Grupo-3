@@ -11,18 +11,17 @@ if($conexion->connect_error){
 date_default_timezone_set('America/La_Paz');
 $today = date("Y-m-d H:i:s"); 
 
- $texto = $_POST['Publicaciones'];
- $ID_publicaciones=$_POST['ID_publicacion']
-$sql="UPDATE Publicaciones WHERE id=$ID_publicaciones SET Texto='$texto'";
-$sql2="INSERT INTO Publicaciones (FechadeEdicion) VALUES ('$today')";
+$texto = $_POST['Publicaciones'];
+$clases_ID = $_GET['clases_ID'];
+$ID_publicaciones=$_GET['ID_publicacion'];
+$sql="UPDATE publicaciones SET Texto='$texto', FechadeEdicion='$today' WHERE id='$ID_publicaciones' ";
 if($conexion->query($sql)){
-      if ($conexion->query ($sql2)===TRUE){
             //define aque carpeta ira el archivo
          $target_dir="media/";
          //recupera el tipo de archivo
          $imageFileType= strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
          //define el nombre del archivo P-[id de l clase]-[id de la publicacion]
-         $newFileName= "P-".$clases_ID."-".$conexion->insert_id.".".$imageFileType;
+         $newFileName= "P-".$clases_ID."-".$ID_publicaciones.".".$imageFileType;
          //ruta completa de carpeta+nombre donde se guardara el archivo
          $target_file= $target_dir. $newFileName;  
          //variable que funcionara como bandera si el valor es 1 se puede subir, si es 0 algo paso
@@ -54,6 +53,6 @@ if($conexion->query($sql)){
                echo"Hubo un error al publicar en anuncio";
          }
       }
- }
+ 
 
  ?>

@@ -8,10 +8,10 @@ if(!$conexion){
    echo"error en la conexion".mysqli_error();
    die();   
 }
-$sql=" SELECT * FROM Cuenta WHERE User='$CI' AND Contrasena='$Rude'";
+$sql=" SELECT * FROM Cuenta WHERE User=? AND Contrasena=?";
 $stmt=$conexion->prepare($sql);
-$stmt->bind_param("ii",$CI,$Rude);
-$stmt->executive();
+$stmt->bind_param("ss",$CI,$Rude);
+$stmt->execute();
 $resultado=$stmt->get_result();
 if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
    $fila= mysqli_fetch_assoc($resultado);

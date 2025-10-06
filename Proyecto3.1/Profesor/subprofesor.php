@@ -31,25 +31,18 @@
             echo"Hubo un error al conectar a la base de datos";
         }
         if($_SESSION['rol']==1 ){
-            header('Location: subestudiante.php');
+            header('Location:../Estudiante/subestudiante.php');
         }
         ?>
 <body>
   <?php
         $User=$_SESSION['CI'];
         $ID=$_GET['ID'];
-        $sql="SELECT*FROM Clases   WHERE ID='$ID'";
-        $resultado = $conexion->query($sql);
-        if ($resultado->num_rows>0){
-            while($fila=$resultado->fetch_assoc()){
-                $id_CLASE=$fila['ID'];
-            }
-        }
      ?>
    <nav class="mn">
-    <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$id_CLASE?>">ANUNCIOS</a>
-    <a href="/grupo-3/Proyecto3.1/Profesor/TrabajodeClase.php?ID=<?=$id_CLASE?>">TAREAS</a>
-    <a href="/grupo-3/Proyecto3.1/Profesor/Personasprofesor.php?ID=<?=$id_CLASE?>">PERSONAS</a>
+    <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$ID?>">ANUNCIOS</a>
+    <a href="/grupo-3/Proyecto3.1/Profesor/TrabajodeClase.php?ID=<?=$ID?>">TAREAS</a>
+    <a href="/grupo-3/Proyecto3.1/Profesor/Personasprofesor.php?ID=<?=$ID?>">PERSONAS</a>
   </nav> 
 </body>
 </html>

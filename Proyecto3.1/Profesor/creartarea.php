@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     .body-crear-tarea{
@@ -90,6 +90,91 @@
     button.submit:hover {
       background: #1558b0;
     }
+    /* Oculta el input real */
+.attachments input[type="file"] {
+  display: none;
+}
+
+/* Estilo para el botón de adjuntar */
+.custom-file-button {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #131212ff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Efecto hover */
+.custom-file-button:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.03);
+}
+
+/* Puedes ajustar según tamaño o responsividad */
+@media (max-width: 768px) {
+  .body-crear-tarea {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "principal"
+      "Tareas";
+    padding: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .left, .right {
+    padding: 15px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  header h2 {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  textarea,
+  select,
+  input[type="date"],
+  input[type="number"] {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .attachments {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .custom-file-button {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  button.submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+
   </style>
 </head>
 <body class="body-crear-tarea">
@@ -98,22 +183,16 @@
 ?>
 </div>
   <?php
-        $ID=$_GET['ID'];
-        $sql1="SELECT*FROM Clases   WHERE ID='$ID'";
-        $resultado1 = $conexion->query($sql1);
-        if ($resultado1->num_rows>0){
-            while($fila1=$resultado1->fetch_assoc()){
-                $id_tareaclase=$fila1['ID'];
-            }
-        }
-        ?>
+    $ID=$_GET['ID'];
+  ?>
   <section class="areacreartarea">
   <header>
     <h2>Tarea</h2>
     <button class="submit" type="submit" form="formTarea">Crear tarea</button>
   </header>
 
-  <form id="formTarea" action="Tarea.php?IDclase=<?= $id_tareaclase ?>" method="post" enctype="multipart/form-data">
+  <form id="formTarea" action="Tarea.php" method="post">
+  <input type="hidden" name="ID" value="<?= $ID ?>">
   <div class="container">
 
       <div class="left">
@@ -123,7 +202,8 @@
         <h3>Adjuntar</h3>
         <div class="attachments">
           <input type="file" name="fileToUpload" id="fileToUpload">
-      </div>
+          <label for="fileToUpload" class="custom-file-button">Adjuntar archivo</label>
+        </div>
 
     
       <div class="right">
@@ -148,7 +228,7 @@
                 minlength:5,
                 maxlength:45
             },
-            Descricion:{
+            Descripcion:{
                 required:true,
                 minlength:5,
                 maxlength:300
@@ -172,7 +252,7 @@
                 minlength:"El minimo es de 5 letras",
                 maxlength:"El maximo es el 45 letras"
             },
-            Descricion:{
+            Descripcion:{
                 required:"este campo tiene que ser llenado",
                 minlength:"El minimo es de 5 letras",
                 maxlength:"El maximo es el 300 letras"

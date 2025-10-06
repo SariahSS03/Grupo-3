@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+         .body-planter-docente {
+            display: grid;
+          grid-template-rows: auto 1fr auto;
+          grid-template-columns: 100%;
+          grid-template-areas:
+              "un"
+              "dos"
+              "tres";
+              margin: 0;
+         }  
+         .header {
+            grid-area: un;
+            font-family: Arial, sans-serif;
+        }
+        .footer {
+            grid-area: tres;
+        }  
+        .Principal {
+            grid-area: dos;
+        }
         .generall{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -68,12 +88,11 @@
 
     </style>
 </head>
-<body>
-    <header>
-      <?php
-      include("menu.php");
-      ?>
+<body class="body-planter-docente">
+    <header class="header">
+        <?php include('menu.php'); ?>
     </header>
+    <div class="Principal">
     <center><h1 class="orga">Organizacion de comisiones</h1></center>
 
     <div class="generall">
@@ -156,12 +175,10 @@
         </div>
 </div>
 
+</div>
 
-
-<header>
-      <?php
-      include("menu2.php");
-      ?>
-    </header>
+<footer class="footer">
+        <?php include('menu2.php'); ?>
+    </footer>
 </body>
 </html>

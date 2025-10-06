@@ -7,12 +7,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Story+Script&display=swap" rel="stylesheet">
   <style>
+     
     .body-establecimiento {
-      margin: 0;
+      display: grid;
+          grid-template-rows: auto 1fr auto;
+          grid-template-columns: 100%;
+          grid-template-areas:
+              "un"
+              "dos"
+              "tres";
+          font-family: Arial, sans-serif;
+          margin: 0;
+          min-height: 100vh;
       font-family: Arial, sans-serif;
       background: linear-gradient(90deg, #589ddd, #6600ff);
       text-align: center;
     }
+    .header {
+            grid-area: un;
+      }
+      .footer {
+            grid-area: tres;
+        }
+        .Principal {
+            grid-area: dos;
+        }
+
 
     h1 {
       margin: 20px 0;
@@ -88,11 +108,10 @@
   </style>
 </head>
 <body class="body-establecimiento">
-    <header>
-      <?php
-      include('menu.php');
-      ?>
+     <header class="header">
+        <?php include('menu.php'); ?>
     </header>
+    <div class="Principal">
   <h1 class="titulo">Conoce Nuestro Colegio</h1>
   <div class="galeria">
     <img src="../Imagenes/ima1.jpeg" class="desde-izquierda" alt="img1">
@@ -116,11 +135,10 @@
     <img src="../Imagenes/ima19.jpeg" class="desde-izquierda" alt="img19">
     <img src="../Imagenes/ima20.jpeg" class="desde-derecha" alt="img20">
   </div>
-  <header>
-      <?php
-      include('menu2.php');
-      ?>
-  </header>
+</div>
+  <footer class="footer">
+        <?php include('menu2.php'); ?>
+    </footer>
 
 </body>
 </html>

@@ -220,7 +220,7 @@ session_start();
 }
 
 /* Publicación título */
-#publicacion1 h2 {
+#publicacion1 h2 h3 {
   font-size: 18px;
   font-weight: 600;
   color: #333;
@@ -474,10 +474,16 @@ session_start();
                        $Informacion_CI= $fila3['Informacion_CI'];
                        $ID_publicacion= $fila3['id'];
                        $ID= $fila3['Clases_ID'];
+                       $sql2=" SELECT * FROM Informacion WHERE CI='$Informacion_CI'";
+                      $resultado2 = $conexion->query($sql2);
+                      if ($resultado2->num_rows>0){
+                        while($fila2=$resultado2->fetch_assoc()){
+                        $Nom= $fila2['Nombres'];
+                        $Ape= $fila2['Apellidos'];
     ?>
                 <div id="publicacion1">
+                        <h3><?=$Nom?> <?=$Ape?></h3>
                         <h2><?=$Texto?></h2>
-                        
                         <?php
                         // Verifica si la fecha de creación es válida y no está vacía
                         if(!empty($FechaCreacion)&& $FechaCreacion != '0000-00-00 00:00:00'){
@@ -525,6 +531,8 @@ session_start();
                   }
               }
             }
+          }
+        }
       ?>
      
    </div>

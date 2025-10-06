@@ -17,7 +17,6 @@
           color: white;
           font-family:"Funnel Sans", sans-serif;
           line-height: 2;
-          grid-area:final;
         }
         
         #espacios{

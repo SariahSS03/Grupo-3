@@ -10,8 +10,8 @@
 <style>
     body {
         display: grid;
-        grid-template-columns: 100%;
         grid-template-rows: auto auto auto auto;
+        grid-template-columns: 100%;
         grid-template-areas:"menu"
                             "comentarios"
                             "mostrar"
@@ -24,11 +24,16 @@
         min-height: 100vh;
         margin: 0;
     }
+    .header {
+            grid-area:menu;
+      }
+      .footer {
+            grid-area: final;
+        }
 
     .form {
         background: #ffffff;
-        margin-top:50px;
-        margin-left:250px;
+        margin-top:150px;
         padding: 40px;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -98,7 +103,6 @@
         margin-top:50px;
         padding: 20px;
         border-radius: 20px;
-        margin-left: 250px;
         margin-bottom: 20px;
         color: #ffffff;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -161,42 +165,40 @@
 </style>
 </head>
 <body>
-<header>
-      <?php
-      include('menu.php');
-      ?>
-</header>
-<div class="form">
-    <h1>¡Déjanos tu comentario!</h1>
-    <form method="post" action="archivo2.php">
-        <textarea name="comentario" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
-        <button type="submit">Enviar
-          <img  height="20px" width="10px" src="https://e7.pngegg.com/pngimages/841/271/png-clipart-computer-icons-send-miscellaneous-angle-thumbnail.png">
-        </button>
-    </form>
-</div>
-<div class="mostrar">
-    <h2 class="titulo-comentarios">Comentarios recientes</h2>
-    <div class="lista-comentarios">
-    <?php
-    $a=fopen("comentarios.txt" ,"r");
-    while (!feof($a)){
-        $leer=fgets($a);
-        $ver=nl2br($leer);
-        ?>
-    <div class="comentario">
-        <p><?= $ver ?></p>
-    </div>
-<?php
-    }
-    ?>
+<header class="header">
+        <?php include('menu.php'); ?>
+    </header>
+    <center>
+        <div class="form">
+            <h1>¡Déjanos tu comentario!</h1>
+            <form method="post" action="archivo2.php">
+                <textarea name="comentario" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
+                <button type="submit">Enviar
+                <img  height="20px" width="10px" src="https://e7.pngegg.com/pngimages/841/271/png-clipart-computer-icons-send-miscellaneous-angle-thumbnail.png">
+                </button>
+            </form>
+        </div>
+        <div class="mostrar">
+            <h2 class="titulo-comentarios">Comentarios recientes</h2>
+            <div class="lista-comentarios">
+            <?php
+            $a=fopen("comentarios.txt" ,"r");
+            while (!feof($a)){
+                $leer=fgets($a);
+                $ver=nl2br($leer);
+                ?>
+            <div class="comentario">
+                <p><?= $ver ?></p>
+            </div>
+        <?php
+            }
+            ?>
 
-</div>
-</div>
-<header>
-      <?php
-      include('menu2.php');
-      ?>
-</header>
+        </div>
+    </div>
+    </center>
+  <footer class="footer">
+        <?php include('menu2.php'); ?>
+    </footer>
 </body>
 </html>

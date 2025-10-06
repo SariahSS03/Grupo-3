@@ -261,7 +261,7 @@ img:hover {
             Curso:{
                 required:"este campo tiene que ser llenado",
                 minlength:"El minimo es de 5 letras",
-                maxlength:"El maximo es el 45 letras"
+                maxlength:"El maximo es el  letras"
             },
             Direccion:{
                 required:"este campo tiene que ser llenado",

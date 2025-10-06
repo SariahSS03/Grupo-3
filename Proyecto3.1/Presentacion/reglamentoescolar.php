@@ -5,9 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .body-reglamento-escolar {
+        display: grid;
+          grid-template-rows: auto 1fr auto;
+          grid-template-columns: 100%;
+          grid-template-areas:
+              "un"
+              "dos"
+              "tres";
+              margin: 0;
+        }
+        .header {
+            grid-area: un;
+            font-family: Arial, sans-serif;
+      }
+      .footer {
+            grid-area: tres;
+        }
+        .Principal1{
+            grid-area: dos;
+        }
         .titulo {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 150px;
             color: #1e88e5;
             font-size: 50px;
         }
@@ -101,12 +121,11 @@
 
     </style>
 </head>
-<body>
-    <header>
-      <?php
-      include('menu.php');
-      ?>
+<body class="body-reglamento-escolar">
+    <header class="header">
+        <?php include('menu.php'); ?>
     </header>
+    <div class="Principal1">
     <center><h2 class="titulo">UNIFORME DE U.E.F.A<br></h2></center>
 
     <div class="principal">
@@ -154,10 +173,9 @@
          </div>
 
     </div>
-    <header>
-      <?php
-      include('menu2.php');
-      ?>
-    </header>
+    </div>
+    <footer class="footer">
+        <?php include('menu2.php'); ?>
+    </footer>
 </body>
 </html>

@@ -6,7 +6,6 @@
   <title>Menú Responsive</title>
   <style>
     .body-menu {
-      grid-area:menu;
       margin: 0px;
       font-family: Arial, sans-serif;
     }
@@ -15,9 +14,12 @@
     nav {
       background:#D6ECFA;;
       padding: 10px 20px;
-      position: relative;
+  
       position: fixed; /*--- Para mantenerlo fijo ---*/
       z-index:2000;
+      min-width:100%;
+      margin:0px;
+     
     }
 
     .menu {
@@ -25,6 +27,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 20px;
+       padding-right:30px;
       
     }
 

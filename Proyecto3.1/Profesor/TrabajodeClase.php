@@ -22,7 +22,7 @@
     <style>
     .body-trabajo-clase{
         display: grid;
-        grid-template-rows:auto 18% auto auto auto;
+        grid-template-rows:13% 13% 13% auto auto;
         grid-template-columns: 13% 88% ;
         grid-template-areas: "principal principal"
                             " opciones mn"

@@ -25,8 +25,8 @@
   <style>
     body {
       display: grid;
-      grid-template-columns: 16% 84%;
-      grid-template-rows: auto auto ;
+      grid-template-rows:13% 13% auto auto auto;
+        grid-template-columns: 13% 88% ;
       grid-template-areas:"principal principal"
                           "opciones mn"
                           "opciones tabla";
@@ -40,6 +40,7 @@
       padding: 0 20px;
       max-width: 600px;
       grid-area:tabla;
+      margin-left:30%;
    }
 
    .titulo-seccion {

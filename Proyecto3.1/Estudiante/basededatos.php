@@ -6,7 +6,6 @@ $dbname="proyecto3";
 
  $conexion = new mysqli($servername, $username, $password, $dbname);
  $nombres = $_POST['Nombres'];
- $nombres = $_GET['Nombres'];
  $apellidos =$_POST['Apellidos'];
  $telefono=$_POST['Telefono'];
  $curso=$_POST['Curso'];

@@ -262,6 +262,21 @@
                         <a class="opcion" href="/grupo-3/Proyecto3.1/Profesor/eliminarclase.php?ID_Clase=<?= $Clases_ID ?>">Eliminar clase</a>
                     </div>
                 </div>
+                <script>
+                    const btnOpciones = document.getElementById("btnOpciones");
+                    const menu = document.getElementById("menuOpciones");
+
+                    btnOpciones.addEventListener("click", (e) => {
+                        e.stopPropagation(); // evita cerrar el menú de inmediato
+                        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+                    });
+
+                    document.addEventListener("click", (e) => {
+                        if (!btnOpciones.contains(e.target) && !menu.contains(e.target)) {
+                            menu.style.display = "none";
+                        }
+                    });
+                </script>
     <?php
             }
         }
@@ -271,21 +286,6 @@
     function redirigir() {
       window.location.href = "/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$Clases_ID?>";
     }
-  </script>
-  <script>
-    const btnOpciones = document.getElementById("btnOpciones");
-    const menu = document.getElementById("menuOpciones");
-
-    btnOpciones.addEventListener("click", (e) => {
-        e.stopPropagation(); // evita cerrar el menú de inmediato
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    });
-
-    document.addEventListener("click", (e) => {
-        if (!btnOpciones.contains(e.target) && !menu.contains(e.target)) {
-            menu.style.display = "none";
-        }
-    });
   </script>
     
 </body>

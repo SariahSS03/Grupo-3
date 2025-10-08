@@ -249,7 +249,6 @@ session_start();
   margin-top: 10px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   position: absolute;
-  top: 10px; /* Para alinearlos al principio */
   right: 10px; /* Para alinearlos a la derecha */
 }
 

@@ -17,6 +17,6 @@ $FechadeEntrega=$_POST['FechadeEntrega'];
 $instrucciones=$_POST['Instrucciones'];
 $sql="UPDATE Tarea WHERE idTarea=$ID_tarea SET Titulo='$Titulo',Descripcion='$Descripcion',Nota='$Nota',FechadeEntrega='$FechadeEntrega',Instrucciones='$Instrucciones'";
 if($conexion->query($sql)){
-      header('Location:/grupo-3/Proyecto3.1/Profesor/TrabajodeClase.php?ID_tarea=<?=$ID_clase?>');
+      header('Location:../Profesor/TrabajodeClase.php?ID='.$ID_clase);
     }
  ?>

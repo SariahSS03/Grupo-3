@@ -1,5 +1,11 @@
 <?php
 session_start();
+  $direccion="localhost";
+  $usuario="root";
+  $contrasena="";
+  $dbname="proyecto3"; 
+
+  $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -90,14 +96,7 @@ session_start();
     }
   </style>
 </head>
-  <?php
-        $direccion="localhost";
-        $usuario="root";
-        $contrasena="";
-        $dbname="proyecto3"; 
-        
-        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
-        
+  <?php 
         $id_tarea=$_GET['IDtarea'];
         $sql2=" SELECT * FROM Tarea WHERE idTarea='$id_tarea' ";
             $resultado=mysqli_query($conexion,$sql2);

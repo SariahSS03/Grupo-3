@@ -206,7 +206,6 @@ session_start();
   font-size: 18px;
 }
 
-/* Estilo de la fecha */
 #publicacion1 .fecha {
 }
 .enlaces {

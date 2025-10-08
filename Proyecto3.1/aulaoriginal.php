@@ -257,6 +257,13 @@ session_start();
   gap: 10px;
   margin-top: 20px;
 }
+.enlaces {
+  display: flex;
+  flex-direction: column; /* Apila los botones verticalmente */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 10px;
+}
 
 #publicacion1 a.editar,
 #publicacion1 a.eliminar {
@@ -269,13 +276,16 @@ session_start();
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+/* Hover */
 #publicacion1 a.editar:hover,
 #publicacion1 a.eliminar:hover {
   background-color: #e0e0e0;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-/* Descargar archivo */
+
+
+/* Enlace "Descargar archivo" */
 #publicacion1 a[download] {
   display: inline-block;
   background-color: #f1f3f4;
@@ -448,7 +458,25 @@ session_start();
     });
 </script>
 </section>
-
+<?php
+        $User=$_SESSION['CI'];
+        $sql3="SELECT * FROM Publicaciones  WHERE Clases_ID='$ID'  ORDER BY FechaCreacion DESC";
+        $resultado3 = $conexion->query($sql3);
+        if ($resultado3->num_rows>0){
+            while($fila3=$resultado3->fetch_assoc()){
+                       $Texto= $fila3['Texto'];
+                       $FechaCreacion= $fila3['FechaCreacion'];
+                       $FechaEdicion= $fila3['FechadeEdicion'];
+                       $Informacion_CI= $fila3['Informacion_CI'];
+                       $ID_publicacion= $fila3['id'];
+                       $ID= $fila3['Clases_ID'];
+                       $sql2=" SELECT * FROM Informacion WHERE CI='$Informacion_CI'";
+                      $resultado2 = $conexion->query($sql2);
+                      if ($resultado2->num_rows>0){
+                        while($fila2=$resultado2->fetch_assoc()){
+                        $Nom= $fila2['Nombres'];
+                        $Ape= $fila2['Apellidos'];
+    ?>
   <section class="areaPublicaciones">
   <?php
         $User=$_SESSION['CI'];

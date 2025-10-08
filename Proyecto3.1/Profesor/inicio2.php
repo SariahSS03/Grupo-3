@@ -188,7 +188,7 @@
     <div  class="opciones">
         <button id="imagen" onclick="window.location.href='/grupo-3/Proyecto3.1/Profesor/inicioprofesor.php'">
              <img id="in" width="27px" height="27px" src="/grupo-3/Proyecto3.1/Imagenes/casa.png"> 
-             <p id="do">inicio</p>
+             <p id="do">Inicio</p>
         </button>
         <div id="cla">
             <div class="encabezado-clases">
@@ -225,7 +225,7 @@
         </div>
         <button id="imagen3" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/informacion.php'">
             <img id="aj" width="28px"  height="27px"  src="/grupo-3/Proyecto3.1//Imagenes/ajustes.png">
-           <p id="cu">ajustes</p>
+           <p id="cu">informacion</p>
         </button> 
     </div>
    

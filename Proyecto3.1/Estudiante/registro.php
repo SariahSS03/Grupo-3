@@ -95,7 +95,7 @@ label {
         width: 90%;
     }
     body {
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: 30% auto auto auto auto;
     grid-template-columns: 1fr;
     grid-template-areas:
       "z "

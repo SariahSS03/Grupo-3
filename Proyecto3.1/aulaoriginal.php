@@ -235,8 +235,15 @@ session_start();
   font-weight: normal;
   margin: 0;
 }
+.enlaces {
+  display: flex;
+  flex-direction: column; /* Apila los botones verticalmente */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 10px;
+}
 
-/* Enlaces (editar y eliminar) */
+/* Estilos para los botones */
 #publicacion1 a.editar,
 #publicacion1 a.eliminar {
   background-color: #f0f0f0;
@@ -246,22 +253,20 @@ session_start();
   font-size: 14px;
   padding: 8px 12px;
   text-decoration: none;
-  margin-top: 10px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  position: absolute;
-  top: 10px; /* Para alinearlos al principio */
-  right: 10px; /* Para alinearlos a la derecha */
+
+  /* Elimina posicionamiento absoluto */
+  position: static;
 }
 
-#publicacion1 a.editar {
-  margin-right: 6px; /* Separar un poco el botón de editar del de eliminar */
-}
-
+/* Hover */
 #publicacion1 a.editar:hover,
 #publicacion1 a.eliminar:hover {
   background-color: #e0e0e0;
-  transform: scale(1.05); /* Efecto de escalado al pasar el ratón */
+  transform: scale(1.05);
 }
+
+
 
 /* Enlace "Descargar archivo" */
 #publicacion1 a[download] {
@@ -459,7 +464,25 @@ session_start();
     });
 </script>
 </section>
-
+<?php
+        $User=$_SESSION['CI'];
+        $sql3="SELECT * FROM Publicaciones  WHERE Clases_ID='$ID'  ORDER BY FechaCreacion DESC";
+        $resultado3 = $conexion->query($sql3);
+        if ($resultado3->num_rows>0){
+            while($fila3=$resultado3->fetch_assoc()){
+                       $Texto= $fila3['Texto'];
+                       $FechaCreacion= $fila3['FechaCreacion'];
+                       $FechaEdicion= $fila3['FechadeEdicion'];
+                       $Informacion_CI= $fila3['Informacion_CI'];
+                       $ID_publicacion= $fila3['id'];
+                       $ID= $fila3['Clases_ID'];
+                       $sql2=" SELECT * FROM Informacion WHERE CI='$Informacion_CI'";
+                      $resultado2 = $conexion->query($sql2);
+                      if ($resultado2->num_rows>0){
+                        while($fila2=$resultado2->fetch_assoc()){
+                        $Nom= $fila2['Nombres'];
+                        $Ape= $fila2['Apellidos'];
+    ?>
   <section class="areaPublicaciones">
   <div class="Publicaciones">
     <?php
@@ -499,8 +522,10 @@ session_start();
                         
                         <?php if($fila3['Informacion_CI']==$User){
                         ?>
+                        <div class="enlaces">
                         <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="editar">Editar</a>
                         <a href="eliminarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="eliminar">Eliminar publicacion</a>
+                        </div>
                         <?php
                         }
                         ?>     

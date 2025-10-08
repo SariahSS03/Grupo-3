@@ -192,6 +192,7 @@ session_start();
       margin: 0; /* Eliminar márgenes para evitar espaciados innecesarios */
       font-weight: bold; /* Hacer el texto del código más destacado */
     }
+/* Contenedor general de todas las publicaciones */
 .Publicaciones {
 }
 

@@ -192,120 +192,48 @@ session_start();
       margin: 0; /* Eliminar márgenes para evitar espaciados innecesarios */
       font-weight: bold; /* Hacer el texto del código más destacado */
     }
-
-
-    /* Publicaciones contenedor */
-    /* Publicaciones contenedor */
 .Publicaciones {
-  max-width: 800px; /* Aumentar el max-width para más espacio */
-  width: 100%;
-  margin: 0 auto; /* Centrar las publicaciones en la pantalla */
-  padding: 20px; /* Espaciado interno para dar más aire */
 }
 
-/* Publicación tarjeta */
 #publicacion1 {
   background: #fff;
-  border-radius: 10px; /* Bordes más redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-  margin-bottom: 20px;
   padding: 20px;
-  position: relative;
-  transition: box-shadow 0.3s ease; /* Efecto al pasar el ratón */
 }
 
-/* Efecto hover para la tarjeta */
 #publicacion1:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el ratón */
 }
 
-/* Publicación título */
-#publicacion1 h2 h3 {
   font-size: 18px;
-  font-weight: 600;
-  color: #333;
-  margin: 0 0 8px 0;
-  line-height: 1.4;
 }
 
 /* Estilo de la fecha */
 #publicacion1 .fecha {
-  color: #9e9e9e; /* Hacer que la fecha sea más suave */
-  font-size: 12px;
-  font-weight: normal;
-  margin: 0;
 }
 .enlaces {
   display: flex;
-  flex-direction: column; /* Apila los botones verticalmente */
-  align-items: flex-start; /* Alinea a la izquierda */
-  gap: 10px; /* Espacio entre los botones */
-  margin-top: 10px;
 }
 
-/* Estilos para los botones */
 #publicacion1 a.editar,
 #publicacion1 a.eliminar {
-  background-color: #f0f0f0;
   border-radius: 6px;
   color: #1a73e8;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 12px;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-
-  /* Elimina posicionamiento absoluto */
-  position: static;
 }
 
-/* Hover */
 #publicacion1 a.editar:hover,
 #publicacion1 a.eliminar:hover {
   background-color: #e0e0e0;
-  transform: scale(1.05);
 }
 
-
-
-/* Enlace "Descargar archivo" */
 #publicacion1 a[download] {
-  background: #f1f3f4;
-  border-radius: 6px;
-  color: #333;
   display: inline-block;
-  font-size: 14px;
-  margin-top: 15px;
   padding: 10px 15px;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
 #publicacion1 a[download]:hover {
-  background-color: #e0e0e0; /* Efecto hover para el botón de descarga */
 }
-
-/* Publicación imagen y embed */
-#publicacion1 embed,
-#publicacion1 img {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  display: block;
-  margin-top: 15px;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Estilo para las imágenes */
-.publicacion-imagen {
-  max-width: 100%;
-  margin-top: 15px;
-  border-radius: 8px;
-}
-.sub-info p {
-      margin: 10px 15px;
-    }
-
     /* Media queries */
     @media screen and (max-width: 768px) {
       .body {
@@ -464,103 +392,15 @@ session_start();
     });
 </script>
 </section>
-<?php
-        $User=$_SESSION['CI'];
-        $sql3="SELECT * FROM Publicaciones  WHERE Clases_ID='$ID'  ORDER BY FechaCreacion DESC";
-        $resultado3 = $conexion->query($sql3);
-        if ($resultado3->num_rows>0){
-            while($fila3=$resultado3->fetch_assoc()){
-                       $Texto= $fila3['Texto'];
-                       $FechaCreacion= $fila3['FechaCreacion'];
-                       $FechaEdicion= $fila3['FechadeEdicion'];
-                       $Informacion_CI= $fila3['Informacion_CI'];
-                       $ID_publicacion= $fila3['id'];
-                       $ID= $fila3['Clases_ID'];
-                       $sql2=" SELECT * FROM Informacion WHERE CI='$Informacion_CI'";
-                      $resultado2 = $conexion->query($sql2);
-                      if ($resultado2->num_rows>0){
-                        while($fila2=$resultado2->fetch_assoc()){
-                        $Nom= $fila2['Nombres'];
-                        $Ape= $fila2['Apellidos'];
-    ?>
-  <section class="areaPublicaciones">
-  <div class="Publicaciones">
-    <?php
-        $User=$_SESSION['CI'];
-        $sql3="SELECT * FROM Publicaciones  WHERE Clases_ID='$ID'  ORDER BY FechaCreacion DESC";
-        $resultado3 = $conexion->query($sql3);
-        if ($resultado3->num_rows>0){
-            while($fila3=$resultado3->fetch_assoc()){
-                       $Texto= $fila3['Texto'];
-                       $FechaCreacion= $fila3['FechaCreacion'];
-                       $FechaEdicion= $fila3['FechadeEdicion'];
-                       $Informacion_CI= $fila3['Informacion_CI'];
-                       $ID_publicacion= $fila3['id'];
-                       $ID= $fila3['Clases_ID'];
-                       $sql2=" SELECT * FROM Informacion WHERE CI='$Informacion_CI'";
-                      $resultado2 = $conexion->query($sql2);
-                      if ($resultado2->num_rows>0){
-                        while($fila2=$resultado2->fetch_assoc()){
-                        $Nom= $fila2['Nombres'];
-                        $Ape= $fila2['Apellidos'];
-    ?>
-                <div id="publicacion1">
-                        <h3><?=$Nom?> <?=$Ape?></h3>
-                        <h2><?=$Texto?></h2>
-                        <?php
-                        // Verifica si la fecha de creación es válida y no está vacía
-                        if(!empty($FechaCreacion)&& $FechaCreacion != '0000-00-00 00:00:00'){
-                          ?>
-                          <p class="fecha"><?=$FechaCreacion?></p>
-                        <?php
-                          }if(!empty($FechaEdicion) && $FechaEdicion != '0000-00-00 00:00:00'){
-                          ?>
-                          <p class="fecha">Editado: <?=$FechaEdicion?></p>
-                        <?php
-                        }
-                        ?>
-                        
-                        <?php if($fila3['Informacion_CI']==$User){
-                        ?>
-                        <div class="enlaces">
-                        <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="editar">Editar</a>
-                        <a href="eliminarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="eliminar">Eliminar publicacion</a>
-                        </div>
-                        <?php
-                        }
-                        ?>     
-            `   </div>    
-    <?php
-            $nombreArchivo ="P-".$ID."-".$fila3['id'];
-            $directorio = "media/";
-            $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
-            $archivoEncontrado = NULL;
 
-          foreach ($extensiones as  $ext){
-          $ruta = $directorio. $nombreArchivo. "." . $ext;
-            if (file_exists($ruta)){
-            $archivoEncontrado = $ruta;
-            break;
-            }
-            }
-          
-            if ($archivoEncontrado){
-            $extension = strtolower (pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
-            if (in_array($extension, ["jpg", "jpeg", "png","gif","webp"])){
-          echo "<img src='$archivoEncontrado' alt ='Archivo' width='250'>";
-            }elseif ($extension === "pdf"){
-                echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
-            }else{
-                echo "<a href='$archivoEncontrado' download> Descargar archivo </a>";
-            }
-                  }
-              }
-            }
-          }
+  <section class="areaPublicaciones">
+        $User=$_SESSION['CI'];
+        $sql3="SELECT * FROM Publicaciones  WHERE Clases_ID='$ID'  ORDER BY FechaCreacion DESC";
+        $resultado3 = $conexion->query($sql3);
+        if ($resultado3->num_rows>0){
+            while($fila3=$resultado3->fetch_assoc()){
         }
       ?>
-     
-   </div>
 </section>
 
 <script>

@@ -125,8 +125,8 @@ session_start();
   <div class="container">
 
       <div class="left">
-        <input type="text" name="Titulo" placeholder="Título" value='<?= $titulo?>'>
-        <textarea name="Descripcion" placeholder="Descripcion" value='<?= $descripcion?>'></textarea>
+        <input type="text" name="Titulo" value='<?= $titulo?>'>
+        <textarea name="Descripcion"  value='<?= $descripcion?>'></textarea>
 
         <h3>Adjuntar</h3>
         <div class="attachments">
@@ -143,7 +143,7 @@ session_start();
         <input type="date" name="FechadeEntrega" value='<?= $FehcadeEntrega?>'>
 
         <label for="rubrica">Rúbrica</label>
-        <input type="text"  name="Instrucciones" placeholder="Enlaces-Instrucciones" value='<?= $instrucciones?>'>
+        <input type="text"  name="Instrucciones" value='<?= $instrucciones?>'>
       </div>
     </div>
   </form>

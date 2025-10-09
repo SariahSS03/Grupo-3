@@ -253,30 +253,16 @@
                         <a href="/grupo-3/Proyecto3.1/Profesor/TrabajodeClase.php?ID=<?= $Clases_ID ?>">
                             <img width="35px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/archivoclase.png">
                         </a>
-                        <a class="btnOpciones" id="btnOpciones">
+                        <a class="btnOpciones">
                             <img width="35px" height="25px" src="/grupo-3/Proyecto3.1/Imagenes/puntitosclase.png">
                         </a>
                     </div>
 
-                    <div class="menuOpciones" id="menuOpciones">
+                    <div class="menuOpciones">
                         <a class="opcion" href="/grupo-3/Proyecto3.1/Profesor/eliminarclase.php?ID_Clase=<?= $Clases_ID ?>">Eliminar clase</a>
+                        <a class="opcion" href="/grupo-3/Proyecto3.1/Profesor/editarclase.php?ID_Clase=<?= $Clases_ID ?>">Editar clase</a>
                     </div>
                 </div>
-                <script>
-                    const btnOpciones = document.getElementById("btnOpciones");
-                    const menu = document.getElementById("menuOpciones");
-
-                    btnOpciones.addEventListener("click", (e) => {
-                        e.stopPropagation(); // evita cerrar el menú de inmediato
-                        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-                    });
-
-                    document.addEventListener("click", (e) => {
-                        if (!btnOpciones.contains(e.target) && !menu.contains(e.target)) {
-                            menu.style.display = "none";
-                        }
-                    });
-                </script>
     <?php
             }
         }
@@ -287,6 +273,31 @@
       window.location.href = "/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?=$Clases_ID?>";
     }
   </script>
-    
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const btnsOpciones = document.querySelectorAll(".btnOpciones");
+        const menus = document.querySelectorAll(".menuOpciones");
+
+        btnsOpciones.forEach((btn, index) => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                // Cierra todos los menús
+                menus.forEach((menu, i) => {
+                    if (i !== index) menu.style.display = "none";
+                });
+
+                // Alterna el menú actual
+                const menu = menus[index];
+                menu.style.display = (menu.style.display === "block") ? "none" : "block";
+            });
+        });
+
+        // Oculta todos los menús si se hace click fuera
+        document.addEventListener("click", (e) => {
+            menus.forEach(menu => menu.style.display = "none");
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -225,7 +225,7 @@
         </div>
         <button id="imagen3" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/informacion.php'">
             <img id="aj" width="28px"  height="27px"  src="/grupo-3/Proyecto3.1//Imagenes/ajustes.png">
-           <p id="cu">informacion</p>
+           <p id="cu">Informacion</p>
         </button> 
     </div>
    

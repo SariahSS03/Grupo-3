@@ -147,7 +147,7 @@
             box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);/* Sombra agregada */
         }
 
-        .contenido {
+        .contenido1 {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -211,7 +211,7 @@
                             <div class="icono">
                                 <span style="color: <?php echo $color; ?>"><?= $inicial ?></span>
                             </div>
-                            <div class="contenido">
+                            <div class="contenido1">
                                 <a href="/grupo-3/Proyecto3.1/aulaoriginal.php?ID=<?= $Clases_ID ?>">
                                     <h2 class="titulo"><?= $nombre ?></h2>
                                 </a>

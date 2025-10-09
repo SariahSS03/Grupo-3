@@ -23,7 +23,7 @@ session_start();
     margin:0px;
     display: grid;
     grid-template-columns: 13% 88%;
-    grid-template-rows: auto 18% auto auto auto;
+    grid-template-rows: 13% 13% auto auto auto;
     grid-template-areas: "principal principal"
                         "opciones mn"
                         "opciones Tareas";

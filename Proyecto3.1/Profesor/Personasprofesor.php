@@ -25,7 +25,7 @@
   <style>
     body {
       display: grid;
-      grid-template-rows:13% 13% auto auto auto;
+      grid-template-rows:18% 18% auto auto auto;
         grid-template-columns: 13% 88% ;
       grid-template-areas:"principal principal"
                           "opciones mn"

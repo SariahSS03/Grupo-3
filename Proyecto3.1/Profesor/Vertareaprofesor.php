@@ -48,7 +48,7 @@
       z-index: 100;
       grid-area:header;
     }
-    .pestañas button {
+    .pestañas p {
       background: none;
       border: none;
       font-weight: 500;
@@ -56,7 +56,7 @@
       padding: 8px;
       font-size: 14px;
     }
-    .pestañas button.activo {
+    .pestañas p.activo {
       border-bottom: 2px solid #1a73e8;
       color: #1a73e8;
     }
@@ -65,8 +65,7 @@
       gap: 10px;
       align-items: center;
     }
-    .acciones select, 
-    .acciones button {
+    .acciones p {
       padding: 6px 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -173,13 +172,24 @@
 <body class="body-ver-tarea-profesor">
   <?php
    include("inicio2.php");  
-?>
+  ?>
   <header>
+    <?php
+    $ID_tarea=$_GET['IDtarea'];
+        $sql1="SELECT*FROM   Tarea   WHERE idtarea='$ID_tarea' ";
+        $resultado1= $conexion->query($sql1);
+        if ($resultado1->num_rows>0){
+            while($fila1=$resultado1->fetch_assoc()){
+                $Titulo= $fila1['Titulo'];
+                $Nota=$fila1['Nota'];
+            }
+        }
+    ?>
     <div class="pestañas">
-      <button class="activo">Trabajo de los alumnos</button>
+      <a class="activo" >Trabajo de los alumnos</a>
     </div>
     <div class="acciones">
-      <button type="submit" form="formAlumnos">Enviar</button>
+      <p type="submit" form="formAlumnos">Enviar</p>
     </div>
   </header>
 
@@ -188,8 +198,7 @@
       <div class="cajainterna">
         <h3 class="titulo1">Entregado</h3>
           <?php
-          $ID_tarea=$_GET['IDtarea'];
-          $ID_clase=$_GET['IDclase'];   
+          $ID_tarea=$_GET['IDtarea'];   
                $sql=" SELECT * FROM Cuenta_has_Tarea WHERE Tarea_idTarea='$ID_tarea' ";
                $resultado=$conexion->query($sql);
                if($resultado -> num_rows >0){
@@ -207,7 +216,7 @@
             <div class="info">
               <span><?= $Nombres ?> <?= $Apellidos?></span>
             </div>
-            <span class="nota">100/100</span>
+            <span class="nota">0/<?= $Nota?></span>
             </div>
           <?php
             }
@@ -218,7 +227,7 @@
     </div>
 
       <div class="cajainterna contenido">
-        <h2>Examen Sesiones</h2>
+        <h2><?= $Titulo?></h2>
         <div class="estadisticas">
           <div><strong>34</strong> Entregadas</div>
           <div><strong>3</strong> Asignadas</div>

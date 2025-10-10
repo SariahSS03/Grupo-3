@@ -23,7 +23,7 @@ session_start();
     margin:0px;
     display: grid;
     grid-template-columns: 13% 88%;
-    grid-template-rows: 13% 13% auto auto auto;
+    grid-template-rows: 18% 18% auto auto auto;
     grid-template-areas: "principal principal"
                         "opciones mn"
                         "opciones Tareas";
@@ -39,9 +39,9 @@ session_start();
         background-color: #fff;
         border-radius: 12px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        padding: 12px 16px;
+        padding: 25px 16px;
         margin: 10px auto;
-        max-width: 700px;
+        width: 60% ;
         text-decoration: none;
         transition: background-color 0.2s ease;
     }
@@ -75,6 +75,17 @@ session_start();
         color: #888;
         white-space: nowrap;
     }
+    .titulo-seccion {
+      font-size: 24px;
+      font-weight: 500;
+      margin-left:50px;
+      margin-right:50px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      color: #2c2c2c;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
 
 </style>
 </head>
@@ -88,6 +99,7 @@ session_start();
 ?> 
 </nav>
 <div class="tareasestudiante">
+    <h2 class="titulo-seccion">Trabajo de Clase</h2>
 <?php
         $ID=$_GET['ID'];
         $sql1="SELECT*FROM tarea   WHERE Clases_ID='$ID' ORDER BY idTarea DESC";

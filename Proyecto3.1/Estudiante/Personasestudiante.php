@@ -22,7 +22,7 @@ session_start();
     .body-personas-estudiante {
       display: grid;
       grid-template-columns: 13% 88%;
-    grid-template-rows: auto 18% auto auto auto;
+      grid-template-rows: 18% 18% auto auto auto;
       grid-template-areas:"principal principal"
                           "opciones mn"
                           "opciones tabla";
@@ -33,7 +33,7 @@ session_start();
     .tablapersonas {
       margin-top: 20px;
       padding: 0 20px;
-      max-width: 600px;
+      width: 60%;
       grid-area:tabla;
    }
 
@@ -54,7 +54,6 @@ session_start();
       color: #333;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    }
-
     </style>
     
 </head>

@@ -12,9 +12,7 @@
             background: rgb(1, 1, 49);
             display: flex;
             width: 100%;
-            height:70px ;
             grid-area: principal;
-            margin-bottom: 10px;
         }
         #primero1{
             width: 50%;
@@ -45,7 +43,7 @@
             background-color: transparent;
         }
         .opciones{
-           background-color: white;
+            background-color: white;
             display: flex;
             flex-direction: column;
             width: 250px;

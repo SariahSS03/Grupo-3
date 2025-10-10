@@ -17,7 +17,7 @@ if ($conexion->query($sql2)){
     if($conexion->query($sql3)){
       if($conexion->query($sql4)){
         if($conexion->query($sql5)){
-      header('Location:/grupo-3/Proyecto3.1/Profesor/inicioprofesor.php');
+       header('Location:/grupo-3/Proyecto3.1/Profesor/inicioprofesor.php');
  }
 }
 }

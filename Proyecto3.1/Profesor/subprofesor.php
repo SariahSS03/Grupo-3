@@ -12,6 +12,7 @@
       gap: 30px;
       padding: 12px;
       grid-area: mn;
+      margin:0px;
     }
 
     .mn a {

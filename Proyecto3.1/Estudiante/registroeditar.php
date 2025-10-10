@@ -12,6 +12,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <style>
          .body-registro-editar{
@@ -134,7 +135,7 @@ session_start();
                 $apellidos =$fila['Apellidos'];
                 $telefono=$fila['Telefono'];
                 $curso=$fila['Curso'];
-                $fechadenacimiento =$fila['Fechadenacimiento'];
+                $fechadenacimiento =$fila['FechadeNacimiento'];
                 $direccion=$fila['Direccion'];
         }
     ?>
@@ -152,27 +153,47 @@ session_start();
         <h1 class="titulo-formulario">TUS DATOS</h1>
 
         <label for="nombres">Nombres</label><br>
-        <input type="text" name="Nombres" id="nombres" placeholder="Ingresa tus nombres" value='<?= $nombres ?>'><br><br>
+        <input type="text" name="Nombres" placeholder="Ingresa tus nombres" value='<?= $nombres ?>'><br><br>
 
         <label for="apellidos">Apellidos</label><br>
-        <input type="text" name="Apellidos" id="apellidos" placeholder="Ingresa tus apellidos" value='<?= $apellidos ?>'><br><br>
+        <input type="text" name="Apellidos"  placeholder="Ingresa tus apellidos" value='<?= $apellidos ?>'><br><br>
 
         <label for="telefono">Teléfono</label><br>
-        <input type="text" name="Telefono" id="telefono" placeholder="Ingresa tu teléfono" value='<?= $telefono ?>'><br><br>
+        <input type="text" name="Telefono"  placeholder="Ingresa tu teléfono" value='<?= $telefono ?>'><br><br>
 
         <label for="curso">Curso</label><br>
-        <input type="text" name="Curso" id="curso" placeholder="Ej: 3BGU 'A'" value='<?= $curso ?>'><br><br>
+        <input type="text" name="Curso"  placeholder="Ej: 3ro 'A' secundaria" value='<?= $curso ?>'><br><br>
 
         <label for="fechanac">Fecha de nacimiento</label><br>
-        <input type="date" name="FechadeNacimiento" id="fechanac" value='<?= $fechadenacimiento ?>'><br><br>
+        <input type="date" name="FechadeNacimiento"  value='<?= $fechadenacimiento ?>'><br><br>
 
         <label for="direccion">Dirección</label><br>
-        <input type="text" name="Direccion" id="direccion" placeholder="Ingresa tu domicilio" value='<?= $direccion ?>'><br><br>
+        <input type="text" name="Direccion"  placeholder="Ingresa tu domicilio" value='<?= $direccion ?>'><br><br>
 
         <input type="submit" id="Boton" value="Guardar">
     </div>
     </form>
+<script>
+    document.getElementById('Boton').addEventListener('click', function(e) {
+    e.preventDefault(); // Evita que el formulario se envíe automáticamente
 
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¿Deseas guardar los cambios?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, guardar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si confirma, se envía el formulario
+            document.getElementById('registro').submit();
+        }
+    });
+});
+</script>
 <script>
     $("#registro").validate({
         rules:{

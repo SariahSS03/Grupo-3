@@ -24,7 +24,7 @@ session_start();
     .body-aula-original {
       display: grid;
       grid-template-columns: 13% 88%;
-      grid-template-rows: 9% auto auto auto auto;
+      grid-template-rows: auto auto auto auto auto;
       grid-template-areas:
         "principal principal"
         "opciones mn"
@@ -48,6 +48,7 @@ session_start();
     /* Área publicaciones */
     .areaPublicaciones {
       display: flex;
+      flex-direction:column;
       justify-content: center;
       padding: 20px;
       grid-area:areaPublicaciones;
@@ -104,7 +105,8 @@ session_start();
 
     /* Header clase */
     .clase-header {
-      background-color: #ddddddff;
+      background-color: #f0f4ff;      /* Fondo suave azul */
+      border: 1px solid #cdd8f0;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       font-family: 'Segoe UI', sans-serif;
@@ -194,7 +196,7 @@ session_start();
     }
 /* Contenedor general de todas las publicaciones */
 .Publicaciones {
-  max-width: 800px;
+  width: 70%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -300,6 +302,21 @@ session_start();
 #publicacion1 a[download]:hover {
   background-color: #e0e0e0;
 }
+.sub-info {
+  background-color: #f0f4ff;      /* Fondo suave azul */
+  border: 1px solid #cdd8f0;      /* Borde sutil */
+  border-radius: 8px;             /* Esquinas redondeadas */
+  padding: 15px 20px;             /* Espaciado interior */
+  margin: 20px 0;                 /* Separación vertical */
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #2c3e50;                 /* Color de texto oscuro */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);  /* Sombra ligera */
+}
+.sub-info strong {
+  color: #1e3a8a;                 /* Color más fuerte para el texto "Profesor:" */
+}
+
     /* Media queries */
     @media screen and (max-width: 768px) {
       .body {
@@ -481,66 +498,66 @@ session_start();
     ?>  
   <div class="Publicaciones">
     <div id="publicacion1">
-  <!-- Encabezado: nombre y fechas -->
-    <div class="cabecera-publicacion">
-      <h3 class="nombre-usuario"><?=$Nom?> <?=$Ape?></h3>
-      <?php if(!empty($FechaCreacion) && $FechaCreacion != '0000-00-00 00:00:00'){?>
-        <p class="fecha">Publicado: <?=$FechaCreacion?></p>
-      <?php } ?>
-      <?php if(!empty($FechaEdicion) && $FechaEdicion != '0000-00-00 00:00:00'){ ?>
-        <p class="fecha">Editado: <?=$FechaEdicion?></p>
-        <?php }?>
-    </div>
+    <!-- Encabezado: nombre y fechas -->
+      <div class="cabecera-publicacion">
+        <h3 class="nombre-usuario"><?=$Nom?> <?=$Ape?></h3>
+        <?php if(!empty($FechaCreacion) && $FechaCreacion != '0000-00-00 00:00:00'){?>
+          <p class="fecha">Publicado: <?=$FechaCreacion?></p>
+        <?php } ?>
+        <?php if(!empty($FechaEdicion) && $FechaEdicion != '0000-00-00 00:00:00'){ ?>
+          <p class="fecha">Editado: <?=$FechaEdicion?></p>
+          <?php }?>
+      </div>
 
-  <!-- Texto de la publicación -->
-  <div class="contenido-publicacion">
-    <p><?=$Texto?></p>
-  </div>
-  <?php
+      <!-- Texto de la publicación -->
+      <div class="contenido-publicacion">
+        <p><?=$Texto?></p>
+      </div>
+
+      <?php
         $nombreArchivo ="P-".$ID."-".$fila3['id'];
         $directorio = "media/";
         $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
         $archivoEncontrado = NULL;
 
-      foreach ($extensiones as  $ext){
-      $ruta = $directorio. $nombreArchivo. "." . $ext;
-        if (file_exists($ruta)){
-        $archivoEncontrado = $ruta;
-        break;
+        foreach ($extensiones as  $ext){
+        $ruta = $directorio. $nombreArchivo. "." . $ext;
+          if (file_exists($ruta)){
+          $archivoEncontrado = $ruta;
+          break;
+          }
         }
-      }
-        ?>
-      <!-- Archivo adjunto (imagen, pdf o descarga) -->
-    <?php if ($archivoEncontrado){ ?>
-    <div class="archivo-publicacion">
-      <?php
-        $extension = strtolower(pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
-        if (in_array($extension, ["jpg", "jpeg", "png", "gif", "webp"])) {
-          echo "<img src='$archivoEncontrado' alt='Archivo adjunto'>";
-        } else if ($extension === "pdf") {
-          echo "<embed src='$archivoEncontrado' type='application/pdf' width='100%' height='300'>";
-        } else {
-          echo "<a href='$archivoEncontrado' download>Descargar archivo</a>";
-        }
-      }
       ?>
-    </div>
+      <!-- Archivo adjunto (imagen, pdf o descarga) -->
+      <?php if ($archivoEncontrado){ ?>
+      <div class="archivo-publicacion">
+        <?php
+          $extension = strtolower(pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
+          if (in_array($extension, ["jpg", "jpeg", "png", "gif", "webp"])) {
+            echo "<img src='$archivoEncontrado' alt='Archivo adjunto'>";
+          } else if ($extension === "pdf") {
+            echo "<embed src='$archivoEncontrado' type='application/pdf' width='100%' height='300'>";
+          } else {
+            echo "<a href='$archivoEncontrado' download>Descargar archivo</a>";
+          }
+          ?>
+      </div>
+      <?php
+        }
+      ?>
   <?php if($fila3['Informacion_CI'] == $User){ ?>
     <div class="enlaces">
-      <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="editar">Editar</a>
+      <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>&?ID=<?= $ID?>" class="editar">Editar</a>
       <a href="eliminarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="eliminar">Eliminar publicación</a>
     </div>
   <?php }?> 
-  <?php
-      
+    </div>       
+  </div><?php  
+        }
+      }
     }
   }
-}
-}
-  ?>         
-  
-  </div>       
-  </div>
+  ?> 
 </section>
 
 <script>

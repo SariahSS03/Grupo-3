@@ -17,13 +17,13 @@ $conexion = new mysqli($servername, $username, $password, $dbname);
   .body-editar-publicacion {
       display: grid;
       grid-template-columns: 16% 84%;
-      grid-template-rows: auto auto auto auto auto;
+      grid-template-rows: auto auto auto;
       grid-template-areas:
-        "principal principal"
-        "opciones mn"
-        "opciones editar";
+                          "principal principal"
+                          "opciones mn"
+                          "opciones editar";
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background-color: #94a5bdff;
+      background-color: #ffffffff;
       margin: 0px;
     }
     .uno{
@@ -33,7 +33,6 @@ $conexion = new mysqli($servername, $username, $password, $dbname);
             border-radius:30px;
             grid-area:editar;
             margin: 50px;
-            width:100%;
         }
     #dos{
             color: rgb(129, 114, 114);
@@ -128,6 +127,7 @@ $conexion = new mysqli($servername, $username, $password, $dbname);
     <div class="uno">
             <div id="dos">
               <?php
+                $clases_ID=['ID'];
                   $User=$_SESSION['CI'];
                   $sql="SELECT*FROM Informacion   WHERE CI='$User'";
                   $resultado = $conexion->query($sql);
@@ -149,7 +149,7 @@ $conexion = new mysqli($servername, $username, $password, $dbname);
                     $clases_ID=$fila1['Clases_ID'];
             }
               ?>
-              <form action="datospublicaciones.php?ID_publicacion=<?=$ID_publicacion?>&clases_ID=<?=$clases_ID?>" method="post" >
+              <form action="datospublicaciones.php?ID_publicacion=<?=$ID_publicacion?>&ID=<?=$clases_ID?>" method="post" >
                 <textarea name="Publicaciones" placeholder="Anuncio algo a la clase" id="Anunciaalgo" ><?= $texto ?></textarea>
             </div>
                   <div id="abajo">
@@ -163,6 +163,24 @@ $conexion = new mysqli($servername, $username, $password, $dbname);
                     </div>
                   </div>
     </div>
+    <script>
+    $("form").validate({
+        rules:{
+            Publicaciones:{
+                required:true,
+                minlength:5,
+                maxlength:300
+            }
+        },
+        messages:{
+            Publicaciones:{
+                required:"este campo tiene que ser llenado",
+                minlength:"El minimo es de 5 letras",
+                maxlength:"El maximo es el 300 letras"
+            }
+        }
+    });
+</script>
   </section>
 </body>
 </html>

@@ -12,7 +12,7 @@ date_default_timezone_set('America/La_Paz');
 $today = date("Y-m-d H:i:s"); 
 
 $texto = $_POST['Publicaciones'];
-$clases_ID = $_GET['clases_ID'];
+$clases_ID = $_GET['ID'];
 $ID_publicaciones=$_GET['ID_publicacion'];
 $sql="UPDATE publicaciones SET Texto='$texto', FechadeEdicion='$today' WHERE id='$ID_publicaciones' ";
 if($conexion->query($sql)){

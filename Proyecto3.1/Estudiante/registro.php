@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
     .body-registro {
@@ -208,6 +209,27 @@ img:hover {
 
     <p id="k">unidad educativa</p>
 </div>
+ <script>
+    document.getElementById('boton').addEventListener('click', function(e) {
+    e.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Deseas iniciar sesion",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, guardar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si confirma, se envía el formulario
+            document.getElementById('registro').submit();
+        }
+    });
+});
+</script>
 <script>
     $("#registro").validate({
         rules:{

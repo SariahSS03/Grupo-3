@@ -138,35 +138,6 @@
       margin-bottom: 20px;
       font-size: 14px;
     }
-    .tarjetas {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 15px;
-    }
-    .tarjeta {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      background: #fff;
-      font-size: 14px;
-    }
-    .miniatura {
-      width: 100%;
-      height: 100px;
-      background: #f1f3f4;
-      border-radius: 4px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #999;
-      font-size: 12px;
-    }
-    .tarjeta small {
-      color: #5f6368;
-      display: block;
-      margin-top: 4px;
-    }
   </style>
 </head>
 <body class="body-ver-tarea-profesor">
@@ -205,6 +176,7 @@
                   While($fila=$resultado ->fetch_assoc()){
                      $Cuenta_User=$fila['Cuenta_User'];
                      $fechadeEntrega=$fila['FechadeEntrega'];
+                     $notaprofe=$fila['Nota'];
                      $sql2="SELECT*FROM Informacion WHERE CI='$Cuenta_User'";
                      $resultado2=$conexion->query ($sql2);
                      if ($resultado2->num_rows>0){
@@ -216,7 +188,7 @@
             <div class="info">
               <span><?= $Nombres ?> <?= $Apellidos?></span>
             </div>
-            <span class="nota">0/<?= $Nota?></span>
+            <span class="nota"><?= $notaprofe?>/<?= $Nota?></span>
             </div>
           <?php
             }
@@ -233,26 +205,9 @@
           <div><strong>3</strong> Asignadas</div>
           <div><strong>1</strong> Evaluada</div>
         </div>
-        <div class="opcion">
-          <label><input type="checkbox" checked> Acepta entregas</label>
-        </div>
-        <div class="tarjetas">
-          <div class="tarjeta">
-            <div class="miniatura">Miniatura</div>
-            <div>Nombre1</div>
-            <small>3 archivos adjuntos</small>
-          </div>
-          <div class="tarjeta">
-            <div class="miniatura">Miniatura</div>
-            <div>Nombre2</div>
-            <small>2 archivos adjuntos</small>
-          </div>
-          <div class="tarjeta">
-            <div class="miniatura">Miniatura</div>
-            <div>Nombre3</div>
-            <small>1 archivo adjunto</small>
-          </div>
-        </div>
+        <?php
+        include("tareaestudiante.php");
+        ?>
       </div>
 
     </div>

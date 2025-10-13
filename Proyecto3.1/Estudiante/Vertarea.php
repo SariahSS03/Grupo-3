@@ -139,6 +139,7 @@ session_start();
     ?>
     <div class="main-container">
         <?php
+        $User=$_SESSION['CI'];
         $ID=$_GET['IDtarea'];
         $sql1="SELECT*FROM tarea   WHERE idTarea='$ID'";
         $resultado1 = $conexion->query($sql1);
@@ -150,6 +151,13 @@ session_start();
                 $FechadeEntrega=$fila1['FechadeEntrega'];
                 $Instrucciones =$fila1['Instrucciones'];
                 $ID_clase =$fila1['Clases_ID'];
+                $sql1="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID' AND Cuenta_User='$User'";
+                $resultado1 = $conexion->query($sql1);
+                if ($resultado1->num_rows>0){
+                    while($fila1=$resultado1->fetch_assoc()){
+                        $Notaprofesor =$fila1['Nota'];
+                    }
+                  }
             }
         }
         ?>

@@ -30,7 +30,7 @@
 .body-crear-clase {
   margin: 0px;
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto ;
   grid-template-columns: 16% 84%;
   grid-template-areas:
     "principal principal"

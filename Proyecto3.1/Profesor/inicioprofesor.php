@@ -22,7 +22,7 @@
         .body-inicio-profesor{
             margin:none;
             display: grid;
-            grid-template-rows: auto auto auto auto auto;
+            grid-template-rows: 22% auto auto auto auto;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
                                 " opciones clases";

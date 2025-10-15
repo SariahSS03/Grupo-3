@@ -24,7 +24,7 @@ session_start();
     .body-aula-original {
       display: grid;
       grid-template-columns: 13% 88%;
-      grid-template-rows: auto auto auto auto auto;
+      grid-template-rows: 10% auto auto auto auto;
       grid-template-areas:
         "principal principal"
         "opciones mn"

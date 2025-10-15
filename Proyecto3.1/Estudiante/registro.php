@@ -208,27 +208,6 @@ img:hover {
 
     <p id="k">unidad educativa</p>
 </div>
- <script>
-    document.getElementById('boton').addEventListener('click', function(e) {
-    e.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-    Swal.fire({
-        title: '¿Estás seguro?',
-        text: "Deseas iniciar sesion",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, guardar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Si confirma, se envía el formulario
-            document.getElementById('registro').submit();
-        }
-    });
-});
-</script>
 <script>
     $("#registro").validate({
         rules:{
@@ -254,15 +233,20 @@ img:hover {
             },
             CI:{
                 required:true,
-                number:true
+                number:true,
+                minlength:5
             },
             Telefono:{ 
                 required:true,
-                number:true
+                number:true,
+                minlength:8,
+                maxlength:8
+
             },
             Rude:{ 
                 required:true,
-                number:true
+                number:true,
+                minlength:5
             },
             Fechadenacimiento:{
                 required:true
@@ -291,23 +275,50 @@ img:hover {
             },
             CI:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros"
+                number:"el campo solo tiene que llenado con numeros",
+                minlength:"El minimo es de 5 letras"
             },
             Rude:{
                 required:"este campo tiene que ser llenado",
-                number:"el campo solo tiene que llenado con numeros"
+                number:"el campo solo tiene que llenado con numeros",
+                minlength:"El minimo es de 5 letras"
             },
             Fechadenacimiento:{
                 required:"este campo tiene que ser llenado solo numeros "
             },
             Telefono:{
                 required:"este campo tiene que ser llenado solo numeros ",
-                number:"el campo solo tiene que llenado con numeros"
+                number:"el campo solo tiene que llenado con numeros",
+                minlength:"El minimo es de 8 numeros",
+                maxlength:"El maximo es el 8 numeros"
             }
         }
     });
 </script>
+<script>
+    document.getElementById('registro').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita que el formulario se envíe automáticamente
 
+    if ($("#registro").valid()) {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "Deseas crear tu cuenta",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, guardar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si confirma, se envía el formulario
+                    document.getElementById('registro').submit();
+                }
+            });
+        }
+    
+});
+</script>
 
 </body>
 </html>

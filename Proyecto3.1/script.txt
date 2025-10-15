@@ -1,169 +1,250 @@
--- MySQL Workbench Forward Engineering
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 15-10-2025 a las 00:18:56
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema proyecto3
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema proyecto3
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `proyecto3` DEFAULT CHARACTER SET utf8 ;
-USE `proyecto3` ;
-
--- -----------------------------------------------------
--- Table `proyecto3`.`Informacion`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto3`.`Informacion` (
-  `Nombres` VARCHAR(45) NOT NULL,
-  `Apellidos` VARCHAR(45) NOT NULL,
-  `Direccion` VARCHAR(45) NOT NULL,
-  `FechadeNacimiento` DATE NOT NULL,
-  `Telefono` INT NOT NULL,
-  `Curso` VARCHAR(45) NOT NULL,
-  `CI` INT NOT NULL,
-  `RUDE` INT NOT NULL,
-  PRIMARY KEY (`CI`))
-ENGINE = InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
--- -----------------------------------------------------
--- Table `proyecto3`.`Cuenta`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto3`.`Cuenta` (
-  `User` INT NOT NULL,
-  `Contrasena` INT NOT NULL,
-  `rol` VARCHAR(45) NOT NULL,
-  `Bloqueado` VARCHAR(45) NULL,
-  PRIMARY KEY (`User`),
-  CONSTRAINT `fk_Cuenta_Informacion`
-    FOREIGN KEY (`User`)
-    REFERENCES `proyecto3`.`Informacion` (`CI`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de datos: `proyecto3`
+--
 
--- -----------------------------------------------------
--- Table `proyecto3`.`Clases`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto3`.`Clases` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Nombre` VARCHAR(45) NOT NULL,
-  `Codigo` VARCHAR(45) NOT NULL,
-  `Profesor` INT NOT NULL,
-  `Color` VARCHAR(45) NOT NULL,
-  `Inicial` VARCHAR(1) NOT NULL,
-  `Curso` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`ID`, `Profesor`),
-  INDEX `fk_Clases_Cuenta1_idx` (`Profesor` ASC),
-  CONSTRAINT `fk_Clases_Cuenta1`
-    FOREIGN KEY (`Profesor`)
-    REFERENCES `proyecto3`.`Cuenta` (`User`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `clases`
+--
 
--- -----------------------------------------------------
--- Table `proyecto3`.`Clases_has_Cuenta`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto3`.`Clases_has_Cuenta` (
-  `Clases_ID` INT NOT NULL,
-  `Cuenta_User` INT NOT NULL,
-  PRIMARY KEY (`Clases_ID`, `Cuenta_User`),
-  INDEX `fk_Clases_has_Cuenta_Cuenta1_idx` (`Cuenta_User` ASC),
-  INDEX `fk_Clases_has_Cuenta_Clases1_idx` (`Clases_ID` ASC),
-  CONSTRAINT `fk_Clases_has_Cuenta_Clases1`
-    FOREIGN KEY (`Clases_ID`)
-    REFERENCES `proyecto3`.`Clases` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Clases_has_Cuenta_Cuenta1`
-    FOREIGN KEY (`Cuenta_User`)
-    REFERENCES `proyecto3`.`Cuenta` (`User`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE `clases` (
+  `ID` int(11) NOT NULL,
+  `Nombre` varchar(45) NOT NULL,
+  `Codigo` varchar(45) NOT NULL,
+  `Profesor` int(11) NOT NULL,
+  `Color` varchar(45) NOT NULL,
+  `Inicial` varchar(1) NOT NULL,
+  `Curso` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `proyecto3`.`Publicaciones`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto3`.`Publicaciones` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `Texto` VARCHAR(300) NOT NULL,
-  `FechaCreacion` DATETIME NOT NULL,
-  `FechadeEdicion` DATETIME NOT NULL,
-  `Informacion_CI` INT NOT NULL,
-  `Clases_ID` INT NOT NULL,
-  `Clases_Profesor` INT NOT NULL,
-  PRIMARY KEY (`id`, `Informacion_CI`, `Clases_ID`, `Clases_Profesor`),
-  INDEX `fk_Publicaciones_Informacion1_idx` (`Informacion_CI` ASC),
-  INDEX `fk_Publicaciones_Clases1_idx` (`Clases_ID` ASC, `Clases_Profesor` ASC),
-  CONSTRAINT `fk_Publicaciones_Informacion1`
-    FOREIGN KEY (`Informacion_CI`)
-    REFERENCES `proyecto3`.`Informacion` (`CI`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Publicaciones_Clases1`
-    FOREIGN KEY (`Clases_ID` , `Clases_Profesor`)
-    REFERENCES `proyecto3`.`Clases` (`ID` , `Profesor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+--
+-- Estructura de tabla para la tabla `clases_has_cuenta`
+--
 
+CREATE TABLE `clases_has_cuenta` (
+  `Clases_ID` int(11) NOT NULL,
+  `Cuenta_User` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- -----------------------------------------------------
--- Table `proyecto3`.`Tarea`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto3`.`Tarea` (
-  `idTarea` INT NOT NULL AUTO_INCREMENT,
-  `Titulo` VARCHAR(45) NOT NULL,
-  `Descripcion` VARCHAR(100) NOT NULL,
-  `Nota` INT NOT NULL,
-  `Clases_ID` INT NOT NULL,
-  `Clases_Profesor` INT NOT NULL,
-  `Instrucciones` VARCHAR(300) NOT NULL,
-  `FechadeEntrega` DATETIME NOT NULL,
-  PRIMARY KEY (`idTarea`, `Clases_ID`, `Clases_Profesor`),
-  INDEX `fk_Tarea_Clases1_idx` (`Clases_ID` ASC, `Clases_Profesor` ASC),
-  CONSTRAINT `fk_Tarea_Clases1`
-    FOREIGN KEY (`Clases_ID` , `Clases_Profesor`)
-    REFERENCES `proyecto3`.`Clases` (`ID` , `Profesor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `cuenta`
+--
 
--- -----------------------------------------------------
--- Table `proyecto3`.`Cuenta_has_Tarea`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto3`.`Cuenta_has_Tarea` (
-  `Cuenta_User` INT NOT NULL,
-  `Tarea_idTarea` INT NOT NULL,
-  `Nota` INT NOT NULL,
-  `FechadeEntrega` DATETIME NOT NULL,
-  `Entregado` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Cuenta_User`, `Tarea_idTarea`),
-  INDEX `fk_Cuenta_has_Tarea_Tarea1_idx` (`Tarea_idTarea` ASC),
-  INDEX `fk_Cuenta_has_Tarea_Cuenta1_idx` (`Cuenta_User` ASC),
-  CONSTRAINT `fk_Cuenta_has_Tarea_Cuenta1`
-    FOREIGN KEY (`Cuenta_User`)
-    REFERENCES `proyecto3`.`Cuenta` (`User`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Cuenta_has_Tarea_Tarea1`
-    FOREIGN KEY (`Tarea_idTarea`)
-    REFERENCES `proyecto3`.`Tarea` (`idTarea`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE `cuenta` (
+  `User` int(11) NOT NULL,
+  `Contrasena` int(11) NOT NULL,
+  `rol` varchar(45) NOT NULL,
+  `Bloqueado` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+-- --------------------------------------------------------
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+--
+-- Estructura de tabla para la tabla `cuenta_has_tarea`
+--
+
+CREATE TABLE `cuenta_has_tarea` (
+  `Cuenta_User` int(11) NOT NULL,
+  `Tarea_idTarea` int(11) NOT NULL,
+  `Nota` int(11) NOT NULL,
+  `FechadeEntrega` datetime NOT NULL,
+  `Entregado` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `informacion`
+--
+
+CREATE TABLE `informacion` (
+  `Nombres` varchar(45) NOT NULL,
+  `Apellidos` varchar(45) NOT NULL,
+  `Direccion` varchar(45) NOT NULL,
+  `FechadeNacimiento` date NOT NULL,
+  `Telefono` int(11) NOT NULL,
+  `Curso` varchar(45) NOT NULL,
+  `CI` int(11) NOT NULL,
+  `RUDE` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `publicaciones`
+--
+
+CREATE TABLE `publicaciones` (
+  `id` int(11) NOT NULL,
+  `Texto` varchar(300) NOT NULL,
+  `FechaCreacion` datetime NOT NULL,
+  `FechadeEdicion` datetime NOT NULL,
+  `Informacion_CI` int(11) NOT NULL,
+  `Clases_ID` int(11) NOT NULL,
+  `Clases_Profesor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tarea`
+--
+
+CREATE TABLE `tarea` (
+  `idTarea` int(11) NOT NULL,
+  `Titulo` varchar(45) NOT NULL,
+  `Descripcion` varchar(100) NOT NULL,
+  `Nota` int(11) NOT NULL,
+  `Clases_ID` int(11) NOT NULL,
+  `Clases_Profesor` int(11) NOT NULL,
+  `Instrucciones` varchar(300) NOT NULL,
+  `FechadeEntrega` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `clases`
+--
+ALTER TABLE `clases`
+  ADD PRIMARY KEY (`ID`,`Profesor`),
+  ADD KEY `fk_Clases_Cuenta1_idx` (`Profesor`);
+
+--
+-- Indices de la tabla `clases_has_cuenta`
+--
+ALTER TABLE `clases_has_cuenta`
+  ADD PRIMARY KEY (`Clases_ID`,`Cuenta_User`),
+  ADD KEY `fk_Clases_has_Cuenta_Cuenta1_idx` (`Cuenta_User`),
+  ADD KEY `fk_Clases_has_Cuenta_Clases1_idx` (`Clases_ID`);
+
+--
+-- Indices de la tabla `cuenta`
+--
+ALTER TABLE `cuenta`
+  ADD PRIMARY KEY (`User`);
+
+--
+-- Indices de la tabla `cuenta_has_tarea`
+--
+ALTER TABLE `cuenta_has_tarea`
+  ADD PRIMARY KEY (`Cuenta_User`,`Tarea_idTarea`),
+  ADD KEY `fk_Cuenta_has_Tarea_Tarea1_idx` (`Tarea_idTarea`),
+  ADD KEY `fk_Cuenta_has_Tarea_Cuenta1_idx` (`Cuenta_User`);
+
+--
+-- Indices de la tabla `informacion`
+--
+ALTER TABLE `informacion`
+  ADD PRIMARY KEY (`CI`);
+
+--
+-- Indices de la tabla `publicaciones`
+--
+ALTER TABLE `publicaciones`
+  ADD PRIMARY KEY (`id`,`Informacion_CI`,`Clases_ID`,`Clases_Profesor`),
+  ADD KEY `fk_Publicaciones_Informacion1_idx` (`Informacion_CI`),
+  ADD KEY `fk_Publicaciones_Clases1_idx` (`Clases_ID`,`Clases_Profesor`);
+
+--
+-- Indices de la tabla `tarea`
+--
+ALTER TABLE `tarea`
+  ADD PRIMARY KEY (`idTarea`,`Clases_ID`,`Clases_Profesor`),
+  ADD KEY `fk_Tarea_Clases1_idx` (`Clases_ID`,`Clases_Profesor`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `clases`
+--
+ALTER TABLE `clases`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `publicaciones`
+--
+ALTER TABLE `publicaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tarea`
+--
+ALTER TABLE `tarea`
+  MODIFY `idTarea` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `clases`
+--
+ALTER TABLE `clases`
+  ADD CONSTRAINT `fk_Clases_Cuenta1` FOREIGN KEY (`Profesor`) REFERENCES `cuenta` (`User`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `clases_has_cuenta`
+--
+ALTER TABLE `clases_has_cuenta`
+  ADD CONSTRAINT `fk_Clases_has_Cuenta_Clases1` FOREIGN KEY (`Clases_ID`) REFERENCES `clases` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Clases_has_Cuenta_Cuenta1` FOREIGN KEY (`Cuenta_User`) REFERENCES `cuenta` (`User`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `cuenta`
+--
+ALTER TABLE `cuenta`
+  ADD CONSTRAINT `fk_Cuenta_Informacion` FOREIGN KEY (`User`) REFERENCES `informacion` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `cuenta_has_tarea`
+--
+ALTER TABLE `cuenta_has_tarea`
+  ADD CONSTRAINT `fk_Cuenta_has_Tarea_Cuenta1` FOREIGN KEY (`Cuenta_User`) REFERENCES `cuenta` (`User`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Cuenta_has_Tarea_Tarea1` FOREIGN KEY (`Tarea_idTarea`) REFERENCES `tarea` (`idTarea`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `publicaciones`
+--
+ALTER TABLE `publicaciones`
+  ADD CONSTRAINT `fk_Publicaciones_Clases1` FOREIGN KEY (`Clases_ID`,`Clases_Profesor`) REFERENCES `clases` (`ID`, `Profesor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Publicaciones_Informacion1` FOREIGN KEY (`Informacion_CI`) REFERENCES `informacion` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `tarea`
+--
+ALTER TABLE `tarea`
+  ADD CONSTRAINT `fk_Tarea_Clases1` FOREIGN KEY (`Clases_ID`,`Clases_Profesor`) REFERENCES `clases` (`ID`, `Profesor`) ON DELETE CASCADE ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

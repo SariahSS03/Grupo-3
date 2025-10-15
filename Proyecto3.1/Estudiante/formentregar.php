@@ -4,6 +4,7 @@
     $contrasena="";
     $dbname="proyecto3"; 
     $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
+    session_start();
     if($conexion->error){
         echo"Hubo un error al conectar a la base de datos";
     }if($_SESSION['rol']==2 ){

@@ -56,7 +56,7 @@ session_start();
 
     /* Botón */
     .boton1 {
-      background-color: #f0f0f0;
+      background-color: #009318ff;
       border: none;
       border-radius: 8px;
       color: black;
@@ -70,31 +70,24 @@ session_start();
     }
 
     .boton1:hover {
-      background-color: #6b6b72;
+      background-color: #04d83dff;
       transform: scale(1.05);
     }
-  /* Estilo para el input file oculto */
-      input[type="file"] {
-        display: none;
-      }
+    #fileToUpload::file-selector-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  margin-top:10px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
 
-      /* Botón que reemplaza al input file */
-      .custom-file-label {
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        padding: 10px 15px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        width:85%;
-        cursor: pointer;
-        display: inline-block;
-        transition: background-color 0.3s ease;
-      }
-
-      .custom-file-label:hover {
-        background-color: #e0e0e0;
-      }
+#fileToUpload::file-selector-button:hover {
+  background-color: #357abd;
+}
     /* Contenedor blanco */
     .uno {
       background-color: white;
@@ -442,17 +435,17 @@ session_start();
 
     <form action="Publicaciones.php" method="post" enctype="multipart/form-data">
       <textarea name="Publicaciones" placeholder="Anuncia algo a la clase" id="Anunciaalgo"></textarea>
-      <input type="hidden" name="ID" value="<?= $ID ?>">
+      <input type="hidden" name="ID" value="<?=$ID?>">
 
       <div id="opciones" style="display: none;">
         <div id="cinco">
           <button type="submit" id="a" class="boton1">Publicar</button>
         </div>
         <div id="cuatro">
-          <label for="fileToUpload" class="custom-file-label">Adjuntar archivo</label>
           <input type="file" name="fileToUpload" id="fileToUpload">
         </div>
       </div>
+
     </form>
   </div>
 </div>
@@ -547,7 +540,7 @@ session_start();
       ?>
   <?php if($fila3['Informacion_CI'] == $User){ ?>
     <div class="enlaces">
-      <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>&?ID=<?= $ID?>" class="editar">Editar</a>
+      <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>&ID=<?= $ID?>" class="editar">Editar</a>
       <a href="eliminarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="eliminar">Eliminar publicación</a>
     </div>
   <?php }?> 

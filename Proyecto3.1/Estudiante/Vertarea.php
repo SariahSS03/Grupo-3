@@ -209,7 +209,8 @@ session_start();
                 <div class="box your-work">
                   <?php
                   $ID=$_GET['IDtarea'];
-                  $sql2="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID'";
+                  $User=$_SESSION['CI'];
+                  $sql2="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID' AND Cuenta_User='$User' ";
                   $resultado2 = $conexion->query($sql2);
                   if ($resultado2->num_rows>0){
                       while($fila2=$resultado2->fetch_assoc()){
@@ -220,13 +221,13 @@ session_start();
                   ?>
                     <div class="status">Tarea Entregada</div>
                   <?php
-                  }if ($Entregado!="Entregado"){
+                  }
+                  }
+                  }else{
                   ?>
                   <div class="status">Sin entregar</div>
                   <a href="/grupo-3/Proyecto3.1/Estudiante/formentregar.php?ID_tarea=<?= $ID?>" class="add-create">+ Añadir o crear</a>
                   <?php
-                  }
-                  }
                   }
                   ?>
                 </div>

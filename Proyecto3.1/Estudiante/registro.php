@@ -198,7 +198,6 @@ img:hover {
       <!-- Botones -->
       <input type="submit" id="boton" value="Crear cuenta">
       <input onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php'" id="Boton" value="Iniciar Sesión">
-      
     </div>
   </center>
 </form>

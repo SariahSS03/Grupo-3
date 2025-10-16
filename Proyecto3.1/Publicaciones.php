@@ -30,20 +30,16 @@ $sql="SELECT*FROM Clases WHERE ID='$ID'";
          //variable que funcionara como bandera si el valor es 1 se puede subir, si es 0 algo paso
          $uploadOk = 1;
          echo $target_file;
-
          //verificar si el archivo existe
          if (file_exists($target_file)){
             echo"lo sentimos ya subiste este archivo";
             $uploadOk= 0;
          }
-
-
          //valida el tamaño
          if ($_FILES["fileToUpload"]["size"]> 50000000){
             echo "lo sentimos, tu archivo es muy grande";
             $uploadOk = 0;
             }
-
          // subir archivo
          if ($uploadOk == 0){
             echo"ocurrio algun error";

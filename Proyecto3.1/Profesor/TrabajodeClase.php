@@ -179,7 +179,7 @@
                     </div>
                 </a>
                 <a href="../Profesor/editartarea.php?IDtarea=<?= $idTarea ?>" class="editar-tarea-btn">Editar tarea</a>
-                <a href="../Profesor/eliminar_tarea.php?IDtarea=<?= $idTarea ?>&?IDclase=<?= $ID?>" class="editar-tarea-btn">Eliminar tarea</a>
+                <a href="../Profesor/eliminar_tarea.php?IDtarea=<?= $idTarea ?>&IDclase=<?= $ID?>" class="editar-tarea-btn">Eliminar tarea</a>
         </div>
     <?php
             }

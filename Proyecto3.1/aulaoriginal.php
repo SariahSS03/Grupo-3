@@ -18,12 +18,13 @@ session_start();
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <style>
+    /* Estilos generales del grid */
     .body-aula-original {
       display: grid;
-      grid-template-columns: 13% 88%;
+      grid-template-columns: 13% 87%;
       grid-template-rows: 10% auto auto auto auto;
       grid-template-areas:
         "principal principal"
@@ -31,288 +32,242 @@ session_start();
         "opciones quimica"
         "opciones areaAnuncios"
         "opciones areaPublicaciones";
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background-color: #ffffffff;
-      margin: 0px;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #fff;
     }
-
-    /* Área anuncios */
-    .areaAnuncios {
-      align-items: center;
+        .areaAnuncios {
+      grid-area: areaAnuncios;
+      padding: 10px;
       display: flex;
       flex-direction: column;
-      grid-area: areaAnuncios;
-      padding: 10px 1px;
+      align-items: center;
     }
 
-    /* Área publicaciones */
     .areaPublicaciones {
-      display: flex;
-      flex-direction:column;
-      justify-content: center;
+      grid-area: areaPublicaciones;
       padding: 20px;
-      grid-area:areaPublicaciones;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Botón */
-    .boton1 {
-      background-color: #009318ff;
-      border: none;
-      border-radius: 8px;
-      color: black;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      padding: 10px 20px;
-      width:100%;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+    .mn {
+      grid-area: mn;
     }
 
-    .boton1:hover {
-      background-color: #04d83dff;
-      transform: scale(1.05);
-    }
-    #fileToUpload::file-selector-button {
-  background-color: #4a90e2;
-  color: white;
-  border: none;
-  margin-top:10px;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-#fileToUpload::file-selector-button:hover {
-  background-color: #357abd;
-}
-    /* Contenedor blanco */
     .uno {
-      background-color: white;
+      background-color: #fff;
       border-radius: 30px;
       padding: 30px;
       width: 60%;
     }
-
-    /* Header clase */
-    .clase-header {
-      background-color: #f0f4ff;      /* Fondo suave azul */
+        .clase-header {
+      grid-area: quimica;
+      background-color: #f0f4ff;
       border: 1px solid #cdd8f0;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      font-family: 'Segoe UI', sans-serif;
       margin: 30px auto;
-      overflow: hidden;
       width: 70%;
-      grid-area:quimica:
     }
 
-    /* Header banner */
     .header-banner {
-      align-items: flex-end;
       background-position: right;
       background-size: cover;
-      display: flex;
       height: 150px;
+      display: flex;
+      align-items: flex-end;
       padding: 20px;
-      position: relative;
     }
 
-    /* Header texto */
     .header-text h1 {
       color: white;
       font-size: 70px;
       font-weight: bold;
       margin: 0;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
     }
 
-    /* ID dos */
-    #dos {
-      background-color: whitesmoke;
-      border-radius: 30px;
-      color: rgb(129, 114, 114);
-      margin-bottom: 10px;
-      padding-left: 18px;
-      padding-top: 10px;
-      position: relative;
-    }
-    #cinco {
-      margin-right:30px;
-    }
-    #opciones{
-      display: flex;
-      flex-direction: row-reverse;
-      gap:30px;
+    .sub-info {
+      background-color: #f0f4ff;
+      border: 1px solid #cdd8f0;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 20px 0;
+      font-size: 16px;
+      color: #2c3e50;
     }
 
-    /* Input área anuncio */
+    .sub-info strong {
+      color: #1e3a8a;
+    }
+        .boton1 {
+      background-color: #009318;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px 0;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .boton1:hover {
+      background-color: #04d83d;
+      transform: scale(1.05);
+    }
+
+    #fileToUpload::file-selector-button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    #fileToUpload::file-selector-button:hover {
+      background-color: #357abd;
+    }
+
     #Anunciaalgo {
       background-color: #f1f3f4;
       border: none;
       border-radius: 8px;
       font-size: 16px;
       min-height: 40px;
-      outline: none;
-      resize: none; /* Elimina el tirador de redimensionar */
-      transition: background-color 0.2s ease;
       width: 100%;
+      padding: 10px;
+      resize: none;
     }
 
     #Anunciaalgo:focus {
-      background-color: #fff; /* Similar al efecto de enfoque de Classroom */
-      box-shadow: 0 0 0 2px #4285f4; /* Borde de enfoque sutil */
+      background-color: #fff;
+      box-shadow: 0 0 0 2px #4285f4;
     }
-    
 
-    /* Código de clase */
     #codigo {
-      background-color: #8fa3c2ff; /* Mantener el color de fondo */
-      border-radius: 15px; /* Bordes más redondeados */
-      font-family: "Tinos", serif; /* Fuente de clase */
-      font-size: 16px; /* Ajuste de tamaño de fuente para mejor legibilidad */
-      color: #333; /* Color de texto más oscuro para mejor contraste */
-      padding: 20px; /* Espaciado interno para evitar que el texto quede pegado a los bordes */
-      width: 100%; /* Ancho flexible para que se adapte al contenedor padre */
-      max-width: 300px; /* Establecer un límite máximo de ancho para evitar que sea demasiado grande */
-      box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
-      margin: 0 auto; /* Centrado en el contenedor */
-      text-align: center; /* Alineación central del texto */
-      margin-bottom: 20px; /* Espaciado inferior para separar del contenido siguiente */
+      background-color: #8fa3c2;
+      color: #333;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 300px;
+      text-align: center;
+      margin: 0 auto 20px;
     }
 
     #codigo p {
-      margin: 0; /* Eliminar márgenes para evitar espaciados innecesarios */
-      font-weight: bold; /* Hacer el texto del código más destacado */
+      margin: 0;
+      font-weight: bold;
     }
-/* Contenedor general de todas las publicaciones */
-.Publicaciones {
-  width: 70%;
-  margin: 0 auto;
-  padding: 20px;
-}
 
-/* Tarjeta de cada publicación */
-#publicacion1 {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin-bottom: 30px;
-  padding: 20px;
-  transition: box-shadow 0.3s ease;
-}
+    #opciones {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 30px;
+      margin-top: 10px;
+    }
 
-#publicacion1:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
+    #dos {
+      background-color: whitesmoke;
+      border-radius: 30px;
+      color: rgb(129, 114, 114);
+      padding: 10px 18px;
+      margin-bottom: 10px;
+    }
+        .Publicaciones {
+      width: 70%;
+      margin: 0 auto;
+    }
 
-/* Nombre del usuario */
-.nombre-usuario {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 5px;
-}
+    #publicacion1 {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 30px;
+      padding: 20px;
+    }
 
-/* Fechas */
-#publicacion1 .fecha {
-  color: #999;
-  font-size: 13px;
-  margin-bottom: 5px;
-}
+    .nombre-usuario {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
 
-/* Texto de la publicación */
-.contenido-publicacion p {
-  font-size: 16px;
-  color: #333;
-  margin-top: 15px;
-  white-space: pre-wrap; /* Soporta saltos de línea */
-}
+    .fecha {
+      color: #999;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
 
-/* Estilo para imagen y archivo */
-.archivo-publicacion {
-  margin-top: 20px;
-}
+    .contenido-publicacion p {
+      font-size: 16px;
+      color: #333;
+      margin-top: 15px;
+      white-space: pre-wrap;
+    }
 
-.archivo-publicacion img,
-.archivo-publicacion embed {
-  border-radius: 8px;
-  max-width: 100%;
-  height: auto;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+    .archivo-publicacion {
+      margin-top: 20px;
+    }
 
-/* Botones */
-.enlaces {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 20px;
-}
-.enlaces {
-  display: flex;
-  flex-direction: column; /* Apila los botones verticalmente */
-  align-items: flex-start; /* Alinea a la izquierda */
-  gap: 10px; /* Espacio entre los botones */
-  margin-top: 10px;
-}
+    .archivo-publicacion img,
+    .archivo-publicacion embed {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
 
-#publicacion1 a.editar,
-#publicacion1 a.eliminar {
-  background-color: #f1f3f4;
-  border-radius: 6px;
-  color: #1a73e8;
-  padding: 10px 16px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
+    .enlaces {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 20px;
+    }
 
-/* Hover */
-#publicacion1 a.editar:hover,
-#publicacion1 a.eliminar:hover {
-  background-color: #e0e0e0;
-  transform: scale(1.05);
-}
+    .enlaces a {
+      background-color: #f1f3f4;
+      border-radius: 6px;
+      padding: 10px 16px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
 
+    .editar {
+      color: #1a73e8;
+    }
 
+    .eliminar {
+      color: #e53935;
+    }
 
-/* Enlace "Descargar archivo" */
-#publicacion1 a[download] {
-  display: inline-block;
-  background-color: #f1f3f4;
-  color: #333;
-  border-radius: 6px;
-  padding: 10px 15px;
-  text-decoration: none;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
+    .enlaces a:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.05);
+    }
 
-#publicacion1 a[download]:hover {
-  background-color: #e0e0e0;
-}
-.sub-info {
-  background-color: #f0f4ff;      /* Fondo suave azul */
-  border: 1px solid #cdd8f0;      /* Borde sutil */
-  border-radius: 8px;             /* Esquinas redondeadas */
-  padding: 15px 20px;             /* Espaciado interior */
-  margin: 20px 0;                 /* Separación vertical */
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 16px;
-  color: #2c3e50;                 /* Color de texto oscuro */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);  /* Sombra ligera */
-}
-.sub-info strong {
-  color: #1e3a8a;                 /* Color más fuerte para el texto "Profesor:" */
-}
+    a[download] {
+      display: inline-block;
+      background-color: #f1f3f4;
+      color: #333;
+      border-radius: 6px;
+      padding: 10px 15px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
 
-    /* Media queries */
-    @media screen and (max-width: 768px) {
-      .body {
+    a[download]:hover {
+      background-color: #e0e0e0;
+    }
+        @media screen and (max-width: 768px) {
+      .body-aula-original {
         grid-template-areas:
           "principal"
           "mn"
@@ -322,36 +277,45 @@ session_start();
         grid-template-columns: 1fr;
       }
 
-      #Anunciaalgo {
-        font-size: 14px;
-        min-height: 60px;
+      .uno {
+        width: 95%;
+        padding: 15px;
       }
 
       #codigo {
-        left: auto;
-        margin: 15px auto;
-        position: relative;
-        top: auto;
-        bottom: auto;
         width: 90%;
+        margin: 15px auto;
       }
 
-      #materia {
-        font-size: 24px;
-        text-align: center;
+      .header-text h1 {
+        font-size: 36px;
       }
 
-      .areaAnuncios,
-      .areaPublicaciones {
-        padding: 10px;
-      }
-
-      .uno {
-        padding: 15px;
-        width: 95%;
+      .Publicaciones {
+        width: 90%;
       }
     }
 
+    @media screen and (max-width: 480px) {
+      .boton1, #fileToUpload::file-selector-button {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .header-text h1 {
+        font-size: 28px;
+      }
+
+      #Anunciaalgo {
+        font-size: 14px;
+        min-height: 80px;
+      }
+
+      .enlaces a {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+    }
   </style>
 </head>
 <body class="body-aula-original">
@@ -419,7 +383,7 @@ session_start();
   </div>
 
   <div class="uno">
-  <div id="dos">
+    <div id="dos">
     <?php
         $User = $_SESSION['CI'];
         $sql = "SELECT * FROM Informacion WHERE CI='$User'";
@@ -445,7 +409,6 @@ session_start();
           <input type="file" name="fileToUpload" id="fileToUpload">
         </div>
       </div>
-
     </form>
   </div>
 </div>
@@ -538,18 +501,19 @@ session_start();
       <?php
         }
       ?>
-  <?php if($fila3['Informacion_CI'] == $User){ ?>
-    <div class="enlaces">
-      <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>&ID=<?= $ID?>" class="editar">Editar</a>
-      <a href="eliminarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="eliminar">Eliminar publicación</a>
-    </div>
-  <?php }?> 
-    </div>       
-  </div><?php  
-        }
-      }
-    }
-  }
+    <?php if($fila3['Informacion_CI'] == $User){ ?>
+      <div class="enlaces">
+        <a href="editarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>&ID=<?= $ID?>" class="editar">Editar</a>
+        <a href="eliminarpublicacion.php?ID_publicacion=<?= $ID_publicacion?>" class="eliminar">Eliminar publicación</a>
+      </div>
+    <?php }?> 
+      </div>       
+  </div>
+  <?php  
+        }// fin while usuarios
+      }// fin if usuarios
+    } // fin while publicaciones
+  }// fin if publicaciones  
   ?> 
 </section>
 

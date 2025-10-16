@@ -153,65 +153,73 @@
         * {
             box-sizing: border-box; /*Esto evitara que los padding o el borde se desborder y se muevan */
         }
+       
         @media (max-width: 768px) {
-            .body-inicio-estudiante {
-                display: block;
-                padding: 10px;
-            }
+    .body-inicio-profesor {
+        display: block;
+        padding: 10px;
+    }
 
-            .clases {
-                padding: 10px;
-                justify-content: center;
-                gap: 15px;
-            }
+    .clases {
+        padding: 10px;
+        justify-content: center;
+        gap: 15px;
+    }
 
-            .clase {
-                width: 90%; /* O puedes usar 100% si quieres que ocupen todo */
-                height: auto;
-                margin: 10px auto;
-            }
+    .clase {
+        width: 100%;
+        height: auto;
+        margin: 10px auto;
+    }
 
-            .cabecera {
-                padding: 10px;
-                height: auto;
-            }
+    .cabecera {
+        padding: 10px;
+        height: auto;
+        text-align: center;
+    }
 
-            .nombre {
-                font-size: 18px;
-                text-align: center;
-            }
+    .nombre {
+        font-size: 18px;
+        text-align: center;
+    }
 
-            .grado {
-                font-size: 13px;
-                text-align: center;
-            }
+    .grado {
+        font-size: 13px;
+        text-align: center;
+    }
 
-            .avatar {
-                top: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-                padding: 5px;
-            }
+    .avatar {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        padding: 5px;
+    }
 
-            .acciones {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-                padding: 10px;
-            }
+    .acciones {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
 
-            .acciones img {
-                width: 30px;
-                height: 25px;
-            }
+    .acciones img {
 
-            .menuOpciones {
-                right: 5px;
-                bottom: 60px;
-            }
-        }
+
+
+
+        
+        width: 30px;
+        height: 25px;
+    }
+
+    .menuOpciones {
+        right: 5px;
+        bottom: 60px;
+    }
+}
+
     </style>
 </head>
 <?php

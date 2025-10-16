@@ -26,7 +26,7 @@
     .body-crear-tarea{
             margin:none;
             display: grid;
-            grid-template-rows: 22% auto auto auto auto;
+            grid-template-rows: 9% auto auto auto auto;
             grid-template-columns: 16% 84% ;
             grid-template-areas: "principal principal"
                                 " opciones Tareas";
@@ -90,10 +90,19 @@
     button.submit:hover {
       background: #1558b0;
     }
-    /* Oculta el input real */
-.attachments input[type="file"] {
-  display: none;
-}
+#fileToUpload::file-selector-button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    #fileToUpload::file-selector-button:hover {
+      background-color: #357abd;
+    }
 
 /* Estilo para el botón de adjuntar */
 .custom-file-button {
@@ -202,7 +211,6 @@
         <h3>Adjuntar</h3>
         <div class="attachments">
           <input type="file" name="fileToUpload" id="fileToUpload">
-          <label for="fileToUpload" class="custom-file-button">Adjuntar archivo</label>
         </div>
 
     

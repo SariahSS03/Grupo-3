@@ -118,24 +118,23 @@ session_start();
   <section class="areacreartarea">
   <header>
     <h2>Tarea</h2>
-    <button class="submit" type="submit" form="formTarea">Crear tarea</button>
+    <button class="submit" type="submit" form="formTarea">Editar Tarea</button>
   </header>
 
-  <form id="formTarea" action="editar_datos_tarea?ID_tarea=<?=$id_tarea?>$?ID_clase=<?=$id_clase?>" method="post" enctype="multipart/form-data">
+  <form id="formTarea" action="editar_datos_tarea.?ID_tarea=<?=$id_tarea?>&ID_clase=<?=$id_clase?>" method="post">
   <div class="container">
 
       <div class="left">
         <input type="text" name="Titulo" value='<?= $titulo?>'>
-        <textarea name="Descripcion"  value='<?= $descripcion?>'></textarea>
+        <textarea name="Descripcion"><?= $descripcion?></textarea>
 
         <h3>Adjuntar</h3>
         <div class="attachments">
-          <input type="file" name="fileToUpload" id="fileToUpload">
+          El Archivo subido ya fue guardado
       </div>
 
     
       <div class="right">
-
         <label for="puntos">Puntos</label>
         <input type="number" name="Nota" value='<?= $nota?>'>
 

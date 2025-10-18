@@ -52,7 +52,7 @@ session_start();
       flex: 1;  
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 50px;
     }
 
     .box {
@@ -105,7 +105,7 @@ session_start();
     }
 
     .your-work .status {
-      color: red;
+      color: black;
       font-weight: bold;
       margin-bottom: 10px;
     }
@@ -125,12 +125,6 @@ session_start();
       width: 100%;
       text-align: center;
     }
-
-    .private-comments a {
-      color: #1a73e8;
-      text-decoration: none;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body class="body-ver-tarea">
@@ -141,7 +135,7 @@ session_start();
         <?php
         $User=$_SESSION['CI'];
         $ID=$_GET['IDtarea'];
-        $sql1="SELECT*FROM tarea   WHERE idTarea='$ID'";
+        $sql1="SELECT*FROM tarea WHERE idTarea='$ID'";
         $resultado1 = $conexion->query($sql1);
         if ($resultado1->num_rows>0){
             while($fila1=$resultado1->fetch_assoc()){
@@ -165,19 +159,23 @@ session_start();
             <!-- Left Section -->
             <div class="left-section">
             <h1><?=$Titulo?></h1>
-            <div class="meta"><?=$Descripcion?></div>
+            <div class="meta">
+              Descripcion: 
+              <?=$Descripcion?>
+            </div>
 
             <div class="points-date">
-                <div>0 / <?=$Nota?></div>
-                <!--<div><?=$FechadeEntrega?></div>-->
+                <div>Nota: <?=$Notaprofesor?>/<?=$Nota?></div>
+                <div>Fecha de Entrega: <?=$FechadeEntrega?></div>
             </div>
 
             <div class="instructions">
-                <strong><?=$Instrucciones?></strong>
+              Instrucciones: 
+              <?=$Instrucciones?>
             </div>
             <div>
                 <?php
-                      $nombreArchivo ="T-".$ID."-".$ID_clase;
+                      $nombreArchivo ="T-".$ID_clase."-".$ID;
                       $directorio = "../media/";
                       $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
                       $archivoEncontrado = NULL;
@@ -193,7 +191,7 @@ session_start();
                       if ($archivoEncontrado){
                       $extension = strtolower (pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
                       if (in_array($extension, ["jpg", "jpeg", "png","gif","webp"])){
-                    echo "<img src='$archivoEncontrado' alt ='Archivo' width='250'>";
+                    echo "<img src='$archivoEncontrado' alt ='Archivo' width='70%'>";
                       }elseif ($extension === "pdf"){
                           echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
                       }else{

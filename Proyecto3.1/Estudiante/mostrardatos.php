@@ -29,7 +29,7 @@ if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
             header('Location: /grupo-3/Proyecto3.1/Profesor/inicioprofesor.php');
          }
          if($_SESSION['rol']==3 ){
-            header('Location:/grupo-3/Proyecto3.1/Administrador/Administrador.php');
+            header('Location:/grupo-3/Proyecto3.1/Administrador/Usuarios.php');
          }
       }
    }else{

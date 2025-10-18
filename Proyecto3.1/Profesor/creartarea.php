@@ -200,7 +200,7 @@
     <button class="submit" type="submit" form="formTarea">Crear tarea</button>
   </header>
 
-  <form id="formTarea" action="Tarea.php" method="post">
+  <form id="formTarea" action="Tarea.php" method="post" enctype="multipart/form-data">
   <input type="hidden" name="ID" value="<?= $ID ?>">
   <div class="container">
 

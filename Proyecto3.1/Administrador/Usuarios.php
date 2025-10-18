@@ -9,6 +9,11 @@ session_start();
   if($conexion->error){
       echo"Hubo un error al conectar a la base de datos";
   }
+  if($_SESSION['rol']==2 ){
+        header('Location:/grupo-3/Proyecto3.1/Profesor/inicioprofesor.php');
+    }if($_SESSION['rol']==1 ){
+        header('Location:/grupo-3/Proyecto3.1/Estudiante/inicioestudiante.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +22,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    body {
+    .body-usuarios{
       display: grid;
       grid-template-columns: 16% 84%;
       grid-template-rows: auto auto ;
@@ -125,7 +130,7 @@ session_start();
 
   </style>
 </head>
-<body>
+<body class="body-usuarios">
     <?php
     include("Administrador.php");
     ?>
@@ -156,9 +161,9 @@ session_start();
         <h3><strong>Usuarios</strong></h3> 
       </div>
         <?php   
-               $sql=" SELECT * FROM cuenta";
+               $sql=" SELECT * FROM Cuenta WHERE rol=2 OR rol=1";
                $resultado=$conexion->query($sql);
-               if($resultado -> num_rows >0){
+               if($resultado-> num_rows >0){
                   While($fila=$resultado ->fetch_assoc()){
                      $User=$fila['User'];
                      $Contrasena=$fila['Contrasena'];

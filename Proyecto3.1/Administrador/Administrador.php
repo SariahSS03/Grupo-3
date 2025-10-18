@@ -16,16 +16,13 @@
             grid-area: principal;
             margin-bottom: 10px;
         }
-        #primero1{
-          
+        #primero1{  
             width: 50%;
             padding-bottom: 10px;
             padding-top: 12px;
             padding-left: 12px;
             display: flex;
             gap: 5px;
-            
-
         }
         #col{
             position: relative;
@@ -33,9 +30,7 @@
             bottom: 52px;
             color: white; 
         }
-        
         #segundo1{
-           
             width: 50%;
             padding-bottom: 10px;
             padding-top: 12px;
@@ -44,120 +39,50 @@
             display: flex;
             gap: 20px;
             flex-direction:row-reverse;
-            
-            
-         
         }
         .boton{
             border: none;
             background-size: cover;
             background-color: transparent;
         }
-        .opciones{
-           background-color: white;
+        .opciones {
+            background-color: white;
             display: flex;
             flex-direction: column;
             width: 250px;
             grid-area: opciones;
-            gap: 5px;
-            padding-right: 23px;
-            padding-left: 12px;
+            gap: 10px;
+            padding: 15px;
             border-right: 5px solid rgb(234, 234, 244);
         }
-        #imagen{
-           border-radius: 25px;
-           border: none;
-           background-color: rgb(229, 229, 238);
-           height: 50px;
-        }
-         #do{
-            position: relative;
-            right: 37px;
-            bottom: 27px;
 
-        }
-        #in{
-            position: relative;
-            right: 80px;
-            top: 10px;
-
-        }
-        #imagen2{
+        .boton-opcion {
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Separación entre imagen y texto */
             border-radius: 25px;
-           border: none;
+            border: none;
             background-color: rgb(229, 229, 238);
-           height: 50px;
-         
+            height: 50px;
+            padding: 0 15px;
+            font-family: "Segoe UI", sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
-        #tr{
-            position: relative;
-            right: 24px;
-            bottom: 40px;
 
+        .boton-opcion:hover {
+            background-color: #dcdcef;
         }
-        #ca{
-            position: relative;
-            right: 80px;
-            top: 7px;
-            background-size: cover;
-            background-color: transparent;
 
+        .boton-opcion img {
+            display: block;
         }
-        
-        #imagen3{
-           border-radius: 25px;
-           border: none;
-            background-color: rgb(229, 229, 238);
-           height: 50px;
-        }
-        #cu{
-            position: relative;
-           
-            right: 32px;
-            bottom: 28px;
 
-        }
-        #aj{
-            position: relative;
-            right: 80px;
-            top: 11px;
-
-        }
-        #cla{
-            padding: 10px;
-            
-        }
-        #clase4{
-            background-color: #f1f3f4;;
-            border-radius:30px;
-            position:relativo;
-            height:45px;
-             justify-content: space-between; 
-             align-items:center;
-        }
-        #z{
-            color:black;
-            font-size:18px;
-            position: relative;
-            left:7%;
-            top:18%;
-        }
     </style>
 </head>
-<?php
-        $direccion="localhost";
-        $usuario="root";
-        $contrasena="";
-        $dbname="proyecto3"; 
-        $conexion= new mysqli($direccion,$usuario,$contrasena,$dbname);
-        if($conexion->error){
-            echo"Hubo un error al conectar a la base de datos";
-        }
-?>
 <body class="body-administrador">
-    
     <div class="principal">
-
         <div id="primero1">
         <button onclick="window.location.href='Administrador.php'" class="boton" >
             <img style="position: relative; bottom:3px;" width="85px" height="50px" src="/grupo-3/Proyecto3.1/Imagenes/dos.png">
@@ -172,17 +97,15 @@
         </div>
 
     </div>
-    <div  class="opciones">
-        <button id="imagen" onclick="window.location.href='/grupo-3/Proyecto3.1/Administrador/Usuarios.php'">
-             <img id="in" width="27px" height="27px" src="/grupo-3/Proyecto3.1/Imagenes/casa.png"> 
-             <p id="do">Usuarios</p>
-        </button>
-        <button id="imagen3" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/informacion.php'">
-            <img id="aj" width="28px"  height="27px"  src="/grupo-3/Proyecto3.1/Imagenes/ajustes.png">
-           <p id="cu">     Informacion</p>
-        </button> 
+    <div class="opciones">
+    <button class="boton-opcion" onclick="window.location.href='/grupo-3/Proyecto3.1/Administrador/Usuarios.php'">
+        <img src="/grupo-3/Proyecto3.1/Imagenes/casa.png" width="27" height="27" alt="Icono Usuarios">
+        <span>Usuarios</span>
+    </button>
+    <button class="boton-opcion" onclick="window.location.href='/grupo-3/Proyecto3.1/Estudiante/informacion.php'">
+        <img src="/grupo-3/Proyecto3.1/Imagenes/ajustes.png" width="28" height="27" alt="Icono Información">
+        <span>Información</span>
+    </button>
     </div>
-   
-    
 </body>
 </html>

@@ -6,66 +6,54 @@
     <title>Document</title>
 </head>
 <style>
-   body{
-            margin:none;
-            display: grid;
-            grid-template-rows:auto auto ;
-            grid-template-columns: 16% 84% ;
-            grid-template-areas: "principal principal"
-                                 "opciones dos";
-         margin:0px;                      
-        }
+   .body-informacion{ 
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 16% 84%;
+    grid-template-areas: 
+        "principal principal"
+        "opciones dos";
+    margin: 0px;                      
+}
 
 .dos{
-        grid-area:dos;
-    }
- #infobasica{
-    
-    background-color:transparent;
+    grid-area: dos;
+}
+
+#infobasica, #infocontacto, #infoestudiante {
+    background-color: transparent;
     border: 2px solid black;
     border-radius: 15px;
     width: 900px;
-    margin-top:50px;
-   
- }
- #infocontacto{
-    background-color:transparent;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 900px;
-    margin-top:50px;
- }
- #infoestudiante{
-    background-color:transparent;
-    border: 2px solid black;
-    border-radius: 15px;
-    width:900px;
-    margin-top:50px;
- }
- #Nombres{
+    margin-top: 50px;
+}
+
+#Nombres {
     border: 1px solid grey;
     border-radius: 15px;
-    background-color:white;
-    font:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif ;
+    background-color: white;
+    font: "Google Sans Text","Google Sans",Roboto,Arial,sans-serif;
     font-size: 20px;
-    
- }
- #Nombres:hover{
-   background-color: rgba(200, 200, 200, 0.5);
- }
- #nom{
+}
+
+#Nombres:hover {
+    background-color: rgba(200, 200, 200, 0.5);
+}
+
+#nom {
     margin-right: 500px;
-    font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif ;
+    font-family: "Google Sans Text","Google Sans",Roboto,Arial,sans-serif;
     font-size: 20px;
- }
+}
+
 #Boton {
     background-color: #00439b;
     color: white;
     border: none;
     border-radius: 8px;
     padding: 12px 24px;
-    margin-top:30px;
-    margin-bottom:30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
@@ -80,9 +68,38 @@
     transform: scale(1.05);
 }
 
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .body-informacion {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "principal"
+            "opciones"
+            "dos";
+    }
 
+    #infobasica, #infocontacto, #infoestudiante {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    #nom {
+        margin-right: 0px;
+        font-size: 18px;
+    }
+
+    #Nombres {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    #Boton {
+        width: 100%;
+        padding: 12px;
+    }
+}
 </style>
-<body>
+<body class="body-informacion">
      <?php
         $direccion="localhost";
         $usuario="root";
@@ -147,9 +164,32 @@
          </div>
 
          <div id="infoestudiante">
-         <h1>Informacion de estudiante</h1>
-         <div id="Nombres"><h2 id="nom">Curso: <?=$Curso?></h2></div>
-         <div id="Nombres"><h2 id="nom">Rude: <?=$Rude?></h2></div>
+            <?php
+            if($_SESSION['rol']==2 ){
+                ?>
+                <h1>Informacion de Profesor</h1>
+                <div id="Nombres"><h2 id="nom">Rol: Profesor</h2></div>
+                <div id="Nombres"><h2 id="nom">Rude: <?=$Rude?></h2></div>
+                <?php 
+                }else{
+                    if($_SESSION['rol']==1 ){
+                        ?>
+                        <h1>Informacion de estudiante</h1>
+                        <div id="Nombres"><h2 id="nom">Curso: <?=$Curso?></h2></div>
+                        <div id="Nombres"><h2 id="nom">Rude: <?=$Rude?></h2></div>
+                        <?php
+                }else{
+                    if($_SESSION['rol']==3 ){
+                        ?>
+                        <h1>Informacion de administrador</h1>
+                        <div id="Nombres"><h2 id="nom">Rol: Administrador</h2></div>
+                        <div id="Nombres"><h2 id="nom">Rude: <?=$Rude?></h2></div>
+                        <?php
+                }
+                }
+                }
+        
+            ?>
          </div>
     </div>
 

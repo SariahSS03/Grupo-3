@@ -25,7 +25,7 @@ session_start();
     .body-aula-original {
       display: grid;
       grid-template-columns: 13% 87%;
-      grid-template-rows: 10% auto auto auto auto;
+      grid-template-rows: auto auto auto auto auto;
       grid-template-areas:
         "principal principal"
         "opciones mn"
@@ -62,46 +62,48 @@ session_start();
       padding: 30px;
       width: 60%;
     }
-        .clase-header {
-      grid-area: quimica;
-      background-color: #f0f4ff;
-      border: 1px solid #cdd8f0;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      margin: 30px auto;
-      width: 70%;
-    }
+    .clase-header {
+  grid-area: quimica;
+  background-color: #ffffff; /* Blanco neutro */
+  border: 3px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1000px;
+  overflow: hidden;
+}
 
-    .header-banner {
-      background-position: right;
-      background-size: cover;
-      height: 150px;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
-    }
+.header-banner {
+  background-color: #f8f9fa; /* Gris muy claro */
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .header-text h1 {
-      color: white;
-      font-size: 70px;
-      font-weight: bold;
-      margin: 0;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-    }
+.header-text h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave para contraste */
+}
 
-    .sub-info {
-      background-color: #f0f4ff;
-      border: 1px solid #cdd8f0;
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin: 20px 0;
-      font-size: 16px;
-      color: #2c3e50;
-    }
+.sub-info {
+  background-color: #fafafa; /* Fondo muy suave */
+  border-top: 1px solid #e0e0e0;
+  padding: 15px 20px;
+  font-size: 18px;
+  color: #333333; /* Texto oscuro */
+  text-align: center;
+}
 
-    .sub-info strong {
-      color: #1e3a8a;
-    }
+.sub-info strong {
+  color: #1e3a8a; /* Azul sobrio */
+}
+
+
         .boton1 {
       background-color: #009318;
       color: black;
@@ -266,7 +268,7 @@ session_start();
     a[download]:hover {
       background-color: #e0e0e0;
     }
-        @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       .body-aula-original {
         grid-template-areas:
           "principal"
@@ -294,9 +296,6 @@ session_start();
       .Publicaciones {
         width: 90%;
       }
-    }
-
-    @media screen and (max-width: 480px) {
       .boton1, #fileToUpload::file-selector-button {
         width: 100%;
         font-size: 14px;

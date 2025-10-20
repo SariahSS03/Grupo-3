@@ -10,6 +10,10 @@
 </head>
 <style>
     .body-registro {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 30% 70%;
+    grid-template-areas:"z registro";
     background-color: #bfc3c3;
     font-family: "Open Sans", sans-serif;
     color: white;
@@ -85,25 +89,6 @@ label {
 #Boton:hover {
     background-color: #2C3E50;
 }
-
-/* Responsive */
-@media (max-width: 700px) {
-    .campo {
-        width: 100%;
-    }
-
-    form {
-        width: 90%;
-    }
-    body {
-    grid-template-rows: 30% auto auto auto auto;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "z "
-      "registro";
-  }
-}
-
 img {
     width: 200px;
     height: 115px;
@@ -116,11 +101,10 @@ img:hover {
 }
 
 #z {
-    position: absolute;
     top: 30px;
     left: 30px;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 15%;
     grid-area:z;
     display: flex;
     flex-direction: column; /* Esto apila los elementos verticalmente */
@@ -144,6 +128,25 @@ img:hover {
     color: #2C3E50;
     margin: 0;
 }
+
+/* Responsive */
+@media (max-width: 700px) {
+    .campo {
+        width: 100%;
+    }
+
+    form {
+        width: 90%;
+    }
+    .body-registro {
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 1fr;
+    grid-template-areas:"z"
+                        "registro";
+  }
+}
+
 
 
 </style>

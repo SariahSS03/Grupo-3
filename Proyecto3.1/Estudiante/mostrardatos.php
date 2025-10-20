@@ -16,7 +16,7 @@ $resultado=$stmt->get_result();
 if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
    $fila= mysqli_fetch_assoc($resultado);
    $_SESSION['CI']=$fila['User'];
-   $_SESSION['Rude']=$fila['contrasena'];
+   $_SESSION['Rude']=$fila['Contrasena'];
    $_SESSION['rol']=$fila['rol'];
    $_SESSION['Bloqueado']=$fila['Bloqueado'];
    if($_SESSION['Bloqueado']=='Bloqueado' ){

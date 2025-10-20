@@ -155,8 +155,8 @@ session_start();
         }
         @media (max-width: 768px) {
             .body-inicio-estudiante {
+                margin:0px; 
                 display: block;
-                padding: 10px;
             }
 
             .clases {

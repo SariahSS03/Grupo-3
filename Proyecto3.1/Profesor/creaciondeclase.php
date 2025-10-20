@@ -55,7 +55,6 @@
   background-color: rgba(0, 32, 80, 0.8);
   padding: 15px;
   border-radius: 8px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -127,21 +126,21 @@ input[type="color"]:focus {
     ?>
     <center>
     <div id="uno">
-    <form action="clases.php" method="post" id="crear">
-        <div id="tres"><h1 id="dos">Crear clase<h1></div>
-        <label for="">Nombre de la clase: </label><br>
-        <input type="text" name="Nombre" placeholder="Ingresa el nombre del aula"><br>
-        <label for="">Codigo:</label><br>
-        <input type="text" name="Codigo" placeholder="Crea el codigo"><br>
-        <label for="">Curso:</label><br>
-        <input type="text" name="Curso" placeholder="Curso EJ: 6to de secundaria"><br>
-        <label for="">Elige un color:</label><br>
-        <input type="color" name="color"><br>
-        <label for="">Inicial:</label><br>
-        <input type="text" name="Inicial" placeholder="Pon la inicial de la clase"><br>
-        <input type="submit" id="Boton" value="Crear clase" >
-        <button  onclick="window.location.href='../Estudiante/unirseaclase.php'" id="Boton">Unirse a Clase</button>
-    </form>
+      <form action="clases.php" method="post" id="crear">
+          <div id="tres"><h1 id="dos">Crear clase<h1></div>
+          <label for="">Nombre de la clase: </label><br>
+          <input type="text" name="Nombre" placeholder="Ingresa el nombre del aula"><br>
+          <label for="">Codigo:</label><br>
+          <input type="text" name="Codigo" placeholder="Crea el codigo"><br>
+          <label for="">Curso:</label><br>
+          <input type="text" name="Curso" placeholder="Curso EJ: 6to de secundaria"><br>
+          <label for="">Elige un color:</label><br>
+          <input type="color" name="color"><br>
+          <label for="">Inicial:</label><br>
+          <input type="text" name="Inicial" placeholder="Pon la inicial de la clase"><br>
+          <input type="submit" id="Boton" value="Crear clase" >
+          <button  onclick="window.location.href='../Estudiante/unirseaclase.php'" id="Boton">Unirse a Clase</button>
+      </form>
     </div>
     <center>
     <script>
@@ -187,7 +186,7 @@ input[type="color"]:focus {
             Inicial:{
                 required:"este campo tiene que ser llenado solo con una letra",
                 minlength:"El minimo es de 1 letras",
-                maxlength:"El maximo es el 1letras"
+                maxlength:"El maximo es el 1 letras"
             }
         }
 });

@@ -12,13 +12,14 @@ session_start();
 $User=$_SESSION['CI'];
 $ID_tarea=$_POST['ID_tarea'];
 $sql1="INSERT INTO Cuenta_has_Tarea (Cuenta_User, Tarea_idTarea, FechadeEntrega,Entregado) VALUES ('$User', '$ID_tarea', '$today','Entregado')";
-if ($conexion->query ($sql2)===TRUE){
+echo $sql1;
+if ($conexion->query ($sql1)===TRUE){
     //define aque carpeta ira el archivo
          $target_dir="../media/";
          //recupera el tipo de archivo
          $imageFileType= strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
          //define el nombre del archivo P-[id de l clase]-[id de la publicacion]
-         $newFileName= "ST-".$User"-".$ID_tarea.".".$imageFileType;
+         $newFileName= "ST-".$User."-".$ID_tarea.".".$imageFileType;
          //ruta completa de carpeta+nombre donde se guardara el archivo
          $target_file= $target_dir. $newFileName;  
          //variable que funcionara como bandera si el valor es 1 se puede subir, si es 0 algo paso

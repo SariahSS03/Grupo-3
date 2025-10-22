@@ -106,13 +106,15 @@ input {
     include("inicio1.php");  
     ?>
     <?php
-    $ID_tarea=['ID_tarea'];
+    $ID_tarea=$_GET['ID_tarea'];
     ?>
     <center>
     <div class="formulario-entrega">
         <h2>Entregar tarea</h2>
-        <form action="procesar_entrega.php?ID_tarea=<?= $ID_tarea ?>" method="post" enctype="multipart/form-data">
+        <form action="procesar_entrega.php" method="post" enctype="multipart/form-data">
             <label for="archivo">Archivo a subir</label>
+            <input type="hidden" name="ID_tarea" value="<?= $ID_tarea ?>">
+
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Enviar tarea" class="btn-enviar">
         </form>

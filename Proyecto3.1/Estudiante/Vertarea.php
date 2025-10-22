@@ -145,17 +145,9 @@ session_start();
                 $FechadeEntrega=$fila1['FechadeEntrega'];
                 $Instrucciones =$fila1['Instrucciones'];
                 $ID_clase =$fila1['Clases_ID'];
-                $sql1="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID' AND Cuenta_User='$User'";
-                $resultado1 = $conexion->query($sql1);
-                if ($resultado1->num_rows>0){
-                    while($fila1=$resultado1->fetch_assoc()){
-                        $Notaprofesor =$fila1['Nota'];
-                    }
-                  }
             }
         }
         ?>
-
             <!-- Left Section -->
             <div class="left-section">
             <h1><?=$Titulo?></h1>
@@ -165,6 +157,19 @@ session_start();
             </div>
 
             <div class="points-date">
+              <?php
+              $sql2="SELECT*FROM Cuenta_has_Tarea   WHERE Tarea_idTarea='$ID' AND Cuenta_User='$User'";
+                $resultado2 = $conexion->query($sql2);
+                $Notaprofesor=null;
+                if ($resultado2->num_rows>0){
+                    while($fila2=$resultado2->fetch_assoc()){
+                        $Notaprofesor =$fila2['Nota'];
+                    }
+                  }
+                  if($Notaprofesor==null){
+                          $Notaprofesor="Sin Calificar";
+                        }
+                ?>
                 <div>Nota: <?=$Notaprofesor?>/<?=$Nota?></div>
                 <div>Fecha de Entrega: <?=$FechadeEntrega?></div>
             </div>

@@ -145,6 +145,9 @@ img:hover {
     grid-template-areas:"z"
                         "registro";
   }
+  #Boton, #boton{
+    margin-bottom:20px;
+  }
 }
 
 

@@ -2,7 +2,6 @@
 session_start();
 $CI=$_POST['CI'];
 $Rude=$_POST['Rude'];
-
 $conexion = mysqli_connect("localhost","root","","proyecto3");
 if(!$conexion){
    echo"error en la conexion".mysqli_error();
@@ -35,6 +34,4 @@ if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
    }else{
          header('Location:/grupo-3/Proyecto3.1/Estudiante/iniciarsesion.php');
    } 
-   
-   
 ?>

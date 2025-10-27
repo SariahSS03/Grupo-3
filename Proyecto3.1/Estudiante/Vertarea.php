@@ -218,11 +218,73 @@ session_start();
                   if ($resultado2->num_rows>0){
                       while($fila2=$resultado2->fetch_assoc()){
                           $Entregado=$fila2['Entregado'];
+                          $FechaEntregada=$fila2['FechadeEntrega'];
                   ?>
                   <?php 
                   if($Entregado=="Entregado"){
                   ?>
+                    <?php
+                    if($FechadeEntrega > $FechaEntregada){
+                    ?>
+                    <div class="status">Tarea Entregada con Retraso</div>
+                    <div>
+                      <?php
+                            $nombreArchivo ="ST-".$User."-".$ID;
+                            $directorio = "../media/";
+                            $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
+                            $archivoEncontrado = NULL;
+
+                          foreach ($extensiones as  $ext){
+                          $ruta = $directorio. $nombreArchivo. "." . $ext;
+                            if (file_exists($ruta)){
+                            $archivoEncontrado = $ruta;
+                            break;
+                            }
+                            }
+                          
+                            if ($archivoEncontrado){
+                            $extension = strtolower (pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
+                            if (in_array($extension, ["jpg", "jpeg", "png","gif","webp"])){
+                          echo "<img src='$archivoEncontrado' alt ='Archivo' width='70%'>";
+                            }elseif ($extension === "pdf"){
+                                echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
+                            }else{
+                                echo "<a href='$archivoEncontrado' download> Descargar archivo </a>";
+                            }
+                            }
+                      ?>
+                    </div>
+                    <?php
+                    }
+                    ?>
                     <div class="status">Tarea Entregada</div>
+                    <div>
+                      <?php
+                            $nombreArchivo ="ST-".$User."-".$ID;
+                            $directorio = "../media/";
+                            $extensiones  = ["pdf", "jpg", "jpeg", "png", "gif", "webp", "xlsx", "txt", "zip"];
+                            $archivoEncontrado = NULL;
+
+                          foreach ($extensiones as  $ext){
+                          $ruta = $directorio. $nombreArchivo. "." . $ext;
+                            if (file_exists($ruta)){
+                            $archivoEncontrado = $ruta;
+                            break;
+                            }
+                            }
+                          
+                            if ($archivoEncontrado){
+                            $extension = strtolower (pathinfo($archivoEncontrado, PATHINFO_EXTENSION));
+                            if (in_array($extension, ["jpg", "jpeg", "png","gif","webp"])){
+                          echo "<img src='$archivoEncontrado' alt ='Archivo' width='70%'>";
+                            }elseif ($extension === "pdf"){
+                                echo "<embed src='$archivoEncontrado' type= 'application/pdf' width='400' height='250'>";
+                            }else{
+                                echo "<a href='$archivoEncontrado' download> Descargar archivo </a>";
+                            }
+                            }
+                      ?>
+                    </div>
                   <?php
                   }
                   }

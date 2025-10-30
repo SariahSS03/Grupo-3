@@ -121,7 +121,9 @@ session_start();
     <button class="submit" type="submit" form="formTarea">Editar Tarea</button>
   </header>
 
-  <form id="formTarea" action="editar_datos_tarea.?ID_tarea=<?=$id_tarea?>&ID_clase=<?=$id_clase?>" method="post">
+  <form id="formTarea" action="editar_datos_tarea.php" method="post">
+    <input type="hidden" name="ID_tarea" value='<?= $id_tarea?>'>
+    <input type="hidden" name="ID_clase" value='<?= $id_clase?>'>
   <div class="container">
 
       <div class="left">

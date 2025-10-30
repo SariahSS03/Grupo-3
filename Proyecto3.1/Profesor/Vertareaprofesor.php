@@ -23,7 +23,7 @@
   <style>
     .body-ver-tarea-profesor {
       display: grid;
-      grid-template-rows: auto auto auto;
+      grid-template-rows: auto 10% auto;
       grid-template-columns: 16% 84%;
       grid-template-areas:
         "principal principal"
@@ -51,7 +51,6 @@
     .pestañas{
       background: none;
       border: none;
-      font-weight: 500;
       cursor: pointer;
       padding: 8px;
       font-size: 14px;
@@ -193,12 +192,6 @@
             </a>
             <span class="nota"><?= $notaprofe?>/<?= $Nota?></span>
             </div>
-          <?php
-            }
-          }
-        }
-      }
-      ?>
     </div>
 
       <div class="cajainterna contenido">
@@ -224,7 +217,12 @@
           <div><strong><?=$total_asignadas?></strong> Asignadas</div>
         </div>
       </div>
-
+ <?php
+            }
+          }
+        }
+      }
+      ?>
     </div>
 </body>
 </html>

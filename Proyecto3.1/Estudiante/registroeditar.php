@@ -1,5 +1,11 @@
 <?php
 session_start();
+$servername="localhost";
+$username="root";
+$password="";
+$dbname="proyecto3";
+
+$conexion = new mysqli($servername, $username, $password, $dbname);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,25 +124,18 @@ session_start();
 </head>
 <body class="body-registro-editar">
     <?php
-    $servername="localhost";
-    $username="root";
-    $password="";
-    $dbname="proyecto3";
-
-    $conexion = new mysqli($servername, $username, $password, $dbname);
-
-            $CI=$_SESSION['CI'];
-            $sql=" SELECT * FROM Cuenta WHERE User='$CI' ";
-            $sql2=" SELECT * FROM Informacion WHERE CI='$CI' ";
-            $resultado=mysqli_query($conexion,$sql2);
-            if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
-                $fila= mysqli_fetch_assoc($resultado);
-                $nombres=$fila['Nombres'];
-                $apellidos =$fila['Apellidos'];
-                $telefono=$fila['Telefono'];
-                $curso=$fila['Curso'];
-                $fechadenacimiento =$fila['FechadeNacimiento'];
-                $direccion=$fila['Direccion'];
+    $CI=$_SESSION['CI'];
+    $sql=" SELECT * FROM Cuenta WHERE User='$CI' ";
+    $sql2=" SELECT * FROM Informacion WHERE CI='$CI' ";
+    $resultado=mysqli_query($conexion,$sql2);
+    if(!empty($resultado)&& mysqli_num_rows($resultado)>0){
+        $fila= mysqli_fetch_assoc($resultado);
+        $nombres=$fila['Nombres'];
+        $apellidos =$fila['Apellidos'];
+        $telefono=$fila['Telefono'];
+        $curso=$fila['Curso'];
+        $fechadenacimiento =$fila['FechadeNacimiento'];
+        $direccion=$fila['Direccion'];
         }
     ?>
     <?php
@@ -151,7 +150,6 @@ session_start();
     <form action="editardatos.php" method="post" id="registro">
     <div class="trate">
         <h1 class="titulo-formulario">TUS DATOS</h1>
-
         <label for="nombres">Nombres</label><br>
         <input type="text" name="Nombres" placeholder="Ingresa tus nombres" value='<?= $nombres ?>'><br><br>
 
@@ -173,27 +171,6 @@ session_start();
         <input type="submit" id="Boton" value="Guardar">
     </div>
     </form>
-<script>
-    document.getElementById('Boton').addEventListener('click', function(e) {
-    e.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-    Swal.fire({
-        title: '¿Estás seguro?',
-        text: "¿Deseas guardar los cambios?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, guardar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Si confirma, se envía el formulario
-            document.getElementById('registro').submit();
-        }
-    });
-});
-</script>
 <script>
     $("#registro").validate({
         rules:{
@@ -272,6 +249,5 @@ session_start();
         }
     });
 </script>
-
 </body>
 </html>

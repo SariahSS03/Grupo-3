@@ -109,9 +109,16 @@ session_start();
             While($fila2=$resultado2->fetch_assoc()){
                 $Nombres=$fila2['Nombres'];
                 $Apellidos=$fila2['Apellidos'];
+                $sql6="SELECT*FROM Cuenta WHERE User='$User'";
+                $resultado6=$conexion->query ($sql6);
+                if ($resultado6->num_rows>0){
+                    While($fila6=$resultado6->fetch_assoc()){
+                        $rol= $fila6['rol'];
             ?>
         <div class="nombre"><?=$Nombres?> <?=$Apellidos?></div>
     <?php
+                    }
+                }
         }
     }
     ?>
@@ -120,8 +127,9 @@ session_start();
     <hr>
 
     <div class="tarea">
+
         <?php
-        $User=$_GET['CI'];
+        if($rol=1){
         $sql3="SELECT * FROM Clases_has_Cuenta WHERE Cuenta_User='$User'";
         $resultado3=$conexion->query ($sql3);
         if ($resultado3->num_rows>0){
@@ -144,6 +152,25 @@ session_start();
                         <?php
                     }}
             }}
+        }
+        if($rol=2){
+            $sql5="SELECT * FROM Clases WHERE Profesor='$User'";
+        $resultado5=$conexion->query ($sql5);
+        if ($resultado5->num_rows>0){
+            While($fila5=$resultado5->fetch_assoc()){
+                        $nombre1= $fila5['Nombre'];
+                        $inicial1= $fila5['Inicial'];
+                        $color1= $fila5['Color'];
+                        $curso1= $fila5['Curso'];
+                        ?>
+                        <div class="info-tarea">
+                        <div class="avatar" style="color: <?php echo $color1; ?>"><?=$inicial1?></div>
+                        <div class="titulo"><?=$nombre1?></div>
+                        </div>
+                        <div class="estado no-entregado"><?=$curso1?></div>
+                        <?php
+                    }}
+            }
         ?>
         
     </div>
